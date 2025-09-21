@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 import pyrebase
-from .models import User, Notification, Vehicle
+from .models import User, Notification, Vehicle, Ride, Payment, Driver, Rating, DriverPayment
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, parser_classes
 from rest_framework.parsers import MultiPartParser, FormParser
 from .serializers import NotificationSerializer, VehicleSerializer
 from geopy.distance import geodesic
 from rest_framework.response import Response
+from django.utils import timezone
+from django.shortcuts import get_object_or_404
 
 
 config = {
@@ -83,7 +85,9 @@ def signin(request):
                 role = get_user.role
                 profile_image = get_user.profile_image
                 date_joined = get_user.date_joined
-                return JsonResponse({"message": "Successfully logged in", "token":session_id, "user_id":user_id, "user_name":user_name,"user_email":email,"phone_number":phone_number,"role":role, "profile_image":profile_image, "date_joined":date_joined}, status=200)
+                current_lat = get_user.current_lat
+                current_lng = get_user.current_lng
+                return JsonResponse({"message": "Successfully logged in", "token":session_id, "user_id":user_id, "user_name":user_name,"user_email":email,"phone_number":phone_number,"role":role, "current_lat":current_lat, "current_lng":current_lng, "profile_image":profile_image, "date_joined":date_joined}, status=200)
             else:
                 return JsonResponse({"message": "No user found with this email, please register"}, status=404)
 
@@ -158,7 +162,7 @@ def reset_password(request, email):
 
 # get_notification api
 @api_view(['GET'])
-@verify_firebase_token
+# @verify_firebase_token
 def get_user_notifications(request, user_id):
     try:
         user_id = User.objects.get(id=user_id)
@@ -172,6 +176,7 @@ def get_user_notifications(request, user_id):
 
 
 @api_view(["GET"])
+@verify_firebase_token
 def nearby_vehicles(request, lat, lng):
     try:
         # customer_lat = float(request.query_params.get("lat"))
@@ -205,3 +210,260 @@ def nearby_vehicles(request, lat, lng):
     sorted_vehicles = sorted(vehicle_data, key=lambda x: x["eta_minutes"])
 
     return Response(sorted_vehicles)
+
+
+
+# rides/views.py
+@csrf_exempt
+@api_view(['POST'])
+def create_ride_and_payment(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body.decode("utf-8"))
+
+            # --- Ride Data ---
+            rider_id = data.get("rider_id")
+            driver_id = data.get("driver_id")  # optional
+            pickup_lat = data.get("pickup_lat")
+            pickup_lng = data.get("pickup_lng")
+            dropoff_lat = data.get("dropoff_lat")
+            dropoff_lng = data.get("dropoff_lng")
+            distance_km = data.get("distance_km")
+            estimated_fare = data.get("estimated_fare")
+
+            # --- Payment Data ---
+            total_amount = data.get("amount")
+            method = data.get("method")
+            transaction_reference = data.get("transaction_reference", "")
+
+            # 1. Validate rider
+            try:
+                rider = User.objects.get(id=rider_id)
+            except User.DoesNotExist:
+                return JsonResponse({"error": "Rider not found"}, status=404)
+
+            # 2. Driver is optional
+            driver = None
+            if driver_id:
+                try:
+                    driver = Driver.objects.get(id=driver_id)
+                except Driver.DoesNotExist:
+                    return JsonResponse({"error": "Driver not found"}, status=404)
+
+            # Split amount: 20% platform, 80% driver
+            platform_cut = total_amount * 0.2
+            driver_share = total_amount * 0.8
+
+            # 3. Create Ride
+            ride = Ride.objects.create(
+                rider=rider,
+                driver=driver,
+                pickup_lat=pickup_lat,
+                pickup_lng=pickup_lng,
+                dropoff_lat=dropoff_lat,
+                dropoff_lng=dropoff_lng,
+                distance_km=distance_km,
+                estimated_fare=estimated_fare,
+                status="completed",  # mark as completed immediately after payment
+                completed_at=timezone.now()
+            )
+
+            # 4. Create Payment for this Ride
+            payment = Payment.objects.create(
+                ride=ride,
+                amount=platform_cut,
+                method=method,
+                status="success",  # assume success for now
+                transaction_reference=transaction_reference,
+                paid_at=timezone.now()
+            )
+
+             # Save 80% to DriverPayment
+            if ride.driver:
+                DriverPayment.objects.create(
+                    driver=ride.driver,
+                    payment=payment,
+                    amount=driver_share
+                )
+
+            # 5. Create Notifications
+            rider_message = f"Your ride {ride.id} has been successfully booked and paid (KES {payment.amount})."
+            Notification.objects.create(user=rider, message=rider_message)
+
+            if driver:
+                driver_message = f"You have been assigned ride {ride.id}. Pickup at ({ride.pickup_lat}, {ride.pickup_lng})."
+                Notification.objects.create(user=driver.user, message=driver_message)
+
+            # 6. Response
+            return JsonResponse({
+                "ride": {
+                    "id": ride.id,
+                    "rider": ride.rider.id,
+                    "driver": ride.driver.id if ride.driver else None,
+                    "pickup": [ride.pickup_lat, ride.pickup_lng],
+                    "dropoff": [ride.dropoff_lat, ride.dropoff_lng],
+                    "distance_km": str(ride.distance_km),
+                    "fare": str(ride.estimated_fare),
+                    "status": ride.status,
+                    "requested_at": ride.requested_at.isoformat(),
+                    "completed_at": ride.completed_at.isoformat() if ride.completed_at else None
+                },
+                "payment": {
+                    "id": payment.id,
+                    "platform_cut": platform_cut,
+                    "driver_share": driver_share,
+                    "method": payment.method,
+                    "status": payment.status,
+                    "transaction_reference": payment.transaction_reference,
+                    "paid_at": payment.paid_at.isoformat() if payment.paid_at else None
+                }
+            }, status=201)
+
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=400)
+
+    return JsonResponse({"error": "Invalid request method"}, status=405)
+
+
+# api to get create ratings for driver
+@csrf_exempt
+def create_rating(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body.decode("utf-8"))
+
+            ride_id = data.get("ride_id")
+            reviewer_id = data.get("reviewer_id")
+            reviewee_id = data.get("reviewee_id")
+            rating_value = data.get("rating")
+            comment = data.get("comment", "")
+
+            # --- Validation ---
+            if not all([ride_id, reviewer_id, reviewee_id, rating_value]):
+                return JsonResponse({"error": "Missing required fields"}, status=400)
+
+            try:
+                ride = Ride.objects.get(id=ride_id)
+            except Ride.DoesNotExist:
+                return JsonResponse({"error": "Ride not found"}, status=404)
+
+            try:
+                reviewer = User.objects.get(id=reviewer_id)
+            except User.DoesNotExist:
+                return JsonResponse({"error": "Reviewer not found"}, status=404)
+
+            try:
+                reviewee = User.objects.get(id=reviewee_id)
+            except User.DoesNotExist:
+                return JsonResponse({"error": "Reviewee not found"}, status=404)
+
+            # --- Save rating ---
+            rating = Rating.objects.create(
+                ride=ride,
+                reviewer=reviewer,
+                reviewee=reviewee,
+                rating=rating_value,
+                comment=comment
+            )
+
+            return JsonResponse({
+                "id": rating.id,
+                "ride": ride.id,
+                "reviewer": reviewer.full_name,
+                "reviewee": reviewee.full_name,
+                "rating": rating.rating,
+                "comment": rating.comment,
+                "created_at": rating.created_at.isoformat()
+            }, status=201)
+
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=400)
+
+    return JsonResponse({"error": "Invalid request method"}, status=405)
+
+
+# api to ratings for driver/user
+@api_view(['GET'])
+def get_user_ratings(request, user_id):
+    """
+    Fetch all ratings received by a given user
+    """
+    try:
+        user = User.objects.get(id=user_id)
+    except User.DoesNotExist:
+        return JsonResponse({"error": "User not found"}, status=404)
+
+    ratings = Rating.objects.filter(reviewee=user).order_by("-created_at")
+    ratings_data = [{
+        "id": r.id,
+        "ride": r.ride.id,
+        "reviewer": r.reviewer.full_name,
+        "rating": r.rating,
+        "comment": r.comment,
+        "created_at": r.created_at.isoformat()
+    } for r in ratings]
+
+    return JsonResponse({"reviewee": user.full_name, "ratings": ratings_data}, safe=False)
+
+
+# api to get all payments for admin
+@api_view(['GET'])
+def get_all_payments(request):
+    payments = Payment.objects.all().values(
+        "id",
+        "amount",
+        "status",
+        "method",
+        "transaction_reference",
+        "paid_at",
+        "ride__driver__user__full_name",
+        "ride__rider__full_name",
+    )
+    return JsonResponse(list(payments), safe=False)
+
+# api to get all driver payments
+@api_view(['GET'])
+def get_driver_payments(request, driver_id):
+    driver_payments = DriverPayment.objects.filter(driver_id=driver_id).select_related("payment", "payment__ride")
+
+    results = []
+    for dp in driver_payments:
+        results.append({
+            "driver_payment_id": dp.id,
+            "driver_share": float(dp.amount),   # 80%
+            "method":dp.payment.method,
+            "created_at": dp.created_at,
+            "transaction_reference": dp.payment.transaction_reference,
+            "payment_status": dp.payment.status,
+            "ride_id": dp.payment.ride.id,
+            "platform_cut": float(dp.payment.amount),  # 20%
+        })
+
+    return JsonResponse(results, safe=False)
+
+
+# api to get requested rides
+@api_view(['GET'])
+def get_requested_rides(request, user_id):
+
+    try:
+        # Get driver using user_id
+        driver = Driver.objects.get(user_id=user_id)
+    except Driver.DoesNotExist:
+        return JsonResponse([], safe=False)  # No driver found, return empty array
+
+    rides = Ride.objects.filter(driver=driver, status="pending").values(
+        "id",
+        "pickup_lat",
+        "pickup_lng",
+        "dropoff_lat",
+        "dropoff_lng",
+        "distance_km",
+        "estimated_fare",
+        "status",
+        "requested_at",
+        "rider__full_name"
+    )
+
+    return JsonResponse(list(rides), safe=False)  # If empty, it will return []
+

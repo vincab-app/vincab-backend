@@ -16,6 +16,8 @@ class User(models.Model):
     email = models.CharField(max_length=100, default="johndoe@example.com")
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default="rider")
     password = models.CharField(max_length=256, default="@vincab2025")
+    current_lat = models.FloatField(null=True, blank=True, default=0.0)
+    current_lng = models.FloatField(null=True, blank=True, default=0.0)
     profile_image = models.URLField(blank=True, null=True, default='https://res.cloudinary.com/dc68huvjj/image/upload/v1748119193/zzy3zwrius3kjrzp4ifc.png')
     date_joined = models.DateTimeField(default=timezone.now)
 
@@ -141,3 +143,13 @@ class Notification(models.Model):
 
     def __str__(self):
         return f"Notification for {self.user.full_name}"
+
+class DriverPayment(models.Model):
+    driver = models.ForeignKey("Driver", on_delete=models.CASCADE, related_name="driver_payments")
+    payment = models.OneToOneField("Payment", on_delete=models.CASCADE, related_name="driver_payment")
+    amount = models.DecimalField(max_digits=10, decimal_places=2)  # driver’s 80%
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"DriverPayment {self.id} - {self.driver.user.full_name} {self.amount}"
+
