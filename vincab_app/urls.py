@@ -14,4 +14,9 @@ urlpatterns = [
     path('get_all_payments/', views.get_all_payments, name='get_all_payments'),
     path('get_driver_payments/<int:driver_id>/', views.get_driver_payments, name='get_driver_payments'),
     path('get_requested_rides/<int:user_id>/', views.get_requested_rides, name='get_requested_rides'),
+    path('update_ride_status/', views.update_ride_status, name='update_ride_status'),
+    path('send_expo_token/<int:user_id>/<str:expo_token>/', views.send_expo_token, name='send_expo_token'),
+    path('notify_driver/', views.notify_driver, name='notify_driver'),
+    path('get_driver_total_earnings/<int:user_id>/', views.get_driver_total_earnings, name='get_driver_total_earnings'),
+    path('get_vincab_earnings/', views.get_vincab_earnings, name='get_vincab_earnings'),
 ]

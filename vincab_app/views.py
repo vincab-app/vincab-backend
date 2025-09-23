@@ -10,6 +10,12 @@ from geopy.distance import geodesic
 from rest_framework.response import Response
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
+import requests
+from django.db.models import Sum
+from django.utils.timezone import now
+from datetime import timedelta
+
+
 
 
 config = {
@@ -159,6 +165,48 @@ def reset_password(request, email):
         message = "Something went wrong, Please check the email, provided is registered or not"
         return JsonResponse({"message": message})
 #end of reset api
+
+# semd push notification to phne
+EXPO_PUSH_URL = "https://exp.host/--/api/v2/push/send"
+
+def send_push_notification(token, title, body, data=None):
+    if not token:
+        return {"error": "No push token provided."}
+
+    message = {
+        "to": f"{token}",
+        "sound": "default",
+        "title": f"{title}",
+        "body": f"{body}",
+        "data": data or {},
+    }
+
+    try:
+        response = requests.post(EXPO_PUSH_URL, json=message)
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        return {"error": str(e)}
+
+
+# test api for notification
+@csrf_exempt
+def notify_driver(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            token = data.get("token")
+            title = data.get("title", "Notification")
+            body = data.get("body", "")
+            extra_data = data.get("data", {})
+
+            response = send_push_notification(token, title, body, extra_data)
+            return JsonResponse(response, safe=False)
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=400)
+
+    return JsonResponse({"error": "Invalid request method"}, status=405)
+
+
 
 # get_notification api
 @api_view(['GET'])
@@ -462,8 +510,100 @@ def get_requested_rides(request, user_id):
         "estimated_fare",
         "status",
         "requested_at",
+        "rider__id",
         "rider__full_name"
     )
 
     return JsonResponse(list(rides), safe=False)  # If empty, it will return []
 
+
+
+# api to update ride request status
+@csrf_exempt
+def update_ride_status(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            status = data.get("status")
+            ride_id = data.get('ride_id')
+            rider_id = data.get('rider_id')
+
+            ride = Ride.objects.get(id=ride_id)
+            ride.status = status
+            ride.save()
+            rider = User.objects.get(id=rider_id)
+
+            extra_data = {"ride_id":ride_id}
+
+            response = send_push_notification(rider.expo_token, "Ride Update", f"Your ride request has been updated. Status: {status}", extra_data)
+            return JsonResponse(response, safe=False)
+
+            return JsonResponse({"message": "Ride status updated", "status": ride.status})
+        except Ride.DoesNotExist:
+            return JsonResponse({"error": "Ride not found"}, status=404)
+    return JsonResponse({"error": "Invalid request"}, status=400)
+
+# send expo_token
+@api_view(['GET'])
+# @verify_firebase_token
+def send_expo_token(request, user_id, expo_token):
+    try:
+        user = User.objects.get(id=user_id)
+        user.expo_token = expo_token
+        user.save()
+        return JsonResponse({"message":"Token saved successfully"})
+
+    except User.DoesNotExist:
+        return JsonResponse({"message": "User not found"}, status=404)
+    except Exception as e:
+        return JsonResponse({"message": str(e)}, status=500)
+
+
+
+# api to get driver total earnings
+def get_driver_total_earnings(request, user_id):
+    try:
+        # Get driver by linked user_id
+        driver = Driver.objects.get(user__id=user_id)
+    except Driver.DoesNotExist:
+        return JsonResponse({"error": "Driver not found"}, status=404)
+
+    # Calculate total earnings (sum of driver payments)
+    total_earnings = DriverPayment.objects.filter(driver=driver).aggregate(
+        total=Sum("amount")
+    )["total"] or 0
+
+    return JsonResponse({
+        "driver_id": driver.id,
+        "driver_name": driver.user.full_name,
+        "total_earnings": float(total_earnings)  # Decimal → float
+    })
+
+
+
+# api to get vincab earnings
+def get_vincab_earnings(request):
+    today = now().date()
+
+    # Daily earnings (today only, status = success)
+    daily_total = Payment.objects.filter(
+        paid_at__date=today, status="success"
+    ).aggregate(total=Sum("amount"))["total"] or 0
+
+    # Weekly earnings (from Monday to today, status = success)
+    week_start = today - timedelta(days=today.weekday())  # Monday start
+    weekly_total = Payment.objects.filter(
+        paid_at__date__gte=week_start, status="success"
+    ).aggregate(total=Sum("amount"))["total"] or 0
+
+    # Monthly earnings (current month, status = success)
+    monthly_total = Payment.objects.filter(
+        paid_at__year=today.year, paid_at__month=today.month, status="success"
+    ).aggregate(total=Sum("amount"))["total"] or 0
+
+    return JsonResponse({
+        "daily_earnings": float(daily_total),
+        "weekly_earnings": float(weekly_total),
+        "monthly_earnings": float(monthly_total),
+        "currency": "KES"
+    })
