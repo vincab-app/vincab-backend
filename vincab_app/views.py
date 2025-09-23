@@ -224,7 +224,7 @@ def get_user_notifications(request, user_id):
 
 
 @api_view(["GET"])
-@verify_firebase_token
+# @verify_firebase_token
 def nearby_vehicles(request, lat, lng):
     try:
         # customer_lat = float(request.query_params.get("lat"))
