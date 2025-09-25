@@ -37,9 +37,9 @@ from firebase_admin import auth, credentials
 import os, json
 
 # Initialize Firebase once (e.g., in settings.py or a startup file)
-service_account_info = json.loads(os.environ["FIREBASE_SERVICE_ACCOUNT"])
-# cred = credentials.Certificate("serviceAccountKey.json")
-cred = credentials.Certificate(service_account_info)
+# service_account_info = json.loads(os.environ["FIREBASE_SERVICE_ACCOUNT"])
+cred = credentials.Certificate("serviceAccountKey.json")
+# cred = credentials.Certificate(service_account_info)
 firebase_admin.initialize_app(cred)
 
 def verify_firebase_token(view_func):
@@ -227,8 +227,6 @@ def get_user_notifications(request, user_id):
 # @verify_firebase_token
 def nearby_vehicles(request, lat, lng):
     try:
-        # customer_lat = float(request.query_params.get("lat"))
-        # customer_lng = float(request.query_params.get("lng"))
         customer_lat = float(lat)
         customer_lng = float(lng)
     except (TypeError, ValueError):
@@ -236,7 +234,7 @@ def nearby_vehicles(request, lat, lng):
 
     customer_location = (customer_lat, customer_lng)
 
-    vehicles = Vehicle.objects.all()
+    vehicles = Vehicle.objects.select_related("driver").all()  # ✅ optimize query
     vehicle_data = []
 
     for v in vehicles:
@@ -252,12 +250,30 @@ def nearby_vehicles(request, lat, lng):
         serializer = VehicleSerializer(v)
         data = serializer.data
         data["eta_minutes"] = round(eta_minutes, 1)
+
+        # ✅ Add driver image (check your Driver model field, e.g., profile_image)
+        if v.driver.user.profile_image:
+            data["driver_image"] = v.driver.user.profile_image
+        else:
+            data["driver_image"] = None
+
+        if v.driver.user.full_name:
+            data["driver_name"] = v.driver.user.full_name
+        else:
+            data["driver_name"] = None
+
+        if v.driver.user.phone_number:
+            data["driver_phone"] = v.driver.user.phone_number
+        else:
+            data["driver_phone"] = None
+
         vehicle_data.append(data)
 
     # Sort by ETA
     sorted_vehicles = sorted(vehicle_data, key=lambda x: x["eta_minutes"])
 
     return Response(sorted_vehicles)
+
 
 
 
@@ -607,3 +623,123 @@ def get_vincab_earnings(request):
         "monthly_earnings": float(monthly_total),
         "currency": "KES"
     })
+
+
+# api to create how much rider will pay for each trip
+@api_view(['GET'])
+def calculate_fare(request, pickup_lat, pickup_lng, drop_lat, drop_lng):
+
+    pickup = (pickup_lat, pickup_lng)
+    drop = (drop_lat, drop_lng)
+
+    # Distance in km
+    distance_km = geodesic(pickup, drop).km  
+
+    # Fare calculation
+    rate_per_km = 50  
+    fare = round(distance_km * rate_per_km, 2)
+
+    return Response({
+        "pickup": pickup,
+        "drop": drop,
+        "distance_km": round(distance_km, 2),
+        "fare": fare
+    })
+
+
+# 🔹 Helper: Reverse Geocoding using OpenStreetMap (Free)
+def reverse_geocode(lat, lng):
+    try:
+        url = f"https://nominatim.openstreetmap.org/reverse?lat={lat}&lon={lng}&format=json"
+        headers = {"User-Agent": "YourAppName/1.0"}  # Nominatim requires User-Agent
+        res = requests.get(url, headers=headers, timeout=5)
+        data = res.json()
+        return data.get("display_name", None)
+    except Exception as e:
+        print("Reverse geocode error:", e)
+        return None
+
+# calculate the time btwn vehicle and rider's pick location
+def get_eta(vehicle_lat, vehicle_lng, pickup_lat, pickup_lng):
+    url = f"https://router.project-osrm.org/route/v1/driving/{vehicle_lng},{vehicle_lat};{pickup_lng},{pickup_lat}?overview=false"
+    res = requests.get(url)
+    if res.status_code == 200:
+        data = res.json()
+        if data.get("routes"):
+            duration_seconds = data["routes"][0]["duration"]
+            distance_meters = data["routes"][0]["distance"]
+            return {
+                "eta_minutes": round(duration_seconds / 60, 1),
+                "distance_km": round(distance_meters / 1000, 2),
+            }
+    return None
+
+
+# api to get ride details
+@api_view(["GET"])
+def get_ride_details(request, rider_id):
+    try:
+        # Get latest ongoing or pending ride for the rider
+        ride = Ride.objects.select_related("rider", "driver__user") \
+            .filter(rider_id=rider_id) \
+            .exclude(status="completed") \
+            .latest("requested_at")
+
+        vehicle = ride.driver.vehicles.first() if ride.driver else None
+
+        # 🔹 Get human-readable addresses
+        pickup_address = reverse_geocode(ride.pickup_lat, ride.pickup_lng)
+        dropoff_address = reverse_geocode(ride.dropoff_lat, ride.dropoff_lng)
+
+        eta_data = None
+        if vehicle:
+            eta_data = get_eta(vehicle.current_lat, vehicle.current_lng, ride.pickup_lat, ride.pickup_lng)
+
+        data = {
+            "id": ride.id,
+            "rider": {
+                "id": ride.rider.id,
+                "name": ride.rider.full_name,
+                "email": ride.rider.email,
+                "phone": ride.rider.phone_number,
+            },
+            "driver": {
+                "id": ride.driver.id if ride.driver else None,
+                "name": ride.driver.user.full_name if ride.driver else None,
+                "phone": ride.driver.user.phone_number if ride.driver else None,
+                "profile_image": ride.driver.user.profile_image if ride.driver else None,
+                "current_lat": ride.driver.user.current_lat if ride.driver else None,
+                "current_lng": ride.driver.user.current_lng if ride.driver else None,
+            } if ride.driver else None,
+            "vehicle": {
+                "id": vehicle.id if vehicle else None,
+                "plate_number": vehicle.plate_number if vehicle else None,
+                "model": vehicle.model if vehicle else None,
+                "car_image": vehicle.car_image if vehicle else None,
+                "current_lat": vehicle.current_lat if vehicle else None,
+                "current_lng": vehicle.current_lng if vehicle else None,
+                "eta": eta_data,
+            } if vehicle else None,
+            "pickup": {
+                "lat": ride.pickup_lat,
+                "lng": ride.pickup_lng,
+                "address": pickup_address
+            },
+            "dropoff": {
+                "lat": ride.dropoff_lat,
+                "lng": ride.dropoff_lng,
+                "address": dropoff_address,
+            },
+            "distance_km": str(ride.distance_km) if ride.distance_km else None,
+            "estimated_fare": str(ride.estimated_fare) if ride.estimated_fare else None,
+            "status": ride.status,
+            "requested_at": ride.requested_at.isoformat(),
+            "completed_at": ride.completed_at.isoformat() if ride.completed_at else None,
+        }
+
+        return JsonResponse(data, status=200)
+
+    except Ride.DoesNotExist:
+        return JsonResponse({"error": "No active ride found for this rider"}, status=404)
+
+
