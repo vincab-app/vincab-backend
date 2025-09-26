@@ -188,6 +188,34 @@ def send_push_notification(token, title, body, data=None):
         return {"error": str(e)}
 
 
+# 🔹 Helper: Reverse Geocoding using OpenStreetMap (Free)
+def reverse_geocode(lat, lng):
+    try:
+        url = f"https://nominatim.openstreetmap.org/reverse?lat={lat}&lon={lng}&format=json"
+        headers = {"User-Agent": "YourAppName/1.0"}  # Nominatim requires User-Agent
+        res = requests.get(url, headers=headers, timeout=5)
+        data = res.json()
+        return data.get("display_name", None)
+    except Exception as e:
+        print("Reverse geocode error:", e)
+        return None
+
+# calculate the time btwn vehicle and rider's pick location
+def get_eta(vehicle_lat, vehicle_lng, pickup_lat, pickup_lng):
+    url = f"https://router.project-osrm.org/route/v1/driving/{vehicle_lng},{vehicle_lat};{pickup_lng},{pickup_lat}?overview=false"
+    res = requests.get(url)
+    if res.status_code == 200:
+        data = res.json()
+        if data.get("routes"):
+            duration_seconds = data["routes"][0]["duration"]
+            distance_meters = data["routes"][0]["distance"]
+            return {
+                "eta_minutes": round(duration_seconds / 60, 1),
+                "distance_km": round(distance_meters / 1000, 2),
+            }
+    return None
+
+
 # test api for notification
 @csrf_exempt
 def notify_driver(request):
@@ -509,28 +537,34 @@ def get_driver_payments(request, driver_id):
 # api to get requested rides
 @api_view(['GET'])
 def get_requested_rides(request, user_id):
-
     try:
         # Get driver using user_id
         driver = Driver.objects.get(user_id=user_id)
     except Driver.DoesNotExist:
-        return JsonResponse([], safe=False)  # No driver found, return empty array
+        return JsonResponse([], safe=False)
 
-    rides = Ride.objects.filter(driver=driver, status="pending").values(
-        "id",
-        "pickup_lat",
-        "pickup_lng",
-        "dropoff_lat",
-        "dropoff_lng",
-        "distance_km",
-        "estimated_fare",
-        "status",
-        "requested_at",
-        "rider__id",
-        "rider__full_name"
-    )
+    rides = Ride.objects.filter(driver=driver, status="pending")
 
-    return JsonResponse(list(rides), safe=False)  # If empty, it will return []
+    ride_list = []
+    for ride in rides:
+        ride_list.append({
+            "id": ride.id,
+            "pickup_lat": ride.pickup_lat,
+            "pickup_lng": ride.pickup_lng,
+            "dropoff_lat": ride.dropoff_lat,
+            "dropoff_lng": ride.dropoff_lng,
+            "distance_km": ride.distance_km,
+            "estimated_fare": ride.estimated_fare,
+            "status": ride.status,
+            "requested_at": ride.requested_at,
+            "rider_id": ride.rider.id if ride.rider else None,
+            "rider_name": ride.rider.full_name if ride.rider else None,
+            "pickup_address": reverse_geocode(ride.pickup_lat, ride.pickup_lng),
+            "dropoff_address": reverse_geocode(ride.dropoff_lat, ride.dropoff_lng),
+        })
+
+    return JsonResponse(ride_list, safe=False)
+
 
 
 
@@ -646,33 +680,6 @@ def calculate_fare(request, pickup_lat, pickup_lng, drop_lat, drop_lng):
         "fare": fare
     })
 
-
-# 🔹 Helper: Reverse Geocoding using OpenStreetMap (Free)
-def reverse_geocode(lat, lng):
-    try:
-        url = f"https://nominatim.openstreetmap.org/reverse?lat={lat}&lon={lng}&format=json"
-        headers = {"User-Agent": "YourAppName/1.0"}  # Nominatim requires User-Agent
-        res = requests.get(url, headers=headers, timeout=5)
-        data = res.json()
-        return data.get("display_name", None)
-    except Exception as e:
-        print("Reverse geocode error:", e)
-        return None
-
-# calculate the time btwn vehicle and rider's pick location
-def get_eta(vehicle_lat, vehicle_lng, pickup_lat, pickup_lng):
-    url = f"https://router.project-osrm.org/route/v1/driving/{vehicle_lng},{vehicle_lat};{pickup_lng},{pickup_lat}?overview=false"
-    res = requests.get(url)
-    if res.status_code == 200:
-        data = res.json()
-        if data.get("routes"):
-            duration_seconds = data["routes"][0]["duration"]
-            distance_meters = data["routes"][0]["distance"]
-            return {
-                "eta_minutes": round(duration_seconds / 60, 1),
-                "distance_km": round(distance_meters / 1000, 2),
-            }
-    return None
 
 
 # api to get ride details
