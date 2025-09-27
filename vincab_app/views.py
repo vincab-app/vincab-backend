@@ -37,9 +37,9 @@ from firebase_admin import auth, credentials
 import os, json
 
 # Initialize Firebase once (e.g., in settings.py or a startup file)
-# service_account_info = json.loads(os.environ["FIREBASE_SERVICE_ACCOUNT"])
-cred = credentials.Certificate("serviceAccountKey.json")
-# cred = credentials.Certificate(service_account_info)
+service_account_info = json.loads(os.environ["FIREBASE_SERVICE_ACCOUNT"])
+# cred = credentials.Certificate("serviceAccountKey.json")
+cred = credentials.Certificate(service_account_info)
 firebase_admin.initialize_app(cred)
 
 def verify_firebase_token(view_func):
