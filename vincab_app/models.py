@@ -56,8 +56,6 @@ class Vehicle(models.Model):
     color = models.CharField(max_length=30)
     capacity = models.IntegerField(default=4)
     car_image = models.URLField(blank=True, null=True)
-    current_lat = models.FloatField(null=True, blank=True, default=0.0)
-    current_lng = models.FloatField(null=True, blank=True, default=0.0)
     date_joined = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

@@ -14,6 +14,7 @@ import requests
 from django.db.models import Sum
 from django.utils.timezone import now
 from datetime import timedelta
+import cloudinary.uploader
 
 
 
@@ -154,6 +155,94 @@ def signup(request):
 
 #end of signup api
 
+
+# start of driver signup api
+@csrf_exempt
+@api_view(['POST'])
+def driversignup(request):
+    if request.method == 'POST':
+        try:
+            data = request.data
+
+            full_name = data.get("full_name")
+            phone_number = data.get("phone_number")
+            email = data.get("email")
+            license_number = data.get("license_number")
+            password = data.get("password")
+            car_make = data.get("car_make")
+            car_model = data.get("car_model")
+            car_plate = data.get("car_plate")
+            car_color = data.get("car_color")
+            car_image = request.FILES.get("car_image")
+
+            print(full_name, phone_number, email, password, license_number, car_make, car_model, car_plate, car_color, car_image)
+
+            if not all([full_name, email, password, phone_number, license_number, car_make, car_model, car_plate, car_color, car_image]):
+                return JsonResponse({"message": "Missing required fields"}, status=400)
+
+            if User.objects.filter(email=email).exists():
+                return JsonResponse({"message": "Email already exists"}, status=400)
+
+            user = authe.create_user_with_email_and_password(email, password)
+            uid = user['localId']
+
+
+            user = User(
+                full_name=full_name,
+                phone_number=phone_number,
+                email=email,
+                role="driver",
+                password=uid
+            )
+            user.save()
+
+            driver = Driver(
+                user=user,
+                license_number=license_number,
+                verified=False,
+                rating=0,
+                status="inactive"
+            )
+            driver.save()
+
+            car_image_url = None
+            if car_image:
+                upload_result = cloudinary.uploader.upload(car_image)
+                car_image_url = upload_result.get("secure_url")
+
+            vehicle = Vehicle(
+                driver=driver,
+                plate_number=car_plate,
+                model=car_model,
+                vehicle_type="car",
+                color=car_color,
+                car_image=car_image_url
+            )
+
+            notification = Notification.objects.create(
+                user=user,
+                message="Welcome to VinCab! Your account has been created successfully.",
+                is_read=False
+            )
+
+            notification = Notification.objects.create(
+                user=user,
+                message="Your request to be a driver at VinCab was received successfully. We'll get back to you wuthin 48 hours.",
+                is_read=False
+            )
+
+            return JsonResponse({"message": "Successfully signed up"}, status=201)
+
+        except Exception as e:
+            print("Error:", str(e))
+            return JsonResponse({"message": "Signup failed", "error": str(e)}, status=500)
+
+    return JsonResponse({"message": "Invalid request method"}, status=405)
+
+#end of driver signup api
+
+
+
 # reset password api
 @api_view(['GET'])
 def reset_password(request, email):
@@ -250,9 +339,8 @@ def get_user_notifications(request, user_id):
 
 # end of get notification api
 
-
+# api to get the nearby cars
 @api_view(["GET"])
-# @verify_firebase_token
 def nearby_vehicles(request, lat, lng):
     try:
         customer_lat = float(lat)
@@ -262,45 +350,40 @@ def nearby_vehicles(request, lat, lng):
 
     customer_location = (customer_lat, customer_lng)
 
-    vehicles = Vehicle.objects.select_related("driver").all()  # ✅ optimize query
+    # ✅ Only active + verified drivers
+    drivers = Driver.objects.select_related("user").prefetch_related("vehicles").filter(
+        status="active", verified=True
+    )
+
     vehicle_data = []
+    for driver in drivers:
+        if not driver.user.current_lat or not driver.user.current_lng:
+            continue  # skip if no location
 
-    for v in vehicles:
-        if v.current_lat is None or v.current_lng is None:
-            continue
+        driver_location = (driver.user.current_lat, driver.user.current_lng)
+        distance_km = geodesic(customer_location, driver_location).km
+        eta_minutes = (distance_km / 40) * 60  # assume avg 40 km/h
 
-        vehicle_location = (v.current_lat, v.current_lng)
-        distance_km = geodesic(customer_location, vehicle_location).km  
+        for vehicle in driver.vehicles.all():  # each driver may have many vehicles
+            serializer = VehicleSerializer(vehicle)
+            data = serializer.data
 
-        # assume avg speed = 40 km/h
-        eta_minutes = (distance_km / 40) * 60  
+            # Add computed + driver info
+            data["eta_minutes"] = round(eta_minutes, 1)
+            data["distance_km"] = round(distance_km, 2)
+            data["driver_id"] = driver.id
+            data["driver_name"] = driver.user.full_name
+            data["driver_phone"] = driver.user.phone_number
+            data["driver_image"] = driver.user.profile_image
 
-        serializer = VehicleSerializer(v)
-        data = serializer.data
-        data["eta_minutes"] = round(eta_minutes, 1)
+            vehicle_data.append(data)
 
-        # ✅ Add driver image (check your Driver model field, e.g., profile_image)
-        if v.driver.user.profile_image:
-            data["driver_image"] = v.driver.user.profile_image
-        else:
-            data["driver_image"] = None
-
-        if v.driver.user.full_name:
-            data["driver_name"] = v.driver.user.full_name
-        else:
-            data["driver_name"] = None
-
-        if v.driver.user.phone_number:
-            data["driver_phone"] = v.driver.user.phone_number
-        else:
-            data["driver_phone"] = None
-
-        vehicle_data.append(data)
-
-    # Sort by ETA
+    # Sort by ETA (nearest first)
     sorted_vehicles = sorted(vehicle_data, key=lambda x: x["eta_minutes"])
 
     return Response(sorted_vehicles)
+
+
 
 
 
@@ -356,7 +439,7 @@ def create_ride_and_payment(request):
                 dropoff_lng=dropoff_lng,
                 distance_km=distance_km,
                 estimated_fare=estimated_fare,
-                status="completed",  # mark as completed immediately after payment
+                status="pending",  # mark as completed immediately after payment
                 completed_at=timezone.now()
             )
 
@@ -749,4 +832,15 @@ def get_ride_details(request, rider_id):
     except Ride.DoesNotExist:
         return JsonResponse({"error": "No active ride found for this rider"}, status=404)
 
+# api to check if driver is verified
+def check_driver_verified(request, user_id):
+    driver = get_object_or_404(Driver, user__id=user_id)
+    return JsonResponse({
+        "driver_id": driver.id,
+        "full_name": driver.user.full_name,
+        "license_number": driver.license_number,
+        "verified": driver.verified,
+        "rating": float(driver.rating),
+        "status": driver.status
+    }, status=200)
 
