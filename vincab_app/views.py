@@ -15,6 +15,8 @@ from django.db.models import Sum
 from django.utils.timezone import now
 from datetime import timedelta
 import cloudinary.uploader
+from decimal import Decimal
+
 
 
 
@@ -433,6 +435,7 @@ def create_ride_and_payment(request):
             if driver_id:
                 try:
                     driver = Driver.objects.get(id=driver_id)
+                    driver.status = "busy"
                 except Driver.DoesNotExist:
                     return JsonResponse({"error": "Driver not found"}, status=404)
 
@@ -653,6 +656,7 @@ def get_requested_rides(request, user_id):
             "requested_at": ride.requested_at,
             "rider_id": ride.rider.id if ride.rider else None,
             "rider_name": ride.rider.full_name if ride.rider else None,
+            "rider_phone": ride.rider.phone_number if ride.rider else None,
             "pickup_address": reverse_geocode(ride.pickup_lat, ride.pickup_lng),
             "dropoff_address": reverse_geocode(ride.dropoff_lat, ride.dropoff_lng),
         })
@@ -663,29 +667,85 @@ def get_requested_rides(request, user_id):
 
 
 # api to update ride request status
+import requests
+from decimal import Decimal
+
 @csrf_exempt
 def update_ride_status(request):
     if request.method == "POST":
         try:
             data = json.loads(request.body)
             status = data.get("status")
-            ride_id = data.get('ride_id')
-            rider_id = data.get('rider_id')
+            ride_id = data.get("ride_id")
+            rider_id = data.get("rider_id")
 
             ride = Ride.objects.get(id=ride_id)
             ride.status = status
             ride.save()
+
             rider = User.objects.get(id=rider_id)
 
-            extra_data = {"ride_id":ride_id}
+            # ✅ Handle driver availability + payout
+            if ride.driver:
+                driver = ride.driver  
 
-            response = send_push_notification(rider.expo_token, "Ride Update", f"Your ride request has been updated. Status: {status}", extra_data)
-            return JsonResponse(response, safe=False)
+                if status.lower() == "completed":
+                    # Mark driver as active again
+                    driver.status = "active"
+                    driver.save()
+                    driver_share = Decimal("0.8") * Decimal(str(ride.estimated_fare))
+
+                    # --- Send payout to driver ---
+                    payout_payload = {
+                        "driverPhone": driver.user.phone_number,   # make sure model has phone_number
+                        "amount": str(driver_share)          # adjust to your fare/amount field
+                    }
+                    try:
+                        payout_response = requests.post(
+                            "https://36bf735adf17.ngrok-free.app/payout/",   # your Node.js payout API
+                            json=payout_payload,
+                            timeout=15
+                        )
+                        payout_result = payout_response.json()
+
+                        # ✅ Send push notification to driver
+                        send_push_notification(
+                            driver.expo_token,
+                            "Payout Received",
+                            f"You have been paid {ride.fare_amount} for completing the ride.",
+                            {"ride_id": ride.id}
+                        )
+
+                    except Exception as payout_err:
+                        print("Payout error:", payout_err)
+
+                elif status.lower() == "canceled":
+                    driver.status = "active"
+                    driver.save()
+
+                elif status.lower() == "in_progress":
+                    driver.status = "busy"
+                    driver.save()
+
+            # ✅ Notify rider about ride status
+            extra_data = {"ride_id": ride_id}
+            send_push_notification(
+                rider.expo_token,
+                "Ride Update",
+                f"Your ride request has been updated. Status: {status}",
+                extra_data
+            )
 
             return JsonResponse({"message": "Ride status updated", "status": ride.status})
+
         except Ride.DoesNotExist:
             return JsonResponse({"error": "Ride not found"}, status=404)
+        except User.DoesNotExist:
+            return JsonResponse({"error": "Rider not found"}, status=404)
+
     return JsonResponse({"error": "Invalid request"}, status=400)
+
+
 
 # send expo_token
 @api_view(['GET'])
