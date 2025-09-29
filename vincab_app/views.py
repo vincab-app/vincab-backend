@@ -426,7 +426,7 @@ def create_ride_and_payment(request):
                     "error": "You already have an active ride.",
                     "ride_id": existing_ride.id,
                     "status": existing_ride.status
-                }, status=400)
+                }, status=210)
 
             # 3. Driver is optional
             driver = None
