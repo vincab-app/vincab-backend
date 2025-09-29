@@ -702,7 +702,7 @@ def update_ride_status(request):
                     }
                     try:
                         payout_response = requests.post(
-                            "https://36bf735adf17.ngrok-free.app/payout/",   # your Node.js payout API
+                            "https://vincab-payment-1.onrender.com/payout/",   # your Node.js payout API
                             json=payout_payload,
                             timeout=15
                         )
