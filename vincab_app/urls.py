@@ -23,4 +23,5 @@ urlpatterns = [
     path('calculate_fare/<str:pickup_lat>/<str:pickup_lng>/<str:drop_lat>/<str:drop_lng>/', views.calculate_fare, name='calculate_fare'),
     path('get_ride_details/<int:rider_id>/', views.get_ride_details, name='get_ride_details'),
     path('check_driver_verified/<int:user_id>/', views.check_driver_verified, name='check_driver_verified'),
+    path('update_rider_profile/', views.update_rider_profile, name='update_rider_profile'),
 ]

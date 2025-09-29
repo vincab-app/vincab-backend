@@ -375,6 +375,8 @@ def nearby_vehicles(request, lat, lng):
             data["driver_name"] = driver.user.full_name
             data["driver_phone"] = driver.user.phone_number
             data["driver_image"] = driver.user.profile_image
+            data["driver_lat"] = driver.user.current_lat
+            data["driver_lng"] = driver.user.current_lng
 
             vehicle_data.append(data)
 
@@ -382,10 +384,6 @@ def nearby_vehicles(request, lat, lng):
     sorted_vehicles = sorted(vehicle_data, key=lambda x: x["eta_minutes"])
 
     return Response(sorted_vehicles)
-
-
-
-
 
 
 # rides/views.py
@@ -417,7 +415,20 @@ def create_ride_and_payment(request):
             except User.DoesNotExist:
                 return JsonResponse({"error": "Rider not found"}, status=404)
 
-            # 2. Driver is optional
+            # ✅ 2. Check if rider has an incomplete ride
+            existing_ride = Ride.objects.filter(
+                rider=rider, 
+                status__in=["pending","accepted", "ongoing"]
+            ).first()
+
+            if existing_ride:
+                return JsonResponse({
+                    "error": "You already have an active ride.",
+                    "ride_id": existing_ride.id,
+                    "status": existing_ride.status
+                }, status=400)
+
+            # 3. Driver is optional
             driver = None
             if driver_id:
                 try:
@@ -429,7 +440,7 @@ def create_ride_and_payment(request):
             platform_cut = total_amount * 0.2
             driver_share = total_amount * 0.8
 
-            # 3. Create Ride
+            # 4. Create Ride
             ride = Ride.objects.create(
                 rider=rider,
                 driver=driver,
@@ -439,11 +450,10 @@ def create_ride_and_payment(request):
                 dropoff_lng=dropoff_lng,
                 distance_km=distance_km,
                 estimated_fare=estimated_fare,
-                status="pending",  # mark as completed immediately after payment
-                completed_at=timezone.now()
+                status="pending",
             )
 
-            # 4. Create Payment for this Ride
+            # 5. Create Payment for this Ride
             payment = Payment.objects.create(
                 ride=ride,
                 amount=platform_cut,
@@ -453,7 +463,7 @@ def create_ride_and_payment(request):
                 paid_at=timezone.now()
             )
 
-             # Save 80% to DriverPayment
+            # Save 80% to DriverPayment
             if ride.driver:
                 DriverPayment.objects.create(
                     driver=ride.driver,
@@ -461,7 +471,7 @@ def create_ride_and_payment(request):
                     amount=driver_share
                 )
 
-            # 5. Create Notifications
+            # 6. Create Notifications
             rider_message = f"Your ride {ride.id} has been successfully booked and paid (KES {payment.amount})."
             Notification.objects.create(user=rider, message=rider_message)
 
@@ -469,7 +479,7 @@ def create_ride_and_payment(request):
                 driver_message = f"You have been assigned ride {ride.id}. Pickup at ({ride.pickup_lat}, {ride.pickup_lng})."
                 Notification.objects.create(user=driver.user, message=driver_message)
 
-            # 6. Response
+            # 7. Response
             return JsonResponse({
                 "ride": {
                     "id": ride.id,
@@ -498,6 +508,7 @@ def create_ride_and_payment(request):
             return JsonResponse({"error": str(e)}, status=400)
 
     return JsonResponse({"error": "Invalid request method"}, status=405)
+
 
 
 # api to get create ratings for driver
@@ -783,7 +794,7 @@ def get_ride_details(request, rider_id):
 
         eta_data = None
         if vehicle:
-            eta_data = get_eta(vehicle.current_lat, vehicle.current_lng, ride.pickup_lat, ride.pickup_lng)
+            eta_data = get_eta(vehicle.driver.user.current_lat, vehicle.driver.user.current_lng, ride.pickup_lat, ride.pickup_lng)
 
         data = {
             "id": ride.id,
@@ -806,8 +817,8 @@ def get_ride_details(request, rider_id):
                 "plate_number": vehicle.plate_number if vehicle else None,
                 "model": vehicle.model if vehicle else None,
                 "car_image": vehicle.car_image if vehicle else None,
-                "current_lat": vehicle.current_lat if vehicle else None,
-                "current_lng": vehicle.current_lng if vehicle else None,
+                "current_lat": vehicle.driver.user.current_lat if vehicle else None,
+                "current_lng": vehicle.driver.user.current_lng if vehicle else None,
                 "eta": eta_data,
             } if vehicle else None,
             "pickup": {
@@ -844,3 +855,45 @@ def check_driver_verified(request, user_id):
         "status": driver.status
     }, status=200)
 
+
+# start of update rider profile api
+@csrf_exempt
+@api_view(['POST'])
+@parser_classes([MultiPartParser])
+# @verify_firebase_token
+def update_rider_profile(request):
+    try:
+        rider_id = request.data.get('rider_id')
+        name = request.data.get('name')
+        profile_image = request.FILES.get('profile_image', None)
+
+        print(rider_id, name, profile_image)
+
+        rider = User.objects.get(id=rider_id)
+
+        # Update name if provided
+        if name:
+            rider.full_name = name   # adjust field if it's first_name/last_name in your model
+
+        # Update profile image if provided
+        if profile_image:
+            upload_result = cloudinary.uploader.upload(profile_image)
+            image_url = upload_result.get("secure_url")
+            rider.profile_image = image_url  # assuming your model has an ImageField or CharField
+
+        rider.save()
+
+        return JsonResponse({
+            "message": "Profile updated successfully",
+            "rider": {
+                "id": rider.id,
+                "name": rider.full_name,
+                "profile_image": rider.profile_image.url if hasattr(rider.profile_image, "url") else rider.profile_image,
+            }
+        })
+
+    except User.DoesNotExist:
+        return JsonResponse({"message": "Rider not found"}, status=404)
+    except Exception as e:
+        return JsonResponse({"message": str(e)}, status=500)
+# end of update rider profile api
