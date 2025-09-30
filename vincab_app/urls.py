@@ -24,4 +24,6 @@ urlpatterns = [
     path('get_ride_details/<int:rider_id>/', views.get_ride_details, name='get_ride_details'),
     path('check_driver_verified/<int:user_id>/', views.check_driver_verified, name='check_driver_verified'),
     path('update_rider_profile/', views.update_rider_profile, name='update_rider_profile'),
+    path('get_all_drivers/', views.get_all_drivers, name='get_all_drivers'),
+    path('get_all_riders/', views.get_all_riders, name='get_all_riders'),
 ]

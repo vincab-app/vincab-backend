@@ -5,7 +5,7 @@ from .models import User, Notification, Vehicle, Ride, Payment, Driver, Rating, 
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, parser_classes
 from rest_framework.parsers import MultiPartParser, FormParser
-from .serializers import NotificationSerializer, VehicleSerializer
+from .serializers import NotificationSerializer, VehicleSerializer, DriverSerializer
 from geopy.distance import geodesic
 from rest_framework.response import Response
 from django.utils import timezone
@@ -957,3 +957,39 @@ def update_rider_profile(request):
     except Exception as e:
         return JsonResponse({"message": str(e)}, status=500)
 # end of update rider profile api
+
+
+# admin api to get all drivers
+@api_view(['GET'])
+def get_all_drivers(request):
+    drivers = Driver.objects.select_related("user").prefetch_related("vehicles").all()
+    serializer = DriverSerializer(drivers, many=True)
+    return Response(serializer.data)
+# end of admin api to get all drivers
+
+
+# api to get all riders
+@api_view(['GET'])
+def get_all_riders(request):
+    try:
+        riders = User.objects.filter(role="rider")
+        riders_data = []
+
+        for rider in riders:
+            riders_data.append({
+                "id": rider.id,
+                "full_name": rider.full_name,
+                "email": rider.email,
+                "phone_number": rider.phone_number,
+                "profile_image": rider.profile_image,
+                "current_lat": rider.current_lat,
+                "current_lng": rider.current_lng,
+                "date_joined": rider.date_joined,
+                "expo_token": rider.expo_token,
+            })
+
+        return JsonResponse({"riders": riders_data}, status=200, safe=False)
+
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+# end of api to get all riders
