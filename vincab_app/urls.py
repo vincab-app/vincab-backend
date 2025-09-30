@@ -26,4 +26,7 @@ urlpatterns = [
     path('update_rider_profile/', views.update_rider_profile, name='update_rider_profile'),
     path('get_all_drivers/', views.get_all_drivers, name='get_all_drivers'),
     path('get_all_riders/', views.get_all_riders, name='get_all_riders'),
+    path('get_all_rides/', views.get_all_rides, name='get_all_rides'),
+    path('get_all_payments/', views.get_all_payments, name='get_all_payments'),
+    path('dashboard_stats/', views.dashboard_stats, name='dashboard_stats'),
 ]

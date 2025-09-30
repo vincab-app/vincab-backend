@@ -5,17 +5,18 @@ from .models import User, Notification, Vehicle, Ride, Payment, Driver, Rating, 
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, parser_classes
 from rest_framework.parsers import MultiPartParser, FormParser
-from .serializers import NotificationSerializer, VehicleSerializer, DriverSerializer
+from .serializers import NotificationSerializer, VehicleSerializer, DriverSerializer, RideSerializer, PaymentSerializer, DashboardStatsSerializer
 from geopy.distance import geodesic
 from rest_framework.response import Response
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
 import requests
-from django.db.models import Sum
+from django.db.models import Sum, Q
 from django.utils.timezone import now
 from datetime import timedelta
 import cloudinary.uploader
 from decimal import Decimal
+from django.utils.timezone import now
 
 
 
@@ -993,3 +994,67 @@ def get_all_riders(request):
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
 # end of api to get all riders
+
+
+# api to get all rides
+@api_view(["GET"])
+def get_all_rides(request):
+    rides = Ride.objects.all().order_by("-requested_at")
+    serializer = RideSerializer(rides, many=True)
+    return Response(serializer.data)
+
+# end of api to get all rides
+
+
+# payments/views.py
+@api_view(["GET"])
+def get_all_payments(request):
+    payments = Payment.objects.select_related("ride__rider", "ride__driver__user").all().order_by("-paid_at")
+    serializer = PaymentSerializer(payments, many=True)
+    return Response(serializer.data)
+# end of payments/views.py
+
+
+# api to get dashboard stats
+@api_view(['GET'])
+def dashboard_stats(request):
+    today = now().date()
+    start_of_week = today - timedelta(days=today.weekday())
+    start_of_month = today.replace(day=1)
+    start_of_year = today.replace(month=1, day=1)
+
+    # Total counts
+    total_riders = User.objects.filter(role="rider").count()
+    total_drivers = User.objects.filter(role="driver").count()
+    total_rides = Ride.objects.count()
+
+    # Earnings - only successful payments
+    daily_earnings = Payment.objects.filter(
+        status="success", paid_at__date=today
+    ).aggregate(total=Sum("amount"))["total"] or 0
+
+    weekly_earnings = Payment.objects.filter(
+        status="success", paid_at__date__gte=start_of_week
+    ).aggregate(total=Sum("amount"))["total"] or 0
+
+    monthly_earnings = Payment.objects.filter(
+        status="success", paid_at__date__gte=start_of_month
+    ).aggregate(total=Sum("amount"))["total"] or 0
+
+    yearly_earnings = Payment.objects.filter(
+        status="success", paid_at__date__gte=start_of_year
+    ).aggregate(total=Sum("amount"))["total"] or 0
+
+    data = {
+        "total_riders": total_riders,
+        "total_drivers": total_drivers,
+        "total_rides": total_rides,
+        "daily_earnings": daily_earnings,
+        "weekly_earnings": weekly_earnings,
+        "monthly_earnings": monthly_earnings,
+        "yearly_earnings": yearly_earnings,
+    }
+
+    serializer = DashboardStatsSerializer(data)
+    return Response(serializer.data)
+# end of api to get dashboard stats
