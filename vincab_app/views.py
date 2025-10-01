@@ -17,6 +17,7 @@ from datetime import timedelta
 import cloudinary.uploader
 from decimal import Decimal
 from django.utils.timezone import now
+from rest_framework import status
 
 
 
@@ -1059,3 +1060,45 @@ def dashboard_stats(request):
     serializer = DashboardStatsSerializer(data)
     return Response(serializer.data)
 # end of api to get dashboard stats
+
+# api to update user location
+@api_view(['POST'])
+def update_location(request):
+    try:
+        user_id = request.data.get("user_id")
+        lat = request.data.get("lat")
+        lng = request.data.get("lng")
+
+        if not user_id or lat is None or lng is None:
+            return Response(
+                {"error": "user_id, lat, and lng are required"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # Find the user
+        user = User.objects.get(id=user_id)
+
+        # Update location
+        user.current_lat = float(lat)
+        user.current_lng = float(lng)
+        user.save()
+
+        return Response(
+            {
+                "message": "Location updated successfully",
+                "data": {
+                    "id": user.id,
+                    "full_name": user.full_name,
+                    "role": user.role,
+                    "current_lat": user.current_lat,
+                    "current_lng": user.current_lng,
+                },
+            },
+            status=status.HTTP_200_OK,
+        )
+
+    except User.DoesNotExist:
+        return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+# end of api to update user location

@@ -29,4 +29,5 @@ urlpatterns = [
     path('get_all_rides/', views.get_all_rides, name='get_all_rides'),
     path('get_all_payments/', views.get_all_payments, name='get_all_payments'),
     path('dashboard_stats/', views.dashboard_stats, name='dashboard_stats'),
+    path('update_location/', views.update_location, name='update_location'),
 ]
