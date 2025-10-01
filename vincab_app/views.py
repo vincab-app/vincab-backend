@@ -221,6 +221,7 @@ def driversignup(request):
                 color=car_color,
                 car_image=car_image_url
             )
+            vehicle.save()
 
             notification = Notification.objects.create(
                 user=user,
