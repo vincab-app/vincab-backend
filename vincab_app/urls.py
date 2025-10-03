@@ -30,4 +30,7 @@ urlpatterns = [
     path('get_all_payments/', views.get_all_payments, name='get_all_payments'),
     path('dashboard_stats/', views.dashboard_stats, name='dashboard_stats'),
     path('update_location/', views.update_location, name='update_location'),
+    path('initialize_payment/', views.initialize_payment, name='initialize_payment'),
+    path('payment_callback/', views.payment_callback, name='payment_callback'),
+    
 ]

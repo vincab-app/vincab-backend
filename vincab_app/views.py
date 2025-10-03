@@ -1102,3 +1102,189 @@ def update_location(request):
     except Exception as e:
         return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 # end of api to update user location
+
+
+# paystack initialize payment
+PAYSTACK_SECRET_KEY = "sk_test_a60107fb70a0a8424b1ce810d3c677a4229b168e"
+@api_view(["POST"])
+def initialize_payment(request):
+    amount = request.data.get("amount")   # ✅ you are sending this
+    email = request.data.get("email", "customer@email.com")  # fallback email
+    transaction_reference = request.data.get("transaction_reference")
+    metadata = request.data.get("metadata", {})
+    rider_id = request.data.get("rider_id")
+    driver_id = request.data.get("driver_id")
+    pickup_lat = request.data.get("pickup_lat")
+    pickup_lng = request.data.get("pickup_lng")
+    dropoff_lat = request.data.get("dropoff_lat")
+    dropoff_lng = request.data.get("dropoff_lng")
+    distance_km = request.data.get("distance_km")
+    estimated_fare = request.data.get("estimated_fare")
+    phone_number = request.data.get("phone_number", "N/A")
+    print("Rider Id:", rider_id, "Driver Id:", driver_id, "Amount:", amount, "Reference:", transaction_reference)
+
+    if not amount:
+        return Response({"error": "Amount is required"}, status=400)
+
+    try:
+        amount = int(float(amount) * 100)  # convert to Kobo
+    except Exception:
+        return Response({"error": "Invalid amount"}, status=400)
+
+    # ✅ 2. Check if rider has an incomplete ride
+    existing_ride = Ride.objects.filter(
+        rider=rider_id, 
+        status__in=["pending","accepted", "ongoing"]
+    ).first()
+
+    if existing_ride:
+        return JsonResponse({
+            "error": "You already have an active ride.",
+            "ride_id": existing_ride.id,
+            "status": existing_ride.status
+        }, status=210)
+
+    payload = {
+        "email": email,
+        "amount": amount,
+        "reference": transaction_reference,
+        "callback_url": "http://192.168.4.143:8000/payment_callback/",
+        "metadata": {
+            "rider_id": rider_id,
+            "driver_id": driver_id,
+            "pickup_lat": pickup_lat,
+            "pickup_lng": pickup_lng,
+            "dropoff_lat": dropoff_lat,
+            "dropoff_lng": dropoff_lng,
+            "distance_km": distance_km,
+            "estimated_fare": estimated_fare,
+            "phone_number": phone_number,
+        }
+    }
+    # print("INITIALIZE PAYLOAD:", payload)
+
+    headers = {"Authorization": f"Bearer {PAYSTACK_SECRET_KEY}"}
+    res = requests.post("https://api.paystack.co/transaction/initialize", json=payload, headers=headers)
+
+    return Response(res.json())
+
+
+
+
+# paystack payment callback
+@api_view(['GET'])
+def payment_callback(request):
+    reference = request.GET.get('reference')
+
+    url = f"https://api.paystack.co/transaction/verify/{reference}"
+    headers = {"Authorization": f"Bearer {PAYSTACK_SECRET_KEY}"}
+
+    response = requests.get(url, headers=headers).json()
+
+    # print("PAYSTACK VERIFY RESPONSE:", response)  # 👈 debug
+
+    # Ensure "data" exists and is a dict
+    data = response.get("data", None)
+    if not data or not isinstance(data, dict):
+        return JsonResponse({"error": "Invalid Paystack response", "details": response}, status=400)
+
+    if data.get("status") == "success":
+        try:
+            # ✅ Safely extract metadata
+            metadata = data.get("metadata") or {}
+            if isinstance(metadata, str):
+                try:
+                    metadata = json.loads(metadata)  # Sometimes Paystack sends metadata as JSON string
+                except:
+                    metadata = {}
+
+            rider_id = metadata.get("rider_id")
+            driver_id = metadata.get("driver_id")
+            pickup_lat = metadata.get("pickup_lat")
+            pickup_lng = metadata.get("pickup_lng")
+            dropoff_lat = metadata.get("dropoff_lat")
+            dropoff_lng = metadata.get("dropoff_lng")
+            distance_km = metadata.get("distance_km")
+            estimated_fare = metadata.get("estimated_fare")
+            total_amount = data.get("amount", 0) / 100  # Paystack returns in kobo
+            method = "paystack"
+            transaction_reference = reference
+
+            # ✅ rest of your Ride + Payment logic...
+            # (same as you wrote, creating ride, saving payment, notifications)
+            # --- Validate Rider ---
+            try:
+                rider = User.objects.get(id=rider_id)
+            except User.DoesNotExist:
+                return JsonResponse({"error": "Rider not found"}, status=404)
+
+            # --- Optional Driver ---
+            driver = None
+            if driver_id:
+                try:
+                    driver = Driver.objects.get(id=driver_id)
+                    driver.status = "busy"
+                    driver.save()
+                except Driver.DoesNotExist:
+                    return JsonResponse({"error": "Driver not found"}, status=404)
+
+            # --- Split fare ---
+            platform_cut = total_amount * 0.1
+            driver_share = total_amount * 0.9
+
+            # --- Create Ride ---
+            ride = Ride.objects.create(
+                rider=rider,
+                driver=driver,
+                pickup_lat=pickup_lat,
+                pickup_lng=pickup_lng,
+                dropoff_lat=dropoff_lat,
+                dropoff_lng=dropoff_lng,
+                distance_km=distance_km,
+                estimated_fare=estimated_fare,
+                status="pending"
+            )
+
+            # --- Save Payment ---
+            payment = Payment.objects.create(
+                ride=ride,
+                amount=platform_cut,
+                method=method,
+                status="success",
+                transaction_reference=transaction_reference,
+                paid_at=timezone.now()
+            )
+
+            # --- Save Driver Share ---
+            if ride.driver:
+                DriverPayment.objects.create(
+                    driver=ride.driver,
+                    payment=payment,
+                    amount=driver_share
+                )
+
+            # --- Notifications ---
+            Notification.objects.create(
+                user=rider,
+                message=f"Your ride {ride.id} has been successfully booked and paid (KES {payment.amount})."
+            )
+            if driver:
+                Notification.objects.create(
+                    user=driver.user,
+                    message=f"You have been assigned ride {ride.id}. Pickup at ({ride.pickup_lat}, {ride.pickup_lng})."
+                )
+
+            # ...
+            return render(request, "payment_status.html", {
+                "status": "success",
+                "ride": ride,
+                "payment": payment,
+            })
+
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=400)
+
+    return JsonResponse({"status": "failed"}, status=400)
+
+
+
