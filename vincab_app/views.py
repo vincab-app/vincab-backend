@@ -1273,6 +1273,13 @@ def payment_callback(request):
                     user=driver.user,
                     message=f"You have been assigned ride {ride.id}. Pickup at ({ride.pickup_lat}, {ride.pickup_lng})."
                 )
+            
+            send_push_notification(
+                driver.expo_token,
+                "Ride Assigned",
+                f"You have been assigned ride {ride.id}.Be sure to pick up the rider on time.",
+                {"ride_id": ride.id}
+            )
 
             # ...
             return render(request, "payment_status.html", {
