@@ -1148,7 +1148,7 @@ def initialize_payment(request):
         "email": email,
         "amount": amount,
         "reference": transaction_reference,
-        "callback_url": "http://192.168.4.143:8000/payment_callback/",
+        "callback_url": "https://vincab-backend.onrender.com/payment_callback/",
         "metadata": {
             "rider_id": rider_id,
             "driver_id": driver_id,
