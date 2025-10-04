@@ -643,7 +643,7 @@ def get_requested_rides(request, user_id):
     except Driver.DoesNotExist:
         return JsonResponse([], safe=False)
 
-    rides = Ride.objects.filter(driver=driver, status="pending")
+    rides = Ride.objects.filter(driver=driver).exclude(status__in=["completed", "cancelled"])
 
     ride_list = []
     for ride in rides:
