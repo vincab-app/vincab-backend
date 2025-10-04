@@ -1275,7 +1275,7 @@ def payment_callback(request):
                 )
             
             send_push_notification(
-                driver.expo_token,
+                driver.user.expo_token,
                 "Ride Assigned",
                 f"You have been assigned ride {ride.id}.Be sure to pick up the rider on time.",
                 {"ride_id": ride.id}
