@@ -286,13 +286,15 @@ def send_push_notification(token, title, body, data=None):
 def reverse_geocode(lat, lng):
     try:
         url = f"https://nominatim.openstreetmap.org/reverse?lat={lat}&lon={lng}&format=json"
-        headers = {"User-Agent": "YourAppName/1.0"}  # Nominatim requires User-Agent
+        headers = {"User-Agent": "VinCab/1.0 (contact@vincab.com)"}
         res = requests.get(url, headers=headers, timeout=5)
         data = res.json()
-        return data.get("display_name", None)
+        address = data.get("address", {})
+        return f"{address.get('city', '')}, {address.get('country', '')}"
     except Exception as e:
         print("Reverse geocode error:", e)
         return None
+
 
 # calculate the time btwn vehicle and rider's pick location
 def get_eta(vehicle_lat, vehicle_lng, pickup_lat, pickup_lng):
@@ -640,10 +642,13 @@ def get_requested_rides(request, user_id):
     try:
         # Get driver using user_id
         driver = Driver.objects.get(user_id=user_id)
+        # print(driver.user.full_name)
     except Driver.DoesNotExist:
         return JsonResponse([], safe=False)
 
     rides = Ride.objects.filter(driver=driver).exclude(status__in=["completed", "cancelled"])
+    # rides = Ride.objects.filter(driver=driver, status="pending")
+    # print(rides)
 
     ride_list = []
     for ride in rides:
