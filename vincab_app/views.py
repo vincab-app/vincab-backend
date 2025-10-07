@@ -123,7 +123,7 @@ def signup(request):
             email = data.get("email")
             password = data.get("password")
 
-            print(full_name, phone_number, email, password)
+            # print(full_name, phone_number, email, password)
 
             if not all([full_name, email, password, phone_number]):
                 return JsonResponse({"message": "Missing required fields"}, status=400)
@@ -334,7 +334,7 @@ def notify_driver(request):
 
 # get_notification api
 @api_view(['GET'])
-# @verify_firebase_token
+@verify_firebase_token
 def get_user_notifications(request, user_id):
     try:
         user_id = User.objects.get(id=user_id)
@@ -348,6 +348,7 @@ def get_user_notifications(request, user_id):
 
 # api to get the nearby cars
 @api_view(["GET"])
+@verify_firebase_token
 def nearby_vehicles(request, lat, lng):
     try:
         customer_lat = float(lat)
@@ -521,6 +522,7 @@ def create_ride_and_payment(request):
 
 # api to get create ratings for driver
 @csrf_exempt
+@verify_firebase_token
 def create_rating(request):
     if request.method == "POST":
         try:
@@ -578,6 +580,7 @@ def create_rating(request):
 
 # api to ratings for driver/user
 @api_view(['GET'])
+@verify_firebase_token
 def get_user_ratings(request, user_id):
     """
     Fetch all ratings received by a given user
@@ -928,7 +931,7 @@ def check_driver_verified(request, user_id):
 @csrf_exempt
 @api_view(['POST'])
 @parser_classes([MultiPartParser])
-# @verify_firebase_token
+@verify_firebase_token
 def update_rider_profile(request):
     try:
         rider_id = request.data.get('rider_id')
