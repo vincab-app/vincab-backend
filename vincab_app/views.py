@@ -1302,4 +1302,21 @@ def payment_callback(request):
     return JsonResponse({"status": "failed"}, status=400)
 
 
+# api to update driver status and verification
+@api_view(["PATCH"])
+def update_driver_status(request, driver_id):
+    try:
+        driver = Driver.objects.get(id=driver_id)
+        status = request.data.get("status")
+        verified = request.data.get("verified")
+
+        if status:
+            driver.status = status
+        if verified is not None:
+            driver.verified = verified
+
+        driver.save()
+        return Response({"message": "Driver updated successfully"}, status=200)
+    except Driver.DoesNotExist:
+        return Response({"error": "Driver not found"}, status=404)
 
