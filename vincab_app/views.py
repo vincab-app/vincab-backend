@@ -179,7 +179,7 @@ def driversignup(request):
             car_color = data.get("car_color")
             car_image = request.FILES.get("car_image")
 
-            print(full_name, phone_number, email, password, license_number, car_make, car_model, car_plate, car_color, car_image)
+            #print(full_name, phone_number, email, password, license_number, car_make, car_model, car_plate, car_color, car_image)
 
             if not all([full_name, email, password, phone_number, license_number, car_make, car_model, car_plate, car_color, car_image]):
                 return JsonResponse({"message": "Missing required fields"}, status=400)
