@@ -42,9 +42,9 @@ from firebase_admin import auth, credentials
 import os, json
 
 # Initialize Firebase once (e.g., in settings.py or a startup file)
-service_account_info = json.loads(os.environ["FIREBASE_SERVICE_ACCOUNT"])
-# cred = credentials.Certificate("serviceAccountKey.json")
-cred = credentials.Certificate(service_account_info)
+# service_account_info = json.loads(os.environ["FIREBASE_SERVICE_ACCOUNT"])
+cred = credentials.Certificate("serviceAccountKey.json")
+# cred = credentials.Certificate(service_account_info)
 firebase_admin.initialize_app(cred)
 
 def verify_firebase_token(view_func):
@@ -178,9 +178,11 @@ def driversignup(request):
             car_plate = data.get("car_plate")
             car_color = data.get("car_color")
             expo_token = data.get("expo_token")
+            latitude = data.get("latitude")
+            longitude = data.get("longitude")
             car_image = request.FILES.get("car_image")
 
-            print(full_name, phone_number, email, password, license_number, car_make, car_model, car_plate, car_color, expo_token, car_image)
+            print(full_name, phone_number, email, password, license_number, car_make, car_model, car_plate, car_color, expo_token, latitude, longitude, car_image)
 
             if not all([full_name, email, password, phone_number, license_number, car_make, car_model, car_plate, car_color, expo_token, car_image]):
                 return JsonResponse({"message": "Missing required fields"}, status=400)
@@ -198,6 +200,8 @@ def driversignup(request):
                 email=email,
                 role="driver",
                 password=uid,
+                current_lat=latitude,
+                current_lng=longitude,
                 expo_token=expo_token
             )
             user.save()
