@@ -177,18 +177,19 @@ def driversignup(request):
             car_model = data.get("car_model")
             car_plate = data.get("car_plate")
             car_color = data.get("car_color")
+            expo_token = data.get("expo_token")
             car_image = request.FILES.get("car_image")
 
-            #print(full_name, phone_number, email, password, license_number, car_make, car_model, car_plate, car_color, car_image)
+            print(full_name, phone_number, email, password, license_number, car_make, car_model, car_plate, car_color, expo_token, car_image)
 
-            if not all([full_name, email, password, phone_number, license_number, car_make, car_model, car_plate, car_color, car_image]):
+            if not all([full_name, email, password, phone_number, license_number, car_make, car_model, car_plate, car_color, expo_token, car_image]):
                 return JsonResponse({"message": "Missing required fields"}, status=400)
 
             if User.objects.filter(email=email).exists():
                 return JsonResponse({"message": "Email already exists"}, status=400)
 
-            user = authe.create_user_with_email_and_password(email, password)
-            uid = user['localId']
+            firebase_user = authe.create_user_with_email_and_password(email, password)
+            uid = firebase_user['localId']
 
 
             user = User(
@@ -196,7 +197,8 @@ def driversignup(request):
                 phone_number=phone_number,
                 email=email,
                 role="driver",
-                password=uid
+                password=uid,
+                expo_token=expo_token
             )
             user.save()
 
@@ -348,7 +350,7 @@ def get_user_notifications(request, user_id):
 
 # api to get the nearby cars
 @api_view(["GET"])
-@verify_firebase_token
+# @verify_firebase_token
 def nearby_vehicles(request, lat, lng):
     try:
         customer_lat = float(lat)
@@ -1307,16 +1309,31 @@ def payment_callback(request):
 def update_driver_status(request, driver_id):
     try:
         driver = Driver.objects.get(id=driver_id)
-        status = request.data.get("status")
-        verified = request.data.get("verified")
+        new_status = request.data.get("status")
+        new_verified = request.data.get("verified")
 
-        if status:
-            driver.status = status
-        if verified is not None:
-            driver.verified = verified
+        has_changed = False
+
+        if new_status and new_status != driver.status:
+            driver.status = new_status
+            has_changed = True
+
+        if new_verified is not None and new_verified != driver.verified:
+            driver.verified = new_verified
+            has_changed = True
 
         driver.save()
+
+        if has_changed:
+            send_push_notification(
+                driver.user.expo_token,
+                "Update",
+                f"Your status has changed: Status: {driver.status}, Verified: {driver.verified}",
+                {}
+            )
+
         return Response({"message": "Driver updated successfully"}, status=200)
     except Driver.DoesNotExist:
         return Response({"error": "Driver not found"}, status=404)
+
 
