@@ -1297,7 +1297,7 @@ def payment_callback(request):
             # --- Notifications ---
             Notification.objects.create(
                 user=rider,
-                message=f"Your ride {ride.id} has been successfully booked and paid (KES {payment.amount})."
+                message=f"Your ride {ride.id} has been successfully booked and paid (KES {total_amount})."
             )
             if driver:
                 Notification.objects.create(
