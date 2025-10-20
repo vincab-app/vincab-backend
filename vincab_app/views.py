@@ -633,8 +633,9 @@ def get_all_payments(request):
 # api to get all driver payments
 @api_view(['GET'])
 def get_driver_payments(request, driver_id):
-    driver_payments = DriverPayment.objects.filter(driver_id=driver_id).select_related("payment", "payment__ride")
-
+    user = User.objects.get(id=driver_id)
+    driver = Driver.objects.get(user=user)
+    driver_payments = DriverPayment.objects.filter(driver=driver)
     results = []
     for dp in driver_payments:
         results.append({
