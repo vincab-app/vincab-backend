@@ -244,7 +244,7 @@ def driversignup(request):
 
             notification = Notification.objects.create(
                 user=user,
-                message="Your request to be a driver at VinCab was received successfully. We'll get back to you wuthin 48 hours.",
+                message="Your request to be a driver at VinCab was received successfully. We'll get back to you within 48 hours.",
                 is_read=False
             )
 
@@ -1127,12 +1127,76 @@ def update_location(request):
 
 # paystack initialize payment
 PAYSTACK_SECRET_KEY = "sk_test_a60107fb70a0a8424b1ce810d3c677a4229b168e"
+# @api_view(["POST"])
+# def initialize_payment(request):
+#     amount = request.data.get("amount")   # ✅ you are sending this
+#     email = request.data.get("email", "customer@email.com")  # fallback email
+#     transaction_reference = request.data.get("transaction_reference")
+#     metadata = request.data.get("metadata", {})
+#     rider_id = request.data.get("rider_id")
+#     driver_id = request.data.get("driver_id")
+#     pickup_lat = request.data.get("pickup_lat")
+#     pickup_lng = request.data.get("pickup_lng")
+#     dropoff_lat = request.data.get("dropoff_lat")
+#     dropoff_lng = request.data.get("dropoff_lng")
+#     distance_km = request.data.get("distance_km")
+#     estimated_fare = request.data.get("estimated_fare")
+#     phone_number = request.data.get("phone_number", "N/A")
+#     print("Rider Id:", rider_id, "Driver Id:", driver_id, "Amount:", amount, "Reference:", transaction_reference)
+
+#     if not amount:
+#         return Response({"error": "Amount is required"}, status=400)
+
+#     try:
+#         amount = int(float(amount) * 100)  # convert to Kobo
+#     except Exception:
+#         return Response({"error": "Invalid amount"}, status=400)
+
+#     # ✅ 2. Check if rider has an incomplete ride
+#     existing_ride = Ride.objects.filter(
+#         rider=rider_id, 
+#         status__in=["pending","accepted", "ongoing"]
+#     ).first()
+
+#     if existing_ride:
+#         return JsonResponse({
+#             "error": "You already have an active ride.",
+#             "ride_id": existing_ride.id,
+#             "status": existing_ride.status
+#         }, status=210)
+
+#     payload = {
+#         "email": email,
+#         "amount": amount,
+#         "reference": transaction_reference,
+#         "callback_url": "https://vincab-backend.onrender.com/payment_callback/",
+        # "metadata": {
+        #     "rider_id": rider_id,
+        #     "driver_id": driver_id,
+        #     "pickup_lat": pickup_lat,
+        #     "pickup_lng": pickup_lng,
+        #     "dropoff_lat": dropoff_lat,
+        #     "dropoff_lng": dropoff_lng,
+        #     "distance_km": distance_km,
+        #     "estimated_fare": estimated_fare,
+        #     "phone_number": phone_number,
+        # }
+#     }
+#     # print("INITIALIZE PAYLOAD:", payload)
+
+#     headers = {"Authorization": f"Bearer {PAYSTACK_SECRET_KEY}"}
+#     res = requests.post("https://api.paystack.co/transaction/initialize", json=payload, headers=headers)
+
+#     return Response(res.json())
+
+
+
+# initiliaze payment 2
 @api_view(["POST"])
 def initialize_payment(request):
     amount = request.data.get("amount")   # ✅ you are sending this
     email = request.data.get("email", "customer@email.com")  # fallback email
     transaction_reference = request.data.get("transaction_reference")
-    metadata = request.data.get("metadata", {})
     rider_id = request.data.get("rider_id")
     driver_id = request.data.get("driver_id")
     pickup_lat = request.data.get("pickup_lat")
@@ -1142,20 +1206,17 @@ def initialize_payment(request):
     distance_km = request.data.get("distance_km")
     estimated_fare = request.data.get("estimated_fare")
     phone_number = request.data.get("phone_number", "N/A")
-    print("Rider Id:", rider_id, "Driver Id:", driver_id, "Amount:", amount, "Reference:", transaction_reference)
 
-    if not amount:
-        return Response({"error": "Amount is required"}, status=400)
+    # print all the date sent
+    print("Rider Id:", rider_id, "Driver Id:", driver_id, "Amount:", amount, "Reference:", transaction_reference, "email:", email, "phonenumber:",phone_number)
 
-    try:
-        amount = int(float(amount) * 100)  # convert to Kobo
-    except Exception:
-        return Response({"error": "Invalid amount"}, status=400)
+    if not all([amount, rider_id, driver_id]):
+        return Response({"error": "Missing required fields"}, status=400)
 
-    # ✅ 2. Check if rider has an incomplete ride
+    # ✅ Check for active rides
     existing_ride = Ride.objects.filter(
         rider=rider_id, 
-        status__in=["pending","accepted", "ongoing"]
+        status__in=["pending", "accepted", "ongoing"]
     ).first()
 
     if existing_ride:
@@ -1165,29 +1226,116 @@ def initialize_payment(request):
             "status": existing_ride.status
         }, status=210)
 
-    payload = {
-        "email": email,
-        "amount": amount,
-        "reference": transaction_reference,
-        "callback_url": "https://vincab-backend.onrender.com/payment_callback/",
-        "metadata": {
-            "rider_id": rider_id,
-            "driver_id": driver_id,
-            "pickup_lat": pickup_lat,
-            "pickup_lng": pickup_lng,
-            "dropoff_lat": dropoff_lat,
-            "dropoff_lng": dropoff_lng,
-            "distance_km": distance_km,
-            "estimated_fare": estimated_fare,
-            "phone_number": phone_number,
+    # ✅ Send push notification to driver to confirm
+    try:
+        driver = Driver.objects.get(id=driver_id)
+        rider = User.objects.get(id=rider_id)
+        message = f"Ride request from {rider.full_name}. Amount: {amount} KES. Accept?"
+        
+        send_push_notification(
+            driver.user.expo_token,
+            "New Ride Request",
+            message,
+            {
+                "type": "ride_request",
+                "rider_id": rider_id,
+                "driver_id": driver_id,
+                "email": email,
+                "amount": amount,
+                "pickup_lat": pickup_lat,
+                "pickup_lng": pickup_lng,
+                "dropoff_lat": dropoff_lat,
+                "dropoff_lng": dropoff_lng,
+                "distance_km": distance_km,
+                "estimated_fare": estimated_fare,
+                "phone_number": phone_number,
+                "transaction_reference": transaction_reference,
+            }
+        )
+
+        return JsonResponse({"message": "Ride request sent to driver for confirmation"}, status=200)
+
+    except Exception as e:
+        print(e)
+        return JsonResponse({"error": str(e)}, status=500)
+
+# driver confirmation
+@api_view(["POST"])
+def confirm_ride(request):
+    accepted = request.data.get("accepted")
+    amount = request.data.get("amount")
+    email = request.data.get("email")
+    transaction_reference = request.data.get("transaction_reference")
+    rider_id = request.data.get("rider_id")
+    driver_id = request.data.get("driver_id")
+    pickup_lat = request.data.get("pickup_lat")
+    pickup_lng = request.data.get("pickup_lng")
+    dropoff_lat = request.data.get("dropoff_lat")
+    dropoff_lng = request.data.get("dropoff_lng")
+    distance_km = request.data.get("distance_km")
+    estimated_fare = request.data.get("estimated_fare")
+    phone_number = request.data.get("phone_number", "N/A")
+
+    try:
+        rider = User.objects.get(id=rider_id)
+
+        if not accepted:
+            send_push_notification(
+                rider.expo_token,
+                "Ride Cancelled",
+                "The driver declined your ride request.",
+                {}
+            )
+            return JsonResponse({"message": "Ride declined by driver"}, status=200)
+
+        # ✅ Proceed to initialize payment
+        payload = {
+            "email": email,
+            "amount": int(float(amount) * 100),
+            "reference": transaction_reference,
+            "callback_url": "https://vincab-backend.onrender.com/payment_callback/",
+            "metadata": {
+                "rider_id": rider_id,
+                "driver_id": driver_id,
+                "pickup_lat": pickup_lat,
+                "pickup_lng": pickup_lng,
+                "dropoff_lat": dropoff_lat,
+                "dropoff_lng": dropoff_lng,
+                "distance_km": distance_km,
+                "estimated_fare": estimated_fare,
+                "phone_number": phone_number,
+            }
         }
-    }
-    # print("INITIALIZE PAYLOAD:", payload)
 
-    headers = {"Authorization": f"Bearer {PAYSTACK_SECRET_KEY}"}
-    res = requests.post("https://api.paystack.co/transaction/initialize", json=payload, headers=headers)
+        headers = {"Authorization": f"Bearer {PAYSTACK_SECRET_KEY}"}
+        res = requests.post("https://api.paystack.co/transaction/initialize", json=payload, headers=headers)
 
-    return Response(res.json())
+        # ✅ Parse response BEFORE using it
+        data = res.json()
+        print(data)
+
+        # ✅ Now you can safely access
+        checkout_url = data["data"]["authorization_url"]
+        reference = data["data"]["reference"]
+
+        send_push_notification(
+            rider.expo_token,
+            "Ride Accepted 🚗",
+            f"Your driver has accepted your ride. Tap to pay {amount} KES to start the ride.",
+            {
+                "type": "payment_url",
+                "authorization_url": checkout_url,
+                "transaction_reference": reference,
+            }
+        )
+
+        return Response(data, status=200)
+
+    except User.DoesNotExist:
+        return JsonResponse({"error": "Rider not found"}, status=404)
+    except Exception as e:
+        print("Error:", e)
+        return JsonResponse({"error": str(e)}, status=500)
 
 
 

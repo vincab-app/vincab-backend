@@ -31,6 +31,7 @@ urlpatterns = [
     path('dashboard_stats/', views.dashboard_stats, name='dashboard_stats'),
     path('update_location/', views.update_location, name='update_location'),
     path('initialize_payment/', views.initialize_payment, name='initialize_payment'),
+    path('confirm_ride/', views.confirm_ride, name='confirm_ride'),
     path('payment_callback/', views.payment_callback, name='payment_callback'),
     path('update_driver_status/<int:driver_id>/', views.update_driver_status, name='update_driver_status'),
     
