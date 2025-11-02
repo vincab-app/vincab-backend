@@ -94,14 +94,13 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'vincabdb',
-        'USER': 'vincabdb_user',
-        'PASSWORD': 'elqviWub827GTgqrJHYKrnJD6BY5MYyU',
-        'HOST': 'dpg-d39gqlp5pdvs7397e1j0-a.oregon-postgres.render.com',
+        'NAME': 'vincabdb2',
+        'USER': 'vincabdb2_user',
+        'PASSWORD': 'PsUTTNWzAyQd7wpD5Od5yec5DDqGPD6E',
+        'HOST': 'dpg-d43mdjeuk2gs739931e0-a.oregon-postgres.render.com',
         'PORT': '5432',
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
