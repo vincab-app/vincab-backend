@@ -22,6 +22,7 @@ urlpatterns = [
     path('get_vincab_earnings/', views.get_vincab_earnings, name='get_vincab_earnings'),
     path('calculate_fare/<str:pickup_lat>/<str:pickup_lng>/<str:drop_lat>/<str:drop_lng>/', views.calculate_fare, name='calculate_fare'),
     path('get_ride_details/<int:rider_id>/', views.get_ride_details, name='get_ride_details'),
+    path('get_completed_rides/<int:rider_id>/', views.get_completed_rides, name='get_completed_rides'),
     path('check_driver_verified/<int:user_id>/', views.check_driver_verified, name='check_driver_verified'),
     path('update_rider_profile/', views.update_rider_profile, name='update_rider_profile'),
     path('get_all_drivers/', views.get_all_drivers, name='get_all_drivers'),

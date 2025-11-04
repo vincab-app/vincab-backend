@@ -546,6 +546,8 @@ def create_rating(request):
             rating_value = data.get("rating")
             comment = data.get("comment", "")
 
+            print("Ride id: ", ride_id, "Reviewer id:", reviewer_id, "Reviewee id:", reviewee_id, "Rating value:", rating_value, "Comment:", comment)
+
             # --- Validation ---
             if not all([ride_id, reviewer_id, reviewee_id, rating_value]):
                 return JsonResponse({"error": "Missing required fields"}, status=400)
@@ -585,6 +587,7 @@ def create_rating(request):
             }, status=201)
 
         except Exception as e:
+            print("Error:", str(e))
             return JsonResponse({"error": str(e)}, status=400)
 
     return JsonResponse({"error": "Invalid request method"}, status=405)
@@ -926,6 +929,83 @@ def get_ride_details(request, rider_id):
 
     except Ride.DoesNotExist:
         return JsonResponse({"error": "No active ride found for this rider"}, status=404)
+
+# end
+
+# api to get completed rides
+@api_view(["GET"])
+def get_completed_rides(request, rider_id):
+    try:
+        # Get latest completed ride for the rider
+        ride = Ride.objects.select_related("rider", "driver__user") \
+            .filter(rider_id=rider_id, status="completed") \
+            .latest("requested_at")
+
+        vehicle = ride.driver.vehicles.first() if ride.driver else None
+
+        # 🔹 Get human-readable addresses
+        pickup_address = reverse_geocode(ride.pickup_lat, ride.pickup_lng)
+        dropoff_address = reverse_geocode(ride.dropoff_lat, ride.dropoff_lng)
+
+        # check if the rider have already rated the ride, if exists return data = {}
+        rating = Rating.objects.filter(ride=ride, reviewer=ride.rider).first()
+        if rating:
+            data = {}
+            return JsonResponse({"data":None, "message": "You have already rated this ride"}, status=200)
+        
+
+        eta_data = None
+        if vehicle:
+            eta_data = get_eta(vehicle.driver.user.current_lat, vehicle.driver.user.current_lng, ride.pickup_lat, ride.pickup_lng)
+
+        data = {
+            "id": ride.id,
+            "rider": {
+                "id": ride.rider.id,
+                "name": ride.rider.full_name,
+                "email": ride.rider.email,
+                "phone": ride.rider.phone_number,
+            },
+            "driver": {
+                "id": ride.driver.id if ride.driver else None,
+                "name": ride.driver.user.full_name if ride.driver else None,
+                "phone": ride.driver.user.phone_number if ride.driver else None,
+                "profile_image": ride.driver.user.profile_image if ride.driver else None,
+                "current_lat": ride.driver.user.current_lat if ride.driver else None,
+                "current_lng": ride.driver.user.current_lng if ride.driver else None,
+            } if ride.driver else None,
+            "vehicle": {
+                "id": vehicle.id if vehicle else None,
+                "plate_number": vehicle.plate_number if vehicle else None,
+                "model": vehicle.model if vehicle else None,
+                "car_image": vehicle.car_image if vehicle else None,
+                "current_lat": vehicle.driver.user.current_lat if vehicle else None,
+                "current_lng": vehicle.driver.user.current_lng if vehicle else None,
+                "eta": eta_data,
+            } if vehicle else None,
+            "pickup": {
+                "lat": ride.pickup_lat,
+                "lng": ride.pickup_lng,
+                "address": pickup_address
+            },
+            "dropoff": {
+                "lat": ride.dropoff_lat,
+                "lng": ride.dropoff_lng,
+                "address": dropoff_address,
+            },
+            "distance_km": str(ride.distance_km) if ride.distance_km else None,
+            "estimated_fare": str(ride.estimated_fare) if ride.estimated_fare else None,
+            "status": ride.status,
+            "requested_at": ride.requested_at.isoformat(),
+            "completed_at": ride.completed_at.isoformat() if ride.completed_at else None,
+        }
+
+        return JsonResponse(data, status=200)
+
+    except Ride.DoesNotExist:
+        return JsonResponse({"error": "No active ride found for this rider"}, status=404)
+# end
+
 
 # api to check if driver is verified
 def check_driver_verified(request, user_id):
