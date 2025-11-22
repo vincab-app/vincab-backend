@@ -40,50 +40,6 @@ from .utils import generate_email_verification_token, send_reset_email
 
 User = get_user_model()
 
-
-
-
-
-
-config = {
-    "apiKey": "AIzaSyA4rY0QdPta2Y_EnXlQnRMP65ooCHKmkAU",
-    "authDomain": "vincab-b1fd6.firebaseapp.com",
-    "databaseURL": "https://vincab-b1fd6-default-rtdb.firebaseio.com/",
-    "projectId": "vincab-b1fd6",
-    "storageBucket": "vincab-b1fd6.firebasestorage.app",
-    "messagingSenderId": "734798694430",
-   " appId": "1:734798694430:web:3eb12298a075fa15ac860f",
-   " measurementId": "G-44KSWZVPDR"
-}
-firebase = pyrebase.initialize_app(config)
-authe = firebase.auth() 
-database = firebase.database()
-
-# Initialize Firebase once (e.g., in settings.py or a startup file)
-# service_account_info = json.loads(os.environ["FIREBASE_SERVICE_ACCOUNT"])
-cred = credentials.Certificate("serviceAccountKey.json")
-# cred = credentials.Certificate(service_account_info)
-firebase_admin.initialize_app(cred)
-
-def verify_firebase_token(view_func):
-    def wrapper(request, *args, **kwargs):
-        auth_header = request.headers.get("Authorization")
-        if not auth_header or not auth_header.startswith("Bearer "):
-            return JsonResponse({"message": "Unauthorized"}, status=401)
-        
-        token = auth_header.split(" ")[1]
-        try:
-            decoded_token = auth.verify_id_token(token)
-            # You can attach UID and email from token to the request for easy access
-            request.user_uid = decoded_token.get("uid")
-            request.user_email = decoded_token.get("email")
-        except Exception as e:
-            return JsonResponse({"message": "Invalid or expired token", "error": str(e)}, status=401)
-        
-        return view_func(request, *args, **kwargs)
-    return wrapper
-
-
 def index(request):
     return HttpResponse("Hello world!")
 
