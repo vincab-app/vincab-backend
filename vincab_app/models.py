@@ -73,7 +73,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     # Your custom fields
     current_lat = models.FloatField(null=True, blank=True, default=0.0)
     current_lng = models.FloatField(null=True, blank=True, default=0.0)
-    profile_image = models.URLField(blank=True, null=True)
+    profile_image = models.URLField(blank=True, null=True, default='https://res.cloudinary.com/dc68huvjj/image/upload/v1748119193/zzy3zwrius3kjrzp4ifc.png')
     expo_token = models.CharField(max_length=100, blank=True, null=True)
     verification_token = models.CharField(max_length=255, null=True, blank=True)
     verification_token_expires = models.DateTimeField(null=True, blank=True)

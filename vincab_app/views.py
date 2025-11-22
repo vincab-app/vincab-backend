@@ -99,6 +99,20 @@ def signin(request):
         return JsonResponse({'message': 'User not found'}, status=404)
 
     if not user.is_verified:
+        # Generate verification token
+        token = get_random_string(50)
+        user.verification_token = token
+        user.save()
+
+        # Send verification email
+        verification_link = f"http://192.168.100.5:8000/verify_email/{token}"
+        send_mail(
+            "Verify your VinCab Account",
+            f"Click the link to verify your email: {verification_link}",
+            settings.DEFAULT_FROM_EMAIL,
+            [email],
+            fail_silently=False,
+        )
         return JsonResponse({'message': 'Please verify your email first'}, status=403)
 
     if not user.check_password(password):
@@ -113,11 +127,14 @@ def signin(request):
         'access_token': access_token,
         'refresh_token': str(refresh),
         'user': {
-            'id': user.id,
-            'full_name': user.full_name,
-            'email': user.email,
+            'user_id': user.id,
+            'user_name': user.full_name,
+            'user_email': user.email,
             'phone_number': user.phone_number,
+            'profile_image': user.profile_image,
+            'date_joined': user.date_joined.strftime("%Y-%m-%d %H:%M:%S"),
             'role': user.role,
+            'is_verified': user.is_verified,
         }
     })
 
@@ -147,6 +164,8 @@ def signup(request):
             password=make_password(password),
             is_verified=False
         )
+        # create notification
+        Notification.objects.create(user=user, message="Welcome to VinCab. Book ride and get where you want safely and fast.")
 
         # Generate verification token
         token = get_random_string(50)
@@ -209,6 +228,7 @@ def delete_account(request):
 def request_password_reset(request):
     try:
         email = request.data.get("email")
+        print(email)
         if not email:
             return JsonResponse({"message": "Email is required"}, status=400)
 
@@ -319,7 +339,7 @@ def driversignup(request):
 
             print(full_name, phone_number, email, password, license_number, car_make, car_model, car_plate, car_color, expo_token, latitude, longitude, car_image)
 
-            if not all([full_name, email, password, phone_number, license_number, car_make, car_model, car_plate, car_color, expo_token, car_image]):
+            if not all([full_name, email, password, phone_number, license_number, car_make, car_model, car_plate, car_color, expo_token]):
                 return JsonResponse({"message": "Missing required fields"}, status=400)
 
             if User.objects.filter(email=email).exists():
@@ -474,7 +494,7 @@ def notify_driver(request):
 
 # get_notification api
 @api_view(['GET'])
-@verify_firebase_token
+@permission_classes([IsAuthenticated])
 def get_user_notifications(request, user_id):
     try:
         user_id = User.objects.get(id=user_id)
@@ -488,7 +508,7 @@ def get_user_notifications(request, user_id):
 
 # api to get the nearby cars
 @api_view(["GET"])
-# @verify_firebase_token
+@permission_classes([IsAuthenticated])
 def nearby_vehicles(request, lat, lng):
     try:
         customer_lat = float(lat)
@@ -662,7 +682,7 @@ def create_ride_and_payment(request):
 
 # api to get create ratings for driver
 @csrf_exempt
-@verify_firebase_token
+@permission_classes([IsAuthenticated])
 def create_rating(request):
     if request.method == "POST":
         try:
@@ -723,7 +743,7 @@ def create_rating(request):
 
 # api to ratings for driver/user
 @api_view(['GET'])
-@verify_firebase_token
+@permission_classes([IsAuthenticated])
 def get_user_ratings(request, user_id):
     """
     Fetch all ratings received by a given user
@@ -1152,7 +1172,7 @@ def check_driver_verified(request, user_id):
 @csrf_exempt
 @api_view(['POST'])
 @parser_classes([MultiPartParser])
-@verify_firebase_token
+@permission_classes([IsAuthenticated])
 def update_rider_profile(request):
     try:
         rider_id = request.data.get('rider_id')
@@ -1402,7 +1422,7 @@ PAYSTACK_SECRET_KEY = "sk_test_a60107fb70a0a8424b1ce810d3c677a4229b168e"
 # initiliaze payment 2
 @api_view(["POST"])
 def initialize_payment(request):
-    amount = request.data.get("amount")   # ✅ you are sending this
+    amount = request.data.get("amount")   #  you are sending this
     email = request.data.get("email", "customer@email.com")  # fallback email
     transaction_reference = request.data.get("transaction_reference")
     rider_id = request.data.get("rider_id")
@@ -1421,7 +1441,7 @@ def initialize_payment(request):
     if not all([amount, rider_id, driver_id]):
         return Response({"error": "Missing required fields"}, status=400)
 
-    # ✅ Check for active rides
+    # Check for active rides
     existing_ride = Ride.objects.filter(
         rider=rider_id, 
         status__in=["pending", "accepted", "ongoing"]
@@ -1434,7 +1454,7 @@ def initialize_payment(request):
             "status": existing_ride.status
         }, status=210)
 
-    # ✅ Send push notification to driver to confirm
+    # Send push notification to driver to confirm
     try:
         driver = Driver.objects.get(id=driver_id)
         rider = User.objects.get(id=rider_id)
@@ -1496,7 +1516,7 @@ def confirm_ride(request):
             )
             return JsonResponse({"message": "Ride declined by driver"}, status=200)
 
-        # ✅ Proceed to initialize payment
+        # Proceed to initialize payment
         payload = {
             "email": email,
             "amount": int(float(amount) * 100),
