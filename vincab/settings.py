@@ -102,10 +102,10 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'vincabdb2',
-        'USER': 'vincabdb2_user',
-        'PASSWORD': 'PsUTTNWzAyQd7wpD5Od5yec5DDqGPD6E',
-        'HOST': 'dpg-d43mdjeuk2gs739931e0-a.oregon-postgres.render.com',
+        'NAME': 'vincabdb_n6ch',
+        'USER': 'vincabdb_n6ch_user',
+        'PASSWORD': 'NKnwAdRGzvfe6UxRNGYJPp35htmHaJK4',
+        'HOST': 'dpg-d4h0s2ili9vc73dtt71g-a.oregon-postgres.render.com',
         'PORT': '5432',
     }
 }

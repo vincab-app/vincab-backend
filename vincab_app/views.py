@@ -768,6 +768,7 @@ def get_user_ratings(request, user_id):
 
 # api to get all payments for admin
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def get_all_payments(request):
     payments = Payment.objects.all().values(
         "id",
@@ -1213,6 +1214,7 @@ def update_rider_profile(request):
 
 # admin api to get all drivers
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def get_all_drivers(request):
     drivers = Driver.objects.select_related("user").prefetch_related("vehicles").all()
     serializer = DriverSerializer(drivers, many=True)
@@ -1222,6 +1224,7 @@ def get_all_drivers(request):
 
 # api to get all riders
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def get_all_riders(request):
     try:
         riders = User.objects.filter(role="rider")
@@ -1249,6 +1252,7 @@ def get_all_riders(request):
 
 # api to get all rides
 @api_view(["GET"])
+@permission_classes([IsAuthenticated])
 def get_all_rides(request):
     rides = Ride.objects.all().order_by("-requested_at")
     serializer = RideSerializer(rides, many=True)
@@ -1268,6 +1272,7 @@ def get_all_payments(request):
 
 # api to get dashboard stats
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def dashboard_stats(request):
     today = now().date()
     start_of_week = today - timedelta(days=today.weekday())
@@ -1700,6 +1705,7 @@ def payment_callback(request):
 
 # api to update driver status and verification
 @api_view(["PATCH"])
+@permission_classes([IsAuthenticated])
 def update_driver_status(request, driver_id):
     try:
         driver = Driver.objects.get(id=driver_id)
