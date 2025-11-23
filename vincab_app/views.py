@@ -37,6 +37,10 @@ from .models import User, Notification, Vehicle, Ride, Payment, Driver, Rating, 
 from .serializers import NotificationSerializer, VehicleSerializer, DriverSerializer, RideSerializer, PaymentSerializer, DashboardStatsSerializer
 from .utils import generate_email_verification_token, send_reset_email
 
+import os
+import json
+
+
 config = {
     "apiKey": "AIzaSyA4rY0QdPta2Y_EnXlQnRMP65ooCHKmkAU",
     "authDomain": "vincab-b1fd6.firebaseapp.com",
