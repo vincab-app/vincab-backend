@@ -33,345 +33,264 @@ from datetime import timedelta
 from django.utils.crypto import get_random_string
 
 # Local imports
-from .models import Notification, Vehicle, Ride, Payment, Driver, Rating, DriverPayment
+from .models import User, Notification, Vehicle, Ride, Payment, Driver, Rating, DriverPayment
 from .serializers import NotificationSerializer, VehicleSerializer, DriverSerializer, RideSerializer, PaymentSerializer, DashboardStatsSerializer
 from .utils import generate_email_verification_token, send_reset_email
 
+config = {
+    "apiKey": "AIzaSyA4rY0QdPta2Y_EnXlQnRMP65ooCHKmkAU",
+    "authDomain": "vincab-b1fd6.firebaseapp.com",
+    "databaseURL": "https://vincab-b1fd6-default-rtdb.firebaseio.com/",
+    "projectId": "vincab-b1fd6",
+    "storageBucket": "vincab-b1fd6.firebasestorage.app",
+    "messagingSenderId": "734798694430",
+   " appId": "1:734798694430:web:3eb12298a075fa15ac860f",
+   " measurementId": "G-44KSWZVPDR"
+}
+firebase = pyrebase.initialize_app(config)
+authe = firebase.auth() 
+database = firebase.database()
 
-User = get_user_model()
+# Initialize Firebase once (e.g., in settings.py or a startup file)
+service_account_info = json.loads(os.environ["FIREBASE_SERVICE_ACCOUNT"])
+# cred = credentials.Certificate("serviceAccountKey.json")
+cred = credentials.Certificate(service_account_info)
+firebase_admin.initialize_app(cred)
+
+def verify_firebase_token(view_func):
+    def wrapper(request, *args, **kwargs):
+        auth_header = request.headers.get("Authorization")
+
+        if not auth_header:
+            return JsonResponse({"error": "Authorization header missing"}, status=401)
+
+        try:
+            token = auth_header.split(" ")[1]  # "Bearer <token>"
+            decoded = auth.verify_id_token(token)
+            request.firebase_uid = decoded["uid"]   # <===== IMPORTANT
+        except Exception as e:
+            return JsonResponse({"error": "Invalid token", "details": str(e)}, status=401)
+
+        return view_func(request, *args, **kwargs)
+
+    return wrapper
+
 
 def index(request):
     return HttpResponse("Hello world!")
 
-
+# start of siginin
 @api_view(['POST'])
 def signin(request):
-    email = request.data.get('email')
-    password = request.data.get('password')
+    email = request.data.get("email")
+    password = request.data.get("password")
 
     try:
-        user = User.objects.get(email=email)
-    except User.DoesNotExist:
-        return JsonResponse({'message': 'User not found'}, status=404)
+        # Try Firebase sign in
+        login = authe.sign_in_with_email_and_password(email, password)
+        id_token = login["idToken"]
 
-    if not user.is_verified:
-        # Generate verification token
-        token = get_random_string(50)
-        user.verification_token = token
-        user.save()
+        # Get account info
+        info = authe.get_account_info(id_token)
+        email_verified = info["users"][0]["emailVerified"]
 
-        # Send verification email
-        verification_link = f"http://192.168.100.5:8000/verify_email/{token}"
-        send_mail(
-            "Verify your VinCab Account",
-            f"Click the link to verify your email: {verification_link}",
-            settings.DEFAULT_FROM_EMAIL,
-            [email],
-            fail_silently=False,
-        )
-        return JsonResponse({'message': 'Please verify your email first'}, status=403)
+        if not email_verified:
+            # Resend verification email
+            authe.send_email_verification(id_token)
 
-    if not user.check_password(password):
-        return JsonResponse({'message': 'Invalid credentials'}, status=401)
+            return JsonResponse({
+                "message": "Email not verified. Verification link has been sent again."
+            }, status=403)
 
-    # Create JWT
-    refresh = RefreshToken.for_user(user)
-    access_token = str(refresh.access_token)
+        # Email verified → Continue login
+        uid = info["users"][0]["localId"]
+        db_user = User.objects.filter(firebase_uid=uid).first()
 
-    return JsonResponse({
-        'message': 'Login successful',
-        'access_token': access_token,
-        'refresh_token': str(refresh),
-        'user': {
-            'user_id': user.id,
-            'user_name': user.full_name,
-            'user_email': user.email,
-            'phone_number': user.phone_number,
-            'profile_image': user.profile_image,
-            'date_joined': user.date_joined.strftime("%Y-%m-%d %H:%M:%S"),
-            'role': user.role,
-            'is_verified': user.is_verified,
-        }
-    })
+        return JsonResponse({
+            "message": "Login successful",
+            "access_token": id_token,
+            "user": {
+                "user_id": db_user.id,
+                "user_name": db_user.full_name,
+                "user_email": db_user.email,
+                "phone_number": db_user.phone_number,
+                "role": db_user.role,
+                "profile_image": db_user.profile_image,
+                "date_joined": db_user.date_joined.strftime("%Y-%m-%d %H:%M:%S"),
+            }
+        })
 
-# start of sign up api
+    except Exception as e:
+        return JsonResponse({"message": "Invalid login", "error": str(e)}, status=401)
+# end
+
+# start of signup
 @csrf_exempt
 @api_view(['POST'])
 def signup(request):
+    data = request.data
+    full_name = data.get("full_name")
+    phone_number = data.get("phone_number")
+    email = data.get("email")
+    password = data.get("password")
+
+    if not all([full_name, phone_number, email, password]):
+        return JsonResponse({"message": "Missing fields"}, status=400)
+
     try:
-        data = request.data
+        # Create user in Firebase
+        user = authe.create_user_with_email_and_password(email, password)
 
-        full_name = data.get("full_name")
-        phone_number = data.get("phone_number")
-        email = data.get("email")
-        password = data.get("password")
+        # Send verification email
+        authe.send_email_verification(user['idToken'])
 
-        if not all([full_name, phone_number, email, password]):
-            return JsonResponse({"message": "Missing required fields"}, status=400)
-
-        if User.objects.filter(email=email).exists():
-            return JsonResponse({"message": "Email already exists"}, status=400)
-
-        # Create user
-        user = User.objects.create(
+        # Save profile to Django database (NO PASSWORD)
+        uid = user["localId"]
+        User.objects.create(
+            firebase_uid=uid,
             full_name=full_name,
             phone_number=phone_number,
-            email=email,
-            password=make_password(password),
-            is_verified=False
+            email=email
         )
-        # create notification
-        Notification.objects.create(user=user, message="Welcome to VinCab. Book ride and get where you want safely and fast.")
-
-        # Generate verification token
-        token = get_random_string(50)
-        user.verification_token = token
-        user.save()
-
-        # Send verification email
-        verification_link = f"http://192.168.100.5:8000/verify_email/{token}"
-        send_mail(
-            "Verify your VinCab Account",
-            f"Click the link to verify your email: {verification_link}",
-            settings.DEFAULT_FROM_EMAIL,
-            [email],
-            fail_silently=False,
+        # create welcome notification
+        db_user = User.objects.get(firebase_uid=uid)
+        Notification.objects.create(
+            user=db_user,
+            message="Welcome to VinCab! Your account has been created successfully.",
+            is_read=False
         )
 
-        return JsonResponse({"message": "Account created. Check email to verify."}, status=201)
+        return JsonResponse({"message": "Account created. Check your email to verify."}, status=201)
 
     except Exception as e:
-        return JsonResponse({"message": "Signup failed", "error": str(e)}, status=500)
-# end of signup api
-
-# verify email
-@api_view(['GET'])
-def verify_email(request, token):
-    try:
-        user = User.objects.get(verification_token=token)
-        user.is_verified = True
-        user.verification_token = None
-        user.save()
-
-        return render(request, 'verify_success.html')
-
-    except User.DoesNotExist:
-        return render(request, 'verify_failed.html')
-# end of verify email
-
-
-# delete account
-@api_view(['DELETE'])
-@permission_classes([IsAuthenticated])
-def delete_account(request):
-    try:
-        user = request.user  # the authenticated user
-
-        # Optionally, you can confirm the password before deleting
-        password = request.data.get("password")
-        if password and not user.check_password(password):
-            return JsonResponse({"message": "Password is incorrect"}, status=400)
-
-        user.delete()
-        return JsonResponse({"message": "Account deleted successfully"}, status=200)
-
-    except Exception as e:
-        return JsonResponse({"message": "Failed to delete account", "error": str(e)}, status=500)
-
-# request password request
-@csrf_exempt
-@api_view(['POST'])
-def request_password_reset(request):
-    try:
-        email = request.data.get("email")
-        print(email)
-        if not email:
-            return JsonResponse({"message": "Email is required"}, status=400)
-
-        try:
-            user = User.objects.get(email=email)
-        except User.DoesNotExist:
-            return JsonResponse({"message": "No user found with this email"}, status=404)
-
-        # Generate reset token
-        token = get_random_string(50)
-        user.verification_token = token  # reuse verification_token field
-        user.verification_token_expires = timezone.now() + timezone.timedelta(hours=1)
-        user.save()
-
-        # Send email
-        # send_reset_email(email, token)
-        # Send verification email
-        verification_link = f"http://192.168.100.5:8000/verify_reset_token/{token}"
-        send_mail(
-            "Reset your VinCab password",
-            f"Click the link to reset your password: {verification_link}",
-            settings.DEFAULT_FROM_EMAIL,
-            [email],
-            fail_silently=False,
-        )
-
-        return JsonResponse({"message": "Password reset email sent"}, status=200)
-
-    except Exception as e:
-        return JsonResponse({"message": "Failed to send reset email", "error": str(e)}, status=500)
-# end of reset password api
-
-# verify reset token api
-# @api_view(['GET'])
-def verify_reset_token(request, token):
-    try:
-        user = User.objects.get(verification_token=token)
-        if user.verification_token_expires < timezone.now():
-            return render(request, 'verify_failed.html')  # token expired
-
-        # token is valid, show reset password page
-        return render(request, 'reset_password.html', {"token": token})
-
-    except User.DoesNotExist:
-        return render(request, 'verify_failed.html')
+        return JsonResponse({"message": "Signup failed", "error": str(e)}, status=400)
 # end
 
-# reset password api
-@api_view(['POST'])
-def reset_password(request):
-    token = request.POST.get("token")
-    password1 = request.POST.get("password1")
-    password2 = request.POST.get("password2")
+# start of delete account api
+@api_view(['DELETE'])
+@verify_firebase_token
+def delete_account(request):
+    firebase_uid = request.firebase_uid
 
-    # Validate token exists
-    if not token:
-        return render(request, "verify_failed.html")
-
-    # Try to find user with token
+    # 1. Delete from Firebase Auth
     try:
-        user = User.objects.get(verification_token=token)
-    except User.DoesNotExist:
-        return render(request, "verify_failed.html")
+        auth.delete_user(firebase_uid)
+        print("Firebase user deleted")
+    except Exception as e:
+        print("Firebase delete error:", e)
 
-    # Optional: check token expiry
-    if user.verification_token_expires and user.verification_token_expires < timezone.now():
-        return render(request, "verify_failed.html")
+    # 2. Delete from Django database
+    user = User.objects.filter(firebase_uid=firebase_uid).first()
+    if user:
+        user.delete()
 
-    # Validate passwords
-    if password1 != password2:
-        return render(request, "reset_password.html", {
-            "token": token,
-            "error": "Passwords do not match"
-        })
+    return JsonResponse({"message": "Account deleted successfully"}, status=200)
+# end
 
-    # Update password
-    user.password = make_password(password1)
-    user.verification_token = None
-    user.save()
+# request password reset api
+@api_view(['POST'])
+def request_password_reset(request):
+    email = request.data.get("email")
 
-    return render(request, "reset_password.html", {
-        "success": "Password updated successfully! You may now login."
-    })
-
-# end 
+    try:
+        authe.send_password_reset_email(email)
+        return JsonResponse({"message": "Password reset email sent"})
+    except Exception as e:
+        return JsonResponse({"message": "Error sending reset email", "error": str(e)}, status=400)
+# end
 
 # start of driver signup api
 @csrf_exempt
 @api_view(['POST'])
 def driversignup(request):
-    if request.method == 'POST':
+    if request.method != 'POST':
+        return JsonResponse({"message": "Invalid request method"}, status=405)
+
+    try:
+        data = request.data
+        full_name = data.get("full_name")
+        phone_number = data.get("phone_number")
+        email = data.get("email")
+        license_number = data.get("license_number")
+        password = data.get("password")
+        car_make = data.get("car_make")
+        car_model = data.get("car_model")
+        car_plate = data.get("car_plate")
+        car_color = data.get("car_color")
+        expo_token = data.get("expo_token")
+        latitude = data.get("latitude")
+        longitude = data.get("longitude")
+        car_image = request.FILES.get("car_image")
+
+        if not all([full_name, email, password, phone_number, license_number, car_make, car_model, car_plate, car_color, expo_token]):
+            return JsonResponse({"message": "Missing required fields"}, status=400)
+
+        # Check if email already exists in Firebase
         try:
-            data = request.data
+            existing_user = authe.get_user_by_email(email)
+            return JsonResponse({"message": "Email already exists"}, status=400)
+        except:
+            pass  # user does not exist, continue
 
-            full_name = data.get("full_name")
-            phone_number = data.get("phone_number")
-            email = data.get("email")
-            license_number = data.get("license_number")
-            password = data.get("password")
-            car_make = data.get("car_make")
-            car_model = data.get("car_model")
-            car_plate = data.get("car_plate")
-            car_color = data.get("car_color")
-            expo_token = data.get("expo_token")
-            latitude = data.get("latitude")
-            longitude = data.get("longitude")
-            car_image = request.FILES.get("car_image")
+        # Create user in Firebase Auth
+        firebase_user = authe.create_user_with_email_and_password(email, password)
 
-            print(full_name, phone_number, email, password, license_number, car_make, car_model, car_plate, car_color, expo_token, latitude, longitude, car_image)
+        # Send Firebase email verification
+        authe.send_email_verification(firebase_user['idToken'])
 
-            if not all([full_name, email, password, phone_number, license_number, car_make, car_model, car_plate, car_color, expo_token]):
-                return JsonResponse({"message": "Missing required fields"}, status=400)
+        # Save user to Django DB
+        user = User.objects.create(
+            full_name=full_name,
+            phone_number=phone_number,
+            email=email,
+            role="driver",
+            firebase_uid=firebase_user['localId'],
+            current_lat=latitude or 0.0,
+            current_lng=longitude or 0.0,
+            expo_token=expo_token,
+        )
 
-            if User.objects.filter(email=email).exists():
-                return JsonResponse({"message": "Email already exists"}, status=400)
+        # Save driver info
+        driver = Driver.objects.create(
+            user=user,
+            license_number=license_number,
+            verified=False,
+            rating=0,
+            status="inactive"
+        )
 
-            # generate verification token
-            token = get_random_string(50)
+        # Save vehicle info
+        car_image_url = None
+        if car_image:
+            upload_result = cloudinary.uploader.upload(car_image)
+            car_image_url = upload_result.get("secure_url")
 
-            user = User(
-                full_name=full_name,
-                phone_number=phone_number,
-                email=email,
-                role="driver",
-                password=make_password(password),
-                current_lat=latitude,
-                current_lng=longitude,
-                expo_token=expo_token,
-                is_verified=False,
-                verification_token=token
-            )
-        
-            user.save()
+        Vehicle.objects.create(
+            driver=driver,
+            plate_number=car_plate,
+            model=car_model,
+            vehicle_type="car",
+            color=car_color,
+            car_image=car_image_url
+        )
 
-            # Send verification email
-            verification_link = f"http://192.168.100.5:8000/verify_email/{token}"
-            send_mail(
-                "Verify your VinCab Account",
-                f"Click the link to verify your email: {verification_link}",
-                settings.DEFAULT_FROM_EMAIL,
-                [email],
-                fail_silently=False,
-            )
+        # Notifications
+        Notification.objects.create(
+            user=user,
+            message="Welcome to VinCab! Your account has been created successfully.",
+            is_read=False
+        )
+        Notification.objects.create(
+            user=user,
+            message="Your request to be a driver at VinCab was received successfully. We'll get back to you within 48 hours.",
+            is_read=False
+        )
 
-            driver = Driver(
-                user=user,
-                license_number=license_number,
-                verified=False,
-                rating=0,
-                status="inactive"
-            )
-            driver.save()
+        return JsonResponse({"message": "Successfully signed up. Please check your email to verify your account."}, status=201)
 
-            car_image_url = None
-            if car_image:
-                upload_result = cloudinary.uploader.upload(car_image)
-                car_image_url = upload_result.get("secure_url")
-
-            vehicle = Vehicle(
-                driver=driver,
-                plate_number=car_plate,
-                model=car_model,
-                vehicle_type="car",
-                color=car_color,
-                car_image=car_image_url
-            )
-            vehicle.save()
-
-            notification = Notification.objects.create(
-                user=user,
-                message="Welcome to VinCab! Your account has been created successfully.",
-                is_read=False
-            )
-
-            notification = Notification.objects.create(
-                user=user,
-                message="Your request to be a driver at VinCab was received successfully. We'll get back to you within 48 hours.",
-                is_read=False
-            )
-
-            return JsonResponse({"message": "Successfully signed up"}, status=201)
-
-        except Exception as e:
-            print("Error:", str(e))
-            return JsonResponse({"message": "Signup failed", "error": str(e)}, status=500)
-
-    return JsonResponse({"message": "Invalid request method"}, status=405)
+    except Exception as e:
+        print("Error:", str(e))
+        return JsonResponse({"message": "Signup failed", "error": str(e)}, status=500)
 
 #end of driver signup api
 
@@ -450,7 +369,7 @@ def notify_driver(request):
 
 # get_notification api
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@verify_firebase_token
 def get_user_notifications(request, user_id):
     try:
         user_id = User.objects.get(id=user_id)
@@ -464,7 +383,7 @@ def get_user_notifications(request, user_id):
 
 # api to get the nearby cars
 @api_view(["GET"])
-@permission_classes([IsAuthenticated])
+@verify_firebase_token
 def nearby_vehicles(request, lat, lng):
     try:
         customer_lat = float(lat)
@@ -638,7 +557,7 @@ def create_ride_and_payment(request):
 
 # api to get create ratings for driver
 @csrf_exempt
-@permission_classes([IsAuthenticated])
+@verify_firebase_token
 def create_rating(request):
     if request.method == "POST":
         try:
@@ -699,7 +618,7 @@ def create_rating(request):
 
 # api to ratings for driver/user
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@verify_firebase_token
 def get_user_ratings(request, user_id):
     """
     Fetch all ratings received by a given user
@@ -724,7 +643,7 @@ def get_user_ratings(request, user_id):
 
 # api to get all payments for admin
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@verify_firebase_token
 def get_all_payments(request):
     payments = Payment.objects.all().values(
         "id",
@@ -1129,7 +1048,7 @@ def check_driver_verified(request, user_id):
 @csrf_exempt
 @api_view(['POST'])
 @parser_classes([MultiPartParser])
-@permission_classes([IsAuthenticated])
+@verify_firebase_token
 def update_rider_profile(request):
     try:
         rider_id = request.data.get('rider_id')
@@ -1170,7 +1089,7 @@ def update_rider_profile(request):
 
 # admin api to get all drivers
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@verify_firebase_token
 def get_all_drivers(request):
     drivers = Driver.objects.select_related("user").prefetch_related("vehicles").all()
     serializer = DriverSerializer(drivers, many=True)
@@ -1180,7 +1099,7 @@ def get_all_drivers(request):
 
 # api to get all riders
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@verify_firebase_token
 def get_all_riders(request):
     try:
         riders = User.objects.filter(role="rider")
@@ -1208,7 +1127,7 @@ def get_all_riders(request):
 
 # api to get all rides
 @api_view(["GET"])
-@permission_classes([IsAuthenticated])
+@verify_firebase_token
 def get_all_rides(request):
     rides = Ride.objects.all().order_by("-requested_at")
     serializer = RideSerializer(rides, many=True)
@@ -1228,7 +1147,7 @@ def get_all_payments(request):
 
 # api to get dashboard stats
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@verify_firebase_token
 def dashboard_stats(request):
     today = now().date()
     start_of_week = today - timedelta(days=today.weekday())
@@ -1661,7 +1580,7 @@ def payment_callback(request):
 
 # api to update driver status and verification
 @api_view(["PATCH"])
-@permission_classes([IsAuthenticated])
+@verify_firebase_token
 def update_driver_status(request, driver_id):
     try:
         driver = Driver.objects.get(id=driver_id)

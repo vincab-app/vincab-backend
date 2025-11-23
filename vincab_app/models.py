@@ -1,90 +1,30 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
 # -----------------------------
 # 1. User Model
 # -----------------------------
-# class User(models.Model):
-#     ROLE_CHOICES = [
-#         ('rider', 'Rider'),
-#         ('driver', 'Driver'),
-#         ('admin', 'Admin'),
-#     ]
-#     full_name = models.CharField(max_length=100)
-#     phone_number = models.CharField(max_length=20, unique=True)
-#     email = models.CharField(max_length=100, default="johndoe@example.com")
-#     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default="rider")
-#     is_verified = models.BooleanField(default=False)
-#     last_login = models.DateTimeField(blank=True, null=True)
-#     password = models.CharField(max_length=256, default="@vincab2025")
-#     current_lat = models.FloatField(null=True, blank=True, default=0.0)
-#     current_lng = models.FloatField(null=True, blank=True, default=0.0)
-#     profile_image = models.URLField(blank=True, null=True, default='https://res.cloudinary.com/dc68huvjj/image/upload/v1748119193/zzy3zwrius3kjrzp4ifc.png')
-#     date_joined = models.DateTimeField(default=timezone.now)
-#     expo_token = models.CharField(max_length=100, default="hsvsx92jjs")
-
-#     def __str__(self):
-#         return f"{self.full_name} ({self.role})"
-
-
-
-
-
-class UserManager(BaseUserManager):
-    def create_user(self, phone_number, password=None, **extra_fields):
-        if not phone_number:
-            raise ValueError("Phone number is required")
-
-        user = self.model(phone_number=phone_number, **extra_fields)
-        user.set_password(password)  # hash password
-        user.save(using=self._db)
-        return user
-
-    def create_superuser(self, phone_number, password=None, **extra_fields):
-        extra_fields.setdefault('is_staff', True)
-        extra_fields.setdefault('is_superuser', True)
-        extra_fields.setdefault('is_active', True)
-
-        return self.create_user(phone_number, password, **extra_fields)
-
-
-class User(AbstractBaseUser, PermissionsMixin):
+class User(models.Model):
     ROLE_CHOICES = [
         ('rider', 'Rider'),
         ('driver', 'Driver'),
         ('admin', 'Admin'),
     ]
-
     full_name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=20, unique=True)
-    email = models.CharField(max_length=100, blank=True, null=True)
+    email = models.CharField(max_length=100, default="johndoe@example.com")
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default="rider")
-
-    is_verified = models.BooleanField(default=False)
-
-    # Required by Django Auth system
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-
-    date_joined = models.DateTimeField(default=timezone.now)
-
-    # Your custom fields
+    firebase_uid = models.CharField(max_length=256, default="@vincab2025")
     current_lat = models.FloatField(null=True, blank=True, default=0.0)
     current_lng = models.FloatField(null=True, blank=True, default=0.0)
     profile_image = models.URLField(blank=True, null=True, default='https://res.cloudinary.com/dc68huvjj/image/upload/v1748119193/zzy3zwrius3kjrzp4ifc.png')
-    expo_token = models.CharField(max_length=100, blank=True, null=True)
-    verification_token = models.CharField(max_length=255, null=True, blank=True)
-    verification_token_expires = models.DateTimeField(null=True, blank=True)
-
-    USERNAME_FIELD = 'phone_number'
-    REQUIRED_FIELDS = ['full_name']
-
-    objects = UserManager()
+    date_joined = models.DateTimeField(default=timezone.now)
+    expo_token = models.CharField(max_length=100, default="hsvsx92jjs")
 
     def __str__(self):
         return f"{self.full_name} ({self.role})"
+
 
 
 

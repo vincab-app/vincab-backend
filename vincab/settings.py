@@ -42,12 +42,6 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
-}
-
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -59,8 +53,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-# auth
-AUTH_USER_MODEL = 'vincab_app.User'
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
@@ -102,10 +94,10 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'vincabdb_n6ch',
-        'USER': 'vincabdb_n6ch_user',
-        'PASSWORD': 'NKnwAdRGzvfe6UxRNGYJPp35htmHaJK4',
-        'HOST': 'dpg-d4h0s2ili9vc73dtt71g-a.oregon-postgres.render.com',
+        'NAME': 'vincabdb_5cmg',
+        'USER': 'vincabdb_5cmg_user',
+        'PASSWORD': 'YiagYSD36ER17AbnjJzS7i8iyWC4PDk8',
+        'HOST': 'dpg-d4hm1lfdiees73blmagg-a.oregon-postgres.render.com',
         'PORT': '5432',
     }
 }
