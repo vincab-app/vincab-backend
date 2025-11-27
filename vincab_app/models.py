@@ -18,6 +18,7 @@ class User(models.Model):
     firebase_uid = models.CharField(max_length=256, default="@vincab2025")
     current_lat = models.FloatField(null=True, blank=True, default=0.0)
     current_lng = models.FloatField(null=True, blank=True, default=0.0)
+    phone_verified = models.BooleanField(default=False)
     profile_image = models.URLField(blank=True, null=True, default='https://res.cloudinary.com/dc68huvjj/image/upload/v1748119193/zzy3zwrius3kjrzp4ifc.png')
     date_joined = models.DateTimeField(default=timezone.now)
     expo_token = models.CharField(max_length=100, default="hsvsx92jjs")

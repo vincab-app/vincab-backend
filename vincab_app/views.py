@@ -35,7 +35,7 @@ from django.utils.crypto import get_random_string
 # Local imports
 from .models import User, Notification, Vehicle, Ride, Payment, Driver, Rating, DriverPayment
 from .serializers import NotificationSerializer, VehicleSerializer, DriverSerializer, RideSerializer, PaymentSerializer, DashboardStatsSerializer
-from .utils import generate_email_verification_token, send_reset_email
+
 
 import os
 import json
@@ -59,7 +59,9 @@ database = firebase.database()
 service_account_info = json.loads(os.environ["FIREBASE_SERVICE_ACCOUNT"])
 # cred = credentials.Certificate("serviceAccountKey.json")
 cred = credentials.Certificate(service_account_info)
-firebase_admin.initialize_app(cred)
+# firebase_admin.initialize_app(cred)
+if not firebase_admin._apps:
+    firebase_admin.initialize_app(cred)
 
 def verify_firebase_token(view_func):
     def wrapper(request, *args, **kwargs):
@@ -119,6 +121,7 @@ def signin(request):
                 "user_email": db_user.email,
                 "phone_number": db_user.phone_number,
                 "role": db_user.role,
+                "phone_verified": db_user.phone_verified,
                 "profile_image": db_user.profile_image,
                 "date_joined": db_user.date_joined.strftime("%Y-%m-%d %H:%M:%S"),
             }
@@ -140,6 +143,13 @@ def signup(request):
 
     if not all([full_name, phone_number, email, password]):
         return JsonResponse({"message": "Missing fields"}, status=400)
+
+    # check if email already exists in firebase
+    try:
+        existing_user = authe.get_user_by_email(email)
+        return JsonResponse({"message": "Email already exists"}, status=400)
+    except:
+        pass  # user does not exist, continue
 
     try:
         # Create user in Firebase
@@ -169,6 +179,30 @@ def signup(request):
     except Exception as e:
         return JsonResponse({"message": "Signup failed", "error": str(e)}, status=400)
 # end
+
+# api to mark phone as verified
+@api_view(['POST'])
+@verify_firebase_token
+def verify_phone(request):
+    firebase_uid = request.firebase_uid
+
+    try:
+        user = User.objects.get(firebase_uid=firebase_uid)
+        user.phone_verified = True
+        user.save()
+
+        # send notification
+        Notification.objects.create(
+            user=user,
+            message="Phone number verified successfully.",
+            is_read=False
+        )
+
+        return JsonResponse({"message": "Phone number verified successfully"}, status=200)
+
+    except User.DoesNotExist:
+        return JsonResponse({"message": "User not found"}, status=404)
+# end of phone verification api
 
 # start of delete account api
 @api_view(['DELETE'])
@@ -294,7 +328,7 @@ def driversignup(request):
 
     except Exception as e:
         print("Error:", str(e))
-        return JsonResponse({"message": "Signup failed", "error": str(e)}, status=500)
+        return JsonResponse({"message": "Signup failed", "error": str(e)}, status=400)
 
 #end of driver signup api
 
@@ -770,6 +804,12 @@ def update_ride_status(request):
                             f"You have been paid {ride.fare_amount} for completing the ride.",
                             {"ride_id": ride.id}
                         )
+                        # create notification
+                        Notification.objects.create(
+                            user=driver.user,
+                            message=f"You have been paid KES {driver_share} for completing ride {ride.id}.",
+                            is_read=False
+                        )
 
                     except Exception as payout_err:
                         print("Payout error:", payout_err)
@@ -959,6 +999,116 @@ def get_ride_details(request, rider_id):
         return JsonResponse({"error": "No active ride found for this rider"}, status=404)
 
 # end
+
+# start of daraja payment api
+# import base64
+# import datetime
+
+# from .utils import get_access_token
+
+# STK_PUSH_URL = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
+# SHORTCODE = '174379'
+# PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
+# CALLBACK_URL = 'https://8c452333b0b6.ngrok-free.app/mpesa_callback/'
+
+# def lipa_na_mpesa(request, phone_number, amount):
+#     access_token = get_access_token()
+#     if not access_token:
+#         return {"error": "Could not get access token"}
+
+#     timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+#     password = base64.b64encode(f"{SHORTCODE}{PASSKEY}{timestamp}".encode()).decode()
+
+#     headers = {"Authorization": f"Bearer {access_token}"}
+#     payload = {
+#         "BusinessShortCode": SHORTCODE,
+#         "Password": password,
+#         "Timestamp": timestamp,
+#         "TransactionType": "CustomerPayBillOnline",
+#         "Amount": amount,
+#         "PartyA": phone_number,
+#         "PartyB": SHORTCODE,
+#         "PhoneNumber": phone_number,
+#         "CallBackURL": CALLBACK_URL,
+#         "AccountReference": "VinCab",
+#         "TransactionDesc": "Payment for ride"
+#     }
+
+#     response = requests.post(STK_PUSH_URL, json=payload, headers=headers)
+#     # return response.json()
+#     return JsonResponse(response.json())
+
+# # callback endpoint to handle mpesa responses
+# from django.views.decorators.csrf import csrf_exempt
+# from django.http import JsonResponse
+# import json
+
+# @csrf_exempt
+# def mpesa_callback(request):
+#     if request.method == "POST":
+#         data = json.loads(request.body)
+#         # You can store payment info in your database here
+#         print(data)
+#         return JsonResponse({"ResultCode": 0, "ResultDesc": "Accepted"})
+#     return JsonResponse({"error": "Invalid request"})
+
+# # b2c payment api
+
+# B2C_URL = "https://sandbox.safaricom.co.ke/mpesa/b2c/v3/paymentrequest"
+
+# SHORTCODE = "600992"     # Your shortcode (Paybill/Till)
+# INITIATOR_NAME = "testapi"  # From Daraja
+# SECURITY_CREDENTIAL = "LOdHKAcraAmSLt0ktpXPggiIoJdXXtqisq5TpkpD31HTFE9QlOSFHscHsK/jyLtJ9xX8E4ljw3S5J+Yz/IaH8irTPhnFCZik0vcConE+D2fgWXw9/4cFmOXizS2IxMXmTpLyST5+YLGNWAnwVV8VTTYu1ppQBRog6FWQ3dEUvUDOylIVy5kX9p1J6HdFOay6LLqb/7/y7LJy6n7R+6tEwWXmigwdeGueMkaOUUuujEo6T87Hw3bvpFbEx+WkY9bIKGKZNoHk9NUQWyHQleLIRISyhRlrh9WrekFGx7ONaGT/gL8HHj4RWoSCujJ/IA0EE6wWrptZc1jcWfgKtGWECg=="  # Encrypted initiator password
+
+# CALLBACK_URL = "https://8c452333b0b6.ngrok-free.app/b2c_callback/"
+
+# import uuid
+
+# originator_id = str(uuid.uuid4())
+
+
+# def send_b2c_payment(request, phone_number, amount):
+#     token = get_access_token()
+#     headers = {"Authorization": f"Bearer {token}"}
+
+#     payload = {
+#         "OriginatorConversationID": originator_id,
+#         "InitiatorName": INITIATOR_NAME,
+#         "SecurityCredential": SECURITY_CREDENTIAL,
+#         "CommandID": "BusinessPayment",  # options: BusinessPayment, SalaryPayment, PromotionPayment
+#         "Amount": amount,
+#         "PartyA": SHORTCODE,
+#         "PartyB": phone_number,
+#         "Remarks": "Payment",
+#         "QueueTimeOutURL": CALLBACK_URL,
+#         "ResultURL": CALLBACK_URL,
+#         "Occasion": "Salary"
+#     }
+
+#     response = requests.post(B2C_URL, json=payload, headers=headers)
+#     # return response.json()
+#     return JsonResponse(response.json())
+
+# # b2c callback endpoint
+# from django.views.decorators.csrf import csrf_exempt
+# from django.http import JsonResponse
+# import json
+
+# @csrf_exempt
+# def b2c_callback(request):
+#     if request.method == "POST":
+#         data = json.loads(request.body)
+
+#         # Store the transaction in DB if you want
+#         print("B2C Response:", data)
+
+#         return JsonResponse({"ResultCode": 0, "ResultDesc": "Success"})
+
+#     return JsonResponse({"error": "Invalid request"})
+
+
+
+# end of daraja payment api
 
 # api to get completed rides
 @api_view(["GET"])

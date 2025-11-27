@@ -1,27 +1,14 @@
-from django.contrib.auth.tokens import default_token_generator
-from django.utils.http import urlsafe_base64_encode
-from django.utils.encoding import force_bytes
+import requests
+from requests.auth import HTTPBasicAuth
 
-def generate_email_verification_token(user):
-    uid = urlsafe_base64_encode(force_bytes(user.pk))
-    token = default_token_generator.make_token(user)
-    return uid, token
+CONSUMER_KEY = 'Jl8NQACFGn5Sz3IOjeetjpTNU7FqtAWs5tdd3WdPy3J6KMYh'
+CONSUMER_SECRET = 'DAbG0G5EAVB0lNOPaLGEsCXN8azmSgKgGnIw9q1Zi6hmXvKojBE9r0CJR4MByqvw'
+OAUTH_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
 
-# email
-from django.core.mail import EmailMultiAlternatives
-from django.template.loader import render_to_string
-from django.conf import settings
-
-def send_reset_email(email, token):
-    reset_link = f"http://192.168.100.5:8000/reset-password/{token}"  # update with frontend URL
-
-    subject = "Reset Your VinCab Password"
-    from_email = settings.DEFAULT_FROM_EMAIL
-    to = [email]
-
-    text_content = f"Click the link to reset your password: {reset_link}"
-    html_content = render_to_string("reset_email.html", {"reset_link": reset_link})
-
-    msg = EmailMultiAlternatives(subject, text_content, from_email, to)
-    msg.attach_alternative(html_content, "text/html")
-    msg.send()
+def get_access_token():
+    response = requests.get(OAUTH_URL, auth=HTTPBasicAuth(CONSUMER_KEY, CONSUMER_SECRET))
+    if response.status_code == 200:
+        access_token = response.json()['access_token']
+        return access_token
+    else:
+        return None
