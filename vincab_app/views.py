@@ -1278,6 +1278,84 @@ def get_all_riders(request):
         return JsonResponse({"error": str(e)}, status=500)
 # end of api to get all riders
 
+# api to get a single rider
+@api_view(['GET'])
+@verify_firebase_token
+def get_single_rider(request, rider_id):
+    try:
+        rider = User.objects.get(id=rider_id, role="rider")
+
+        rider_data = {
+            "id": rider.id,
+            "full_name": rider.full_name,
+            "email": rider.email,
+            "phone_number": rider.phone_number,
+            "profile_image": rider.profile_image,
+            "current_lat": rider.current_lat,
+            "current_lng": rider.current_lng,
+            "date_joined": rider.date_joined,
+            "expo_token": rider.expo_token,
+            "phone_verified": rider.phone_verified,
+            "is_active": rider.is_active,   # useful for block/recover
+        }
+
+        return JsonResponse({"rider": rider_data}, status=200)
+
+    except User.DoesNotExist:
+        return JsonResponse({"error": "Rider not found"}, status=404)
+
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+# end of api to get single rider
+
+
+# api for admin actions
+@api_view(['POST'])
+@verify_firebase_token
+def admin_rider_action(request):
+    uid = request.data.get("user_id")
+    action = request.data.get("action")
+
+    rider = get_object_or_404(User, id=uid, role="rider")
+
+    try:
+        # BLOCK USER
+        if action == "block":
+            rider.is_active = False
+            rider.save()
+            return Response({"message": "Rider blocked successfully"})
+
+        # RECOVER USER
+        elif action == "recover":
+            rider.is_active = True
+            rider.phone_verified = False
+            rider.save()
+            return Response({"message": "Rider recovered successfully"})
+
+        # DELETE USER (LOCAL + FIREBASE)
+        elif action == "delete":
+            firebase_uid = rider.firebase_uid  #must exist in DB
+
+            # DELETE FROM FIREBASE AUTH
+            try:
+                auth.delete_user(firebase_uid)
+            except auth.UserNotFoundError:
+                pass  # Already deleted or never existed
+
+            # DELETE FROM DJANGO DB
+            rider.delete()
+
+            return Response({"message": "Rider deleted completely"})
+
+        else:
+            return Response({"error": "Invalid action"}, status=400)
+
+    except Exception as e:
+        return Response({"error": str(e)}, status=500)
+
+
+# end of api for admin actions
+
 
 # api to get all rides
 @api_view(["GET"])
