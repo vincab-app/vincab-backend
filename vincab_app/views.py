@@ -751,6 +751,99 @@ def get_requested_rides(request, user_id):
         })
 
     return JsonResponse(ride_list, safe=False)
+# end of get requested rides api
+
+# transfer money to members using paystack
+def send_mpesa_payout(phone_number, name, amount_kes, reason="Payout"):
+    # PAYSTACK_SECRET_KEY = os.getenv("PAYSTACK_SECRET_KEY")
+    PAYSTACK_SECRET_KEY = "sk_test_a60107fb70a0a8424b1ce810d3c677a4229b168e"
+
+    headers = {
+        "Authorization": f"Bearer {PAYSTACK_SECRET_KEY}",
+        "Content-Type": "application/json"
+    }
+
+    # ✅ Normalize phone number (2547XXXXXXXX)
+    phone_number = phone_number.replace("+", "").strip()
+
+    # ========== STEP 1: CREATE RECIPIENT ==========
+    recipient_payload = {
+        "type": "mobile_money",
+        "name": name,
+        "account_number": phone_number,
+        "bank_code": "MPESA",
+        "currency": "KES"
+    }
+
+    try:
+        recipient_res = requests.post(
+            "https://api.paystack.co/transferrecipient",
+            json=recipient_payload,
+            headers=headers,
+            timeout=30
+        )
+        recipient_data = recipient_res.json()
+    except Exception as e:
+        return {"success": False, "error": f"Recipient network error: {str(e)}"}
+
+    if not recipient_data.get("status"):
+        return {
+            "success": False,
+            "stage": "create_recipient",
+            "error": recipient_data.get("message")
+        }
+
+    recipient_code = recipient_data["data"]["recipient_code"]
+
+    # ========== STEP 2: SEND TRANSFER ==========
+    transfer_payload = {
+        "source": "balance",
+        "amount": int(float(amount_kes) * 100),  # ✅ Convert KES to subunit
+        "recipient": recipient_code,
+        "reason": reason
+    }
+
+    try:
+        transfer_res = requests.post(
+            "https://api.paystack.co/transfer",
+            json=transfer_payload,
+            headers=headers,
+            timeout=30
+        )
+        transfer_data = transfer_res.json()
+    except Exception as e:
+        return {"success": False, "error": f"Transfer network error: {str(e)}"}
+
+    if not transfer_data.get("status"):
+        return {
+            "success": False,
+            "stage": "transfer",
+            "error": transfer_data.get("message")
+        }
+
+    status = transfer_data["data"]["status"]
+
+    return {
+        "success": True,
+        "message": "Payout initiated",
+        "reference": transfer_data["data"]["reference"],
+        "transfer_code": transfer_data["data"]["transfer_code"],
+        "amount": transfer_data["data"]["amount"],
+        "recipient": transfer_data["data"]["recipient"],
+        "status": status,   # pending | success | failed
+    }
+
+# end of send_mpesa_payout function
+
+@api_view(["POST"])
+def payout_view(request):
+    phone = request.data["phone"]
+    name = request.data["name"]
+    amount = request.data["amount"]
+
+    result = send_mpesa_payout(phone, name, amount)
+
+    return JsonResponse(result, status=200 if result.get("success") else 400)
 
 
 
@@ -760,85 +853,129 @@ import requests
 from decimal import Decimal
 
 @csrf_exempt
+# @verify_firebase_token
+@api_view(['POST'])
 def update_ride_status(request):
-    if request.method == "POST":
-        try:
-            data = json.loads(request.body)
-            status = data.get("status")
-            ride_id = data.get("ride_id")
-            rider_id = data.get("rider_id")
+    if request.method != "POST":
+        return JsonResponse({"error": "Invalid request"}, status=400)
 
-            ride = Ride.objects.get(id=ride_id)
-            ride.status = status
-            ride.save()
+    try:
+        data = json.loads(request.body)
+        status = data.get("status")
+        ride_id = data.get("ride_id")
+        rider_id = data.get("rider_id")
 
-            rider = User.objects.get(id=rider_id)
+        ride = Ride.objects.select_related("driver").get(id=ride_id)
+        ride.status = status
+        ride.save()
 
-            # ✅ Handle driver availability + payout
-            if ride.driver:
-                driver = ride.driver  
+        rider = User.objects.get(id=rider_id)
+        payment = Payment.objects.get(ride=ride)
+        print("From update ride status", payment.method)
 
-                if status.lower() == "completed":
-                    # Mark driver as active again
-                    driver.status = "active"
-                    driver.save()
-                    driver_share = Decimal("0.8") * Decimal(str(ride.estimated_fare))
+        # ✅ DRIVER STATUS HANDLING
+        driver = getattr(ride, "driver", None)
 
-                    # --- Send payout to driver ---
-                    payout_payload = {
-                        "driverPhone": driver.user.phone_number,   # make sure model has phone_number
-                        "amount": str(driver_share)          # adjust to your fare/amount field
-                    }
-                    try:
-                        payout_response = requests.post(
-                            "https://vincab-payment-1.onrender.com/payout/",   # your Node.js payout API
-                            json=payout_payload,
-                            timeout=15
-                        )
-                        payout_result = payout_response.json()
+        # ✅ DRIVER PAYOUT
+        if driver and status.lower() == "completed":
 
-                        # ✅ Send push notification to driver
-                        send_push_notification(
-                            driver.expo_token,
-                            "Payout Received",
-                            f"You have been paid {ride.fare_amount} for completing the ride.",
-                            {"ride_id": ride.id}
-                        )
-                        # create notification
-                        Notification.objects.create(
-                            user=driver.user,
-                            message=f"You have been paid KES {driver_share} for completing ride {ride.id}.",
-                            is_read=False
-                        )
+            driver.status = "active"
+            driver.save()
 
-                    except Exception as payout_err:
-                        print("Payout error:", payout_err)
+            driver_share = Decimal("0.90") * Decimal(str(ride.estimated_fare))
 
-                elif status.lower() == "canceled":
-                    driver.status = "active"
-                    driver.save()
+            driver_payment = DriverPayment.objects.get(driver=driver, payment=payment)
 
-                elif status.lower() == "in_progress":
-                    driver.status = "busy"
-                    driver.save()
+            payout_method = payment.method.lower()
+            print("Payout method:", payout_method)
 
-            # ✅ Notify rider about ride status
-            extra_data = {"ride_id": ride_id}
-            send_push_notification(
-                rider.expo_token,
-                "Ride Update",
-                f"Your ride request has been updated. Status: {status}",
-                extra_data
+            payout_success = False
+            payout_response = {}
+
+            # ✅ MPESA PAYOUT
+            if payout_method == "mpesa":
+                payout_response = send_b2c_payment(
+                    phone_number=driver.user.phone_number,
+                    amount=float(driver_share)
+                )
+
+                if payout_response.get("ResponseCode") == "0":
+                    payout_success = True
+
+                    driver_payment.originator_conversation_id = payout_response.get("OriginatorConversationID")
+                    driver_payment.conversation_id = payout_response.get("ConversationID")
+                    driver_payment.status = "processing"
+                    driver_payment.save()
+
+            # ✅ PAYSTACK PAYOUT
+            elif payout_method == "paystack":
+
+                payout_payload = {
+                    "phone_number": driver.user.phone_number,
+                    "amount": int(driver_share * 100),  # in kobo
+                    "name": driver.user.full_name
+                }
+
+                payout_response = requests.post(
+                    "https://vincab-payment-1.onrender.com/payout/",
+                    json=payout_payload,
+                    timeout=15
+                ).json()
+
+                if payout_response.get("success") is True:
+                    payout_success = True
+                    driver_payment.reference = payout_response.get("reference")
+                    driver_payment.status = "processing"
+                    driver_payment.save()
+
+            # ✅ NOTIFICATIONS
+            if payout_success:
+                message = f"You've been paid KES {driver_share}. Payout processing."
+            else:
+                message = "Payout could not be processed. Admin will resolve."
+
+            send_push_notification(driver.user.expo_token, "Ride Payout", message, {"ride_id": ride.id})
+
+            Notification.objects.create(
+                user=driver.user,
+                message=message,
+                is_read=False
             )
 
-            return JsonResponse({"message": "Ride status updated", "status": ride.status})
+        # ✅ DRIVER AVAILABILITY
+        elif driver:
+            if status.lower() == "canceled":
+                driver.status = "active"
+            elif status.lower() == "in_progress":
+                driver.status = "busy"
+            driver.save()
 
-        except Ride.DoesNotExist:
-            return JsonResponse({"error": "Ride not found"}, status=404)
-        except User.DoesNotExist:
-            return JsonResponse({"error": "Rider not found"}, status=404)
+        # ✅ RIDER NOTIFICATION
+        send_push_notification(
+            rider.expo_token,
+            "Ride Update",
+            f"Your ride is now {status.upper()}",
+            {"ride_id": ride.id}
+        )
 
-    return JsonResponse({"error": "Invalid request"}, status=400)
+        return JsonResponse({
+            "message": "Ride updated",
+            "ride_status": ride.status,
+            "payment_method": payment.method
+        })
+
+    except Ride.DoesNotExist:
+        return JsonResponse({"error": "Ride not found"}, status=404)
+
+    except User.DoesNotExist:
+        return JsonResponse({"error": "Rider not found"}, status=404)
+
+    except DriverPayment.DoesNotExist:
+        return JsonResponse({"error": "DriverPayment record missing"}, status=500)
+
+    except Exception as e:
+        print("ERROR:", e)
+        return JsonResponse({"error": "Server error", "details": str(e)}, status=500)
 
 
 
@@ -1001,112 +1138,189 @@ def get_ride_details(request, rider_id):
 # end
 
 # start of daraja payment api
-# import base64
-# import datetime
+import base64
+import datetime
 
-# from .utils import get_access_token
+from .utils import get_access_token
 
-# STK_PUSH_URL = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
-# SHORTCODE = '174379'
-# PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
-# CALLBACK_URL = 'https://8c452333b0b6.ngrok-free.app/mpesa_callback/'
+STK_PUSH_URL = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
+DARAJA_SHORTCODE = '174379'
+DARAJA_PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
+CALLBACK_URL = 'https://9f3ad22887df.ngrok-free.app/mpesa_callback/'
 
-# def lipa_na_mpesa(request, phone_number, amount):
-#     access_token = get_access_token()
-#     if not access_token:
-#         return {"error": "Could not get access token"}
+def lipa_na_mpesa(phone_number, amount):
+    # convert amount to int
+    amount = int(amount)
+    access_token = get_access_token()
+    if not access_token:
+        return {"error": "Could not get access token"}
 
-#     timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
-#     password = base64.b64encode(f"{SHORTCODE}{PASSKEY}{timestamp}".encode()).decode()
+    timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+    password = base64.b64encode(f"{DARAJA_SHORTCODE}{DARAJA_PASSKEY}{timestamp}".encode()).decode()
 
-#     headers = {"Authorization": f"Bearer {access_token}"}
-#     payload = {
-#         "BusinessShortCode": SHORTCODE,
-#         "Password": password,
-#         "Timestamp": timestamp,
-#         "TransactionType": "CustomerPayBillOnline",
-#         "Amount": amount,
-#         "PartyA": phone_number,
-#         "PartyB": SHORTCODE,
-#         "PhoneNumber": phone_number,
-#         "CallBackURL": CALLBACK_URL,
-#         "AccountReference": "VinCab",
-#         "TransactionDesc": "Payment for ride"
-#     }
-
-#     response = requests.post(STK_PUSH_URL, json=payload, headers=headers)
-#     # return response.json()
-#     return JsonResponse(response.json())
-
-# # callback endpoint to handle mpesa responses
-# from django.views.decorators.csrf import csrf_exempt
-# from django.http import JsonResponse
-# import json
-
-# @csrf_exempt
-# def mpesa_callback(request):
-#     if request.method == "POST":
-#         data = json.loads(request.body)
-#         # You can store payment info in your database here
-#         print(data)
-#         return JsonResponse({"ResultCode": 0, "ResultDesc": "Accepted"})
-#     return JsonResponse({"error": "Invalid request"})
-
-# # b2c payment api
-
-# B2C_URL = "https://sandbox.safaricom.co.ke/mpesa/b2c/v3/paymentrequest"
-
-# SHORTCODE = "600992"     # Your shortcode (Paybill/Till)
-# INITIATOR_NAME = "testapi"  # From Daraja
-# SECURITY_CREDENTIAL = "LOdHKAcraAmSLt0ktpXPggiIoJdXXtqisq5TpkpD31HTFE9QlOSFHscHsK/jyLtJ9xX8E4ljw3S5J+Yz/IaH8irTPhnFCZik0vcConE+D2fgWXw9/4cFmOXizS2IxMXmTpLyST5+YLGNWAnwVV8VTTYu1ppQBRog6FWQ3dEUvUDOylIVy5kX9p1J6HdFOay6LLqb/7/y7LJy6n7R+6tEwWXmigwdeGueMkaOUUuujEo6T87Hw3bvpFbEx+WkY9bIKGKZNoHk9NUQWyHQleLIRISyhRlrh9WrekFGx7ONaGT/gL8HHj4RWoSCujJ/IA0EE6wWrptZc1jcWfgKtGWECg=="  # Encrypted initiator password
-
-# CALLBACK_URL = "https://8c452333b0b6.ngrok-free.app/b2c_callback/"
-
-# import uuid
-
-# originator_id = str(uuid.uuid4())
+    headers = {"Authorization": f"Bearer {access_token}"}
+    payload = {
+        "BusinessShortCode": DARAJA_SHORTCODE,
+        "Password": password,
+        "Timestamp": timestamp,
+        "TransactionType": "CustomerPayBillOnline",
+        "Amount": amount,
+        "PartyA": phone_number,
+        "PartyB": DARAJA_SHORTCODE,
+        "PhoneNumber": phone_number,
+        "CallBackURL": CALLBACK_URL,
+        "AccountReference": "VinCab",
+        "TransactionDesc": "Payment for ride"
+    }
+    print("SHORTCODE:", DARAJA_SHORTCODE)
+    print("PASSKEY:", DARAJA_PASSKEY)
+    print("TOKEN:", access_token)
+    print("URL:", STK_PUSH_URL)
 
 
-# def send_b2c_payment(request, phone_number, amount):
-#     token = get_access_token()
-#     headers = {"Authorization": f"Bearer {token}"}
+    response = requests.post(STK_PUSH_URL, json=payload, headers=headers)
+    return response.json()
+    # return JsonResponse(response.json())
 
-#     payload = {
-#         "OriginatorConversationID": originator_id,
-#         "InitiatorName": INITIATOR_NAME,
-#         "SecurityCredential": SECURITY_CREDENTIAL,
-#         "CommandID": "BusinessPayment",  # options: BusinessPayment, SalaryPayment, PromotionPayment
-#         "Amount": amount,
-#         "PartyA": SHORTCODE,
-#         "PartyB": phone_number,
-#         "Remarks": "Payment",
-#         "QueueTimeOutURL": CALLBACK_URL,
-#         "ResultURL": CALLBACK_URL,
-#         "Occasion": "Salary"
-#     }
+# callback endpoint to handle mpesa responses
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+import json
 
-#     response = requests.post(B2C_URL, json=payload, headers=headers)
-#     # return response.json()
-#     return JsonResponse(response.json())
+@csrf_exempt
+def mpesa_callback(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        stk = data.get("Body", {}).get("stkCallback", {})
+        result_code = stk.get("ResultCode")
+        checkout_request_id = stk.get("CheckoutRequestID")
+        try:
+            payment = Payment.objects.get(checkout_request_id=checkout_request_id)
+            if result_code == 0:
+                metadata = stk.get("CallbackMetadata", {}).get("Item", [])
+                meta = {i["Name"]: i.get("Value") for i in metadata}
+                payment.status = "paid"
+                payment.receipt_number = meta.get("MpesaReceiptNumber")
+                payment.paid_at = timezone.now()
+                payment.save()
+            else:
+                payment.status = "failed"
+                payment.save()
 
-# # b2c callback endpoint
-# from django.views.decorators.csrf import csrf_exempt
-# from django.http import JsonResponse
-# import json
+        except Payment.DoesNotExist:
+            print("Payment with CheckoutRequestID not found:", checkout_request_id)
 
-# @csrf_exempt
-# def b2c_callback(request):
-#     if request.method == "POST":
-#         data = json.loads(request.body)
+        print(data)
+        return JsonResponse({"ResultCode": 0, "ResultDesc": "Accepted"})
+    return JsonResponse({"error": "Invalid request"})
 
-#         # Store the transaction in DB if you want
-#         print("B2C Response:", data)
+# b2c payment api
 
-#         return JsonResponse({"ResultCode": 0, "ResultDesc": "Success"})
+B2C_URL = "https://sandbox.safaricom.co.ke/mpesa/b2c/v3/paymentrequest"
 
-#     return JsonResponse({"error": "Invalid request"})
+B2C_SHORTCODE = "600992"     # Your shortcode (Paybill/Till)
+INITIATOR_NAME = "testapi"  # From Daraja
+SECURITY_CREDENTIAL = "LOdHKAcraAmSLt0ktpXPggiIoJdXXtqisq5TpkpD31HTFE9QlOSFHscHsK/jyLtJ9xX8E4ljw3S5J+Yz/IaH8irTPhnFCZik0vcConE+D2fgWXw9/4cFmOXizS2IxMXmTpLyST5+YLGNWAnwVV8VTTYu1ppQBRog6FWQ3dEUvUDOylIVy5kX9p1J6HdFOay6LLqb/7/y7LJy6n7R+6tEwWXmigwdeGueMkaOUUuujEo6T87Hw3bvpFbEx+WkY9bIKGKZNoHk9NUQWyHQleLIRISyhRlrh9WrekFGx7ONaGT/gL8HHj4RWoSCujJ/IA0EE6wWrptZc1jcWfgKtGWECg=="  # Encrypted initiator password
+
+B2C_CALLBACK_URL = "https://9f3ad22887df.ngrok-free.app/b2c_callback/"
+
+import uuid
+
+mpesa_originator_id = str(uuid.uuid4())
 
 
+def send_b2c_payment(phone_number, amount):
+    # convert amount to int
+    amount = int(amount)
+    token = get_access_token()
+    headers = {"Authorization": f"Bearer {token}"}
+
+    payload = {
+        "OriginatorConversationID": mpesa_originator_id,
+        "InitiatorName": INITIATOR_NAME,
+        "SecurityCredential": SECURITY_CREDENTIAL,
+        "CommandID": "BusinessPayment",  # options: BusinessPayment, SalaryPayment, PromotionPayment
+        "Amount": amount,
+        "PartyA": B2C_SHORTCODE,
+        "PartyB": phone_number,
+        "Remarks": "Payment",
+        "QueueTimeOutURL": B2C_CALLBACK_URL,
+        "ResultURL": B2C_CALLBACK_URL,
+        "Occasion": "Salary"
+    }
+
+    response = requests.post(B2C_URL, json=payload, headers=headers)
+    return response.json()
+    # return JsonResponse(response.json())
+
+# b2c callback endpoint
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+import json
+
+@csrf_exempt
+@api_view(["POST"])
+def b2c_callback(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "Invalid request"}, status=400)
+
+    try:
+        data = json.loads(request.body)
+
+        result = data.get("Result", {})
+        result_code = result.get("ResultCode")
+        result_desc = result.get("ResultDesc")
+        originator_id = result.get("OriginatorConversationID")
+        conversation_id = result.get("ConversationID")
+        transaction_id = result.get("TransactionID")
+
+        # FIND PAYMENT RECORD
+        driver_payment = DriverPayment.objects.filter(
+            originator_conversation_id=originator_id
+        ).first()
+
+        if not driver_payment:
+            return JsonResponse({"error": "No driver payment found"}, status=404)
+
+        # SAVE CALLBACK DATA
+        driver_payment.conversation_id = conversation_id
+        driver_payment.transaction_id = transaction_id
+
+        #  HANDLE PAYOUT RESULT
+        if result_code == 2040:
+            driver_payment.status = "paid"
+
+            message = f"Your payout was successful. (Transaction ID: {transaction_id})"
+        else:
+            driver_payment.status = "failed"
+
+            message = f"Payout failed. Reason: {result_desc}"
+
+        driver_payment.result_code = result_code
+        driver_payment.result_description = result_desc
+        driver_payment.save()
+
+        # DRIVER NOTIFICATION
+        driver = driver_payment.driver
+        send_push_notification(
+            driver.user.expo_token,
+            "Mpesa Payout Update",
+            message,
+            {"transaction_id": transaction_id}
+        )
+
+        # CREATE IN-APP NOTIFICATION
+        Notification.objects.create(
+            user=driver.user,
+            message=message,
+            is_read=False
+        )
+
+        return JsonResponse({"ResultCode": 0, "ResultDesc": "Acknowledged"})
+
+    except Exception as e:
+        print("B2C CALLBACK ERROR:", e)
+        return JsonResponse({"ResultCode": 1, "ResultDesc": "Server Error"})
 
 # end of daraja payment api
 
@@ -1467,69 +1681,6 @@ def update_location(request):
 
 # paystack initialize payment
 PAYSTACK_SECRET_KEY = "sk_test_a60107fb70a0a8424b1ce810d3c677a4229b168e"
-# @api_view(["POST"])
-# def initialize_payment(request):
-#     amount = request.data.get("amount")   # ✅ you are sending this
-#     email = request.data.get("email", "customer@email.com")  # fallback email
-#     transaction_reference = request.data.get("transaction_reference")
-#     metadata = request.data.get("metadata", {})
-#     rider_id = request.data.get("rider_id")
-#     driver_id = request.data.get("driver_id")
-#     pickup_lat = request.data.get("pickup_lat")
-#     pickup_lng = request.data.get("pickup_lng")
-#     dropoff_lat = request.data.get("dropoff_lat")
-#     dropoff_lng = request.data.get("dropoff_lng")
-#     distance_km = request.data.get("distance_km")
-#     estimated_fare = request.data.get("estimated_fare")
-#     phone_number = request.data.get("phone_number", "N/A")
-#     print("Rider Id:", rider_id, "Driver Id:", driver_id, "Amount:", amount, "Reference:", transaction_reference)
-
-#     if not amount:
-#         return Response({"error": "Amount is required"}, status=400)
-
-#     try:
-#         amount = int(float(amount) * 100)  # convert to Kobo
-#     except Exception:
-#         return Response({"error": "Invalid amount"}, status=400)
-
-#     # ✅ 2. Check if rider has an incomplete ride
-#     existing_ride = Ride.objects.filter(
-#         rider=rider_id, 
-#         status__in=["pending","accepted", "ongoing"]
-#     ).first()
-
-#     if existing_ride:
-#         return JsonResponse({
-#             "error": "You already have an active ride.",
-#             "ride_id": existing_ride.id,
-#             "status": existing_ride.status
-#         }, status=210)
-
-#     payload = {
-#         "email": email,
-#         "amount": amount,
-#         "reference": transaction_reference,
-#         "callback_url": "https://vincab-backend.onrender.com/payment_callback/",
-        # "metadata": {
-        #     "rider_id": rider_id,
-        #     "driver_id": driver_id,
-        #     "pickup_lat": pickup_lat,
-        #     "pickup_lng": pickup_lng,
-        #     "dropoff_lat": dropoff_lat,
-        #     "dropoff_lng": dropoff_lng,
-        #     "distance_km": distance_km,
-        #     "estimated_fare": estimated_fare,
-        #     "phone_number": phone_number,
-        # }
-#     }
-#     # print("INITIALIZE PAYLOAD:", payload)
-
-#     headers = {"Authorization": f"Bearer {PAYSTACK_SECRET_KEY}"}
-#     res = requests.post("https://api.paystack.co/transaction/initialize", json=payload, headers=headers)
-
-#     return Response(res.json())
-
-
 
 # initiliaze payment 2
 @api_view(["POST"])
@@ -1546,9 +1697,10 @@ def initialize_payment(request):
     distance_km = request.data.get("distance_km")
     estimated_fare = request.data.get("estimated_fare")
     phone_number = request.data.get("phone_number", "N/A")
+    method = request.data.get("method", "paystack")  # default to paystack
 
     # print all the date sent
-    print("Rider Id:", rider_id, "Driver Id:", driver_id, "Amount:", amount, "Reference:", transaction_reference, "email:", email, "phonenumber:",phone_number)
+    print("Rider Id:", rider_id, "Driver Id:", driver_id, "Amount:", amount, "Reference:", transaction_reference, "email:", email, "phonenumber:",phone_number, "method:", method)
 
     if not all([amount, rider_id, driver_id]):
         return Response({"error": "Missing required fields"}, status=400)
@@ -1589,6 +1741,7 @@ def initialize_payment(request):
                 "distance_km": distance_km,
                 "estimated_fare": estimated_fare,
                 "phone_number": phone_number,
+                "method": method,
                 "transaction_reference": transaction_reference,
             }
         )
@@ -1614,11 +1767,15 @@ def confirm_ride(request):
     dropoff_lng = request.data.get("dropoff_lng")
     distance_km = request.data.get("distance_km")
     estimated_fare = request.data.get("estimated_fare")
-    phone_number = request.data.get("phone_number", "N/A")
+    phone_number = request.data.get("phone_number")
+    method = request.data.get("method")
+
+    print("Payment method", method)
 
     try:
         rider = User.objects.get(id=rider_id)
 
+        # ❌ Ride declined
         if not accepted:
             send_push_notification(
                 rider.expo_token,
@@ -1626,59 +1783,126 @@ def confirm_ride(request):
                 "The driver declined your ride request.",
                 {}
             )
-            return JsonResponse({"message": "Ride declined by driver"}, status=200)
+            return Response({"message": "Ride declined"}, status=200)
 
-        # Proceed to initialize payment
-        payload = {
-            "email": email,
-            "amount": int(float(amount) * 100),
-            "reference": transaction_reference,
-            "callback_url": "https://vincab-backend.onrender.com/payment_callback/",
-            "metadata": {
-                "rider_id": rider_id,
-                "driver_id": driver_id,
-                "pickup_lat": pickup_lat,
-                "pickup_lng": pickup_lng,
-                "dropoff_lat": dropoff_lat,
-                "dropoff_lng": dropoff_lng,
-                "distance_km": distance_km,
-                "estimated_fare": estimated_fare,
-                "phone_number": phone_number,
+        # ✅ MPESA PAYMENT
+        if method == "mpesa":
+            mpesa_response = lipa_na_mpesa(phone_number, amount)
+            print("MPESA RESPONSE:", mpesa_response)
+
+            # ✅ SUCCESS
+            if mpesa_response.get("ResponseCode") == "0":
+
+                platform_cut = float(amount) * 0.1
+                driver_share = float(amount) * 0.9
+
+                ride = Ride.objects.create(
+                    rider_id=rider_id,
+                    driver_id=driver_id,
+                    pickup_lat=pickup_lat,
+                    pickup_lng=pickup_lng,
+                    dropoff_lat=dropoff_lat,
+                    dropoff_lng=dropoff_lng,
+                    distance_km=distance_km,
+                    estimated_fare=estimated_fare,
+                    status="pending",
+                )
+
+                payment = Payment.objects.create(
+                    ride=ride,
+                    amount=platform_cut,
+                    method="mpesa",
+                    status="pending",
+                    transaction_reference=transaction_reference,
+                    checkout_request_id=mpesa_response.get("CheckoutRequestID"),
+                    merchant_request_id=mpesa_response.get("MerchantRequestID"),
+                    receipt_number="",
+                )
+
+                DriverPayment.objects.create(
+                    driver_id=driver_id,
+                    payment=payment,
+                    amount=driver_share
+                )
+
+                send_push_notification(
+                    rider.expo_token,
+                    "Ride Accepted 🚗",
+                    f"M-Pesa payment prompt sent to {phone_number}",
+                    {
+                        "ride_id": ride.id,
+                        "type": "mpesa"
+                    }
+                )
+
+                return Response({
+                    "success": True,
+                    "payment": "initiated",
+                    "ride_id": ride.id,
+                    "mpesa": mpesa_response
+                }, status=200)
+
+            # ❌ MPESA FAILED
+            send_push_notification(
+                rider.expo_token,
+                "Payment Failed",
+                "M-Pesa request could not be initiated.",
+                {}
+            )
+
+            return Response({
+                "success": False,
+                "error": "MPESA_INIT_FAILED",
+                "mpesa_response": mpesa_response
+            }, status=400)
+        
+        elif method == "paystack":
+            # PAYSTACK PAYMENT
+            payload = {
+                "email": email,
+                "amount": int(float(amount) * 100),
+                "reference": transaction_reference,
+                "callback_url": "https://vincab-backend.onrender.com/payment_callback/",
+                "metadata": {
+                    "rider_id": rider_id,
+                    "driver_id": driver_id,
+                    "pickup_lat": pickup_lat,
+                    "pickup_lng": pickup_lng,
+                    "dropoff_lat": dropoff_lat,
+                    "dropoff_lng": dropoff_lng,
+                    "distance_km": distance_km,
+                    "estimated_fare": estimated_fare,
+                    "phone_number": phone_number,
+                    "method": method
+                }
             }
-        }
 
-        headers = {"Authorization": f"Bearer {PAYSTACK_SECRET_KEY}"}
-        res = requests.post("https://api.paystack.co/transaction/initialize", json=payload, headers=headers)
+            headers = {"Authorization": f"Bearer {PAYSTACK_SECRET_KEY}"}
+            res = requests.post("https://api.paystack.co/transaction/initialize", json=payload, headers=headers)
+            data = res.json()
 
-        # ✅ Parse response BEFORE using it
-        data = res.json()
-        print(data)
+            checkout_url = data["data"]["authorization_url"]
+            reference = data["data"]["reference"]
 
-        # ✅ Now you can safely access
-        checkout_url = data["data"]["authorization_url"]
-        reference = data["data"]["reference"]
+            send_push_notification(
+                rider.expo_token,
+                "Ride Accepted 🚗",
+                f"Pay KES {amount} to start the ride",
+                {
+                    "type": "payment_url",
+                    "authorization_url": checkout_url,
+                    "transaction_reference": reference
+                }
+            )
 
-        send_push_notification(
-            rider.expo_token,
-            "Ride Accepted 🚗",
-            f"Your driver has accepted your ride. Tap to pay {amount} KES to start the ride.",
-            {
-                "type": "payment_url",
-                "authorization_url": checkout_url,
-                "transaction_reference": reference,
-            }
-        )
-
-        return Response(data, status=200)
+            return Response(data, status=200)
 
     except User.DoesNotExist:
-        return JsonResponse({"error": "Rider not found"}, status=404)
+        return Response({"error": "Rider not found"}, status=404)
+
     except Exception as e:
-        print("Error:", e)
-        return JsonResponse({"error": str(e)}, status=500)
-
-
-
+        print("ERROR:", str(e))
+        return Response({"error": "Server error", "details": str(e)}, status=500)
 
 # paystack payment callback
 

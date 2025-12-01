@@ -20,6 +20,7 @@ urlpatterns = [
     path('get_all_payments/', views.get_all_payments, name='get_all_payments'),
     path('get_driver_payments/<int:driver_id>/', views.get_driver_payments, name='get_driver_payments'),
     path('get_requested_rides/<int:user_id>/', views.get_requested_rides, name='get_requested_rides'),
+    path('payout_view/', views.payout_view, name='payout_view'),
     path('update_ride_status/', views.update_ride_status, name='update_ride_status'),
     path('send_expo_token/<int:user_id>/<str:expo_token>/', views.send_expo_token, name='send_expo_token'),
     path('notify_driver/', views.notify_driver, name='notify_driver'),
@@ -29,9 +30,9 @@ urlpatterns = [
     path('get_ride_details/<int:rider_id>/', views.get_ride_details, name='get_ride_details'),
 
     # path('lipa_na_mpesa/<str:phone_number>/<str:amount>/', views.lipa_na_mpesa, name='lipa_na_mpesa'),
-    # path('mpesa_callback/', views.mpesa_callback, name='mpesa_callback'),
+    path('mpesa_callback/', views.mpesa_callback, name='mpesa_callback'),
     # path('send_b2c_payment/<str:phone_number>/<str:amount>/', views.send_b2c_payment, name='send_b2c_payment'),
-    # path('b2c_callback/', views.b2c_callback, name='b2c_callback'),
+    path('b2c_callback/', views.b2c_callback, name='b2c_callback'),
 
 
     path('get_completed_rides/<int:rider_id>/', views.get_completed_rides, name='get_completed_rides'),
