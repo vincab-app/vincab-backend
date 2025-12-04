@@ -36,6 +36,7 @@ from django.utils.crypto import get_random_string
 from .models import User, Notification, Vehicle, Ride, Payment, Driver, Rating, DriverPayment
 from .serializers import NotificationSerializer, VehicleSerializer, DriverSerializer, RideSerializer, PaymentSerializer, DashboardStatsSerializer
 
+from .utils import get_access_token, normalize_phone
 
 import os
 import json
@@ -910,17 +911,22 @@ def update_ride_status(request):
             # ✅ PAYSTACK PAYOUT
             elif payout_method == "paystack":
 
-                payout_payload = {
-                    "phone_number": driver.user.phone_number,
-                    "amount": int(driver_share * 100),  # in kobo
-                    "name": driver.user.full_name
-                }
+                # payout_payload = {
+                #     "phone_number": driver.user.phone_number,
+                #     "amount": int(driver_share * 100),  # in kobo
+                #     "name": driver.user.full_name
+                # }
 
-                payout_response = requests.post(
-                    "https://vincab-payment-1.onrender.com/payout/",
-                    json=payout_payload,
-                    timeout=15
-                ).json()
+                # payout_response = requests.post(
+                #     "https://vincab-payment-1.onrender.com/payout/",
+                #     json=payout_payload,
+                #     timeout=15
+                # ).json()
+                try:
+                    phone = normalize_phone(driver.user.phone_number)
+                except ValueError:
+                    return Response({"error": "Invalid phone number format"}, status=400)
+                payout_response = send_mpesa_payout(phone, driver.user.full_name, int(driver_share * 100))
 
                 if payout_response.get("success") is True:
                     payout_success = True
@@ -1140,8 +1146,6 @@ def get_ride_details(request, rider_id):
 # start of daraja payment api
 import base64
 import datetime
-
-from .utils import get_access_token
 
 STK_PUSH_URL = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
 DARAJA_SHORTCODE = '174379'
@@ -1584,6 +1588,7 @@ def get_all_rides(request):
 
 # payments/views.py
 @api_view(["GET"])
+@verify_firebase_token
 def get_all_payments(request):
     payments = Payment.objects.select_related("ride__rider", "ride__driver__user").all().order_by("-paid_at")
     serializer = PaymentSerializer(payments, many=True)
@@ -1607,19 +1612,19 @@ def dashboard_stats(request):
 
     # Earnings - only successful payments
     daily_earnings = Payment.objects.filter(
-        status="success", paid_at__date=today
+        status="paid", paid_at__date=today
     ).aggregate(total=Sum("amount"))["total"] or 0
 
     weekly_earnings = Payment.objects.filter(
-        status="success", paid_at__date__gte=start_of_week
+        status="paid", paid_at__date__gte=start_of_week
     ).aggregate(total=Sum("amount"))["total"] or 0
 
     monthly_earnings = Payment.objects.filter(
-        status="success", paid_at__date__gte=start_of_month
+        status="paid", paid_at__date__gte=start_of_month
     ).aggregate(total=Sum("amount"))["total"] or 0
 
     yearly_earnings = Payment.objects.filter(
-        status="success", paid_at__date__gte=start_of_year
+        status="paid", paid_at__date__gte=start_of_year
     ).aggregate(total=Sum("amount"))["total"] or 0
 
     data = {
