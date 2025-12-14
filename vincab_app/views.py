@@ -38,6 +38,10 @@ from .serializers import NotificationSerializer, VehicleSerializer, DriverSerial
 
 from .utils import get_access_token, normalize_phone
 
+import logging
+logger = logging.getLogger("backend")
+
+
 import os
 import json
 
@@ -112,6 +116,8 @@ def signin(request):
         # Email verified → Continue login
         uid = info["users"][0]["localId"]
         db_user = User.objects.filter(firebase_uid=uid).first()
+        # log user action
+        logger.info(f"User sign in: Email: {email}, Name: {db_user.full_name}")
 
         return JsonResponse({
             "message": "Login successful",
@@ -167,6 +173,9 @@ def signup(request):
             phone_number=phone_number,
             email=email
         )
+        # log user action
+        logger.info(f"User sign up: Email: {email}, Name: {full_name}")
+
         # create welcome notification
         db_user = User.objects.get(firebase_uid=uid)
         Notification.objects.create(
@@ -2071,4 +2080,19 @@ def update_driver_status(request, driver_id):
     except Driver.DoesNotExist:
         return Response({"error": "Driver not found"}, status=404)
 
+# api for admin to send push notifications to all users
+@api_view(["POST"])
+@verify_firebase_token
+def send_push_notification_to_all_users(request):
+    try:
+        message = request.data.get("message")
+        title = request.data.get("title")
+        data = request.data.get("data")
 
+        users = User.objects.all()
+        for user in users:
+            send_push_notification(user.expo_token, title, message, data)
+
+        return Response({"message": "Push notifications sent successfully"}, status=200)
+    except Exception as e:
+        return Response({"error": str(e)}, status=400)

@@ -1,0 +1,39 @@
+[2025-12-14 10:08:09,634] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-14 10:09:31,720] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab/settings.py changed, reloading.
+[2025-12-14 10:09:32,337] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-14 10:09:45,458] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab/settings.py changed, reloading.
+[2025-12-14 10:09:46,067] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-14 10:10:47,558] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2025-12-14 10:10:48,222] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-14 10:11:33,255] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2025-12-14 10:11:33,847] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-14 10:12:45,434] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2025-12-14 10:12:46,103] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-14 10:13:00,281] INFO backend User sign in ushindigideon01@gmail.com
+[2025-12-14 10:13:00,283] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2025-12-14 10:13:00,285] INFO django.server "POST /signin/ HTTP/1.1" 200 1298
+[2025-12-14 10:14:00,052] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2025-12-14 10:14:00,658] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-14 10:14:09,521] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushindi
+[2025-12-14 10:14:09,523] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2025-12-14 10:14:09,524] INFO django.server "POST /signin/ HTTP/1.1" 200 1298
+[2025-12-14 10:16:14,522] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2025-12-14 10:16:15,227] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-14 10:19:03,995] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2025-12-14 10:19:04,669] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-14 10:20:34,899] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2025-12-14 10:20:35,491] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-14 10:24:24,045] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2025-12-14 10:24:24,680] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-14 10:24:39,807] INFO backend POST /send_push_notification/ | User: anonymous | Status: 200
+[2025-12-14 10:24:39,807] INFO django.server "POST /send_push_notification/ HTTP/1.1" 200 50
+[2025-12-14 10:28:03,411] INFO backend POST /send_push_notification/ | User: anonymous | Status: 200
+[2025-12-14 10:28:03,412] INFO django.server "POST /send_push_notification/ HTTP/1.1" 200 50
+[2025-12-14 10:59:39,973] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-14 11:00:16,067] INFO django.server "OPTIONS /send_push_notification/ HTTP/1.1" 200 0
+[2025-12-14 11:00:22,810] INFO backend POST /send_push_notification/ | User: anonymous | Status: 200
+[2025-12-14 11:00:22,811] INFO django.server "POST /send_push_notification/ HTTP/1.1" 200 50
+[2025-12-14 11:04:18,540] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2025-12-14 11:04:19,198] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-14 11:06:53,750] INFO backend POST /send_push_notification/ | User: anonymous | Status: 200
+[2025-12-14 11:06:53,751] INFO django.server "POST /send_push_notification/ HTTP/1.1" 200 50

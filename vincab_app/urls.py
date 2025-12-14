@@ -50,5 +50,6 @@ urlpatterns = [
     path('confirm_ride/', views.confirm_ride, name='confirm_ride'),
     path('payment_callback/', views.payment_callback, name='payment_callback'),
     path('update_driver_status/<int:driver_id>/', views.update_driver_status, name='update_driver_status'),
+    path('send_push_notification/', views.send_push_notification_to_all_users, name='send_push_notification_to_all_users'),
     
 ]
