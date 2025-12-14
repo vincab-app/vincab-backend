@@ -43,14 +43,14 @@ import json
 
 
 config = {
-    "apiKey": "AIzaSyA4rY0QdPta2Y_EnXlQnRMP65ooCHKmkAU",
-    "authDomain": "vincab-b1fd6.firebaseapp.com",
-    "databaseURL": "https://vincab-b1fd6-default-rtdb.firebaseio.com/",
-    "projectId": "vincab-b1fd6",
-    "storageBucket": "vincab-b1fd6.firebasestorage.app",
-    "messagingSenderId": "734798694430",
-   " appId": "1:734798694430:web:3eb12298a075fa15ac860f",
-   " measurementId": "G-44KSWZVPDR"
+    "apiKey": os.environ.get("FIREBASE_API_KEY"),
+    "authDomain": os.environ.get("FIREBASE_AUTH_DOMAIN"),
+    "databaseURL": os.environ.get("FIREBASE_DATABASE_URL"),
+    "projectId": os.environ.get("FIREBASE_PROJECT_ID"),
+    "storageBucket": os.environ.get("FIREBASE_STORAGE_BUCKET"),
+    "messagingSenderId": os.environ.get("FIREBASE_MESSAGING_SENDER_ID"),
+    "appId": os.environ.get("FIREBASE_APP_ID"),
+    "measurementId": os.environ.get("FIREBASE_MEASUREMENT_ID")
 }
 firebase = pyrebase.initialize_app(config)
 authe = firebase.auth() 
