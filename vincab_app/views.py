@@ -756,8 +756,7 @@ def get_requested_rides(request, user_id):
 
 # transfer money to members using paystack
 def send_mpesa_payout(phone_number, name, amount_kes, reason="Payout"):
-    # PAYSTACK_SECRET_KEY = os.getenv("PAYSTACK_SECRET_KEY")
-    PAYSTACK_SECRET_KEY = "sk_test_a60107fb70a0a8424b1ce810d3c677a4229b168e"
+    PAYSTACK_SECRET_KEY = os.environ.get("PAYSTACK_SECRET_KEY")
 
     headers = {
         "Authorization": f"Bearer {PAYSTACK_SECRET_KEY}",
