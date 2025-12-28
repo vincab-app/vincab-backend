@@ -37,3 +37,28 @@
 [2025-12-14 11:04:19,198] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2025-12-14 11:06:53,750] INFO backend POST /send_push_notification/ | User: anonymous | Status: 200
 [2025-12-14 11:06:53,751] INFO django.server "POST /send_push_notification/ HTTP/1.1" 200 50
+[2025-12-28 18:22:38,393] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-28 18:26:38,122] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2025-12-28 18:26:44,862] INFO backend GET / | User: anonymous | Status: 200
+[2025-12-28 18:26:44,864] INFO django.server "GET / HTTP/1.1" 200 12
+[2025-12-28 18:26:44,986] INFO backend GET /favicon.ico | User: anonymous | Status: 404
+[2025-12-28 18:26:44,987] WARNING django.request Not Found: /favicon.ico
+[2025-12-28 18:26:44,987] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 13842
+[2025-12-28 18:26:49,453] INFO backend GET /admin/ | User: anonymous | Status: 302
+[2025-12-28 18:26:49,453] INFO django.server "GET /admin/ HTTP/1.1" 302 0
+[2025-12-28 18:26:49,712] INFO backend GET /admin/login/ | User: anonymous | Status: 200
+[2025-12-28 18:26:49,713] INFO django.server "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4173
+[2025-12-28 18:26:49,998] INFO django.server "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[2025-12-28 18:26:50,038] INFO django.server "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[2025-12-28 18:26:50,041] INFO django.server "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[2025-12-28 18:26:50,042] INFO django.server "GET /static/admin/css/login.css HTTP/1.1" 304 0
+[2025-12-28 18:26:50,182] INFO django.server "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[2025-12-28 18:26:50,441] INFO django.server "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[2025-12-28 18:26:50,531] INFO django.server "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+[2025-12-28 18:27:09,666] INFO backend POST /admin/login/ | User: vincab | Status: 302
+[2025-12-28 18:27:10,628] INFO django.server "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2025-12-28 18:27:13,909] INFO backend GET /admin/ | User: vincab | Status: 200
+[2025-12-28 18:27:13,911] INFO django.server "GET /admin/ HTTP/1.1" 200 11567
+[2025-12-28 18:27:14,057] INFO django.server "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[2025-12-28 18:27:14,085] INFO django.server "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[2025-12-28 18:27:14,091] INFO django.server "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
