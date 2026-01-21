@@ -1,17 +1,17 @@
 from django.urls import path
 from . import views
+from vincab_app.api_views.auth import *
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('signin/', views.signin, name='signin'),
-    path('delete_account/', views.delete_account, name='delete_account'),
-    path('verify_phone/', views.verify_phone, name='verify_phone'),
-    path('signup/', views.signup, name='signup'),
-    # path('verify_email/<str:token>/', views.verify_email, name='verify_email'),
-    path('request_password_reset/', views.request_password_reset, name='request_password_reset'),
-    # path('verify_reset_token/<str:token>/', views.verify_reset_token, name='verify_reset_token'),
-    # path('reset_password/', views.reset_password, name='reset_password'),
-    path('driversignup/', views.driversignup, name='driversignup'),
+    path('refresh_token', refresh_token, name='refresh_token'),
+    path('signin/', signin, name='signin'),
+    path('delete_account/', delete_account, name='delete_account'),
+    path('verify_phone/', verify_phone, name='verify_phone'),
+    path('signup/', signup, name='signup'),
+    path('request_password_reset/', request_password_reset, name='request_password_reset'),
+    path('driversignup/', driversignup, name='driversignup'),
+
     path('get_user_notifications/<str:user_id>/', views.get_user_notifications, name='get_user_notifications'),
     path('nearby_vehicles/<str:lat>/<str:lng>/', views.nearby_vehicles, name='nearby_vehicles'),
     path('create_ride_and_payment/', views.create_ride_and_payment, name='create_ride_and_payment'),
