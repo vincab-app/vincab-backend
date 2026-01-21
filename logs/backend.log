@@ -496,3 +496,342 @@
 [2026-01-21 13:47:04,205] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/utils.py changed, reloading.
 [2026-01-21 13:47:04,910] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-01-21 13:54:07,680] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:01:05,400] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:01:06,055] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:01:22,264] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:01:22,904] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:02:55,626] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:02:56,270] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:07:00,810] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:07:01,409] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:07:42,137] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:07:42,758] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:10:19,204] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/__init__.py changed, reloading.
+[2026-01-21 14:10:19,797] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:11:29,427] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:11:29,988] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:11:38,751] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:11:39,415] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:11:52,362] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:11:52,940] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:13:04,729] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/__init__.py changed, reloading.
+[2026-01-21 14:13:05,331] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:13:57,836] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/__init__.py changed, reloading.
+[2026-01-21 14:13:58,477] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:15:46,773] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:15:47,486] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:16:02,600] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 14:16:03,304] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:16:30,700] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 14:16:31,428] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:16:45,392] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/helper.py changed, reloading.
+[2026-01-21 14:16:45,981] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:17:53,381] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:17:54,105] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:18:12,414] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 14:18:13,003] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:18:57,102] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:18:57,835] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:19:11,840] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 14:19:12,428] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:19:24,306] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:19:24,905] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:23:43,918] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/__init__.py changed, reloading.
+[2026-01-21 14:23:44,619] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:24:01,998] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-01-21 14:24:02,685] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:24:49,181] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:24:49,937] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:25:05,982] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 14:25:06,561] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:25:27,758] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:25:28,459] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:26:06,466] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:26:07,123] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:26:22,246] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 14:26:22,853] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:26:49,184] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 14:26:49,909] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:27:05,840] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:27:06,573] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:28:46,366] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:28:47,093] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:29:04,123] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-01-21 14:29:04,817] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:29:21,879] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:29:22,568] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:29:49,888] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-01-21 14:29:50,493] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:29:54,290] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-01-21 14:29:54,993] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:30:33,657] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:30:34,388] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:30:46,309] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:30:46,931] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:31:04,937] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:31:05,618] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:31:15,490] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:31:16,134] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:31:26,118] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:31:26,706] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:32:36,414] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:32:37,195] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:32:42,058] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-01-21 14:32:42,763] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:33:09,208] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:33:09,906] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:34:16,629] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:34:17,286] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:34:37,399] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-01-21 14:34:38,067] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:34:58,268] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:34:58,868] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:35:36,747] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:35:37,419] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:35:51,524] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 14:35:52,143] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:36:12,336] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:36:12,935] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:36:53,915] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:36:54,602] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:37:11,602] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-01-21 14:37:12,185] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:37:21,978] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-01-21 14:37:22,574] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:37:45,768] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:37:46,427] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:38:37,951] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:38:38,557] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:38:53,476] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 14:38:54,074] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:39:31,678] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:39:32,382] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:40:04,128] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:40:04,926] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:40:18,910] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 14:40:19,503] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:40:35,438] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:40:36,018] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:41:16,858] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:41:17,578] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:41:35,628] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 14:41:36,319] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:41:48,195] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:41:48,840] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:42:59,831] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:43:00,545] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:43:15,569] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 14:43:16,203] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:43:36,433] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:43:37,109] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:44:01,636] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:44:02,232] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:44:15,206] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-01-21 14:44:15,879] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:44:26,725] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:44:27,367] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:44:45,445] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:44:46,029] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:44:55,810] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-01-21 14:44:56,480] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:45:47,720] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:45:48,353] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:46:06,981] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:46:20,843] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:46:21,567] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:46:41,745] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-01-21 14:46:42,343] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:47:00,427] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:47:01,096] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:49:01,463] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:49:02,111] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:49:14,213] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-01-21 14:49:14,869] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:49:38,229] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:49:38,979] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:49:47,819] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-01-21 14:49:48,458] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:51:10,293] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:51:10,930] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:52:34,597] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-01-21 14:52:35,269] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:52:48,379] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 14:52:49,038] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 14:53:23,662] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 14:53:24,388] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:20:47,137] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 15:20:47,863] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:21:01,828] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-01-21 15:21:02,465] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:21:14,273] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-01-21 15:21:14,887] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:21:23,708] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-01-21 15:21:24,348] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:21:38,236] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 15:21:38,830] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:25:13,208] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/helper.py changed, reloading.
+[2026-01-21 15:25:13,957] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:25:24,995] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 15:25:25,633] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:25:27,293] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 15:25:27,860] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:25:37,642] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 15:25:38,209] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:26:31,350] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/__init__.py changed, reloading.
+[2026-01-21 15:26:32,024] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:27:03,766] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-01-21 15:27:04,357] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:30:22,891] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 15:30:23,601] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:31:41,544] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 15:31:42,286] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:31:57,265] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-01-21 15:31:58,054] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:32:19,641] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 15:32:20,295] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:34:19,629] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-01-21 15:34:20,265] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:35:07,568] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 15:35:08,153] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:35:25,101] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 15:35:25,779] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:36:05,784] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 15:36:06,389] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:36:43,302] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-01-21 15:36:43,998] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:37:56,740] INFO django.server "OPTIONS /get_all_drivers/ HTTP/1.1" 200 0
+[2026-01-21 15:37:56,741] INFO django.server "OPTIONS /get_all_drivers/ HTTP/1.1" 200 0
+[2026-01-21 15:37:57,376] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 401
+[2026-01-21 15:37:57,377] WARNING django.request Unauthorized: /get_all_drivers/
+[2026-01-21 15:37:57,377] WARNING django.server "GET /get_all_drivers/ HTTP/1.1" 401 79
+[2026-01-21 15:37:57,424] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 401
+[2026-01-21 15:37:57,425] WARNING django.request Unauthorized: /get_all_drivers/
+[2026-01-21 15:37:57,426] WARNING django.server "GET /get_all_drivers/ HTTP/1.1" 401 79
+[2026-01-21 15:37:57,427] INFO django.server "OPTIONS /refresh_token/ HTTP/1.1" 200 0
+[2026-01-21 15:37:57,431] INFO django.server "OPTIONS /refresh_token/ HTTP/1.1" 200 0
+[2026-01-21 15:37:57,512] INFO backend POST /refresh_token/ | User: anonymous | Status: 404
+[2026-01-21 15:37:57,514] INFO backend POST /refresh_token/ | User: anonymous | Status: 404
+[2026-01-21 15:37:57,515] WARNING django.request Not Found: /refresh_token/
+[2026-01-21 15:37:57,515] WARNING django.request Not Found: /refresh_token/
+[2026-01-21 15:37:57,515] WARNING django.server "POST /refresh_token/ HTTP/1.1" 404 13850
+[2026-01-21 15:37:57,516] WARNING django.server "POST /refresh_token/ HTTP/1.1" 404 13850
+[2026-01-21 15:37:58,903] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 401
+[2026-01-21 15:37:58,903] WARNING django.request Unauthorized: /dashboard_stats/
+[2026-01-21 15:37:58,903] WARNING django.server "GET /dashboard_stats/ HTTP/1.1" 401 41
+[2026-01-21 15:37:58,909] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 401
+[2026-01-21 15:37:58,910] WARNING django.request Unauthorized: /dashboard_stats/
+[2026-01-21 15:37:58,911] WARNING django.server "GET /dashboard_stats/ HTTP/1.1" 401 41
+[2026-01-21 15:37:58,922] INFO backend POST /refresh_token/ | User: anonymous | Status: 404
+[2026-01-21 15:37:58,923] WARNING django.request Not Found: /refresh_token/
+[2026-01-21 15:37:58,929] INFO backend POST /refresh_token/ | User: anonymous | Status: 404
+[2026-01-21 15:37:58,929] WARNING django.request Not Found: /refresh_token/
+[2026-01-21 15:37:58,930] WARNING django.server "POST /refresh_token/ HTTP/1.1" 404 13850
+[2026-01-21 15:37:58,930] WARNING django.server "POST /refresh_token/ HTTP/1.1" 404 13850
+[2026-01-21 15:38:09,486] INFO backend GET /get_all_riders/ | User: anonymous | Status: 401
+[2026-01-21 15:38:09,486] WARNING django.request Unauthorized: /get_all_riders/
+[2026-01-21 15:38:09,487] WARNING django.server "GET /get_all_riders/ HTTP/1.1" 401 41
+[2026-01-21 15:38:09,490] INFO backend GET /get_all_riders/ | User: anonymous | Status: 401
+[2026-01-21 15:38:09,490] WARNING django.request Unauthorized: /get_all_riders/
+[2026-01-21 15:38:09,490] WARNING django.server "GET /get_all_riders/ HTTP/1.1" 401 41
+[2026-01-21 15:38:09,501] INFO backend POST /refresh_token/ | User: anonymous | Status: 404
+[2026-01-21 15:38:09,501] WARNING django.request Not Found: /refresh_token/
+[2026-01-21 15:38:09,502] WARNING django.server "POST /refresh_token/ HTTP/1.1" 404 13850
+[2026-01-21 15:38:09,507] INFO backend POST /refresh_token/ | User: anonymous | Status: 404
+[2026-01-21 15:38:09,508] WARNING django.request Not Found: /refresh_token/
+[2026-01-21 15:38:09,508] WARNING django.server "POST /refresh_token/ HTTP/1.1" 404 13850
+[2026-01-21 15:38:13,927] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 401
+[2026-01-21 15:38:13,928] WARNING django.request Unauthorized: /get_all_drivers/
+[2026-01-21 15:38:13,928] WARNING django.server "GET /get_all_drivers/ HTTP/1.1" 401 41
+[2026-01-21 15:38:13,932] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 401
+[2026-01-21 15:38:13,933] WARNING django.request Unauthorized: /get_all_drivers/
+[2026-01-21 15:38:13,933] WARNING django.server "GET /get_all_drivers/ HTTP/1.1" 401 41
+[2026-01-21 15:38:13,945] INFO backend POST /refresh_token/ | User: anonymous | Status: 404
+[2026-01-21 15:38:13,946] WARNING django.request Not Found: /refresh_token/
+[2026-01-21 15:38:13,946] WARNING django.server "POST /refresh_token/ HTTP/1.1" 404 13850
+[2026-01-21 15:38:13,952] INFO backend POST /refresh_token/ | User: anonymous | Status: 404
+[2026-01-21 15:38:13,953] WARNING django.request Not Found: /refresh_token/
+[2026-01-21 15:38:13,953] WARNING django.server "POST /refresh_token/ HTTP/1.1" 404 13850
+[2026-01-21 15:38:15,378] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 401
+[2026-01-21 15:38:15,378] WARNING django.request Unauthorized: /dashboard_stats/
+[2026-01-21 15:38:15,379] WARNING django.server "GET /dashboard_stats/ HTTP/1.1" 401 41
+[2026-01-21 15:38:15,383] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 401
+[2026-01-21 15:38:15,383] WARNING django.request Unauthorized: /dashboard_stats/
+[2026-01-21 15:38:15,391] WARNING django.server "GET /dashboard_stats/ HTTP/1.1" 401 41
+[2026-01-21 15:38:15,394] INFO backend POST /refresh_token/ | User: anonymous | Status: 404
+[2026-01-21 15:38:15,395] WARNING django.request Not Found: /refresh_token/
+[2026-01-21 15:38:15,402] INFO backend POST /refresh_token/ | User: anonymous | Status: 404
+[2026-01-21 15:38:15,402] WARNING django.request Not Found: /refresh_token/
+[2026-01-21 15:38:15,403] WARNING django.server "POST /refresh_token/ HTTP/1.1" 404 13850
+[2026-01-21 15:38:15,403] WARNING django.server "POST /refresh_token/ HTTP/1.1" 404 13850
+[2026-01-21 15:38:41,486] INFO django.server "OPTIONS /signin/ HTTP/1.1" 200 0
+[2026-01-21 15:38:44,348] INFO backend User sign in: Email: vincabservicesandsupplies@gmail.com, Name: Vincab Admin
+[2026-01-21 15:38:44,349] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 15:38:44,351] INFO django.server "POST /signin/ HTTP/1.1" 200 1332
+[2026-01-21 15:38:44,443] INFO django.server "OPTIONS /dashboard_stats/ HTTP/1.1" 200 0
+[2026-01-21 15:38:44,445] INFO django.server "OPTIONS /dashboard_stats/ HTTP/1.1" 200 0
+[2026-01-21 15:38:47,899] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 200
+[2026-01-21 15:38:47,900] INFO django.server "GET /dashboard_stats/ HTTP/1.1" 200 152
+[2026-01-21 15:38:51,280] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 200
+[2026-01-21 15:38:51,281] INFO django.server "GET /dashboard_stats/ HTTP/1.1" 200 152
+[2026-01-21 15:38:51,793] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 200
+[2026-01-21 15:38:51,794] INFO django.server "GET /get_all_drivers/ HTTP/1.1" 200 2
+[2026-01-21 15:38:52,963] INFO django.server "OPTIONS /get_all_riders/ HTTP/1.1" 200 0
+[2026-01-21 15:38:52,964] INFO django.server "OPTIONS /get_all_riders/ HTTP/1.1" 200 0
+[2026-01-21 15:38:53,523] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 200
+[2026-01-21 15:38:53,523] INFO django.server "GET /get_all_drivers/ HTTP/1.1" 200 2
+[2026-01-21 15:38:54,671] INFO backend GET /get_all_riders/ | User: anonymous | Status: 200
+[2026-01-21 15:38:54,673] INFO django.server "GET /get_all_riders/ HTTP/1.1" 200 388
+[2026-01-21 15:38:56,543] INFO backend GET /get_all_riders/ | User: anonymous | Status: 200
+[2026-01-21 15:38:56,544] INFO django.server "GET /get_all_riders/ HTTP/1.1" 200 388
+[2026-01-21 15:38:58,392] INFO django.server "OPTIONS /get_single_rider/2/ HTTP/1.1" 200 0
+[2026-01-21 15:38:58,396] INFO django.server "OPTIONS /get_single_rider/2/ HTTP/1.1" 200 0
+[2026-01-21 15:39:00,232] INFO backend GET /get_single_rider/2/ | User: anonymous | Status: 200
+[2026-01-21 15:39:00,233] INFO django.server "GET /get_single_rider/2/ HTTP/1.1" 200 429
+[2026-01-21 15:39:01,974] INFO backend GET /get_single_rider/2/ | User: anonymous | Status: 200
+[2026-01-21 15:39:01,976] INFO django.server "GET /get_single_rider/2/ HTTP/1.1" 200 429
+[2026-01-21 15:39:04,837] INFO django.server "OPTIONS /admin_rider_action/ HTTP/1.1" 200 0
+[2026-01-21 15:39:06,912] INFO backend POST /admin_rider_action/ | User: anonymous | Status: 200
+[2026-01-21 15:39:06,913] INFO django.server "POST /admin_rider_action/ HTTP/1.1" 200 40
+[2026-01-21 15:39:09,680] INFO backend GET /get_single_rider/2/ | User: anonymous | Status: 200
+[2026-01-21 15:39:09,681] INFO django.server "GET /get_single_rider/2/ HTTP/1.1" 200 430
+[2026-01-21 15:39:14,398] INFO backend POST /admin_rider_action/ | User: anonymous | Status: 200
+[2026-01-21 15:39:14,399] INFO django.server "POST /admin_rider_action/ HTTP/1.1" 200 42
+[2026-01-21 15:39:17,242] INFO backend GET /get_single_rider/2/ | User: anonymous | Status: 200
+[2026-01-21 15:39:17,243] INFO django.server "GET /get_single_rider/2/ HTTP/1.1" 200 429
+[2026-01-21 15:39:33,370] INFO django.server "OPTIONS /send_push_notification/ HTTP/1.1" 200 0
+[2026-01-21 15:39:36,185] INFO backend POST /send_push_notification/ | User: anonymous | Status: 200
+[2026-01-21 15:39:36,186] INFO django.server "POST /send_push_notification/ HTTP/1.1" 200 50
+[2026-01-21 15:39:41,945] INFO django.server "OPTIONS /get_all_payments/ HTTP/1.1" 200 0
+[2026-01-21 15:39:41,946] INFO django.server "OPTIONS /get_all_payments/ HTTP/1.1" 200 0
+[2026-01-21 15:39:43,702] INFO backend GET /get_all_payments/ | User: anonymous | Status: 200
+[2026-01-21 15:39:43,704] INFO django.server "GET /get_all_payments/ HTTP/1.1" 200 2
+[2026-01-21 15:39:45,526] INFO backend GET /get_all_payments/ | User: anonymous | Status: 200
+[2026-01-21 15:39:45,527] INFO django.server "GET /get_all_payments/ HTTP/1.1" 200 2
+[2026-01-21 15:41:38,815] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 15:41:39,443] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:41:45,643] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 15:41:46,136] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:42:00,520] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/views.py changed, reloading.
+[2026-01-21 15:42:01,014] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 15:42:14,291] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 200
+[2026-01-21 15:42:14,293] INFO django.server "GET /dashboard_stats/ HTTP/1.1" 200 152
+[2026-01-21 15:42:17,625] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 200
+[2026-01-21 15:42:17,626] INFO django.server "GET /dashboard_stats/ HTTP/1.1" 200 152
+[2026-01-21 15:42:17,797] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 200
+[2026-01-21 15:42:17,798] INFO django.server "GET /get_all_drivers/ HTTP/1.1" 200 2
+[2026-01-21 15:42:19,540] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 200
+[2026-01-21 15:42:19,541] INFO django.server "GET /get_all_drivers/ HTTP/1.1" 200 2
+[2026-01-21 16:16:11,218] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 200
+[2026-01-21 16:16:11,219] INFO django.server "GET /dashboard_stats/ HTTP/1.1" 200 152
+[2026-01-21 16:16:14,650] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 200
+[2026-01-21 16:16:14,651] INFO django.server "GET /dashboard_stats/ HTTP/1.1" 200 152
+[2026-01-21 16:16:28,670] INFO backend GET /get_all_riders/ | User: anonymous | Status: 200
+[2026-01-21 16:16:28,671] INFO django.server "GET /get_all_riders/ HTTP/1.1" 200 388
+[2026-01-21 16:16:29,362] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 200
+[2026-01-21 16:16:29,363] INFO django.server "GET /dashboard_stats/ HTTP/1.1" 200 152
+[2026-01-21 16:16:30,490] INFO backend GET /get_all_riders/ | User: anonymous | Status: 200
+[2026-01-21 16:16:30,491] INFO django.server "GET /get_all_riders/ HTTP/1.1" 200 388
+[2026-01-21 16:16:32,907] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 200
+[2026-01-21 16:16:32,908] INFO django.server "GET /dashboard_stats/ HTTP/1.1" 200 152
+[2026-01-21 16:17:36,070] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-01-21 16:17:36,872] INFO django.utils.autoreload Watching for file changes with StatReloader
