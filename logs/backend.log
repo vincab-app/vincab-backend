@@ -835,3 +835,1396 @@
 [2026-01-21 16:16:32,908] INFO django.server "GET /dashboard_stats/ HTTP/1.1" 200 152
 [2026-01-21 16:17:36,070] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-01-21 16:17:36,872] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 16:18:56,389] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 16:30:57,386] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushinidi 
+[2026-01-21 16:30:57,387] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 16:30:57,389] INFO django.server "POST /signin/ HTTP/1.1" 200 1300
+[2026-01-21 16:31:14,510] INFO backend POST /verify_phone/ | User: anonymous | Status: 200
+[2026-01-21 16:31:14,511] INFO django.server "POST /verify_phone/ HTTP/1.1" 200 49
+[2026-01-21 17:20:21,381] INFO backend GET / | User: vincab | Status: 200
+[2026-01-21 17:20:21,382] INFO django.server "GET / HTTP/1.1" 200 12
+[2026-01-21 17:20:23,539] INFO backend GET /favicon.ico | User: vincab | Status: 404
+[2026-01-21 17:20:23,541] WARNING django.request Not Found: /favicon.ico
+[2026-01-21 17:20:23,541] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 13833
+[2026-01-21 17:20:25,219] INFO backend GET /admin/ | User: vincab | Status: 200
+[2026-01-21 17:20:25,220] INFO django.server "GET /admin/ HTTP/1.1" 200 11963
+[2026-01-21 17:20:32,746] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-01-21 17:20:32,747] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 13012
+[2026-01-21 17:20:35,716] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-21 17:20:35,717] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-21 17:20:41,386] INFO backend GET /admin/vincab_app/user/2/change/ | User: vincab | Status: 200
+[2026-01-21 17:20:41,387] INFO django.server "GET /admin/vincab_app/user/2/change/ HTTP/1.1" 200 20341
+[2026-01-21 17:20:48,561] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-21 17:20:48,561] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-21 17:21:00,354] INFO backend POST /admin/vincab_app/user/2/change/ | User: vincab | Status: 302
+[2026-01-21 17:21:00,357] INFO django.server "POST /admin/vincab_app/user/2/change/ HTTP/1.1" 302 0
+[2026-01-21 17:21:03,418] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-01-21 17:21:03,419] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 13227
+[2026-01-21 17:21:05,510] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-21 17:21:05,512] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-21 17:22:18,663] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushinidi
+[2026-01-21 17:22:18,664] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 17:22:18,665] INFO django.server "POST /signin/ HTTP/1.1" 200 1299
+[2026-01-21 17:22:35,394] INFO backend POST /verify_phone/ | User: anonymous | Status: 200
+[2026-01-21 17:22:35,395] INFO django.server "POST /verify_phone/ HTTP/1.1" 200 49
+[2026-01-21 17:28:08,269] INFO backend POST /request_password_reset/ | User: anonymous | Status: 200
+[2026-01-21 17:28:08,269] INFO django.server "POST /request_password_reset/ HTTP/1.1" 200 40
+[2026-01-21 17:35:23,357] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushinidi
+[2026-01-21 17:35:23,357] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 17:35:23,358] INFO django.server "POST /signin/ HTTP/1.1" 200 1298
+[2026-01-21 17:37:51,656] INFO backend POST /update_rider_profile/ | User: anonymous | Status: 200
+[2026-01-21 17:37:51,657] INFO django.server "POST /update_rider_profile/ HTTP/1.1" 200 197
+[2026-01-21 17:39:44,240] INFO backend GET /get_user_notifications/2 | User: anonymous | Status: 404
+[2026-01-21 17:39:44,240] INFO django.server "GET /get_user_notifications/2 HTTP/1.1" 301 0
+[2026-01-21 17:39:46,564] INFO backend GET /get_user_notifications/2/ | User: anonymous | Status: 200
+[2026-01-21 17:39:46,565] INFO django.server "GET /get_user_notifications/2/ HTTP/1.1" 200 491
+[2026-01-21 17:40:28,759] INFO backend GET /get_user_notifications/2 | User: anonymous | Status: 404
+[2026-01-21 17:40:28,760] INFO django.server "GET /get_user_notifications/2 HTTP/1.1" 301 0
+[2026-01-21 17:40:31,048] INFO backend GET /get_user_notifications/2/ | User: anonymous | Status: 200
+[2026-01-21 17:40:31,048] INFO django.server "GET /get_user_notifications/2/ HTTP/1.1" 200 491
+[2026-01-21 17:41:22,614] INFO backend GET /get_user_notifications/2 | User: anonymous | Status: 404
+[2026-01-21 17:41:22,616] INFO django.server "GET /get_user_notifications/2 HTTP/1.1" 301 0
+[2026-01-21 17:41:24,727] INFO backend GET /get_user_notifications/2/ | User: anonymous | Status: 200
+[2026-01-21 17:41:24,728] INFO django.server "GET /get_user_notifications/2/ HTTP/1.1" 200 491
+[2026-01-21 17:42:21,486] INFO backend GET /send_expo_token/2/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 17:42:21,488] INFO django.server "GET /send_expo_token/2/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 17:43:13,026] INFO backend GET /send_expo_token/2/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 17:43:13,027] INFO django.server "GET /send_expo_token/2/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 17:43:49,203] INFO backend GET /nearby_vehicles/0.1231267/37.7211436/ | User: anonymous | Status: 200
+[2026-01-21 17:43:49,204] INFO django.server "GET /nearby_vehicles/0.1231267/37.7211436/ HTTP/1.1" 200 2
+[2026-01-21 17:43:50,107] INFO backend GET /send_expo_token/2/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 17:43:50,108] INFO django.server "GET /send_expo_token/2/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 17:43:51,224] INFO backend GET /nearby_vehicles/0.1231267/37.7211436/ | User: anonymous | Status: 200
+[2026-01-21 17:43:51,225] INFO django.server "GET /nearby_vehicles/0.1231267/37.7211436/ HTTP/1.1" 200 2
+[2026-01-21 17:43:51,446] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 17:43:51,447] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-01-21 18:39:04,942] INFO backend POST /driversignup/ | User: anonymous | Status: 201
+[2026-01-21 18:39:04,944] INFO django.server "POST /driversignup/ HTTP/1.1" 201 86
+[2026-01-21 18:39:34,058] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 18:39:34,059] WARNING django.request Unauthorized: /signin/
+[2026-01-21 18:39:34,059] WARNING django.server "POST /signin/ HTTP/1.1" 401 477
+[2026-01-21 18:39:43,137] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 18:39:43,138] WARNING django.request Unauthorized: /signin/
+[2026-01-21 18:39:43,138] WARNING django.server "POST /signin/ HTTP/1.1" 401 477
+[2026-01-21 18:40:55,571] INFO backend POST /signin/ | User: anonymous | Status: 403
+[2026-01-21 18:40:55,571] WARNING django.request Forbidden: /signin/
+[2026-01-21 18:40:55,572] WARNING django.server "POST /signin/ HTTP/1.1" 403 73
+[2026-01-21 18:41:10,428] INFO django.server - Broken pipe from ('192.168.100.4', 57006)
+[2026-01-21 18:42:17,594] INFO backend User sign in: Email: ushindigideon8@gmail.com, Name: Gideon Ushindi
+[2026-01-21 18:42:17,594] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 18:42:17,596] INFO django.server "POST /signin/ HTTP/1.1" 200 1294
+[2026-01-21 18:42:17,836] INFO backend GET /check_driver_verified/3 | User: anonymous | Status: 404
+[2026-01-21 18:42:17,837] INFO django.server "GET /check_driver_verified/3 HTTP/1.1" 301 0
+[2026-01-21 18:42:20,224] INFO backend GET /check_driver_verified/3/ | User: anonymous | Status: 200
+[2026-01-21 18:42:20,225] INFO django.server "GET /check_driver_verified/3/ HTTP/1.1" 200 139
+[2026-01-21 18:47:58,530] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 18:47:58,530] WARNING django.request Unauthorized: /signin/
+[2026-01-21 18:47:58,531] WARNING django.server "POST /signin/ HTTP/1.1" 401 465
+[2026-01-21 18:48:13,387] INFO backend User sign in: Email: ushindigideon8@gmail.com, Name: Gideon Ushindi
+[2026-01-21 18:48:13,388] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 18:48:13,389] INFO django.server "POST /signin/ HTTP/1.1" 200 1294
+[2026-01-21 18:48:13,625] INFO backend GET /check_driver_verified/3 | User: anonymous | Status: 404
+[2026-01-21 18:48:13,627] INFO django.server "GET /check_driver_verified/3 HTTP/1.1" 301 0
+[2026-01-21 18:48:15,858] INFO backend GET /check_driver_verified/3/ | User: anonymous | Status: 200
+[2026-01-21 18:48:15,858] INFO django.server "GET /check_driver_verified/3/ HTTP/1.1" 200 137
+[2026-01-21 18:48:55,168] INFO backend User sign in: Email: ushindigideon8@gmail.com, Name: Gideon Ushindi
+[2026-01-21 18:48:55,168] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 18:48:55,169] INFO django.server "POST /signin/ HTTP/1.1" 200 1294
+[2026-01-21 18:48:55,390] INFO backend GET /check_driver_verified/3 | User: anonymous | Status: 404
+[2026-01-21 18:48:55,390] INFO django.server "GET /check_driver_verified/3 HTTP/1.1" 301 0
+[2026-01-21 18:48:57,504] INFO backend GET /check_driver_verified/3/ | User: anonymous | Status: 200
+[2026-01-21 18:48:57,505] INFO django.server "GET /check_driver_verified/3/ HTTP/1.1" 200 136
+[2026-01-21 18:49:12,306] INFO backend POST /verify_phone/ | User: anonymous | Status: 200
+[2026-01-21 18:49:12,306] INFO django.server "POST /verify_phone/ HTTP/1.1" 200 49
+[2026-01-21 18:49:13,355] INFO backend GET /get_driver_total_earnings/3 | User: anonymous | Status: 404
+[2026-01-21 18:49:13,356] INFO django.server "GET /get_driver_total_earnings/3 HTTP/1.1" 301 0
+[2026-01-21 18:49:15,646] INFO backend GET /get_requested_rides/3/ | User: anonymous | Status: 200
+[2026-01-21 18:49:15,647] INFO django.server "GET /get_requested_rides/3/ HTTP/1.1" 200 2
+[2026-01-21 18:49:16,160] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 18:49:16,161] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 18:49:16,220] INFO backend GET /send_expo_token/3/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 18:49:16,221] INFO django.server "GET /send_expo_token/3/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 18:49:16,222] INFO backend GET /get_driver_total_earnings/3/ | User: anonymous | Status: 200
+[2026-01-21 18:49:16,224] INFO django.server "GET /get_driver_total_earnings/3/ HTTP/1.1" 200 72
+[2026-01-21 18:49:21,599] INFO backend GET /get_requested_rides/3/ | User: anonymous | Status: 200
+[2026-01-21 18:49:21,600] INFO django.server "GET /get_requested_rides/3/ HTTP/1.1" 200 2
+[2026-01-21 18:52:18,826] INFO backend User sign in: Email: ushindigideon8@gmail.com, Name: Gideon Ushindi
+[2026-01-21 18:52:18,827] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 18:52:18,828] INFO django.server "POST /signin/ HTTP/1.1" 200 1293
+[2026-01-21 18:52:19,161] INFO backend GET /check_driver_verified/3 | User: anonymous | Status: 404
+[2026-01-21 18:52:19,162] INFO django.server "GET /check_driver_verified/3 HTTP/1.1" 301 0
+[2026-01-21 18:52:22,257] INFO backend GET /check_driver_verified/3/ | User: anonymous | Status: 200
+[2026-01-21 18:52:22,258] INFO django.server "GET /check_driver_verified/3/ HTTP/1.1" 200 136
+[2026-01-21 18:52:23,097] INFO backend GET /get_driver_total_earnings/3 | User: anonymous | Status: 404
+[2026-01-21 18:52:23,098] INFO django.server "GET /get_driver_total_earnings/3 HTTP/1.1" 301 0
+[2026-01-21 18:52:25,157] INFO backend GET /get_requested_rides/3/ | User: anonymous | Status: 200
+[2026-01-21 18:52:25,158] INFO django.server "GET /get_requested_rides/3/ HTTP/1.1" 200 2
+[2026-01-21 18:52:25,262] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 18:52:25,263] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 18:52:25,516] INFO backend GET /send_expo_token/3/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 18:52:25,517] INFO django.server "GET /send_expo_token/3/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 18:52:25,583] INFO backend GET /get_driver_total_earnings/3/ | User: anonymous | Status: 200
+[2026-01-21 18:52:25,583] INFO django.server "GET /get_driver_total_earnings/3/ HTTP/1.1" 200 72
+[2026-01-21 18:52:29,185] INFO backend GET /get_user_notifications/3 | User: anonymous | Status: 404
+[2026-01-21 18:52:29,186] INFO django.server "GET /get_user_notifications/3 HTTP/1.1" 301 0
+[2026-01-21 18:52:31,830] INFO backend GET /get_user_notifications/3/ | User: anonymous | Status: 200
+[2026-01-21 18:52:31,830] INFO django.server "GET /get_user_notifications/3/ HTTP/1.1" 200 443
+[2026-01-21 18:52:42,330] INFO backend GET /get_requested_rides/3/ | User: anonymous | Status: 200
+[2026-01-21 18:52:42,331] INFO django.server "GET /get_requested_rides/3/ HTTP/1.1" 200 2
+[2026-01-21 18:52:47,632] INFO backend GET /get_driver_payments/3/ | User: anonymous | Status: 200
+[2026-01-21 18:52:47,634] INFO django.server "GET /get_driver_payments/3/ HTTP/1.1" 200 2
+[2026-01-21 18:52:51,475] INFO backend GET /get_requested_rides/3/ | User: anonymous | Status: 200
+[2026-01-21 18:52:51,476] INFO django.server "GET /get_requested_rides/3/ HTTP/1.1" 200 2
+[2026-01-21 18:52:55,011] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 18:52:55,012] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 18:52:55,085] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 18:52:55,086] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 18:52:57,858] INFO backend GET /get_requested_rides/3/ | User: anonymous | Status: 200
+[2026-01-21 18:52:57,858] INFO django.server "GET /get_requested_rides/3/ HTTP/1.1" 200 2
+[2026-01-21 18:53:01,666] INFO backend GET /get_requested_rides/3/ | User: anonymous | Status: 200
+[2026-01-21 18:53:01,667] INFO django.server "GET /get_requested_rides/3/ HTTP/1.1" 200 2
+[2026-01-21 18:53:25,401] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 18:53:25,403] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 18:54:57,651] INFO backend GET /get_requested_rides/3/ | User: anonymous | Status: 200
+[2026-01-21 18:54:57,652] INFO django.server "GET /get_requested_rides/3/ HTTP/1.1" 200 2
+[2026-01-21 18:54:57,682] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 18:54:57,683] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 18:55:06,648] INFO backend GET /get_driver_payments/3/ | User: anonymous | Status: 200
+[2026-01-21 18:55:06,649] INFO django.server "GET /get_driver_payments/3/ HTTP/1.1" 200 2
+[2026-01-21 18:55:09,379] INFO backend GET /get_requested_rides/3/ | User: anonymous | Status: 200
+[2026-01-21 18:55:09,380] INFO django.server "GET /get_requested_rides/3/ HTTP/1.1" 200 2
+[2026-01-21 18:55:15,058] INFO backend GET /get_user_notifications/3 | User: anonymous | Status: 404
+[2026-01-21 18:55:15,059] INFO django.server "GET /get_user_notifications/3 HTTP/1.1" 301 0
+[2026-01-21 18:55:17,928] INFO backend GET /get_user_notifications/3/ | User: anonymous | Status: 200
+[2026-01-21 18:55:17,929] INFO django.server "GET /get_user_notifications/3/ HTTP/1.1" 200 443
+[2026-01-21 18:55:21,646] INFO backend GET /get_requested_rides/3/ | User: anonymous | Status: 200
+[2026-01-21 18:55:21,647] INFO django.server "GET /get_requested_rides/3/ HTTP/1.1" 200 2
+[2026-01-21 18:55:25,572] INFO backend POST /update_location/ | User: anonymous | Status: 400
+[2026-01-21 18:55:25,572] WARNING django.request Bad Request: /update_location/
+[2026-01-21 18:55:25,573] WARNING django.server "POST /update_location/ HTTP/1.1" 400 46
+[2026-01-21 18:55:25,580] INFO backend POST /update_location/ | User: anonymous | Status: 400
+[2026-01-21 18:55:25,581] WARNING django.request Bad Request: /update_location/
+[2026-01-21 18:55:25,583] WARNING django.server "POST /update_location/ HTTP/1.1" 400 46
+[2026-01-21 18:55:41,835] INFO backend User sign in: Email: ushindigideon8@gmail.com, Name: Gideon Ushindi
+[2026-01-21 18:55:41,836] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 18:55:41,836] INFO django.server "POST /signin/ HTTP/1.1" 200 1293
+[2026-01-21 18:55:42,130] INFO backend GET /check_driver_verified/3 | User: anonymous | Status: 404
+[2026-01-21 18:55:42,131] INFO django.server "GET /check_driver_verified/3 HTTP/1.1" 301 0
+[2026-01-21 18:55:44,213] INFO backend GET /check_driver_verified/3/ | User: anonymous | Status: 200
+[2026-01-21 18:55:44,214] INFO django.server "GET /check_driver_verified/3/ HTTP/1.1" 200 136
+[2026-01-21 18:55:44,914] INFO backend GET /get_driver_total_earnings/3 | User: anonymous | Status: 404
+[2026-01-21 18:55:44,915] INFO django.server "GET /get_driver_total_earnings/3 HTTP/1.1" 301 0
+[2026-01-21 18:55:47,008] INFO backend GET /get_requested_rides/3/ | User: anonymous | Status: 200
+[2026-01-21 18:55:47,010] INFO django.server "GET /get_requested_rides/3/ HTTP/1.1" 200 2
+[2026-01-21 18:55:47,351] INFO backend GET /get_driver_total_earnings/3/ | User: anonymous | Status: 200
+[2026-01-21 18:55:47,352] INFO django.server "GET /get_driver_total_earnings/3/ HTTP/1.1" 200 72
+[2026-01-21 18:55:47,373] INFO backend GET /send_expo_token/3/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 18:55:47,373] INFO django.server "GET /send_expo_token/3/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 18:55:57,719] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 18:55:57,720] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 18:57:10,437] INFO backend GET /get_requested_rides/3/ | User: anonymous | Status: 200
+[2026-01-21 18:57:10,438] INFO django.server "GET /get_requested_rides/3/ HTTP/1.1" 200 2
+[2026-01-21 18:57:10,558] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 18:57:10,559] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 18:59:59,019] INFO backend POST /update_rider_profile/ | User: anonymous | Status: 200
+[2026-01-21 18:59:59,021] INFO django.server "POST /update_rider_profile/ HTTP/1.1" 200 196
+[2026-01-21 19:00:19,690] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:00:19,691] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:00:19,691] WARNING django.server "POST /signin/ HTTP/1.1" 401 465
+[2026-01-21 19:00:29,317] INFO backend User sign in: Email: ushindigideon8@gmail.com, Name: Gideon Ushindi
+[2026-01-21 19:00:29,318] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 19:00:29,319] INFO django.server "POST /signin/ HTTP/1.1" 200 1293
+[2026-01-21 19:00:29,857] INFO backend GET /check_driver_verified/3 | User: anonymous | Status: 404
+[2026-01-21 19:00:29,858] INFO django.server "GET /check_driver_verified/3 HTTP/1.1" 301 0
+[2026-01-21 19:00:32,222] INFO backend GET /check_driver_verified/3/ | User: anonymous | Status: 200
+[2026-01-21 19:00:32,223] INFO django.server "GET /check_driver_verified/3/ HTTP/1.1" 200 136
+[2026-01-21 19:00:32,871] INFO backend GET /get_driver_total_earnings/3 | User: anonymous | Status: 404
+[2026-01-21 19:00:32,872] INFO django.server "GET /get_driver_total_earnings/3 HTTP/1.1" 301 0
+[2026-01-21 19:00:35,426] INFO backend GET /get_requested_rides/3/ | User: anonymous | Status: 200
+[2026-01-21 19:00:35,427] INFO django.server "GET /get_requested_rides/3/ HTTP/1.1" 200 2
+[2026-01-21 19:00:35,823] INFO backend GET /send_expo_token/3/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 19:00:35,824] INFO django.server "GET /send_expo_token/3/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 19:00:36,094] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 19:00:36,096] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-01-21 19:00:36,986] INFO backend GET /get_driver_total_earnings/3/ | User: anonymous | Status: 200
+[2026-01-21 19:00:36,987] INFO django.server "GET /get_driver_total_earnings/3/ HTTP/1.1" 200 72
+[2026-01-21 19:01:43,616] INFO backend GET /get_user_notifications/3 | User: anonymous | Status: 404
+[2026-01-21 19:01:43,618] INFO django.server "GET /get_user_notifications/3 HTTP/1.1" 301 0
+[2026-01-21 19:01:45,790] INFO backend GET /get_user_notifications/3/ | User: anonymous | Status: 200
+[2026-01-21 19:01:45,791] INFO django.server "GET /get_user_notifications/3/ HTTP/1.1" 200 443
+[2026-01-21 19:01:52,825] INFO backend GET /get_driver_payments/3/ | User: anonymous | Status: 200
+[2026-01-21 19:01:52,826] INFO django.server "GET /get_driver_payments/3/ HTTP/1.1" 200 2
+[2026-01-21 19:01:56,672] INFO backend GET /get_requested_rides/3/ | User: anonymous | Status: 200
+[2026-01-21 19:01:56,674] INFO django.server "GET /get_requested_rides/3/ HTTP/1.1" 200 2
+[2026-01-21 19:01:57,082] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 19:01:57,084] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-01-21 19:02:21,909] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushinidi
+[2026-01-21 19:02:21,909] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 19:02:21,910] INFO django.server "POST /signin/ HTTP/1.1" 200 1298
+[2026-01-21 19:02:26,532] INFO backend GET /send_expo_token/2/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 19:02:26,534] INFO django.server "GET /send_expo_token/2/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 19:02:27,149] INFO backend GET /nearby_vehicles/0.1231399/37.7211026/ | User: anonymous | Status: 200
+[2026-01-21 19:02:27,150] INFO django.server "GET /nearby_vehicles/0.1231399/37.7211026/ HTTP/1.1" 200 509
+[2026-01-21 19:02:27,545] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 19:02:27,546] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-01-21 19:03:47,740] INFO backend GET /calculate_fare/0.1231399/37.7211026/0.12535360885990687/37.716304175555706/ | User: anonymous | Status: 200
+[2026-01-21 19:03:47,742] INFO django.server "GET /calculate_fare/0.1231399/37.7211026/0.12535360885990687/37.716304175555706/ HTTP/1.1" 200 121
+[2026-01-21 19:05:40,179] INFO backend GET /calculate_fare/0.1231399/37.7211026/0.12535360885990687/37.716304175555706/ | User: anonymous | Status: 200
+[2026-01-21 19:05:40,179] INFO django.server "GET /calculate_fare/0.1231399/37.7211026/0.12535360885990687/37.716304175555706/ HTTP/1.1" 200 121
+[2026-01-21 19:05:40,698] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 19:05:40,699] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-01-21 19:05:40,977] INFO backend GET /nearby_vehicles/0.1231399/37.7211026/ | User: anonymous | Status: 200
+[2026-01-21 19:05:40,978] INFO django.server "GET /nearby_vehicles/0.1231399/37.7211026/ HTTP/1.1" 200 509
+[2026-01-21 19:06:11,509] INFO backend GET /nearby_vehicles/0.1231399/37.7211026/ | User: anonymous | Status: 200
+[2026-01-21 19:06:11,510] INFO django.server "GET /nearby_vehicles/0.1231399/37.7211026/ HTTP/1.1" 200 509
+[2026-01-21 19:06:12,221] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 19:06:12,222] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-01-21 19:13:41,571] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab/settings.py changed, reloading.
+[2026-01-21 19:13:42,264] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:13:51,297] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab/settings.py changed, reloading.
+[2026-01-21 19:13:51,967] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:14:35,710] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab/urls.py changed, reloading.
+[2026-01-21 19:14:36,343] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:16:27,546] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
+[2026-01-21 19:16:28,139] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:17:21,953] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
+[2026-01-21 19:17:22,561] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:19:52,425] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 19:19:53,030] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:19:59,110] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 19:19:59,688] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:20:22,821] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 19:20:23,399] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:21:15,125] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-01-21 19:21:15,780] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:21:42,138] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-01-21 19:21:42,823] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:23:03,145] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:24:29,961] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:25:06,568] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-01-21 19:25:07,279] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:25:15,302] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-01-21 19:25:15,900] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:25:58,366] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushinidi
+[2026-01-21 19:25:58,368] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:25:58,369] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:25:58,370] WARNING django.server "POST /signin/ HTTP/1.1" 401 81
+[2026-01-21 19:26:08,420] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:26:08,421] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:26:08,421] WARNING django.server "POST /signin/ HTTP/1.1" 401 465
+[2026-01-21 19:26:29,116] INFO backend User sign in: Email: ushindigideon8@gmail.com, Name: Gideon Ushindi
+[2026-01-21 19:26:29,116] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:26:29,117] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:26:29,118] WARNING django.server "POST /signin/ HTTP/1.1" 401 81
+[2026-01-21 19:26:43,533] INFO backend User sign in: Email: ushindigideon8@gmail.com, Name: Gideon Ushindi
+[2026-01-21 19:26:43,534] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:26:43,535] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:26:43,535] WARNING django.server "POST /signin/ HTTP/1.1" 401 81
+[2026-01-21 19:26:54,025] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:26:54,025] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:26:54,026] WARNING django.server "POST /signin/ HTTP/1.1" 401 465
+[2026-01-21 19:27:18,381] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:27:18,381] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:27:18,381] WARNING django.server "POST /signin/ HTTP/1.1" 401 465
+[2026-01-21 19:28:10,474] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:28:10,475] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:28:10,476] WARNING django.server "POST /signin/ HTTP/1.1" 401 465
+[2026-01-21 19:29:20,614] INFO backend User sign in: Email: ushindigideon8@gmail.com, Name: Gideon Ushindi
+[2026-01-21 19:29:20,614] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:29:20,615] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:29:20,615] WARNING django.server "POST /signin/ HTTP/1.1" 401 81
+[2026-01-21 19:29:32,876] INFO backend POST /request_password_reset/ | User: anonymous | Status: 200
+[2026-01-21 19:29:32,877] INFO django.server "POST /request_password_reset/ HTTP/1.1" 200 40
+[2026-01-21 19:30:47,353] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushinidi
+[2026-01-21 19:30:47,354] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:30:47,355] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:30:47,356] WARNING django.server "POST /signin/ HTTP/1.1" 401 81
+[2026-01-21 19:31:57,855] INFO backend User sign up: Email: gtechprojects3@gmail.com, Name: Gideon Ushindi 
+[2026-01-21 19:31:58,417] INFO backend POST /signup/ | User: anonymous | Status: 201
+[2026-01-21 19:31:58,418] INFO django.server "POST /signup/ HTTP/1.1" 201 59
+[2026-01-21 19:32:14,032] INFO django.server - Broken pipe from ('192.168.100.4', 46228)
+[2026-01-21 19:32:51,598] INFO backend User sign in: Email: gtechprojects3@gmail.com, Name: Gideon Ushindi 
+[2026-01-21 19:32:51,599] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:32:51,600] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:32:51,600] WARNING django.server "POST /signin/ HTTP/1.1" 401 81
+[2026-01-21 19:34:04,191] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
+[2026-01-21 19:34:04,845] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:34:14,983] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
+[2026-01-21 19:34:15,594] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:35:02,443] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:35:12,011] INFO backend User sign in: Email: gtechprojects3@gmail.com, Name: Gideon Ushindi 
+[2026-01-21 19:35:12,013] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:35:12,014] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:35:12,015] WARNING django.server "POST /signin/ HTTP/1.1" 401 81
+[2026-01-21 19:35:28,159] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-01-21 19:35:28,160] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 13604
+[2026-01-21 19:35:30,145] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-21 19:35:30,146] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-21 19:35:35,679] INFO backend GET /admin/vincab_app/user/4/change/ | User: vincab | Status: 200
+[2026-01-21 19:35:35,680] INFO django.server "GET /admin/vincab_app/user/4/change/ HTTP/1.1" 200 19973
+[2026-01-21 19:35:37,751] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-21 19:35:37,752] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-21 19:36:02,473] INFO backend POST /admin/vincab_app/user/4/change/ | User: vincab | Status: 302
+[2026-01-21 19:36:02,476] INFO django.server "POST /admin/vincab_app/user/4/change/ HTTP/1.1" 302 0
+[2026-01-21 19:36:05,361] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-01-21 19:36:05,363] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 13818
+[2026-01-21 19:36:07,571] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-21 19:36:07,572] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-21 19:36:23,479] INFO backend User sign in: Email: gtechprojects3@gmail.com, Name: Gideon Ushindi
+[2026-01-21 19:36:23,480] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:36:23,480] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:36:23,481] WARNING django.server "POST /signin/ HTTP/1.1" 401 81
+[2026-01-21 19:36:48,441] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:36:48,442] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:36:48,443] WARNING django.server "POST /signin/ HTTP/1.1" 401 465
+[2026-01-21 19:36:57,136] INFO backend User sign in: Email: gtechprojects3@gmail.com, Name: Gideon Ushindi
+[2026-01-21 19:36:57,136] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:36:57,137] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:36:57,138] WARNING django.server "POST /signin/ HTTP/1.1" 401 81
+[2026-01-21 19:38:18,427] INFO backend User sign in: Email: gtechprojects3@gmail.com, Name: Gideon Ushindi
+[2026-01-21 19:38:18,428] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:38:18,429] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:38:18,430] WARNING django.server "POST /signin/ HTTP/1.1" 401 81
+[2026-01-21 19:39:24,288] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 19:39:24,288] WARNING django.request Not Found: /siginin/
+[2026-01-21 19:39:24,288] WARNING django.server "POST /siginin/ HTTP/1.1" 404 14001
+[2026-01-21 19:40:22,496] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 19:40:22,496] WARNING django.request Not Found: /siginin/
+[2026-01-21 19:40:22,497] WARNING django.server "POST /siginin/ HTTP/1.1" 404 14001
+[2026-01-21 19:40:45,217] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 19:40:45,217] WARNING django.request Not Found: /siginin/
+[2026-01-21 19:40:45,218] WARNING django.server "POST /siginin/ HTTP/1.1" 404 13996
+[2026-01-21 19:41:06,443] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:41:11,827] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 19:41:11,828] WARNING django.request Not Found: /siginin/
+[2026-01-21 19:41:11,828] WARNING django.server "POST /siginin/ HTTP/1.1" 404 13996
+[2026-01-21 19:41:47,074] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 19:41:47,074] WARNING django.request Not Found: /siginin/
+[2026-01-21 19:41:47,075] WARNING django.server "POST /siginin/ HTTP/1.1" 404 13996
+[2026-01-21 19:42:45,650] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:42:53,539] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 19:42:53,540] WARNING django.request Not Found: /siginin/
+[2026-01-21 19:42:53,541] WARNING django.server "POST /siginin/ HTTP/1.1" 404 14001
+[2026-01-21 19:43:22,985] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:43:22,985] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:43:22,986] WARNING django.server "POST /signin/ HTTP/1.1" 401 465
+[2026-01-21 19:43:32,688] INFO backend User sign in: Email: gtechprojects3@gmail.com, Name: Gideon Ushindi
+[2026-01-21 19:43:32,689] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 19:43:32,690] WARNING django.request Unauthorized: /signin/
+[2026-01-21 19:43:32,690] WARNING django.server "POST /signin/ HTTP/1.1" 401 81
+[2026-01-21 19:43:47,159] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 19:43:47,159] WARNING django.request Not Found: /siginin/
+[2026-01-21 19:43:47,160] WARNING django.server "POST /siginin/ HTTP/1.1" 404 14001
+[2026-01-21 19:44:38,964] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-01-21 19:44:39,651] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 19:44:45,137] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 19:44:45,138] WARNING django.request Not Found: /siginin/
+[2026-01-21 19:44:45,138] WARNING django.server "POST /siginin/ HTTP/1.1" 404 14001
+[2026-01-21 19:44:48,483] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 19:44:48,483] WARNING django.request Not Found: /siginin/
+[2026-01-21 19:44:48,483] WARNING django.server "POST /siginin/ HTTP/1.1" 404 14001
+[2026-01-21 19:44:53,671] INFO backend User sign in: Email: gtechprojects3@gmail.com, Name: Gideon Ushindi
+[2026-01-21 19:44:53,671] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 19:44:53,672] INFO django.server "POST /signin/ HTTP/1.1" 200 1188
+[2026-01-21 19:45:03,965] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 19:45:03,965] WARNING django.request Not Found: /siginin/
+[2026-01-21 19:45:03,966] WARNING django.server "POST /siginin/ HTTP/1.1" 404 14001
+[2026-01-21 19:45:28,552] INFO backend POST /verify_phone/ | User: anonymous | Status: 200
+[2026-01-21 19:45:28,553] INFO django.server "POST /verify_phone/ HTTP/1.1" 200 49
+[2026-01-21 19:45:32,658] INFO backend GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 19:45:32,660] INFO django.server "GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 19:45:32,897] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 19:45:32,897] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 19:45:33,056] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231591/37.7211176/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 66, in default
+    return tuple(item for item in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 66, in <genexpr>
+    return tuple(item for item in obj)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/base.py", line 78, in __iter__
+    for chunk in self.chunks():
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/base.py", line 55, in chunks
+    self.seek(0)
+    ^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/utils.py", line 45, in <lambda>
+    seek = property(lambda self: self.file.seek)
+                                 ^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/models/fields/files.py", line 51, in _get_file
+    self._file = self.storage.open(self.name, "rb")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/storage/base.py", line 22, in open
+    return self._open(name, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/storage/filesystem.py", line 81, in _open
+    return File(open(self.path(name), mode))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ushindi/Projects/VinCab/backend/vincab/media/https:/res.cloudinary.com/dtivcpol9/image/upload/v1769021998/ltakicyrtmodoujx4vi9.jpg'
+[2026-01-21 19:45:33,058] INFO backend GET /nearby_vehicles/0.1231591/37.7211176/ | User: anonymous | Status: 500
+[2026-01-21 19:45:33,075] ERROR django.server "GET /nearby_vehicles/0.1231591/37.7211176/ HTTP/1.1" 500 137856
+[2026-01-21 19:45:47,091] INFO backend GET /get_user_notifications/4 | User: anonymous | Status: 404
+[2026-01-21 19:45:47,092] INFO django.server "GET /get_user_notifications/4 HTTP/1.1" 301 0
+[2026-01-21 19:45:49,109] INFO backend GET /get_user_notifications/4/ | User: anonymous | Status: 200
+[2026-01-21 19:45:49,110] INFO django.server "GET /get_user_notifications/4/ HTTP/1.1" 200 261
+[2026-01-21 19:46:18,616] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 19:46:18,616] WARNING django.request Not Found: /siginin/
+[2026-01-21 19:46:18,617] WARNING django.server "POST /siginin/ HTTP/1.1" 404 14001
+[2026-01-21 19:46:30,012] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 19:46:30,012] WARNING django.request Not Found: /siginin/
+[2026-01-21 19:46:30,013] WARNING django.server "POST /siginin/ HTTP/1.1" 404 14001
+[2026-01-21 19:47:03,425] INFO backend POST /update_rider_profile/ | User: anonymous | Status: 200
+[2026-01-21 19:47:03,426] INFO django.server "POST /update_rider_profile/ HTTP/1.1" 200 137
+[2026-01-21 19:47:26,863] INFO backend User sign in: Email: gtechprojects3@gmail.com, Name: Gideon Ushindi
+[2026-01-21 19:47:26,863] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 19:47:26,865] INFO django.server "POST /signin/ HTTP/1.1" 200 1187
+[2026-01-21 19:47:30,407] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 19:47:30,411] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 19:47:30,470] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231591/37.7211176/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 66, in default
+    return tuple(item for item in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 66, in <genexpr>
+    return tuple(item for item in obj)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/base.py", line 78, in __iter__
+    for chunk in self.chunks():
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/base.py", line 55, in chunks
+    self.seek(0)
+    ^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/utils.py", line 45, in <lambda>
+    seek = property(lambda self: self.file.seek)
+                                 ^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/models/fields/files.py", line 51, in _get_file
+    self._file = self.storage.open(self.name, "rb")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/storage/base.py", line 22, in open
+    return self._open(name, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/storage/filesystem.py", line 81, in _open
+    return File(open(self.path(name), mode))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ushindi/Projects/VinCab/backend/vincab/media/https:/res.cloudinary.com/dtivcpol9/image/upload/v1769021998/ltakicyrtmodoujx4vi9.jpg'
+[2026-01-21 19:47:30,472] INFO backend GET /nearby_vehicles/0.1231591/37.7211176/ | User: anonymous | Status: 500
+[2026-01-21 19:47:30,473] ERROR django.server "GET /nearby_vehicles/0.1231591/37.7211176/ HTTP/1.1" 500 137856
+[2026-01-21 19:47:30,474] INFO backend GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 19:47:30,475] INFO django.server "GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 19:49:23,412] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231591/37.7211176/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 66, in default
+    return tuple(item for item in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 66, in <genexpr>
+    return tuple(item for item in obj)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/base.py", line 78, in __iter__
+    for chunk in self.chunks():
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/base.py", line 55, in chunks
+    self.seek(0)
+    ^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/utils.py", line 45, in <lambda>
+    seek = property(lambda self: self.file.seek)
+                                 ^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/models/fields/files.py", line 51, in _get_file
+    self._file = self.storage.open(self.name, "rb")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/storage/base.py", line 22, in open
+    return self._open(name, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/files/storage/filesystem.py", line 81, in _open
+    return File(open(self.path(name), mode))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ushindi/Projects/VinCab/backend/vincab/media/https:/res.cloudinary.com/dtivcpol9/image/upload/v1769021998/ltakicyrtmodoujx4vi9.jpg'
+[2026-01-21 19:49:23,413] INFO backend GET /nearby_vehicles/0.1231591/37.7211176/ | User: anonymous | Status: 500
+[2026-01-21 19:49:23,414] ERROR django.server "GET /nearby_vehicles/0.1231591/37.7211176/ HTTP/1.1" 500 137856
+[2026-01-21 19:49:23,955] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 19:49:23,956] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 19:49:55,735] INFO backend GET /nearby_vehicles/0.1231591/37.7211176/ | User: anonymous | Status: 200
+[2026-01-21 19:49:55,739] INFO django.server "GET /nearby_vehicles/0.1231591/37.7211176/ HTTP/1.1" 200 2
+[2026-01-21 19:49:56,029] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 19:49:56,031] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 19:50:19,438] INFO backend User sign in: Email: gtechprojects3@gmail.com, Name: Gideon Ushindi
+[2026-01-21 19:50:19,438] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 19:50:19,439] INFO django.server "POST /signin/ HTTP/1.1" 200 1187
+[2026-01-21 19:50:23,369] INFO backend GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 19:50:23,370] INFO django.server "GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 19:50:25,391] INFO backend GET /nearby_vehicles/0.1231591/37.7211176/ | User: anonymous | Status: 200
+[2026-01-21 19:50:25,392] INFO django.server "GET /nearby_vehicles/0.1231591/37.7211176/ HTTP/1.1" 200 2
+[2026-01-21 19:50:25,729] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 19:50:25,730] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 19:50:46,235] INFO backend GET /get_user_notifications/4 | User: anonymous | Status: 404
+[2026-01-21 19:50:46,237] INFO django.server "GET /get_user_notifications/4 HTTP/1.1" 301 0
+[2026-01-21 19:50:48,634] INFO backend GET /get_user_notifications/4/ | User: anonymous | Status: 200
+[2026-01-21 19:50:48,635] INFO django.server "GET /get_user_notifications/4/ HTTP/1.1" 200 261
+[2026-01-21 19:51:04,920] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 19:51:04,921] WARNING django.request Not Found: /siginin/
+[2026-01-21 19:51:04,921] WARNING django.server "POST /siginin/ HTTP/1.1" 404 14001
+[2026-01-21 19:51:06,460] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 19:51:06,460] WARNING django.request Not Found: /siginin/
+[2026-01-21 19:51:06,460] WARNING django.server "POST /siginin/ HTTP/1.1" 404 14001
+[2026-01-21 19:51:16,738] INFO backend GET /nearby_vehicles/0.1231591/37.7211176/ | User: anonymous | Status: 200
+[2026-01-21 19:51:16,739] INFO django.server "GET /nearby_vehicles/0.1231591/37.7211176/ HTTP/1.1" 200 2
+[2026-01-21 19:51:16,914] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 19:51:16,915] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 19:53:18,246] INFO backend POST /driversignup/ | User: anonymous | Status: 201
+[2026-01-21 19:53:18,248] INFO django.server "POST /driversignup/ HTTP/1.1" 201 86
+[2026-01-21 19:53:35,138] INFO django.server - Broken pipe from ('192.168.100.4', 41858)
+[2026-01-21 19:53:35,139] INFO django.server - Broken pipe from ('192.168.100.4', 58096)
+[2026-01-21 19:54:05,147] INFO backend User sign in: Email: gideonushindi94@gmail.com, Name: Simon Kamau
+[2026-01-21 19:54:05,147] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 19:54:05,149] INFO django.server "POST /signin/ HTTP/1.1" 200 1189
+[2026-01-21 19:54:05,418] INFO backend GET /check_driver_verified/5 | User: anonymous | Status: 404
+[2026-01-21 19:54:05,420] INFO django.server "GET /check_driver_verified/5 HTTP/1.1" 301 0
+[2026-01-21 19:54:07,806] INFO backend GET /check_driver_verified/5/ | User: anonymous | Status: 200
+[2026-01-21 19:54:07,807] INFO django.server "GET /check_driver_verified/5/ HTTP/1.1" 200 134
+[2026-01-21 19:54:47,462] INFO backend User sign in: Email: gideonushindi94@gmail.com, Name: Simon Kamau
+[2026-01-21 19:54:47,463] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 19:54:47,464] INFO django.server "POST /signin/ HTTP/1.1" 200 1189
+[2026-01-21 19:54:47,800] INFO backend GET /check_driver_verified/5 | User: anonymous | Status: 404
+[2026-01-21 19:54:47,802] INFO django.server "GET /check_driver_verified/5 HTTP/1.1" 301 0
+[2026-01-21 19:54:50,832] INFO backend GET /check_driver_verified/5/ | User: anonymous | Status: 200
+[2026-01-21 19:54:50,833] INFO django.server "GET /check_driver_verified/5/ HTTP/1.1" 200 134
+[2026-01-21 19:55:12,237] INFO django.server - Broken pipe from ('192.168.100.4', 45314)
+[2026-01-21 19:56:25,581] INFO backend User sign in: Email: gideonushindi94@gmail.com, Name: Simon Kamau
+[2026-01-21 19:56:25,581] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 19:56:25,583] INFO django.server "POST /signin/ HTTP/1.1" 200 1189
+[2026-01-21 19:56:25,874] INFO backend GET /check_driver_verified/5 | User: anonymous | Status: 404
+[2026-01-21 19:56:25,876] INFO django.server "GET /check_driver_verified/5 HTTP/1.1" 301 0
+[2026-01-21 19:56:29,253] INFO backend GET /check_driver_verified/5/ | User: anonymous | Status: 200
+[2026-01-21 19:56:29,254] INFO django.server "GET /check_driver_verified/5/ HTTP/1.1" 200 131
+[2026-01-21 19:56:47,273] INFO backend POST /verify_phone/ | User: anonymous | Status: 200
+[2026-01-21 19:56:47,274] INFO django.server "POST /verify_phone/ HTTP/1.1" 200 49
+[2026-01-21 19:56:48,418] INFO backend GET /get_driver_total_earnings/5 | User: anonymous | Status: 404
+[2026-01-21 19:56:48,419] INFO django.server "GET /get_driver_total_earnings/5 HTTP/1.1" 301 0
+[2026-01-21 19:56:51,051] INFO backend GET /get_driver_total_earnings/5/ | User: anonymous | Status: 200
+[2026-01-21 19:56:51,053] INFO django.server "GET /get_driver_total_earnings/5/ HTTP/1.1" 200 69
+[2026-01-21 19:56:51,102] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 19:56:51,104] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-01-21 19:56:51,522] INFO backend GET /get_requested_rides/5/ | User: anonymous | Status: 200
+[2026-01-21 19:56:51,523] INFO django.server "GET /get_requested_rides/5/ HTTP/1.1" 200 2
+[2026-01-21 19:56:51,590] INFO backend GET /send_expo_token/5/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 19:56:51,592] INFO django.server "GET /send_expo_token/5/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 19:58:18,435] INFO backend POST /update_rider_profile/ | User: anonymous | Status: 200
+[2026-01-21 19:58:18,436] INFO django.server "POST /update_rider_profile/ HTTP/1.1" 200 142
+[2026-01-21 19:58:39,685] INFO backend User sign in: Email: gideonushindi94@gmail.com, Name: Simon Kamau
+[2026-01-21 19:58:39,686] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 19:58:39,687] INFO django.server "POST /signin/ HTTP/1.1" 200 1188
+[2026-01-21 19:58:39,919] INFO backend GET /check_driver_verified/5 | User: anonymous | Status: 404
+[2026-01-21 19:58:39,921] INFO django.server "GET /check_driver_verified/5 HTTP/1.1" 301 0
+[2026-01-21 19:58:42,508] INFO backend GET /check_driver_verified/5/ | User: anonymous | Status: 200
+[2026-01-21 19:58:42,509] INFO django.server "GET /check_driver_verified/5/ HTTP/1.1" 200 131
+[2026-01-21 19:58:43,547] INFO backend GET /get_driver_total_earnings/5 | User: anonymous | Status: 404
+[2026-01-21 19:58:43,548] INFO django.server "GET /get_driver_total_earnings/5 HTTP/1.1" 301 0
+[2026-01-21 19:58:45,891] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 19:58:45,892] INFO backend GET /get_requested_rides/5/ | User: anonymous | Status: 200
+[2026-01-21 19:58:45,895] INFO django.server "GET /get_requested_rides/5/ HTTP/1.1" 200 2
+[2026-01-21 19:58:45,895] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-01-21 19:58:46,105] INFO backend GET /send_expo_token/5/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 19:58:46,107] INFO django.server "GET /send_expo_token/5/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 19:58:46,860] INFO backend GET /get_driver_total_earnings/5/ | User: anonymous | Status: 200
+[2026-01-21 19:58:46,862] INFO django.server "GET /get_driver_total_earnings/5/ HTTP/1.1" 200 69
+[2026-01-21 20:03:09,329] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 20:03:09,329] WARNING django.request Not Found: /siginin/
+[2026-01-21 20:03:09,330] WARNING django.server "POST /siginin/ HTTP/1.1" 404 14001
+[2026-01-21 20:03:38,684] INFO backend User sign in: Email: gtechprojects3@gmail.com, Name: Gideon Ushindi
+[2026-01-21 20:03:38,684] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 20:03:38,686] INFO django.server "POST /signin/ HTTP/1.1" 200 1187
+[2026-01-21 20:03:43,138] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231583/37.7210225/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:03:43,139] INFO backend GET /nearby_vehicles/0.1231583/37.7210225/ | User: anonymous | Status: 500
+[2026-01-21 20:03:43,441] INFO backend GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 20:03:43,442] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:03:43,444] INFO django.server "GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 20:03:43,445] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 20:03:43,630] ERROR django.server "GET /nearby_vehicles/0.1231583/37.7210225/ HTTP/1.1" 500 116591
+[2026-01-21 20:04:11,784] INFO backend User sign in: Email: gideonushindi94@gmail.com, Name: Simon Kamau
+[2026-01-21 20:04:11,784] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 20:04:11,786] INFO django.server "POST /signin/ HTTP/1.1" 200 1188
+[2026-01-21 20:04:11,991] INFO backend GET /check_driver_verified/5 | User: anonymous | Status: 404
+[2026-01-21 20:04:11,993] INFO django.server "GET /check_driver_verified/5 HTTP/1.1" 301 0
+[2026-01-21 20:04:13,987] INFO backend GET /check_driver_verified/5/ | User: anonymous | Status: 200
+[2026-01-21 20:04:13,988] INFO django.server "GET /check_driver_verified/5/ HTTP/1.1" 200 131
+[2026-01-21 20:04:14,708] INFO backend GET /get_driver_total_earnings/5 | User: anonymous | Status: 404
+[2026-01-21 20:04:14,710] INFO django.server "GET /get_driver_total_earnings/5 HTTP/1.1" 301 0
+[2026-01-21 20:04:16,836] INFO backend GET /get_requested_rides/5/ | User: anonymous | Status: 200
+[2026-01-21 20:04:16,837] INFO django.server "GET /get_requested_rides/5/ HTTP/1.1" 200 2
+[2026-01-21 20:04:16,949] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:04:16,950] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-01-21 20:04:17,023] INFO backend GET /get_driver_total_earnings/5/ | User: anonymous | Status: 200
+[2026-01-21 20:04:17,025] INFO django.server "GET /get_driver_total_earnings/5/ HTTP/1.1" 200 69
+[2026-01-21 20:04:17,133] INFO backend GET /send_expo_token/5/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 20:04:17,134] INFO django.server "GET /send_expo_token/5/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 20:05:05,050] INFO backend GET /get_driver_total_earnings/5 | User: anonymous | Status: 404
+[2026-01-21 20:05:05,051] INFO django.server "GET /get_driver_total_earnings/5 HTTP/1.1" 301 0
+[2026-01-21 20:05:07,386] INFO backend GET /get_driver_total_earnings/5/ | User: anonymous | Status: 200
+[2026-01-21 20:05:07,387] INFO django.server "GET /get_driver_total_earnings/5/ HTTP/1.1" 200 69
+[2026-01-21 20:05:07,621] INFO backend GET /send_expo_token/5/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 20:05:07,622] INFO django.server "GET /send_expo_token/5/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 20:05:09,897] INFO backend GET /get_requested_rides/5/ | User: anonymous | Status: 200
+[2026-01-21 20:05:09,898] INFO django.server "GET /get_requested_rides/5/ HTTP/1.1" 200 2
+[2026-01-21 20:05:10,080] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:05:10,081] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-01-21 20:08:28,311] INFO backend User sign in: Email: gtechprojects3@gmail.com, Name: Gideon Ushindi
+[2026-01-21 20:08:28,312] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 20:08:28,313] INFO django.server "POST /signin/ HTTP/1.1" 200 1187
+[2026-01-21 20:08:37,508] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:08:37,509] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 20:08:37,830] INFO backend GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 20:08:37,831] INFO django.server "GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 20:08:38,092] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231583/37.7210225/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:08:38,093] INFO backend GET /nearby_vehicles/0.1231583/37.7210225/ | User: anonymous | Status: 500
+[2026-01-21 20:08:38,358] ERROR django.server "GET /nearby_vehicles/0.1231583/37.7210225/ HTTP/1.1" 500 116535
+[2026-01-21 20:09:28,425] INFO backend POST /siginin/ | User: anonymous | Status: 404
+[2026-01-21 20:09:28,425] WARNING django.request Not Found: /siginin/
+[2026-01-21 20:09:28,425] WARNING django.server "POST /siginin/ HTTP/1.1" 404 14001
+[2026-01-21 20:10:24,428] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231583/37.7210225/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:10:24,429] INFO backend GET /nearby_vehicles/0.1231583/37.7210225/ | User: anonymous | Status: 500
+[2026-01-21 20:10:24,430] ERROR django.server "GET /nearby_vehicles/0.1231583/37.7210225/ HTTP/1.1" 500 116586
+[2026-01-21 20:10:25,013] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:10:25,013] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 20:12:00,314] INFO backend GET /admin/vincab_app/user/4/change/ | User: vincab | Status: 200
+[2026-01-21 20:12:00,315] INFO django.server "GET /admin/vincab_app/user/4/change/ HTTP/1.1" 200 20307
+[2026-01-21 20:12:02,451] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-21 20:12:02,453] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-21 20:12:11,037] INFO backend GET /media/profiles/profile.jpg | User: vincab | Status: 200
+[2026-01-21 20:12:11,039] INFO django.server "GET /media/profiles/profile.jpg HTTP/1.1" 200 11001
+[2026-01-21 20:13:16,837] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
+[2026-01-21 20:13:17,485] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 20:14:51,477] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 20:16:08,716] INFO backend User sign in: Email: gtechprojects3@gmail.com, Name: Gideon Ushindi
+[2026-01-21 20:16:08,717] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 20:16:08,719] INFO django.server "POST /signin/ HTTP/1.1" 200 1187
+[2026-01-21 20:16:12,423] INFO backend GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 20:16:12,425] INFO django.server "GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 20:16:12,474] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:16:12,475] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 20:16:13,136] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231583/37.7210225/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:16:13,138] INFO backend GET /nearby_vehicles/0.1231583/37.7210225/ | User: anonymous | Status: 500
+[2026-01-21 20:16:13,159] ERROR django.server "GET /nearby_vehicles/0.1231583/37.7210225/ HTTP/1.1" 500 116535
+[2026-01-21 20:16:13,336] INFO backend GET /media/profiles/profile.jpg | User: anonymous | Status: 200
+[2026-01-21 20:16:13,337] INFO django.server "GET /media/profiles/profile.jpg HTTP/1.1" 200 11001
+[2026-01-21 20:16:42,065] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:16:42,066] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 20:16:42,442] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231583/37.7210225/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:16:42,443] INFO backend GET /nearby_vehicles/0.1231583/37.7210225/ | User: anonymous | Status: 500
+[2026-01-21 20:16:42,444] ERROR django.server "GET /nearby_vehicles/0.1231583/37.7210225/ HTTP/1.1" 500 116535
+[2026-01-21 20:18:23,601] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231583/37.7210225/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:18:23,601] INFO backend GET /nearby_vehicles/0.1231583/37.7210225/ | User: anonymous | Status: 500
+[2026-01-21 20:18:23,602] ERROR django.server "GET /nearby_vehicles/0.1231583/37.7210225/ HTTP/1.1" 500 116535
+[2026-01-21 20:18:23,653] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:18:23,655] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 20:18:23,972] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231583/37.7210225/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:18:23,973] INFO backend GET /nearby_vehicles/0.1231583/37.7210225/ | User: anonymous | Status: 500
+[2026-01-21 20:18:24,594] ERROR django.server "GET /nearby_vehicles/0.1231583/37.7210225/ HTTP/1.1" 500 116586
+[2026-01-21 20:18:25,087] INFO backend GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 20:18:25,087] INFO django.server "GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 20:18:41,503] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231583/37.7210225/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:18:41,505] INFO backend GET /nearby_vehicles/0.1231583/37.7210225/ | User: anonymous | Status: 500
+[2026-01-21 20:18:41,506] ERROR django.server "GET /nearby_vehicles/0.1231583/37.7210225/ HTTP/1.1" 500 116535
+[2026-01-21 20:18:43,291] INFO backend GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 20:18:43,292] INFO django.server "GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 20:18:50,225] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231583/37.7210225/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:18:50,225] INFO backend GET /nearby_vehicles/0.1231583/37.7210225/ | User: anonymous | Status: 500
+[2026-01-21 20:18:50,226] ERROR django.server "GET /nearby_vehicles/0.1231583/37.7210225/ HTTP/1.1" 500 116535
+[2026-01-21 20:18:50,708] INFO backend GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 20:18:50,710] INFO django.server "GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 20:18:53,172] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:18:53,172] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 20:18:53,199] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231583/37.7210225/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:18:53,200] INFO backend GET /nearby_vehicles/0.1231583/37.7210225/ | User: anonymous | Status: 500
+[2026-01-21 20:18:53,200] ERROR django.server "GET /nearby_vehicles/0.1231583/37.7210225/ HTTP/1.1" 500 116535
+[2026-01-21 20:18:53,206] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:18:53,206] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 20:19:04,451] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231583/37.7210225/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:19:04,452] INFO backend GET /nearby_vehicles/0.1231583/37.7210225/ | User: anonymous | Status: 500
+[2026-01-21 20:19:04,452] ERROR django.server "GET /nearby_vehicles/0.1231583/37.7210225/ HTTP/1.1" 500 116752
+[2026-01-21 20:19:04,467] INFO backend GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 20:19:04,467] INFO django.server "GET /send_expo_token/4/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 20:19:14,889] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231174/37.7211696/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:19:14,890] INFO backend GET /nearby_vehicles/0.1231174/37.7211696/ | User: anonymous | Status: 500
+[2026-01-21 20:19:14,890] ERROR django.server "GET /nearby_vehicles/0.1231174/37.7211696/ HTTP/1.1" 500 116591
+[2026-01-21 20:19:15,484] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:19:15,485] INFO django.server "POST /update_location/ HTTP/1.1" 200 152
+[2026-01-21 20:20:17,239] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 20:20:17,239] WARNING django.request Unauthorized: /signin/
+[2026-01-21 20:20:17,240] WARNING django.server "POST /signin/ HTTP/1.1" 401 465
+[2026-01-21 20:20:29,134] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushinidi
+[2026-01-21 20:20:29,135] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 20:20:29,136] INFO django.server "POST /signin/ HTTP/1.1" 200 1191
+[2026-01-21 20:20:32,399] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:20:32,400] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-01-21 20:20:32,457] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231174/37.7211696/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:20:32,458] INFO backend GET /nearby_vehicles/0.1231174/37.7211696/ | User: anonymous | Status: 500
+[2026-01-21 20:20:32,458] ERROR django.server "GET /nearby_vehicles/0.1231174/37.7211696/ HTTP/1.1" 500 116591
+[2026-01-21 20:20:32,494] INFO backend GET /send_expo_token/2/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 20:20:32,495] INFO django.server "GET /send_expo_token/2/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 20:22:29,147] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:22:29,149] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-01-21 20:22:29,242] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231174/37.7211696/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:22:29,244] INFO backend GET /nearby_vehicles/0.1231174/37.7211696/ | User: anonymous | Status: 500
+[2026-01-21 20:22:29,245] ERROR django.server "GET /nearby_vehicles/0.1231174/37.7211696/ HTTP/1.1" 500 116591
+[2026-01-21 20:22:36,557] INFO backend POST /update_rider_profile/ | User: anonymous | Status: 200
+[2026-01-21 20:22:36,558] INFO django.server "POST /update_rider_profile/ HTTP/1.1" 200 146
+[2026-01-21 20:22:59,842] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushinidi
+[2026-01-21 20:22:59,842] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 20:22:59,843] INFO django.server "POST /signin/ HTTP/1.1" 200 1191
+[2026-01-21 20:23:03,010] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231174/37.7211696/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:23:03,011] INFO backend GET /nearby_vehicles/0.1231174/37.7211696/ | User: anonymous | Status: 500
+[2026-01-21 20:23:03,011] ERROR django.server "GET /nearby_vehicles/0.1231174/37.7211696/ HTTP/1.1" 500 116540
+[2026-01-21 20:23:03,015] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:23:03,015] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-01-21 20:23:03,158] INFO backend GET /send_expo_token/2/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 20:23:03,159] INFO django.server "GET /send_expo_token/2/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 20:24:23,910] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-01-21 20:24:24,635] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 20:24:52,573] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushinidi
+[2026-01-21 20:24:52,575] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 20:24:52,576] WARNING django.request Unauthorized: /signin/
+[2026-01-21 20:24:52,577] WARNING django.server "POST /signin/ HTTP/1.1" 401 81
+[2026-01-21 20:25:28,366] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushinidi
+[2026-01-21 20:25:28,366] INFO backend POST /signin/ | User: anonymous | Status: 401
+[2026-01-21 20:25:28,367] WARNING django.request Unauthorized: /signin/
+[2026-01-21 20:25:28,368] WARNING django.server "POST /signin/ HTTP/1.1" 401 81
+[2026-01-21 20:26:11,846] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-01-21 20:26:12,460] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 20:26:20,893] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushinidi
+[2026-01-21 20:26:20,895] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 20:26:20,897] INFO django.server "POST /signin/ HTTP/1.1" 200 1247
+[2026-01-21 20:26:24,302] INFO backend GET /send_expo_token/2/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 20:26:24,303] INFO django.server "GET /send_expo_token/2/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 20:26:24,318] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:26:24,320] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-01-21 20:26:24,967] ERROR django.request Internal Server Error: /nearby_vehicles/0.1231174/37.7211696/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/renderers.py", line 100, in render
+    ret = json.dumps(
+          ^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/utils/encoders.py", line 52, in default
+    return obj.decode()
+           ^^^^^^^^^^^^
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+[2026-01-21 20:26:24,969] INFO backend GET /nearby_vehicles/0.1231174/37.7211696/ | User: anonymous | Status: 500
+[2026-01-21 20:26:24,985] ERROR django.server "GET /nearby_vehicles/0.1231174/37.7211696/ HTTP/1.1" 500 116540
+[2026-01-21 20:26:27,525] INFO backend GET /media/profiles/profile_oRRIAAe.jpg | User: anonymous | Status: 200
+[2026-01-21 20:26:27,526] INFO django.server "GET /media/profiles/profile_oRRIAAe.jpg HTTP/1.1" 200 27978
+[2026-01-21 20:28:17,171] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-21 20:28:17,798] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 20:29:35,368] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/serializers.py changed, reloading.
+[2026-01-21 20:29:36,094] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 20:30:07,651] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/serializers.py changed, reloading.
+[2026-01-21 20:30:08,257] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-21 20:30:17,083] INFO backend GET /get_ride_details/2/ | User: anonymous | Status: 404
+[2026-01-21 20:30:17,084] WARNING django.request Not Found: /get_ride_details/2/
+[2026-01-21 20:30:17,085] WARNING django.server "GET /get_ride_details/2/ HTTP/1.1" 404 48
+[2026-01-21 20:30:41,586] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:30:41,587] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-01-21 20:30:41,872] INFO backend GET /nearby_vehicles/0.1231174/37.7211696/ | User: anonymous | Status: 200
+[2026-01-21 20:30:41,873] INFO django.server "GET /nearby_vehicles/0.1231174/37.7211696/ HTTP/1.1" 200 393
+[2026-01-21 20:30:42,041] INFO backend GET /media/vehicles/car.jpg | User: anonymous | Status: 200
+[2026-01-21 20:30:42,042] INFO django.server "GET /media/vehicles/car.jpg HTTP/1.1" 200 26227
+[2026-01-21 20:33:00,722] INFO backend GET /media/profiles/profile_ja3BTzK.jpg | User: anonymous | Status: 200
+[2026-01-21 20:33:00,723] INFO django.server "GET /media/profiles/profile_ja3BTzK.jpg HTTP/1.1" 200 29941
+[2026-01-21 20:33:34,906] INFO backend User sign in: Email: gideonushindi94@gmail.com, Name: Simon Kamau
+[2026-01-21 20:33:34,907] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-01-21 20:33:34,909] INFO django.server "POST /signin/ HTTP/1.1" 200 1244
+[2026-01-21 20:33:35,146] INFO backend GET /check_driver_verified/5 | User: anonymous | Status: 404
+[2026-01-21 20:33:35,147] INFO django.server "GET /check_driver_verified/5 HTTP/1.1" 301 0
+[2026-01-21 20:33:37,183] INFO backend GET /check_driver_verified/5/ | User: anonymous | Status: 200
+[2026-01-21 20:33:37,185] INFO django.server "GET /check_driver_verified/5/ HTTP/1.1" 200 131
+[2026-01-21 20:33:37,939] INFO backend GET /get_driver_total_earnings/5 | User: anonymous | Status: 404
+[2026-01-21 20:33:37,940] INFO django.server "GET /get_driver_total_earnings/5 HTTP/1.1" 301 0
+[2026-01-21 20:33:39,943] INFO backend GET /get_requested_rides/5/ | User: anonymous | Status: 200
+[2026-01-21 20:33:39,943] INFO django.server "GET /get_requested_rides/5/ HTTP/1.1" 200 2
+[2026-01-21 20:33:40,203] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-01-21 20:33:40,205] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-01-21 20:33:40,252] INFO backend GET /get_driver_total_earnings/5/ | User: anonymous | Status: 200
+[2026-01-21 20:33:40,253] INFO django.server "GET /get_driver_total_earnings/5/ HTTP/1.1" 200 69
+[2026-01-21 20:33:40,650] INFO backend GET /send_expo_token/5/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-01-21 20:33:40,651] INFO django.server "GET /send_expo_token/5/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-01-21 20:35:31,346] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-01-21 20:35:31,963] INFO django.utils.autoreload Watching for file changes with StatReloader

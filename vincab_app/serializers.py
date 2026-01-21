@@ -25,6 +25,7 @@ class UserSerializer(serializers.ModelSerializer):
         ]
 
 class VehicleSerializer(serializers.ModelSerializer):
+    car_image = serializers.ImageField(use_url=True)
     class Meta:
         model = Vehicle
         fields = [

@@ -20,7 +20,7 @@ class User(models.Model):
     current_lng = models.FloatField(null=True, blank=True, default=0.0)
     phone_verified = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-    profile_image = models.URLField(blank=True, null=True, default='https://res.cloudinary.com/dc68huvjj/image/upload/v1748119193/zzy3zwrius3kjrzp4ifc.png')
+    profile_image = models.ImageField(upload_to='profiles/', null=True, blank=True, default="/media/profiles/profile.jpg")
     date_joined = models.DateTimeField(default=timezone.now)
     expo_token = models.CharField(max_length=100, default="hsvsx92jjs")
 
@@ -59,7 +59,7 @@ class Vehicle(models.Model):
     vehicle_type = models.CharField(max_length=20, choices=VEHICLE_TYPES)
     color = models.CharField(max_length=30)
     capacity = models.IntegerField(default=4)
-    car_image = models.URLField(blank=True, null=True)
+    car_image = models.ImageField(upload_to='vehicles/', null=True, blank=True, default="/media/profiles/profile.jpg")
     date_joined = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

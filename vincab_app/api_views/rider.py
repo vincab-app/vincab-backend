@@ -183,9 +183,7 @@ def update_rider_profile(request):
 
         # Update profile image if provided
         if profile_image:
-            upload_result = cloudinary.uploader.upload(profile_image)
-            image_url = upload_result.get("secure_url")
-            rider.profile_image = image_url  # assuming your model has an ImageField or CharField
+            rider.profile_image = profile_image
 
         rider.save()
 
@@ -297,7 +295,7 @@ def nearby_vehicles(request, lat, lng):
             data["driver_id"] = driver.id
             data["driver_name"] = driver.user.full_name
             data["driver_phone"] = driver.user.phone_number
-            data["driver_image"] = driver.user.profile_image
+            data["driver_image"] = driver.user.profile_image.url if driver.user.profile_image else None
             data["driver_lat"] = driver.user.current_lat
             data["driver_lng"] = driver.user.current_lng
 

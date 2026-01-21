@@ -64,7 +64,7 @@ def refresh_token(request):
             "message": "Failed to refresh token",
             "error": str(e)
         }, status=401)
-
+        
 
 # start of siginin
 @api_view(['POST'])
@@ -105,7 +105,7 @@ def signin(request):
                 "phone_number": db_user.phone_number,
                 "role": db_user.role,
                 "phone_verified": db_user.phone_verified,
-                "profile_image": db_user.profile_image,
+                "profile_image": db_user.profile_image.url if db_user.profile_image else None,
                 "date_joined": db_user.date_joined.strftime("%Y-%m-%d %H:%M:%S"),
             }
         })
@@ -283,19 +283,13 @@ def driversignup(request):
             status="inactive"
         )
 
-        # Save vehicle info
-        car_image_url = None
-        if car_image:
-            upload_result = cloudinary.uploader.upload(car_image)
-            car_image_url = upload_result.get("secure_url")
-
         Vehicle.objects.create(
             driver=driver,
             plate_number=car_plate,
             model=car_model,
             vehicle_type="car",
             color=car_color,
-            car_image=car_image_url
+            car_image=car_image
         )
 
         # Notifications
