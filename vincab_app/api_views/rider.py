@@ -92,28 +92,49 @@ def send_expo_token(request, user_id, expo_token):
 @api_view(["GET"])
 def get_completed_rides(request, rider_id):
     try:
-        # Get latest completed ride for the rider
-        ride = Ride.objects.select_related("rider", "driver__user") \
-            .filter(rider_id=rider_id, status="completed") \
-            .latest("requested_at")
+        rider = User.objects.get(id=rider_id)
 
+        # ✅ Get most recent completed ride
+        ride = (
+            Ride.objects
+            .select_related("rider", "driver", "driver__user")
+            .filter(rider=rider, status="completed")
+            .order_by("-completed_at")
+            .first()
+        )
+
+        if not ride:
+            return JsonResponse(
+                {"message": "No completed rides found"},
+                status=404
+            )
+
+        # ✅ Get vehicle
         vehicle = ride.driver.vehicles.first() if ride.driver else None
 
-        # 🔹 Get human-readable addresses
+        # ✅ Get human-readable addresses
         pickup_address = reverse_geocode(ride.pickup_lat, ride.pickup_lng)
         dropoff_address = reverse_geocode(ride.dropoff_lat, ride.dropoff_lng)
 
-        # check if the rider have already rated the ride, if exists return data = {}
+        # ✅ Check if already rated
         rating = Rating.objects.filter(ride=ride, reviewer=ride.rider).first()
         if rating:
-            data = {}
-            return JsonResponse({"data":None, "message": "You have already rated this ride"}, status=200)
-        
+            return JsonResponse(
+                {"data": None, "message": "You have already rated this ride"},
+                status=200
+            )
 
+        # ✅ ETA
         eta_data = None
         if vehicle:
-            eta_data = get_eta(vehicle.driver.user.current_lat, vehicle.driver.user.current_lng, ride.pickup_lat, ride.pickup_lng)
+            eta_data = get_eta(
+                vehicle.driver.user.current_lat,
+                vehicle.driver.user.current_lng,
+                ride.pickup_lat,
+                ride.pickup_lng
+            )
 
+        # ✅ Build response (YOUR STRUCTURE — UNCHANGED)
         data = {
             "id": ride.id,
             "rider": {
@@ -126,7 +147,7 @@ def get_completed_rides(request, rider_id):
                 "id": ride.driver.id if ride.driver else None,
                 "name": ride.driver.user.full_name if ride.driver else None,
                 "phone": ride.driver.user.phone_number if ride.driver else None,
-                "profile_image": ride.driver.user.profile_image if ride.driver else None,
+                "profile_image": ride.driver.user.profile_image.url if ride.driver and ride.driver.user.profile_image else None,
                 "current_lat": ride.driver.user.current_lat if ride.driver else None,
                 "current_lng": ride.driver.user.current_lng if ride.driver else None,
             } if ride.driver else None,
@@ -134,7 +155,7 @@ def get_completed_rides(request, rider_id):
                 "id": vehicle.id if vehicle else None,
                 "plate_number": vehicle.plate_number if vehicle else None,
                 "model": vehicle.model if vehicle else None,
-                "car_image": vehicle.car_image if vehicle else None,
+                "car_image": vehicle.car_image.url if vehicle and vehicle.car_image else None,
                 "current_lat": vehicle.driver.user.current_lat if vehicle else None,
                 "current_lng": vehicle.driver.user.current_lng if vehicle else None,
                 "eta": eta_data,
@@ -158,8 +179,9 @@ def get_completed_rides(request, rider_id):
 
         return JsonResponse(data, status=200)
 
-    except Ride.DoesNotExist:
-        return JsonResponse({"error": "No active ride found for this rider"}, status=404)
+    except User.DoesNotExist:
+        return JsonResponse({"error": "User not found"}, status=404)
+
 # end
 
 # start of update rider profile api

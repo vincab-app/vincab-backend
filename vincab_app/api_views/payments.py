@@ -124,7 +124,7 @@ import datetime
 STK_PUSH_URL = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
 DARAJA_SHORTCODE = '174379'
 DARAJA_PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
-CALLBACK_URL = 'https://9f3ad22887df.ngrok-free.app/mpesa_callback/'
+CALLBACK_URL = 'https://vincab-backend.onrender.com/mpesa_callback/'
 
 def lipa_na_mpesa(phone_number, amount):
     # convert amount to int
@@ -200,7 +200,7 @@ B2C_SHORTCODE = "600992"     # Your shortcode (Paybill/Till)
 INITIATOR_NAME = "testapi"  # From Daraja
 SECURITY_CREDENTIAL = "LOdHKAcraAmSLt0ktpXPggiIoJdXXtqisq5TpkpD31HTFE9QlOSFHscHsK/jyLtJ9xX8E4ljw3S5J+Yz/IaH8irTPhnFCZik0vcConE+D2fgWXw9/4cFmOXizS2IxMXmTpLyST5+YLGNWAnwVV8VTTYu1ppQBRog6FWQ3dEUvUDOylIVy5kX9p1J6HdFOay6LLqb/7/y7LJy6n7R+6tEwWXmigwdeGueMkaOUUuujEo6T87Hw3bvpFbEx+WkY9bIKGKZNoHk9NUQWyHQleLIRISyhRlrh9WrekFGx7ONaGT/gL8HHj4RWoSCujJ/IA0EE6wWrptZc1jcWfgKtGWECg=="  # Encrypted initiator password
 
-B2C_CALLBACK_URL = "https://9f3ad22887df.ngrok-free.app/b2c_callback/"
+B2C_CALLBACK_URL = "https://vincab-backend.onrender.com/b2c_callback/"
 
 import uuid
 
