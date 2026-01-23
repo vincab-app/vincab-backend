@@ -1,5 +1,8 @@
 from .common_imports import *
 from .helper import *
+from .payments import *
+
+PAYSTACK_SECRET_KEY = os.environ.get("PAYSTACK_SECRET_KEY")
 
 
 # api to get all driver payments
@@ -397,3 +400,17 @@ def update_ride_status(request):
     except Exception as e:
         print("ERROR:", e)
         return JsonResponse({"error": "Server error", "details": str(e)}, status=500)
+
+# api to get driver location
+@api_view(["GET"])
+# @verify_firebase_token
+def get_driver_location(request, driver_id):
+    driver = Driver.objects.get(id=driver_id)
+    if not driver.user.current_lat or not driver.user.current_lng:
+        return JsonResponse({"error": "Driver location not available"}, status=400)
+
+    return Response({
+        "driver_id": driver.id,
+        "latitude": driver.user.current_lat,
+        "longitude": driver.user.current_lng,
+    })
