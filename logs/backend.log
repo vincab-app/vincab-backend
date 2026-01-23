@@ -4826,3 +4826,20 @@ TypeError: Object of type ImageFieldFile is not JSON serializable
 [2026-01-23 20:31:38,386] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
 [2026-01-23 20:32:13,360] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-01-23 20:32:14,069] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-23 20:53:44,539] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-23 20:53:57,143] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-01-23 20:53:57,145] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 14459
+[2026-01-23 20:53:59,384] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-23 20:53:59,385] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-23 20:54:06,995] INFO backend GET /admin/vincab_app/user/1/change/ | User: vincab | Status: 200
+[2026-01-23 20:54:06,997] INFO django.server "GET /admin/vincab_app/user/1/change/ HTTP/1.1" 200 20444
+[2026-01-23 20:54:09,022] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-23 20:54:09,024] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-23 20:54:40,641] INFO backend POST /admin/vincab_app/user/1/change/ | User: vincab | Status: 302
+[2026-01-23 20:54:40,642] INFO django.server "POST /admin/vincab_app/user/1/change/ HTTP/1.1" 302 0
+[2026-01-23 20:54:49,868] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-01-23 20:54:49,869] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 14673
+[2026-01-23 20:54:51,986] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-23 20:54:51,988] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-23 20:57:16,063] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-01-23 20:57:16,800] INFO django.utils.autoreload Watching for file changes with StatReloader
