@@ -245,9 +245,9 @@ def driversignup(request):
         expo_token = data.get("expo_token")
         latitude = data.get("latitude")
         longitude = data.get("longitude")
-        car_image = request.FILES.get("car_image")
+        car_image = request.FILES.get("vehicle_image")
 
-        if not all([full_name, email, password, phone_number, license_number, car_make, car_model, car_plate, car_color, expo_token]):
+        if not all([full_name, email, password, phone_number, license_number, car_make, car_model, car_plate, car_color, vehicle_type, expo_token]):
             return JsonResponse({"message": "Missing required fields"}, status=400)
 
         # Check if email already exists in Firebase
