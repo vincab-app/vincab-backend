@@ -4978,3 +4978,138 @@ TypeError: Object of type ImageFieldFile is not JSON serializable
 [2026-01-31 12:27:48,998] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
 [2026-01-31 12:37:05,509] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-01-31 12:37:06,201] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-31 13:56:44,528] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-31 13:57:23,755] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-31 13:58:17,935] INFO backend GET /get_ride_details/2/ | User: anonymous | Status: 404
+[2026-01-31 13:58:17,938] WARNING django.request Not Found: /get_ride_details/2/
+[2026-01-31 13:58:17,940] WARNING django.server "GET /get_ride_details/2/ HTTP/1.1" 404 48
+[2026-01-31 13:58:30,087] INFO backend GET /admin/vincab_app/ride/ | User: vincab | Status: 200
+[2026-01-31 13:58:30,089] INFO django.server "GET /admin/vincab_app/ride/ HTTP/1.1" 200 13385
+[2026-01-31 13:58:32,152] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 13:58:32,154] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 13:58:46,552] INFO backend GET /get_ride_details/3/ | User: anonymous | Status: 404
+[2026-01-31 13:58:46,553] WARNING django.request Not Found: /get_ride_details/3/
+[2026-01-31 13:58:46,553] WARNING django.server "GET /get_ride_details/3/ HTTP/1.1" 404 48
+[2026-01-31 13:59:11,485] INFO backend GET /get_ride_details/4/ | User: anonymous | Status: 404
+[2026-01-31 13:59:11,486] WARNING django.request Not Found: /get_ride_details/4/
+[2026-01-31 13:59:11,486] WARNING django.server "GET /get_ride_details/4/ HTTP/1.1" 404 48
+[2026-01-31 13:59:24,856] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-01-31 13:59:24,857] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 13877
+[2026-01-31 13:59:26,859] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 13:59:26,861] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 13:59:47,460] INFO backend GET /get_ride_details/1/ | User: anonymous | Status: 404
+[2026-01-31 13:59:47,460] WARNING django.request Not Found: /get_ride_details/1/
+[2026-01-31 13:59:47,461] WARNING django.server "GET /get_ride_details/1/ HTTP/1.1" 404 48
+[2026-01-31 14:00:13,197] INFO backend GET /admin/vincab_app/ride/ | User: vincab | Status: 200
+[2026-01-31 14:00:13,198] INFO django.server "GET /admin/vincab_app/ride/ HTTP/1.1" 200 13385
+[2026-01-31 14:00:15,312] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 14:00:15,314] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 14:00:26,083] INFO backend GET /admin/vincab_app/ride/1/change/ | User: vincab | Status: 200
+[2026-01-31 14:00:26,086] INFO django.server "GET /admin/vincab_app/ride/1/change/ HTTP/1.1" 200 21385
+[2026-01-31 14:00:28,167] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 14:00:28,168] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 14:00:28,473] INFO django.server "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+[2026-01-31 14:00:48,852] INFO backend POST /admin/vincab_app/ride/1/change/ | User: vincab | Status: 302
+[2026-01-31 14:00:48,855] INFO django.server "POST /admin/vincab_app/ride/1/change/ HTTP/1.1" 302 0
+[2026-01-31 14:00:52,677] INFO backend GET /admin/vincab_app/ride/ | User: vincab | Status: 200
+[2026-01-31 14:00:52,677] INFO django.server "GET /admin/vincab_app/ride/ HTTP/1.1" 200 13608
+[2026-01-31 14:00:54,759] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 14:00:54,761] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 14:01:07,139] ERROR django.request Internal Server Error: /get_ride_details/1/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py", line 68, in get_ride_details
+    return JsonResponse(data, status=200)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/http/response.py", line 751, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/serializers/json.py", line 114, in default
+    return super().default(o)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ImageFieldFile is not JSON serializable
+[2026-01-31 14:01:07,143] INFO backend GET /get_ride_details/1/ | User: anonymous | Status: 500
+[2026-01-31 14:01:07,144] ERROR django.server "GET /get_ride_details/1/ HTTP/1.1" 500 140101
+[2026-01-31 14:03:09,679] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-01-31 14:03:10,477] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-31 14:03:24,985] INFO backend GET /get_ride_details/1/ | User: anonymous | Status: 200
+[2026-01-31 14:03:24,987] INFO django.server "GET /get_ride_details/1/ HTTP/1.1" 200 843
+[2026-01-31 14:13:58,492] INFO backend GET /get_ride_details/1/ | User: anonymous | Status: 200
+[2026-01-31 14:13:58,513] INFO django.server "GET /get_ride_details/1/ HTTP/1.1" 200 843
+[2026-01-31 14:14:25,114] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-01-31 14:14:25,115] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 13877
+[2026-01-31 14:14:27,202] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 14:14:27,204] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 14:15:08,718] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
+[2026-01-31 14:15:09,789] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-31 14:15:24,078] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-01-31 14:15:24,079] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 13907
+[2026-01-31 14:15:26,048] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 14:15:26,050] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 14:15:43,312] INFO backend GET /get_ride_details/1/ | User: anonymous | Status: 200
+[2026-01-31 14:15:43,312] INFO django.server "GET /get_ride_details/1/ HTTP/1.1" 200 843
+[2026-01-31 14:21:59,468] INFO backend GET /get_ride_details/1/ | User: anonymous | Status: 200
+[2026-01-31 14:21:59,469] INFO django.server "GET /get_ride_details/1/ HTTP/1.1" 200 843
+[2026-01-31 14:22:00,150] INFO backend GET /media/vehicles/car_2gCmBad.jpg | User: anonymous | Status: 404
+[2026-01-31 14:22:00,151] WARNING django.request Not Found: /media/vehicles/car_2gCmBad.jpg
+[2026-01-31 14:22:00,153] INFO backend GET /media/profiles/profile_PqmICks.jpg | User: anonymous | Status: 404
+[2026-01-31 14:22:00,154] WARNING django.request Not Found: /media/profiles/profile_PqmICks.jpg
+[2026-01-31 14:22:00,154] WARNING django.server "GET /media/vehicles/car_2gCmBad.jpg HTTP/1.1" 404 14598
+[2026-01-31 14:22:00,155] WARNING django.server "GET /media/profiles/profile_PqmICks.jpg HTTP/1.1" 404 14614
+[2026-01-31 14:22:00,606] INFO backend GET /media/profiles/profile_K3lXXnF.jpg | User: anonymous | Status: 404
+[2026-01-31 14:22:00,607] WARNING django.request Not Found: /media/profiles/profile_K3lXXnF.jpg
+[2026-01-31 14:22:00,608] WARNING django.server "GET /media/profiles/profile_K3lXXnF.jpg HTTP/1.1" 404 14614
+[2026-01-31 14:22:02,368] INFO backend GET /media/vehicles/car_2gCmBad.jpg | User: anonymous | Status: 404
+[2026-01-31 14:22:02,371] WARNING django.request Not Found: /media/vehicles/car_2gCmBad.jpg
+[2026-01-31 14:22:02,388] WARNING django.server "GET /media/vehicles/car_2gCmBad.jpg HTTP/1.1" 404 14598
+[2026-01-31 14:22:02,393] INFO backend GET /media/profiles/profile_PqmICks.jpg | User: anonymous | Status: 404
+[2026-01-31 14:22:02,395] WARNING django.request Not Found: /media/profiles/profile_PqmICks.jpg
+[2026-01-31 14:22:02,396] WARNING django.server "GET /media/profiles/profile_PqmICks.jpg HTTP/1.1" 404 14614
+[2026-01-31 14:22:06,805] INFO backend GET /get_ride_details/1/ | User: anonymous | Status: 200
+[2026-01-31 14:22:06,806] INFO django.server "GET /get_ride_details/1/ HTTP/1.1" 200 843
+[2026-01-31 14:22:58,950] INFO backend GET /media/vehicles/car_2gCmBad.jpg | User: anonymous | Status: 404
+[2026-01-31 14:22:58,951] WARNING django.request Not Found: /media/vehicles/car_2gCmBad.jpg
+[2026-01-31 14:22:58,952] WARNING django.server "GET /media/vehicles/car_2gCmBad.jpg HTTP/1.1" 404 14598
+[2026-01-31 14:22:58,962] INFO backend GET /media/profiles/profile_PqmICks.jpg | User: anonymous | Status: 404
+[2026-01-31 14:22:58,963] WARNING django.request Not Found: /media/profiles/profile_PqmICks.jpg
+[2026-01-31 14:22:58,963] WARNING django.server "GET /media/profiles/profile_PqmICks.jpg HTTP/1.1" 404 14614
+[2026-01-31 14:23:05,899] INFO django.server - Broken pipe from ('192.168.100.4', 58524)
+[2026-01-31 14:23:05,900] INFO django.server - Broken pipe from ('192.168.100.4', 43070)
+[2026-01-31 14:23:05,900] INFO django.server - Broken pipe from ('192.168.100.4', 43082)
+[2026-01-31 14:25:05,433] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-01-31 14:25:06,140] INFO django.utils.autoreload Watching for file changes with StatReloader
