@@ -4843,3 +4843,127 @@ TypeError: Object of type ImageFieldFile is not JSON serializable
 [2026-01-23 20:54:51,988] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
 [2026-01-23 20:57:16,063] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-01-23 20:57:16,800] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-30 17:21:07,088] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-30 17:22:55,021] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab/settings.py changed, reloading.
+[2026-01-30 17:22:55,940] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-30 17:23:00,777] INFO backend GET / | User: anonymous | Status: 200
+[2026-01-30 17:23:00,778] INFO django.server "GET / HTTP/1.1" 200 12
+[2026-01-30 17:23:00,924] INFO backend GET /favicon.ico | User: anonymous | Status: 404
+[2026-01-30 17:23:00,925] WARNING django.request Not Found: /favicon.ico
+[2026-01-30 17:23:00,925] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 14297
+[2026-01-30 17:23:05,891] INFO backend GET /admin/ | User: anonymous | Status: 302
+[2026-01-30 17:23:05,891] INFO django.server "GET /admin/ HTTP/1.1" 302 0
+[2026-01-30 17:23:06,113] INFO backend GET /admin/login/ | User: anonymous | Status: 200
+[2026-01-30 17:23:06,114] INFO django.server "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4173
+[2026-01-30 17:23:06,461] INFO django.server "GET /static/admin/css/login.css HTTP/1.1" 304 0
+[2026-01-30 17:23:06,462] INFO django.server "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[2026-01-30 17:23:06,462] INFO django.server "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[2026-01-30 17:23:06,462] INFO django.server "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[2026-01-30 17:23:06,489] INFO django.server "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[2026-01-30 17:23:06,498] INFO django.server "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[2026-01-30 17:23:06,565] INFO django.server "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[2026-01-30 17:23:11,428] INFO backend POST /admin/login/ | User: anonymous | Status: 200
+[2026-01-30 17:23:11,429] INFO django.server "POST /admin/login/?next=/admin/ HTTP/1.1" 200 4342
+[2026-01-30 17:24:56,172] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab/settings.py changed, reloading.
+[2026-01-30 17:24:56,936] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-30 17:27:07,201] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-30 17:29:16,460] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-30 17:49:23,212] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-30 17:49:40,604] INFO backend POST /admin/login/ | User: vincab | Status: 302
+[2026-01-30 17:49:41,419] INFO django.server "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2026-01-30 17:49:43,962] INFO backend GET /admin/ | User: vincab | Status: 200
+[2026-01-30 17:49:43,963] INFO django.server "GET /admin/ HTTP/1.1" 200 11567
+[2026-01-30 17:49:44,070] INFO django.server "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[2026-01-30 17:49:44,111] INFO django.server "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[2026-01-30 17:49:44,111] INFO django.server "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[2026-01-30 21:14:31,828] INFO backend GET / | User: vincab | Status: 200
+[2026-01-30 21:14:31,829] INFO django.server "GET / HTTP/1.1" 200 12
+[2026-01-30 21:14:50,440] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-01-30 21:14:50,442] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 13008
+[2026-01-30 21:14:50,499] INFO django.server "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[2026-01-30 21:14:50,519] INFO django.server "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[2026-01-30 21:14:50,541] INFO django.server "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[2026-01-30 21:14:50,625] INFO django.server "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[2026-01-30 21:14:50,721] INFO django.server "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[2026-01-30 21:14:50,748] INFO django.server "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[2026-01-30 21:14:50,768] INFO django.server "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[2026-01-30 21:14:50,860] INFO django.server "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2026-01-30 21:14:50,869] INFO django.server "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2026-01-30 21:14:50,890] INFO django.server "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+[2026-01-30 21:14:52,547] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-30 21:14:52,547] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-30 21:14:52,668] INFO django.server "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[2026-01-30 21:14:58,553] INFO backend GET /admin/vincab_app/user/2/change/ | User: vincab | Status: 200
+[2026-01-30 21:14:58,554] INFO django.server "GET /admin/vincab_app/user/2/change/ HTTP/1.1" 200 20323
+[2026-01-30 21:14:58,629] INFO django.server "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+[2026-01-30 21:14:58,687] INFO django.server "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+[2026-01-30 21:14:58,694] INFO django.server "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+[2026-01-30 21:14:58,719] INFO django.server "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+[2026-01-30 21:14:58,774] INFO django.server "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+[2026-01-30 21:14:58,860] INFO django.server "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+[2026-01-30 21:15:02,057] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-30 21:15:02,058] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-30 21:15:02,219] INFO django.server "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0
+[2026-01-30 21:15:02,237] INFO django.server "GET /static/admin/img/icon-clock.svg HTTP/1.1" 304 0
+[2026-01-30 21:15:15,261] INFO backend POST /admin/vincab_app/user/2/change/ | User: vincab | Status: 302
+[2026-01-30 21:15:15,262] INFO django.server "POST /admin/vincab_app/user/2/change/ HTTP/1.1" 302 0
+[2026-01-30 21:15:18,278] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-01-30 21:15:18,278] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 13222
+[2026-01-30 21:15:20,566] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-30 21:15:20,568] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-30 21:15:20,695] INFO django.server "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+[2026-01-31 11:30:06,344] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-31 11:30:29,076] INFO backend GET / | User: vincab | Status: 200
+[2026-01-31 11:30:29,079] INFO django.server "GET / HTTP/1.1" 200 12
+[2026-01-31 11:30:44,303] INFO backend GET /admin/ | User: vincab | Status: 200
+[2026-01-31 11:30:44,304] INFO django.server "GET /admin/ HTTP/1.1" 200 11963
+[2026-01-31 11:30:54,300] INFO backend GET /admin/vincab_app/driver/ | User: vincab | Status: 200
+[2026-01-31 11:30:54,302] INFO django.server "GET /admin/vincab_app/driver/ HTTP/1.1" 200 12730
+[2026-01-31 11:30:56,460] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 11:30:56,462] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 11:34:39,739] INFO backend GET /admin/vincab_app/driver/ | User: vincab | Status: 200
+[2026-01-31 11:34:39,742] INFO django.server "GET /admin/vincab_app/driver/ HTTP/1.1" 200 13022
+[2026-01-31 11:34:41,749] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 11:34:41,750] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 11:50:35,120] INFO backend GET /admin/vincab_app/payment/ | User: vincab | Status: 200
+[2026-01-31 11:50:35,164] INFO django.server "GET /admin/vincab_app/payment/ HTTP/1.1" 200 12752
+[2026-01-31 11:50:37,139] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 11:50:37,140] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 11:50:43,463] INFO backend GET /admin/vincab_app/payment/1/change/ | User: vincab | Status: 200
+[2026-01-31 11:50:43,464] INFO django.server "GET /admin/vincab_app/payment/1/change/ HTTP/1.1" 200 19294
+[2026-01-31 11:50:43,732] INFO django.server "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+[2026-01-31 11:50:46,279] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 11:50:46,280] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 11:51:01,526] INFO backend GET /admin/vincab_app/driverpayment/ | User: vincab | Status: 200
+[2026-01-31 11:51:01,529] INFO django.server "GET /admin/vincab_app/driverpayment/ HTTP/1.1" 200 12839
+[2026-01-31 11:51:03,545] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 11:51:03,548] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 11:51:11,619] INFO backend GET /admin/vincab_app/driverpayment/1/change/ | User: vincab | Status: 200
+[2026-01-31 11:51:11,620] INFO django.server "GET /admin/vincab_app/driverpayment/1/change/ HTTP/1.1" 200 20108
+[2026-01-31 11:51:13,672] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 11:51:13,672] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 11:56:08,547] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-01-31 11:56:19,646] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-31 11:57:02,417] INFO backend GET /admin/vincab_app/payment/ | User: vincab | Status: 200
+[2026-01-31 11:57:02,448] INFO django.server "GET /admin/vincab_app/payment/ HTTP/1.1" 200 12752
+[2026-01-31 11:57:04,521] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 11:57:04,522] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 11:57:17,223] INFO backend GET /admin/vincab_app/payment/1/change/ | User: vincab | Status: 200
+[2026-01-31 11:57:17,224] INFO django.server "GET /admin/vincab_app/payment/1/change/ HTTP/1.1" 200 19297
+[2026-01-31 11:57:19,303] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 11:57:19,304] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 11:57:32,628] INFO backend POST /admin/vincab_app/payment/1/change/ | User: vincab | Status: 200
+[2026-01-31 11:57:32,628] INFO django.server "POST /admin/vincab_app/payment/1/change/ HTTP/1.1" 200 19727
+[2026-01-31 11:57:35,058] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 11:57:35,059] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 11:58:00,679] INFO backend GET /admin/vincab_app/payment/1/change/ | User: vincab | Status: 200
+[2026-01-31 11:58:01,372] INFO django.server "GET /admin/vincab_app/payment/1/change/ HTTP/1.1" 200 19297
+[2026-01-31 11:58:07,812] INFO backend GET /admin/vincab_app/payment/ | User: vincab | Status: 200
+[2026-01-31 11:58:07,813] INFO django.server "GET /admin/vincab_app/payment/ HTTP/1.1" 200 12752
+[2026-01-31 11:58:15,486] INFO backend GET /admin/vincab_app/payment/1/change/ | User: vincab | Status: 200
+[2026-01-31 11:58:15,486] INFO django.server "GET /admin/vincab_app/payment/1/change/ HTTP/1.1" 200 19297
+[2026-01-31 11:58:17,559] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 11:58:17,560] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 11:58:52,451] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-01-31 11:58:59,066] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-31 11:59:40,988] INFO django.utils.autoreload Watching for file changes with StatReloader

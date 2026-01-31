@@ -463,7 +463,7 @@ def payment_callback(request):
                 ride=ride,
                 amount=platform_cut,
                 method=method,
-                status="success",
+                status="paid",
                 transaction_reference=transaction_reference,
                 paid_at=timezone.now()
             )
@@ -494,7 +494,7 @@ def payment_callback(request):
                 )
 
         return render(request, "payment_status.html", {
-            "status": "success",
+            "status": "paid",
             "ride": ride,
             "payment": payment,
         })
