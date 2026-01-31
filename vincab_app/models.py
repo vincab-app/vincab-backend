@@ -113,7 +113,7 @@ class Payment(models.Model):
     ride = models.OneToOneField(Ride, on_delete=models.CASCADE, related_name="payment")
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     method = models.CharField(max_length=20, choices=METHOD_CHOICES)
-    checkout_request_id = models.CharField(max_length=100, unique=True, default="")
+    checkout_request_id = models.CharField(max_length=100, default="")
     merchant_request_id = models.CharField(max_length=100, default="")
     receipt_number = models.CharField(max_length=50, blank=True, null=True, default="")
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")
