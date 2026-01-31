@@ -237,10 +237,11 @@ def driversignup(request):
         email = data.get("email")
         license_number = data.get("license_number")
         password = data.get("password")
-        car_make = data.get("car_make")
-        car_model = data.get("car_model")
-        car_plate = data.get("car_plate")
-        car_color = data.get("car_color")
+        car_make = data.get("vehicle_make")
+        car_model = data.get("vehicle_model")
+        car_plate = data.get("vehicle_plate")
+        car_color = data.get("vehicle_color")
+        vehicle_type = data.get("vehicle_type")
         expo_token = data.get("expo_token")
         latitude = data.get("latitude")
         longitude = data.get("longitude")
@@ -287,7 +288,7 @@ def driversignup(request):
             driver=driver,
             plate_number=car_plate,
             model=car_model,
-            vehicle_type="car",
+            vehicle_type=vehicle_type,
             color=car_color,
             car_image=car_image
         )

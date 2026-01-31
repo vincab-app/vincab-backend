@@ -5113,3 +5113,24 @@ TypeError: Object of type ImageFieldFile is not JSON serializable
 [2026-01-31 14:23:05,900] INFO django.server - Broken pipe from ('192.168.100.4', 43082)
 [2026-01-31 14:25:05,433] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-01-31 14:25:06,140] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-31 14:32:16,779] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-31 14:32:26,772] INFO backend GET /admin/vincab_app/ride/ | User: vincab | Status: 200
+[2026-01-31 14:32:26,775] INFO django.server "GET /admin/vincab_app/ride/ HTTP/1.1" 200 13381
+[2026-01-31 14:32:28,796] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 14:32:28,798] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 14:32:38,743] INFO backend GET /admin/vincab_app/ride/1/change/ | User: vincab | Status: 200
+[2026-01-31 14:32:38,746] INFO django.server "GET /admin/vincab_app/ride/1/change/ HTTP/1.1" 200 21394
+[2026-01-31 14:32:40,770] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 14:32:40,771] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 14:32:57,493] INFO backend POST /admin/vincab_app/ride/1/change/ | User: vincab | Status: 302
+[2026-01-31 14:32:57,497] INFO django.server "POST /admin/vincab_app/ride/1/change/ HTTP/1.1" 302 0
+[2026-01-31 14:33:01,251] INFO backend GET /admin/vincab_app/ride/ | User: vincab | Status: 200
+[2026-01-31 14:33:01,252] INFO django.server "GET /admin/vincab_app/ride/ HTTP/1.1" 200 13614
+[2026-01-31 14:33:03,416] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-01-31 14:33:03,418] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-01-31 14:36:08,850] INFO backend GET /get_completed_rides/1/ | User: anonymous | Status: 200
+[2026-01-31 14:36:08,850] INFO django.server "GET /get_completed_rides/1/ HTTP/1.1" 200 845
+[2026-01-31 14:56:42,732] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-01-31 14:56:43,447] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-01-31 14:57:34,044] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-01-31 14:57:34,681] INFO django.utils.autoreload Watching for file changes with StatReloader
