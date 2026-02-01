@@ -268,7 +268,7 @@ def b2c_callback(request):
         if result_code == 2040:
             driver_payment.status = "paid"
 
-            message = f"Your payout was successful. (Transaction ID: {transaction_id})"
+            message = f"Your payout was successful. Transaction ID: {transaction_id}"
         else:
             driver_payment.status = "failed"
 
@@ -479,12 +479,12 @@ def payment_callback(request):
             # --- Notifications ---
             Notification.objects.create(
                 user=rider,
-                message=f"Your ride {ride.id} has been successfully booked and paid (KES {total_amount})."
+                message=f"Your ride has been successfully booked and paid KES {total_amount}."
             )
             if driver:
                 Notification.objects.create(
                     user=driver.user,
-                    message=f"You have been assigned ride {ride.id}. Pickup at ({ride.pickup_lat}, {ride.pickup_lng})."
+                    message=f"You have been assigned ride {ride.id}. Pickup at {ride.pickup_lat}, {ride.pickup_lng}."
                 )
                 send_push_notification(
                     driver.user.expo_token,
