@@ -86,6 +86,8 @@ def signin(request):
         # Try Firebase sign in
         login = authe.sign_in_with_email_and_password(email, password)
         id_token = login["idToken"]
+        refresh_token = login["refreshToken"]
+        expires_in = login["expiresIn"]
 
         # Get account info
         info = authe.get_account_info(id_token)
@@ -108,6 +110,8 @@ def signin(request):
         return JsonResponse({
             "message": "Login successful",
             "access_token": id_token,
+            "refresh_token": refresh_token,
+            "expires_in": expires_in,
             "user": {
                 "user_id": db_user.id,
                 "user_name": db_user.full_name,
