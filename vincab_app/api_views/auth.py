@@ -64,6 +64,16 @@ def refresh_token(request):
             "message": "Failed to refresh token",
             "error": str(e)
         }, status=401)
+
+
+# check authentication status api
+@api_view(['GET'])
+@verify_firebase_token
+def auth_check(request):
+    return JsonResponse({
+        "authenticated": True,
+        "uid": request.firebase_uid
+    })
         
 
 # start of siginin

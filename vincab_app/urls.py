@@ -9,6 +9,7 @@ from vincab_app.api_views.payments import *
 urlpatterns = [
     path('', views.index, name='index'),
     path('refresh_token', refresh_token, name='refresh_token'),
+    path('auth_check/', auth_check, name='auth_check'),
     path('signin/', signin, name='signin'),
     path('delete_account/', delete_account, name='delete_account'),
     path('verify_phone/', verify_phone, name='verify_phone'),
