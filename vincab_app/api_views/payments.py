@@ -303,7 +303,7 @@ def b2c_callback(request):
 
 
 # paystack initialize payment
-PAYSTACK_SECRET_KEY = "sk_test_a60107fb70a0a8424b1ce810d3c677a4229b168e"
+PAYSTACK_SECRET_KEY = os.environ.get("PAYSTACK_SECRET_KEY")
 
 # initiliaze payment 2
 @api_view(["POST"])

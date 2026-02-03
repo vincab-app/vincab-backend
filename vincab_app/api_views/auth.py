@@ -65,6 +65,57 @@ def refresh_token(request):
             "error": str(e)
         }, status=401)
 
+# api to get user data when sigin in with googel from frontend
+@api_view(['POST'])
+def google_signin(request):
+    id_token = request.data.get("id_token")
+    print(id_token)
+    try:
+        # Verify the token
+        decoded_token = auth.verify_id_token(id_token)
+        uid = decoded_token['uid']
+        email = decoded_token['email']
+        name = decoded_token.get('name', '')
+
+        # Check if user exists in Django db
+        db_user = User.objects.filter(firebase_uid=uid).first()
+
+        if not db_user:
+            # Create new user
+            db_user = User.objects.create(
+                firebase_uid=uid,
+                full_name=name,
+                email=email,
+                role='rider'
+            )
+            # send notification
+            Notification.objects.create(
+                user=db_user,
+                message="Welcome to VinCab! Your account has been created successfully.",
+                is_read=False
+            )
+
+        # Return user data
+        return JsonResponse({
+            "message": "Sign-in successful",
+            "access_token": id_token,
+            "refresh_token": "",  # Google sign-in does not provide a refresh token here
+            "expires_in": 3600,  # Token validity duration
+            "user": {
+                "user_id": db_user.id,
+                "user_name": db_user.full_name,
+                "user_email": db_user.email,
+                "phone_number": db_user.phone_number,
+                "role": db_user.role,
+                "phone_verified": db_user.phone_verified,
+                "profile_image": db_user.profile_image.url if db_user.profile_image else None,
+                "date_joined": db_user.date_joined.strftime("%Y-%m-%d %H:%M:%S"),
+            }
+        })
+
+    except Exception as e:
+        print("Google sign-in error:", str(e))
+        return JsonResponse({"message": "Invalid token", "error": str(e)}, status=401)
 
 # check authentication status api
 @api_view(['GET'])
