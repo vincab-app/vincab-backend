@@ -41,7 +41,7 @@ class Driver(models.Model):
     status = models.CharField(max_length=20, default="inactive")  # active, busy, inactive
 
     def __str__(self):
-        return f"Driver: {self.user.full_name}"
+        return f"#{self.id} Driver: {self.user.full_name}"
 
 
 # -----------------------------
@@ -131,13 +131,13 @@ class Payment(models.Model):
 class Rating(models.Model):
     ride = models.ForeignKey(Ride, on_delete=models.CASCADE, related_name="ratings")
     reviewer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="given_ratings")
-    reviewee = models.ForeignKey(User, on_delete=models.CASCADE, related_name="received_ratings")
+    reviewee = models.ForeignKey(Driver, on_delete=models.CASCADE, related_name="received_ratings")
     rating = models.IntegerField()
     comment = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Rating {self.rating} for {self.reviewee.full_name}"
+        return f"Rating {self.rating} for {self.reviewee.user.full_name}"
 
 
 # -----------------------------
@@ -171,5 +171,5 @@ class DriverPayment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"DriverPayment {self.id} - {self.driver.user.full_name} {self.amount}"
+        return f"#{self.id} DriverPayment {self.driver.user.full_name} {self.amount}"
 

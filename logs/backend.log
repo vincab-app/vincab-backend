@@ -5694,3 +5694,30 @@ TypeError: Object of type ImageFieldFile is not JSON serializable
 [2026-02-03 23:23:07,798] INFO django.server - Broken pipe from ('192.168.100.4', 35078)
 [2026-02-03 23:26:51,607] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
 [2026-02-03 23:26:52,240] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 04:03:31,798] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 04:03:41,878] INFO backend GET /admin/vincab_app/driver/ | User: vincab | Status: 200
+[2026-02-04 04:03:41,880] INFO django.server "GET /admin/vincab_app/driver/ HTTP/1.1" 200 12728
+[2026-02-04 04:03:41,952] INFO django.server "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[2026-02-04 04:03:41,960] INFO django.server "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[2026-02-04 04:03:41,960] INFO django.server "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[2026-02-04 04:03:41,961] INFO django.server "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[2026-02-04 04:03:42,041] INFO django.server "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[2026-02-04 04:03:42,201] INFO django.server "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[2026-02-04 04:03:43,900] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-04 04:03:43,901] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-04 04:04:56,222] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
+[2026-02-04 04:04:56,862] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 04:05:06,936] INFO backend GET /admin/vincab_app/driver/ | User: vincab | Status: 200
+[2026-02-04 04:05:06,937] INFO django.server "GET /admin/vincab_app/driver/ HTTP/1.1" 200 12728
+[2026-02-04 04:05:08,954] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-04 04:05:08,955] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-04 04:05:36,902] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
+[2026-02-04 04:05:37,563] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 04:05:47,296] INFO backend GET /admin/vincab_app/driver/ | User: vincab | Status: 200
+[2026-02-04 04:05:47,297] INFO django.server "GET /admin/vincab_app/driver/ HTTP/1.1" 200 12734
+[2026-02-04 04:05:49,345] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-04 04:05:49,346] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-04 04:09:21,866] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-02-04 04:09:22,496] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 04:10:10,569] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
+[2026-02-04 04:10:11,228] INFO django.utils.autoreload Watching for file changes with StatReloader

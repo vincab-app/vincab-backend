@@ -484,8 +484,8 @@ def create_rating(request):
                 return JsonResponse({"error": "Reviewer not found"}, status=404)
 
             try:
-                reviewee = User.objects.get(id=reviewee_id)
-            except User.DoesNotExist:
+                reviewee = Driver.objects.get(id=reviewee_id)
+            except Driver.DoesNotExist:
                 return JsonResponse({"error": "Reviewee not found"}, status=404)
 
             # --- Save rating ---
@@ -501,7 +501,7 @@ def create_rating(request):
                 "id": rating.id,
                 "ride": ride.id,
                 "reviewer": reviewer.full_name,
-                "reviewee": reviewee.full_name,
+                "reviewee": reviewee.user.full_name,
                 "rating": rating.rating,
                 "comment": rating.comment,
                 "created_at": rating.created_at.isoformat()
