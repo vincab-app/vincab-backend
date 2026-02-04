@@ -177,7 +177,7 @@ def confirm_ride(request):
 
                 send_push_notification(
                     rider.expo_token,
-                    "Ride Accepted 🚗",
+                    "Ride Accepted",
                     f"M-Pesa payment prompt sent to {phone_number}",
                     {
                         "ride_id": ride.id,
@@ -236,7 +236,7 @@ def confirm_ride(request):
 
             send_push_notification(
                 rider.expo_token,
-                "Ride Accepted 🚗",
+                "Ride Accepted",
                 f"Pay KES {amount} to start the ride",
                 {
                     "type": "payment_url",
@@ -329,17 +329,17 @@ def update_ride_status(request):
             # ✅ PAYSTACK PAYOUT
             elif payout_method == "paystack":
 
-                # payout_payload = {
-                #     "phone_number": driver.user.phone_number,
-                #     "amount": int(driver_share * 100),  # in kobo
-                #     "name": driver.user.full_name
-                # }
+                payout_payload = {
+                    "phone_number": driver.user.phone_number,
+                    "amount": int(driver_share * 100),  # in kobo
+                    "name": driver.user.full_name
+                }
 
-                # payout_response = requests.post(
-                #     "https://vincab-payment-1.onrender.com/payout/",
-                #     json=payout_payload,
-                #     timeout=15
-                # ).json()
+                payout_response = requests.post(
+                    "https://vincab-payment-1.onrender.com/payout/",
+                    json=payout_payload,
+                    timeout=15
+                ).json()
                 try:
                     phone = normalize_phone(driver.user.phone_number)
                 except ValueError:
