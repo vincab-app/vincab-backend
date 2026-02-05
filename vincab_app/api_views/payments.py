@@ -460,7 +460,8 @@ def payment_callback(request):
         dropoff_lng = metadata.get("dropoff_lng")
         distance_km = metadata.get("distance_km")
         estimated_fare = metadata.get("estimated_fare")
-        total_amount = data.get("amount", 0) / 100
+        # total_amount = data.get("amount", 0) / 100
+        total_amount = Decimal(str(data.get("amount", 0))) / Decimal("100")
         method = "paystack"
         transaction_reference = reference
 
@@ -484,9 +485,10 @@ def payment_callback(request):
                 driver.save()
             except Driver.DoesNotExist:
                 return JsonResponse({"error": "Driver not found"}, status=404)
-
+        print("Before")
         platform_cut = total_amount * Decimal("0.1")
         driver_share = total_amount * Decimal("0.9")
+        print("After")
 
         # ✅ Transaction ensures no duplicates if Paystack retries
         with transaction.atomic():
@@ -542,7 +544,7 @@ def payment_callback(request):
                     f"You have been assigned ride {ride.id}. Be sure to pick up the rider on time.",
                     {"ride_id": ride.id}
                 )
-
+        print("Ride and payment created successfully")
         return render(request, "payment_status.html", {
             "status": "paid",
             "ride": ride,
@@ -550,5 +552,6 @@ def payment_callback(request):
         })
 
     except Exception as e:
+        print("Payment callback error:", str(e))
         return JsonResponse({"error": str(e)}, status=400)
 
