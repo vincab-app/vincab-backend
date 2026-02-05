@@ -82,25 +82,6 @@ def get_driver_total_earnings(request, user_id):
         "total_earnings": float(total_earnings)  # Decimal → float
     })
 
-# api to get driver total earnings
-def get_driver_total_earnings(request, user_id):
-    try:
-        # Get driver by linked user_id
-        driver = Driver.objects.get(user__id=user_id)
-    except Driver.DoesNotExist:
-        return JsonResponse({"error": "Driver not found"}, status=404)
-
-    # Calculate total earnings (sum of driver payments)
-    total_earnings = DriverPayment.objects.filter(driver=driver).aggregate(
-        total=Sum("amount")
-    )["total"] or 0
-
-    return JsonResponse({
-        "driver_id": driver.id,
-        "driver_name": driver.user.full_name,
-        "total_earnings": float(total_earnings)  # Decimal → float
-    })
-
 
 # driver confirmation
 @api_view(["POST"])
