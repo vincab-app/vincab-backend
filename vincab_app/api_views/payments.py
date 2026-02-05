@@ -33,7 +33,8 @@ def send_mpesa_payout(phone_number, name, amount_kes, reason="Payout"):
     }
 
     # ✅ Normalize phone number (2547XXXXXXXX)
-    phone_number = phone_number.replace("+", "").strip()
+    phone_number = normalize_phone(phone_number)
+    print("Normalized Phone Number:", phone_number)
 
     # ========== STEP 1: CREATE RECIPIENT ==========
     recipient_payload = {
@@ -103,6 +104,54 @@ def send_mpesa_payout(phone_number, name, amount_kes, reason="Payout"):
     }
 
 # end of send_mpesa_payout function
+
+
+# api to withdraw money for member
+@api_view(['POST'])
+# @verify_firebase_token
+def withdraw_money(request):
+    if request.method == 'POST':
+        try:
+            data = request.data
+            driver_id = data.get("driver_id")
+            amount = data.get("amount") 
+            user = User.objects.get(id=driver_id)
+            print(user.id)
+            driver = Driver.objects.get(user=user)
+
+            withdrawal_result = send_mpesa_payout(driver.user.phone_number, driver.user.full_name, amount, "Ride Payment Withdrawal")
+            if not withdrawal_result["success"]:
+                return Response({
+                    "message": f"Withdraw failed during M-Pesa payout: {withdrawal_result.get('error')}",
+                    "status": 400
+                })
+            
+            # update driver payment record
+            driver_payment = DriverPayment.objects.get(driver=driver)
+            if driver_payment.pending_amount < Decimal(amount):
+                return JsonResponse({"message": "Insufficient pending amount for withdrawal", "status": 400})
+
+            withdrawal = Withdrawal(driver=driver, amount=amount, transactionRef=withdrawal_result["transfer_code"])
+            withdrawal.save()
+
+            driver_payment.pending_amount -= Decimal(amount)
+            driver_payment.save()
+
+            Notification.objects.create(
+                driver=driver,
+                message=f"You have successfully withdrawn KES.{amount}."
+            )
+
+            return JsonResponse({"message":f"Withdrawal of KES.{amount} was successful", "status": 200})
+
+        
+        except Exception as e:
+            print("Error:", str(e))
+            return JsonResponse({"message": "Withdraw failed", "error": str(e)}, status=500)
+
+
+
+# end of withdrawing api
 
 @api_view(["POST"])
 def payout_view(request):
@@ -461,6 +510,7 @@ def payment_callback(request):
             # --- Save platform payment ---
             payment = Payment.objects.create(
                 ride=ride,
+                total_amount=total_amount,
                 amount=platform_cut,
                 method=method,
                 status="paid",
@@ -470,11 +520,11 @@ def payment_callback(request):
 
             # --- Save driver share ---
             if driver:
-                DriverPayment.objects.create(
-                    driver=driver,
-                    payment=payment,
-                    amount=driver_share
-                )
+                # update driver payment record
+                driver_payment, created = DriverPayment.objects.get_or_create(driver=driver)
+                driver_payment.amount += driver_share
+                driver_payment.pending_amount += driver_share
+                driver_payment.save()
 
             # --- Notifications ---
             Notification.objects.create(

@@ -169,11 +169,11 @@ def confirm_ride(request):
                     receipt_number="",
                 )
 
-                DriverPayment.objects.create(
-                    driver_id=driver_id,
-                    payment=payment,
-                    amount=driver_share
-                )
+                # DriverPayment.objects.create(
+                #     driver_id=driver_id,
+                #     payment=payment,
+                #     amount=driver_share
+                # )
 
                 send_push_notification(
                     rider.expo_token,
@@ -254,6 +254,48 @@ def confirm_ride(request):
         print("ERROR:", str(e))
         return Response({"error": "Server error", "details": str(e)}, status=500)
 
+
+# api to withdraw money for member
+@api_view(['POST'])
+@verify_firebase_token
+def withdraw_money(request):
+    if request.method == 'POST':
+        try:
+            data = request.data
+            member_id = data.get("member_id")
+            chama_id = data.get("chama_id")
+            amount = data.get("amount") 
+            withdraw_type = data.get("withdraw_type")
+            chama = Chamas.objects.get(chama_id=chama_id)
+            member = Members.objects.filter(chama=chama,member_id=member_id).first()
+
+            withdrawal_result = send_mpesa_payout(member.phone_number, member.name, amount, "Savings Withdrawal")
+            if not withdrawal_result["success"]:
+                return Response({
+                    "message": f"Withdraw failed during M-Pesa payout: {withdrawal_result.get('error')}",
+                    "status": 400
+                })
+            withdrawal = Withdrawal(member=member, chama=chama, amount=amount, withdraw_type=withdraw_type, transactionRef=withdrawal_result["transfer_code"])
+            withdrawal.save()
+
+            Notification.objects.create(
+                member=member,
+                chama=chama,
+                notification_type="alert",
+                notification=f"You have successfully withdrawn KES.{amount}."
+            )
+
+            return JsonResponse({"message":f"Withdrawal of KES.{amount} was successful", "status": 200})
+
+        
+        except Exception as e:
+            print("Error:", str(e))
+            return JsonResponse({"message": "Withdraw failed", "error": str(e)}, status=500)
+
+
+
+# end of withdrawing api
+
 # api to check if driver is verified
 def check_driver_verified(request, user_id):
     driver = get_object_or_404(Driver, user__id=user_id)
@@ -272,7 +314,6 @@ import requests
 from decimal import Decimal
 
 @csrf_exempt
-# @verify_firebase_token
 @api_view(['POST'])
 def update_ride_status(request):
     if request.method != "POST":
@@ -289,89 +330,34 @@ def update_ride_status(request):
         ride.save()
 
         rider = User.objects.get(id=rider_id)
-        payment = Payment.objects.get(ride=ride)
-        print("From update ride status", payment.method)
 
-        # ✅ DRIVER STATUS HANDLING
         driver = getattr(ride, "driver", None)
 
-        # ✅ DRIVER PAYOUT
-        if driver and status.lower() == "completed":
+        # ✅ DRIVER STATUS HANDLING ONLY (NO PAYOUT)
+        if driver:
+            if status.lower() == "completed":
+                driver.status = "active"
 
-            driver.status = "active"
-            driver.save()
-
-            driver_share = Decimal("0.90") * Decimal(str(ride.estimated_fare))
-
-            driver_payment = DriverPayment.objects.get(driver=driver, payment=payment)
-
-            payout_method = payment.method.lower()
-            print("Payout method:", payout_method)
-
-            payout_success = False
-            payout_response = {}
-
-            # ✅ MPESA PAYOUT
-            if payout_method == "mpesa":
-                payout_response = send_b2c_payment(
-                    phone_number=driver.user.phone_number,
-                    amount=float(driver_share)
+                message = "Ride completed successfully."
+                send_push_notification(
+                    driver.user.expo_token,
+                    "Ride Completed",
+                    message,
+                    {"ride_id": ride.id}
                 )
 
-                if payout_response.get("ResponseCode") == "0":
-                    payout_success = True
+                Notification.objects.create(
+                    user=driver.user,
+                    message=message,
+                    is_read=False
+                )
 
-                    driver_payment.originator_conversation_id = payout_response.get("OriginatorConversationID")
-                    driver_payment.conversation_id = payout_response.get("ConversationID")
-                    driver_payment.status = "processing"
-                    driver_payment.save()
-
-            # ✅ PAYSTACK PAYOUT
-            elif payout_method == "paystack":
-
-                payout_payload = {
-                    "phone_number": driver.user.phone_number,
-                    "amount": int(driver_share * 100),  # in kobo
-                    "name": driver.user.full_name
-                }
-
-                payout_response = requests.post(
-                    "https://vincab-payment-1.onrender.com/payout/",
-                    json=payout_payload,
-                    timeout=15
-                ).json()
-                try:
-                    phone = normalize_phone(driver.user.phone_number)
-                except ValueError:
-                    return Response({"error": "Invalid phone number format"}, status=400)
-                payout_response = send_mpesa_payout(phone, driver.user.full_name, int(driver_share * 100))
-
-                if payout_response.get("success") is True:
-                    payout_success = True
-                    driver_payment.reference = payout_response.get("reference")
-                    driver_payment.status = "processing"
-                    driver_payment.save()
-
-            # ✅ NOTIFICATIONS
-            if payout_success:
-                message = f"You've been paid KES {driver_share}. Payout processing."
-            else:
-                message = "Payout could not be processed. Admin will resolve."
-
-            send_push_notification(driver.user.expo_token, "Ride Payout", message, {"ride_id": ride.id})
-
-            Notification.objects.create(
-                user=driver.user,
-                message=message,
-                is_read=False
-            )
-
-        # ✅ DRIVER AVAILABILITY
-        elif driver:
-            if status.lower() == "canceled":
+            elif status.lower() == "canceled":
                 driver.status = "active"
+
             elif status.lower() == "in_progress":
                 driver.status = "busy"
+
             driver.save()
 
         # ✅ RIDER NOTIFICATION
@@ -383,9 +369,8 @@ def update_ride_status(request):
         )
 
         return JsonResponse({
-            "message": "Ride updated",
-            "ride_status": ride.status,
-            "payment_method": payment.method
+            "message": "Ride updated successfully",
+            "ride_status": ride.status
         })
 
     except Ride.DoesNotExist:
@@ -394,12 +379,10 @@ def update_ride_status(request):
     except User.DoesNotExist:
         return JsonResponse({"error": "Rider not found"}, status=404)
 
-    except DriverPayment.DoesNotExist:
-        return JsonResponse({"error": "DriverPayment record missing"}, status=500)
-
     except Exception as e:
         print("ERROR:", e)
         return JsonResponse({"error": "Server error", "details": str(e)}, status=500)
+
 
 # api to get driver location
 @api_view(["GET"])

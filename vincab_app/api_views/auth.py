@@ -357,6 +357,12 @@ def driversignup(request):
             color=car_color,
             car_image=car_image
         )
+        # create a driverpayment record for the driver
+        DriverPayment.objects.create(
+            driver=driver,
+            amount=0.0,
+            pending_amount=0.0
+        )
 
         # Notifications
         Notification.objects.create(

@@ -5721,3 +5721,569 @@ TypeError: Object of type ImageFieldFile is not JSON serializable
 [2026-02-04 04:09:22,496] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-02-04 04:10:10,569] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
 [2026-02-04 04:10:11,228] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 09:02:21,949] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 09:02:58,543] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 09:03:49,732] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-04 09:03:50,416] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 09:03:52,275] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-04 09:03:52,883] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 09:05:13,585] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 09:07:58,840] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-04 09:07:59,663] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 09:10:26,937] INFO backend POST /withdraw_money/ | User: anonymous | Status: 500
+[2026-02-04 09:10:26,937] ERROR django.request Internal Server Error: /withdraw_money/
+[2026-02-04 09:10:26,939] ERROR django.server "POST /withdraw_money/ HTTP/1.1" 500 78
+[2026-02-04 09:11:46,111] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-04 09:11:46,112] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 14383
+[2026-02-04 09:11:46,341] INFO django.server "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[2026-02-04 09:11:46,369] INFO django.server "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[2026-02-04 09:11:46,391] INFO django.server "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[2026-02-04 09:11:46,408] INFO django.server "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[2026-02-04 09:11:46,408] INFO django.server "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[2026-02-04 09:11:46,430] INFO django.server "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[2026-02-04 09:11:46,462] INFO django.server "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[2026-02-04 09:11:46,508] INFO django.server "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+[2026-02-04 09:11:48,375] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-04 09:11:48,375] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-04 09:11:48,626] INFO django.server "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[2026-02-04 09:11:48,627] INFO django.server "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[2026-02-04 09:12:02,882] INFO backend POST /withdraw_money/ | User: anonymous | Status: 500
+[2026-02-04 09:12:02,883] ERROR django.request Internal Server Error: /withdraw_money/
+[2026-02-04 09:12:02,892] ERROR django.server "POST /withdraw_money/ HTTP/1.1" 500 80
+[2026-02-04 09:12:43,014] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-04 09:12:45,457] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 09:12:52,845] INFO backend POST /withdraw_money/ | User: anonymous | Status: 500
+[2026-02-04 09:12:52,846] ERROR django.request Internal Server Error: /withdraw_money/
+[2026-02-04 09:12:52,847] ERROR django.server "POST /withdraw_money/ HTTP/1.1" 500 80
+[2026-02-04 09:13:43,372] INFO backend POST /withdraw_money/ | User: anonymous | Status: 500
+[2026-02-04 09:13:43,373] ERROR django.request Internal Server Error: /withdraw_money/
+[2026-02-04 09:13:43,373] ERROR django.server "POST /withdraw_money/ HTTP/1.1" 500 90
+[2026-02-04 09:14:10,845] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-04 09:14:11,477] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 09:14:21,953] INFO backend POST /withdraw_money/ | User: anonymous | Status: 200
+[2026-02-04 09:14:21,954] INFO django.server "POST /withdraw_money/ HTTP/1.1" 200 90
+[2026-02-04 09:15:27,750] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-04 09:15:28,422] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 09:15:36,640] INFO backend POST /withdraw_money/ | User: anonymous | Status: 200
+[2026-02-04 09:15:36,641] INFO django.server "POST /withdraw_money/ HTTP/1.1" 200 90
+[2026-02-04 09:16:00,322] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-04 09:16:00,930] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 09:16:11,577] INFO backend POST /withdraw_money/ | User: anonymous | Status: 200
+[2026-02-04 09:16:11,578] INFO django.server "POST /withdraw_money/ HTTP/1.1" 200 114
+[2026-02-04 09:17:38,775] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-04 09:17:39,580] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 09:17:49,496] INFO backend POST /withdraw_money/ | User: anonymous | Status: 200
+[2026-02-04 09:17:49,498] INFO django.server "POST /withdraw_money/ HTTP/1.1" 200 114
+[2026-02-04 09:19:36,437] INFO backend POST /withdraw_money/ | User: anonymous | Status: 200
+[2026-02-04 09:19:36,438] INFO django.server "POST /withdraw_money/ HTTP/1.1" 200 114
+[2026-02-04 09:30:08,571] INFO backend GET /get_driver_total_earnings/18 | User: anonymous | Status: 404
+[2026-02-04 09:30:08,572] INFO django.server "GET /get_driver_total_earnings/18 HTTP/1.1" 301 0
+[2026-02-04 09:30:10,669] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-04 09:30:10,670] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-04 09:30:10,881] INFO backend GET /send_expo_token/18/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-04 09:30:10,882] INFO django.server "GET /send_expo_token/18/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-04 09:30:11,372] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-04 09:30:11,373] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-02-04 09:30:11,683] INFO backend GET /get_driver_total_earnings/18/ | User: anonymous | Status: 200
+[2026-02-04 09:30:11,685] INFO django.server "GET /get_driver_total_earnings/18/ HTTP/1.1" 200 70
+[2026-02-04 09:30:43,128] INFO backend GET /get_driver_total_earnings/18 | User: anonymous | Status: 404
+[2026-02-04 09:30:43,129] INFO django.server "GET /get_driver_total_earnings/18 HTTP/1.1" 301 0
+[2026-02-04 09:30:45,259] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-04 09:30:45,260] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-04 09:30:45,629] INFO backend GET /send_expo_token/18/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-04 09:30:45,629] INFO django.server "GET /send_expo_token/18/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-04 09:30:45,835] INFO backend GET /get_driver_total_earnings/18/ | User: anonymous | Status: 200
+[2026-02-04 09:30:45,836] INFO django.server "GET /get_driver_total_earnings/18/ HTTP/1.1" 200 70
+[2026-02-04 09:30:45,976] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-04 09:30:45,977] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-02-04 09:32:43,094] INFO backend GET /get_driver_total_earnings/18 | User: anonymous | Status: 404
+[2026-02-04 09:32:43,096] INFO django.server "GET /get_driver_total_earnings/18 HTTP/1.1" 301 0
+[2026-02-04 09:32:45,454] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-04 09:32:45,454] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-04 09:32:45,722] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-04 09:32:45,722] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-02-04 09:32:45,992] INFO backend GET /get_driver_total_earnings/18/ | User: anonymous | Status: 200
+[2026-02-04 09:32:45,993] INFO django.server "GET /get_driver_total_earnings/18/ HTTP/1.1" 200 70
+[2026-02-04 09:32:46,053] INFO backend GET /send_expo_token/18/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-04 09:32:46,054] INFO django.server "GET /send_expo_token/18/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-04 09:35:31,860] INFO backend GET /get_driver_total_earnings/18 | User: anonymous | Status: 404
+[2026-02-04 09:35:31,862] INFO django.server "GET /get_driver_total_earnings/18 HTTP/1.1" 301 0
+[2026-02-04 09:35:34,035] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-04 09:35:34,037] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-04 09:35:34,090] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-04 09:35:34,091] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-02-04 09:35:34,227] INFO backend GET /get_driver_total_earnings/18/ | User: anonymous | Status: 200
+[2026-02-04 09:35:34,228] INFO django.server "GET /get_driver_total_earnings/18/ HTTP/1.1" 200 70
+[2026-02-04 09:35:34,392] INFO backend GET /send_expo_token/18/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-04 09:35:34,392] INFO django.server "GET /send_expo_token/18/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-04 09:35:40,964] INFO backend POST /withdraw_money/ | User: anonymous | Status: 200
+[2026-02-04 09:35:40,965] INFO django.server "POST /withdraw_money/ HTTP/1.1" 200 114
+[2026-02-04 09:35:59,067] INFO backend GET /get_user_notifications/18 | User: anonymous | Status: 404
+[2026-02-04 09:35:59,068] INFO django.server "GET /get_user_notifications/18 HTTP/1.1" 301 0
+[2026-02-04 09:36:01,507] INFO backend GET /get_user_notifications/18/ | User: anonymous | Status: 200
+[2026-02-04 09:36:01,509] INFO django.server "GET /get_user_notifications/18/ HTTP/1.1" 200 1142
+[2026-02-04 09:36:49,438] INFO django.server - Broken pipe from ('192.168.100.4', 60176)
+[2026-02-04 09:36:49,439] INFO django.server - Broken pipe from ('192.168.100.4', 43658)
+[2026-02-04 09:36:49,439] INFO django.server - Broken pipe from ('192.168.100.4', 39738)
+[2026-02-04 09:38:37,196] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-04 09:38:37,879] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-04 09:38:48,519] INFO backend POST /withdraw_money/ | User: anonymous | Status: 200
+[2026-02-04 09:38:48,524] INFO django.server "POST /withdraw_money/ HTTP/1.1" 200 114
+[2026-02-05 04:19:29,754] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 04:19:49,700] INFO backend User sign in: Email: gideonushindi94@gmail.com, Name: David Naoh
+[2026-02-05 04:19:49,703] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-02-05 04:19:49,706] INFO django.server "POST /signin/ HTTP/1.1" 200 1513
+[2026-02-05 04:19:50,047] INFO backend GET /check_driver_verified/18 | User: anonymous | Status: 404
+[2026-02-05 04:19:50,049] INFO django.server "GET /check_driver_verified/18 HTTP/1.1" 301 0
+[2026-02-05 04:19:52,112] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 200
+[2026-02-05 04:19:52,114] INFO django.server "GET /check_driver_verified/18/ HTTP/1.1" 200 127
+[2026-02-05 04:19:52,827] INFO backend GET /get_driver_total_earnings/18 | User: anonymous | Status: 404
+[2026-02-05 04:19:52,828] INFO django.server "GET /get_driver_total_earnings/18 HTTP/1.1" 301 0
+[2026-02-05 04:19:54,857] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-05 04:19:54,859] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-05 04:19:55,517] INFO backend GET /get_driver_total_earnings/18/ | User: anonymous | Status: 200
+[2026-02-05 04:19:55,519] INFO django.server "GET /get_driver_total_earnings/18/ HTTP/1.1" 200 70
+[2026-02-05 04:19:55,562] INFO backend GET /send_expo_token/18/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 04:19:55,564] INFO django.server "GET /send_expo_token/18/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 04:19:56,753] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 04:19:56,754] INFO django.server "POST /update_location/ HTTP/1.1" 200 149
+[2026-02-05 04:20:04,420] INFO backend GET /get_user_notifications/18 | User: anonymous | Status: 404
+[2026-02-05 04:20:04,422] INFO django.server "GET /get_user_notifications/18 HTTP/1.1" 301 0
+[2026-02-05 04:20:06,998] INFO backend GET /get_user_notifications/18/ | User: anonymous | Status: 200
+[2026-02-05 04:20:06,999] INFO django.server "GET /get_user_notifications/18/ HTTP/1.1" 200 1142
+[2026-02-05 04:20:24,298] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-05 04:20:24,300] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-05 04:20:25,613] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 04:20:25,614] INFO django.server "POST /update_location/ HTTP/1.1" 200 149
+[2026-02-05 04:20:32,552] ERROR django.request Internal Server Error: /get_driver_payments/18/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py", line 19, in get_driver_payments
+    "method":dp.payment.method,
+             ^^^^^^^^^^
+AttributeError: 'DriverPayment' object has no attribute 'payment'
+[2026-02-05 04:20:32,558] INFO backend GET /get_driver_payments/18/ | User: anonymous | Status: 500
+[2026-02-05 04:20:32,585] ERROR django.server "GET /get_driver_payments/18/ HTTP/1.1" 500 103926
+[2026-02-05 04:20:39,769] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-05 04:20:39,770] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-05 04:20:46,429] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-05 04:20:46,431] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-05 04:20:49,789] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-05 04:20:49,791] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-05 04:20:56,507] ERROR django.request Internal Server Error: /get_driver_payments/18/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py", line 19, in get_driver_payments
+    "method":dp.payment.method,
+             ^^^^^^^^^^
+AttributeError: 'DriverPayment' object has no attribute 'payment'
+[2026-02-05 04:20:56,511] INFO backend GET /get_driver_payments/18/ | User: anonymous | Status: 500
+[2026-02-05 04:20:56,512] ERROR django.server "GET /get_driver_payments/18/ HTTP/1.1" 500 103926
+[2026-02-05 04:21:01,336] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 04:21:01,338] INFO django.server "POST /update_location/ HTTP/1.1" 200 149
+[2026-02-05 04:21:01,372] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 04:21:01,373] INFO django.server "POST /update_location/ HTTP/1.1" 200 149
+[2026-02-05 04:21:02,325] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-05 04:21:02,326] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-05 04:21:02,663] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 04:21:02,664] INFO django.server "POST /update_location/ HTTP/1.1" 200 149
+[2026-02-05 04:22:06,452] INFO django.server - Broken pipe from ('192.168.100.4', 44396)
+[2026-02-05 04:22:06,453] INFO django.server - Broken pipe from ('192.168.100.4', 58476)
+[2026-02-05 04:22:06,453] INFO django.server - Broken pipe from ('192.168.100.4', 44406)
+[2026-02-05 04:22:06,453] INFO django.server - Broken pipe from ('192.168.100.4', 58488)
+[2026-02-05 08:10:18,431] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 08:12:58,630] INFO backend GET /auth_check/ | User: anonymous | Status: 401
+[2026-02-05 08:12:58,856] WARNING django.request Unauthorized: /auth_check/
+[2026-02-05 08:12:58,857] WARNING django.server "GET /auth_check/ HTTP/1.1" 401 79
+[2026-02-05 08:12:58,981] INFO backend POST /refresh_token/ | User: anonymous | Status: 404
+[2026-02-05 08:12:58,981] WARNING django.request Not Found: /refresh_token/
+[2026-02-05 08:12:58,982] WARNING django.server "POST /refresh_token/ HTTP/1.1" 404 15117
+[2026-02-05 08:16:41,727] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushindi 
+[2026-02-05 08:16:41,728] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-02-05 08:16:41,730] INFO django.server "POST /signin/ HTTP/1.1" 200 1516
+[2026-02-05 08:16:45,941] INFO backend GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 08:16:45,942] INFO django.server "GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 08:16:46,158] INFO backend GET /nearby_vehicles/0.1231153/37.7210907/ | User: anonymous | Status: 200
+[2026-02-05 08:16:46,159] INFO django.server "GET /nearby_vehicles/0.1231153/37.7210907/ HTTP/1.1" 200 403
+[2026-02-05 08:16:46,714] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 08:16:46,715] INFO django.server "POST /update_location/ HTTP/1.1" 200 154
+[2026-02-05 08:21:34,313] INFO backend GET /auth_check/ | User: anonymous | Status: 200
+[2026-02-05 08:21:34,314] INFO django.server "GET /auth_check/ HTTP/1.1" 200 62
+[2026-02-05 08:21:37,720] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 08:21:37,721] INFO django.server "POST /update_location/ HTTP/1.1" 200 154
+[2026-02-05 08:21:37,733] INFO backend GET /nearby_vehicles/0.1231153/37.7210907/ | User: anonymous | Status: 200
+[2026-02-05 08:21:37,733] INFO django.server "GET /nearby_vehicles/0.1231153/37.7210907/ HTTP/1.1" 200 403
+[2026-02-05 08:21:38,538] INFO backend GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 08:21:38,539] INFO django.server "GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 08:23:36,577] INFO backend GET /auth_check/ | User: anonymous | Status: 200
+[2026-02-05 08:23:36,577] INFO django.server "GET /auth_check/ HTTP/1.1" 200 62
+[2026-02-05 08:23:40,637] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 08:23:40,639] INFO django.server "POST /update_location/ HTTP/1.1" 200 154
+[2026-02-05 08:23:40,723] INFO backend GET /nearby_vehicles/0.1231153/37.7210907/ | User: anonymous | Status: 200
+[2026-02-05 08:23:40,725] INFO django.server "GET /nearby_vehicles/0.1231153/37.7210907/ HTTP/1.1" 200 403
+[2026-02-05 08:23:40,858] INFO backend GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 08:23:40,859] INFO django.server "GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 08:30:41,858] INFO backend GET /initialize_payment/ | User: anonymous | Status: 405
+[2026-02-05 08:30:41,860] WARNING django.request Method Not Allowed: /initialize_payment/
+[2026-02-05 08:30:41,861] WARNING django.server "GET /initialize_payment/ HTTP/1.1" 405 5641
+[2026-02-05 08:30:42,068] INFO django.server "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+[2026-02-05 08:30:42,069] INFO django.server "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+[2026-02-05 08:30:42,093] INFO django.server "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+[2026-02-05 08:30:42,117] INFO django.server "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+[2026-02-05 08:30:42,123] INFO django.server "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+[2026-02-05 08:30:42,137] INFO django.server "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+[2026-02-05 08:30:42,178] INFO django.server "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+[2026-02-05 08:30:42,180] INFO django.server "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+[2026-02-05 08:30:42,299] INFO django.server "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+[2026-02-05 08:30:42,300] INFO django.server "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+[2026-02-05 08:30:42,400] INFO django.server "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+[2026-02-05 08:30:42,616] INFO django.server "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+[2026-02-05 08:30:42,711] INFO backend GET /favicon.ico | User: anonymous | Status: 404
+[2026-02-05 08:30:42,712] WARNING django.request Not Found: /favicon.ico
+[2026-02-05 08:30:42,714] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 15107
+[2026-02-05 08:41:28,062] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-05 08:41:31,959] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 08:41:37,971] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-05 08:41:38,567] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 08:42:01,100] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-02-05 08:42:01,789] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 08:43:42,874] INFO backend GET /auth_check/ | User: anonymous | Status: 200
+[2026-02-05 08:43:42,875] INFO django.server "GET /auth_check/ HTTP/1.1" 200 62
+[2026-02-05 08:43:47,498] INFO backend GET /nearby_vehicles/0.123127/37.7211018/ | User: anonymous | Status: 200
+[2026-02-05 08:43:47,499] INFO django.server "GET /nearby_vehicles/0.123127/37.7211018/ HTTP/1.1" 200 403
+[2026-02-05 08:43:48,160] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 08:43:48,162] INFO backend GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 08:43:48,163] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-02-05 08:43:48,163] INFO django.server "GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 08:43:57,178] INFO backend GET /initialize_payment2/ | User: anonymous | Status: 200
+[2026-02-05 08:43:57,180] INFO django.server "GET /initialize_payment2/ HTTP/1.1" 200 197
+[2026-02-05 08:43:57,370] INFO backend GET /favicon.ico | User: anonymous | Status: 404
+[2026-02-05 08:43:57,371] WARNING django.request Not Found: /favicon.ico
+[2026-02-05 08:43:57,372] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 15388
+[2026-02-05 08:49:41,508] INFO backend GET /auth_check/ | User: anonymous | Status: 200
+[2026-02-05 08:49:41,508] INFO django.server "GET /auth_check/ HTTP/1.1" 200 62
+[2026-02-05 08:49:45,613] INFO backend GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 08:49:45,614] INFO django.server "GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 08:50:05,457] INFO backend GET /nearby_vehicles/0.1231245/37.721169/ | User: anonymous | Status: 200
+[2026-02-05 08:50:05,458] INFO django.server "GET /nearby_vehicles/0.1231245/37.721169/ HTTP/1.1" 200 402
+[2026-02-05 08:50:06,201] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 08:50:06,202] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-02-05 08:50:14,556] INFO backend GET /initialize_payment2/ | User: anonymous | Status: 200
+[2026-02-05 08:50:14,558] INFO django.server "GET /initialize_payment2/ HTTP/1.1" 200 197
+[2026-02-05 08:50:14,898] INFO backend GET /favicon.ico | User: anonymous | Status: 404
+[2026-02-05 08:50:14,899] WARNING django.request Not Found: /favicon.ico
+[2026-02-05 08:50:14,900] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 15388
+[2026-02-05 08:53:23,226] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-05 08:53:23,843] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 08:54:40,784] INFO backend GET /auth_check/ | User: anonymous | Status: 200
+[2026-02-05 08:54:40,784] INFO django.server "GET /auth_check/ HTTP/1.1" 200 62
+[2026-02-05 08:54:44,505] INFO backend GET /nearby_vehicles/0.1231245/37.721169/ | User: anonymous | Status: 200
+[2026-02-05 08:54:44,507] INFO django.server "GET /nearby_vehicles/0.1231245/37.721169/ HTTP/1.1" 200 402
+[2026-02-05 08:54:44,665] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 08:54:44,668] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-02-05 08:54:44,988] INFO backend GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 08:54:44,989] INFO django.server "GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 08:54:55,259] INFO backend GET /initialize_payment2/ | User: anonymous | Status: 200
+[2026-02-05 08:54:55,261] INFO django.server "GET /initialize_payment2/ HTTP/1.1" 200 197
+[2026-02-05 08:54:55,346] INFO backend GET /favicon.ico | User: anonymous | Status: 404
+[2026-02-05 08:54:55,347] WARNING django.request Not Found: /favicon.ico
+[2026-02-05 08:54:55,347] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 15388
+[2026-02-05 09:01:05,665] INFO backend GET /auth_check/ | User: anonymous | Status: 200
+[2026-02-05 09:01:05,666] INFO django.server "GET /auth_check/ HTTP/1.1" 200 62
+[2026-02-05 09:01:10,031] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 09:01:10,033] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-02-05 09:01:10,488] INFO backend GET /nearby_vehicles/0.1231245/37.721169/ | User: anonymous | Status: 200
+[2026-02-05 09:01:10,488] INFO backend GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 09:01:10,489] INFO django.server "GET /nearby_vehicles/0.1231245/37.721169/ HTTP/1.1" 200 402
+[2026-02-05 09:01:10,489] INFO django.server "GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 09:01:13,101] INFO backend GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 09:01:13,102] INFO django.server "GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 09:01:39,423] INFO backend GET /nearby_vehicles/0.1231245/37.721169/ | User: anonymous | Status: 200
+[2026-02-05 09:01:39,424] INFO django.server "GET /nearby_vehicles/0.1231245/37.721169/ HTTP/1.1" 200 402
+[2026-02-05 09:01:39,561] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 09:01:39,561] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-02-05 09:05:49,772] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-05 09:05:50,407] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 09:09:20,042] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-05 09:09:20,754] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 09:13:09,855] INFO backend GET /nearby_vehicles/0.1231245/37.721169/ | User: anonymous | Status: 200
+[2026-02-05 09:13:09,856] INFO django.server "GET /nearby_vehicles/0.1231245/37.721169/ HTTP/1.1" 200 402
+[2026-02-05 09:13:10,506] INFO backend GET /nearby_vehicles/0.1231292/37.721147/ | User: anonymous | Status: 200
+[2026-02-05 09:13:10,507] INFO django.server "GET /nearby_vehicles/0.1231292/37.721147/ HTTP/1.1" 200 402
+[2026-02-05 09:13:10,512] INFO backend GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 09:13:10,512] INFO django.server "GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 09:13:10,541] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 09:13:10,542] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-02-05 09:15:38,855] INFO backend GET /calculate_fare/0.1231292/37.721147/0.1429927727351258/37.72879656404257/ | User: anonymous | Status: 200
+[2026-02-05 09:15:38,856] INFO django.server "GET /calculate_fare/0.1231292/37.721147/0.1429927727351258/37.72879656404257/ HTTP/1.1" 200 119
+[2026-02-05 09:15:46,502] INFO backend GET /calculate_fare/0.1231292/37.721147/0.11985609879643346/37.71192613989115/ | User: anonymous | Status: 200
+[2026-02-05 09:15:46,503] INFO django.server "GET /calculate_fare/0.1231292/37.721147/0.11985609879643346/37.71192613989115/ HTTP/1.1" 200 119
+[2026-02-05 09:15:53,712] INFO backend GET /calculate_fare/0.1231292/37.721147/0.11092972530724116/37.69781805574894/ | User: anonymous | Status: 200
+[2026-02-05 09:15:53,714] INFO django.server "GET /calculate_fare/0.1231292/37.721147/0.11092972530724116/37.69781805574894/ HTTP/1.1" 200 120
+[2026-02-05 09:16:00,322] INFO backend GET /calculate_fare/0.1231292/37.721147/0.1198470463608065/37.710832469165325/ | User: anonymous | Status: 200
+[2026-02-05 09:16:00,323] INFO django.server "GET /calculate_fare/0.1231292/37.721147/0.1198470463608065/37.710832469165325/ HTTP/1.1" 200 118
+[2026-02-05 09:20:45,114] INFO backend GET /nearby_vehicles/0.1231292/37.721147/ | User: anonymous | Status: 401
+[2026-02-05 09:20:45,114] WARNING django.request Unauthorized: /nearby_vehicles/0.1231292/37.721147/
+[2026-02-05 09:20:45,115] WARNING django.server "GET /nearby_vehicles/0.1231292/37.721147/ HTTP/1.1" 401 79
+[2026-02-05 09:20:45,231] INFO backend POST /refresh_token/ | User: anonymous | Status: 404
+[2026-02-05 09:20:45,232] WARNING django.request Not Found: /refresh_token/
+[2026-02-05 09:20:45,233] WARNING django.server "POST /refresh_token/ HTTP/1.1" 404 15398
+[2026-02-05 09:20:46,406] INFO backend POST /update_location/ | User: anonymous | Status: 400
+[2026-02-05 09:20:46,407] WARNING django.request Bad Request: /update_location/
+[2026-02-05 09:20:46,408] WARNING django.server "POST /update_location/ HTTP/1.1" 400 46
+[2026-02-05 09:21:10,148] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushindi 
+[2026-02-05 09:21:10,149] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-02-05 09:21:10,150] INFO django.server "POST /signin/ HTTP/1.1" 200 1516
+[2026-02-05 09:21:13,803] INFO backend GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 09:21:13,805] INFO django.server "GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 09:21:18,594] INFO backend GET /nearby_vehicles/0.1231292/37.721147/ | User: anonymous | Status: 200
+[2026-02-05 09:21:18,594] INFO django.server "GET /nearby_vehicles/0.1231292/37.721147/ HTTP/1.1" 200 402
+[2026-02-05 09:21:18,777] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 09:21:18,779] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-02-05 09:22:47,256] INFO backend GET /nearby_vehicles/0.1231292/37.721147/ | User: anonymous | Status: 200
+[2026-02-05 09:22:47,257] INFO django.server "GET /nearby_vehicles/0.1231292/37.721147/ HTTP/1.1" 200 402
+[2026-02-05 09:22:47,695] INFO backend GET /nearby_vehicles/0.1231292/37.721147/ | User: anonymous | Status: 200
+[2026-02-05 09:22:47,696] INFO django.server "GET /nearby_vehicles/0.1231292/37.721147/ HTTP/1.1" 200 402
+[2026-02-05 09:22:47,780] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 09:22:47,781] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-02-05 09:22:56,728] INFO backend GET /media/media/profiles/profile.jpg | User: anonymous | Status: 404
+[2026-02-05 09:22:56,728] WARNING django.request Not Found: /media/media/profiles/profile.jpg
+[2026-02-05 09:22:56,729] WARNING django.server "GET /media/media/profiles/profile.jpg HTTP/1.1" 404 15690
+[2026-02-05 09:23:00,621] INFO backend GET /nearby_vehicles/0.1231292/37.721147/ | User: anonymous | Status: 200
+[2026-02-05 09:23:00,622] INFO django.server "GET /nearby_vehicles/0.1231292/37.721147/ HTTP/1.1" 200 402
+[2026-02-05 09:23:16,753] INFO backend GET /calculate_fare/0.1231292/37.721147/0.13534883487409693/37.723574973642826/ | User: anonymous | Status: 200
+[2026-02-05 09:23:16,755] INFO django.server "GET /calculate_fare/0.1231292/37.721147/0.13534883487409693/37.723574973642826/ HTTP/1.1" 200 119
+[2026-02-05 09:23:17,479] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 09:23:17,480] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-02-05 09:23:23,897] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-02-05 09:23:23,898] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-02-05 09:26:26,592] INFO backend GET /auth_check/ | User: anonymous | Status: 200
+[2026-02-05 09:26:26,592] INFO django.server "GET /auth_check/ HTTP/1.1" 200 62
+[2026-02-05 09:26:30,527] INFO backend GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 09:26:30,528] INFO django.server "GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 09:26:30,656] INFO backend GET /nearby_vehicles/0.1231292/37.721147/ | User: anonymous | Status: 200
+[2026-02-05 09:26:30,657] INFO django.server "GET /nearby_vehicles/0.1231292/37.721147/ HTTP/1.1" 200 404
+[2026-02-05 09:26:30,988] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 09:26:30,989] INFO django.server "POST /update_location/ HTTP/1.1" 200 153
+[2026-02-05 09:33:25,800] INFO backend GET /calculate_fare/0.1231292/37.721147/0.13534883487409693/37.723574973642826/ | User: anonymous | Status: 200
+[2026-02-05 09:33:25,801] INFO django.server "GET /calculate_fare/0.1231292/37.721147/0.13534883487409693/37.723574973642826/ HTTP/1.1" 200 119
+[2026-02-05 09:35:44,248] INFO backend GET /auth_check/ | User: anonymous | Status: 200
+[2026-02-05 09:35:44,249] INFO django.server "GET /auth_check/ HTTP/1.1" 200 62
+[2026-02-05 09:35:48,134] INFO backend GET /nearby_vehicles/0.1231276/37.7211629/ | User: anonymous | Status: 200
+[2026-02-05 09:35:48,135] INFO django.server "GET /nearby_vehicles/0.1231276/37.7211629/ HTTP/1.1" 200 404
+[2026-02-05 09:35:48,247] INFO backend GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 09:35:48,248] INFO django.server "GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 09:35:48,272] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 09:35:48,273] INFO django.server "POST /update_location/ HTTP/1.1" 200 154
+[2026-02-05 09:36:10,091] INFO backend GET /calculate_fare/0.1231276/37.7211629/0.13534883487409693/37.723574973642826/ | User: anonymous | Status: 200
+[2026-02-05 09:36:10,093] INFO django.server "GET /calculate_fare/0.1231276/37.7211629/0.13534883487409693/37.723574973642826/ HTTP/1.1" 200 121
+[2026-02-05 09:36:19,164] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-02-05 09:36:19,165] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-02-05 09:41:15,098] INFO django.server - Broken pipe from ('192.168.100.4', 56144)
+[2026-02-05 13:34:08,550] INFO backend GET /auth_check/ | User: anonymous | Status: 401
+[2026-02-05 13:34:08,550] WARNING django.request Unauthorized: /auth_check/
+[2026-02-05 13:34:08,550] WARNING django.server "GET /auth_check/ HTTP/1.1" 401 79
+[2026-02-05 13:34:08,634] INFO backend POST /refresh_token/ | User: anonymous | Status: 404
+[2026-02-05 13:34:08,634] WARNING django.request Not Found: /refresh_token/
+[2026-02-05 13:34:08,634] WARNING django.server "POST /refresh_token/ HTTP/1.1" 404 15398
+[2026-02-05 13:37:12,774] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushindi 
+[2026-02-05 13:37:12,775] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-02-05 13:37:12,775] INFO django.server "POST /signin/ HTTP/1.1" 200 1516
+[2026-02-05 13:37:17,069] INFO backend GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 13:37:17,074] INFO backend GET /nearby_vehicles/0.1231193/37.7211628/ | User: anonymous | Status: 200
+[2026-02-05 13:37:17,076] INFO django.server "GET /nearby_vehicles/0.1231193/37.7211628/ HTTP/1.1" 200 404
+[2026-02-05 13:37:17,077] INFO django.server "GET /send_expo_token/16/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 13:37:17,129] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 13:37:17,131] INFO django.server "POST /update_location/ HTTP/1.1" 200 154
+[2026-02-05 13:37:24,663] INFO backend GET /get_user_notifications/16 | User: anonymous | Status: 404
+[2026-02-05 13:37:24,667] INFO django.server "GET /get_user_notifications/16 HTTP/1.1" 301 0
+[2026-02-05 13:37:26,846] INFO backend GET /get_user_notifications/16/ | User: anonymous | Status: 200
+[2026-02-05 13:37:26,847] INFO django.server "GET /get_user_notifications/16/ HTTP/1.1" 200 563
+[2026-02-05 13:37:38,821] INFO backend GET /nearby_vehicles/0.1231193/37.7211628/ | User: anonymous | Status: 200
+[2026-02-05 13:37:38,822] INFO django.server "GET /nearby_vehicles/0.1231193/37.7211628/ HTTP/1.1" 200 404
+[2026-02-05 13:37:46,234] INFO backend GET /get_completed_rides/16/ | User: anonymous | Status: 200
+[2026-02-05 13:37:46,235] INFO django.server "GET /get_completed_rides/16/ HTTP/1.1" 200 61
+[2026-02-05 13:37:46,936] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 13:37:46,938] INFO django.server "POST /update_location/ HTTP/1.1" 200 154
+[2026-02-05 13:37:58,047] INFO backend GET /get_ride_details/16/ | User: anonymous | Status: 404
+[2026-02-05 13:37:58,047] WARNING django.request Not Found: /get_ride_details/16/
+[2026-02-05 13:37:58,048] WARNING django.server "GET /get_ride_details/16/ HTTP/1.1" 404 48
+[2026-02-05 13:37:58,772] INFO backend GET /media/media/profiles/profile.jpg | User: anonymous | Status: 404
+[2026-02-05 13:37:58,773] WARNING django.request Not Found: /media/media/profiles/profile.jpg
+[2026-02-05 13:37:58,773] WARNING django.server "GET /media/media/profiles/profile.jpg HTTP/1.1" 404 15690
+[2026-02-05 13:38:05,475] INFO backend GET /nearby_vehicles/0.1231193/37.7211628/ | User: anonymous | Status: 200
+[2026-02-05 13:38:05,476] INFO django.server "GET /nearby_vehicles/0.1231193/37.7211628/ HTTP/1.1" 200 404
+[2026-02-05 13:38:16,573] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 13:38:16,574] INFO django.server "POST /update_location/ HTTP/1.1" 200 154
+[2026-02-05 13:38:42,720] INFO backend GET /nearby_vehicles/0.1231193/37.7211628/ | User: anonymous | Status: 200
+[2026-02-05 13:38:42,721] INFO django.server "GET /nearby_vehicles/0.1231193/37.7211628/ HTTP/1.1" 200 404
+[2026-02-05 13:38:46,875] INFO backend GET /nearby_vehicles/0.1231193/37.7211628/ | User: anonymous | Status: 200
+[2026-02-05 13:38:46,877] INFO django.server "GET /nearby_vehicles/0.1231193/37.7211628/ HTTP/1.1" 200 404
+[2026-02-05 13:38:46,995] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 13:38:46,995] INFO django.server "POST /update_location/ HTTP/1.1" 200 154
+[2026-02-05 13:39:21,708] INFO backend GET /nearby_vehicles/0.1231193/37.7211628/ | User: anonymous | Status: 200
+[2026-02-05 13:39:21,709] INFO django.server "GET /nearby_vehicles/0.1231193/37.7211628/ HTTP/1.1" 200 404
+[2026-02-05 13:39:22,848] INFO backend GET /nearby_vehicles/0.1231193/37.7211628/ | User: anonymous | Status: 200
+[2026-02-05 13:39:22,848] INFO django.server "GET /nearby_vehicles/0.1231193/37.7211628/ HTTP/1.1" 200 404
+[2026-02-05 13:39:23,597] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 13:39:23,599] INFO django.server "POST /update_location/ HTTP/1.1" 200 154
+[2026-02-05 13:39:33,997] INFO backend GET /driver_location/7/ | User: anonymous | Status: 200
+[2026-02-05 13:39:33,999] INFO django.server "GET /driver_location/7/ HTTP/1.1" 200 59
+[2026-02-05 13:39:34,339] INFO backend GET /driver_location/7/ | User: anonymous | Status: 200
+[2026-02-05 13:39:34,341] INFO django.server "GET /driver_location/7/ HTTP/1.1" 200 59
+[2026-02-05 13:39:52,888] INFO backend GET /media/media/profiles/profile.jpg | User: anonymous | Status: 404
+[2026-02-05 13:39:52,889] WARNING django.request Not Found: /media/media/profiles/profile.jpg
+[2026-02-05 13:39:52,889] WARNING django.server "GET /media/media/profiles/profile.jpg HTTP/1.1" 404 15690
+[2026-02-05 13:40:03,041] INFO backend GET /nearby_vehicles/0.1231193/37.7211628/ | User: anonymous | Status: 200
+[2026-02-05 13:40:03,043] INFO django.server "GET /nearby_vehicles/0.1231193/37.7211628/ HTTP/1.1" 200 404
+[2026-02-05 13:40:10,899] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 13:40:10,901] INFO django.server "POST /update_location/ HTTP/1.1" 200 154
+[2026-02-05 13:40:11,029] INFO backend GET /nearby_vehicles/0.1231143/37.7211355/ | User: anonymous | Status: 200
+[2026-02-05 13:40:11,033] INFO django.server "GET /nearby_vehicles/0.1231143/37.7211355/ HTTP/1.1" 200 404
+[2026-02-05 13:44:26,008] INFO backend GET /driver_location/7/ | User: anonymous | Status: 200
+[2026-02-05 13:44:26,010] INFO django.server "GET /driver_location/7/ HTTP/1.1" 200 59
+[2026-02-05 13:46:20,076] INFO backend GET /nearby_vehicles/0.1231143/37.7211355/ | User: anonymous | Status: 200
+[2026-02-05 13:46:20,077] INFO django.server "GET /nearby_vehicles/0.1231143/37.7211355/ HTTP/1.1" 200 404
+[2026-02-05 13:46:20,617] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 13:46:20,619] INFO django.server "POST /update_location/ HTTP/1.1" 200 154
+[2026-02-05 13:46:20,684] INFO backend GET /nearby_vehicles/0.1231188/37.7211574/ | User: anonymous | Status: 200
+[2026-02-05 13:46:20,685] INFO django.server "GET /nearby_vehicles/0.1231188/37.7211574/ HTTP/1.1" 200 404
+[2026-02-05 13:57:57,294] INFO backend GET /media/media/profiles/profile.jpg | User: anonymous | Status: 404
+[2026-02-05 13:57:57,294] WARNING django.request Not Found: /media/media/profiles/profile.jpg
+[2026-02-05 13:57:57,295] WARNING django.server "GET /media/media/profiles/profile.jpg HTTP/1.1" 404 15690
+[2026-02-05 13:58:01,942] INFO backend GET /nearby_vehicles/0.1230876/37.7210874/ | User: anonymous | Status: 200
+[2026-02-05 13:58:01,943] INFO django.server "GET /nearby_vehicles/0.1230876/37.7210874/ HTTP/1.1" 200 404
+[2026-02-05 13:58:02,016] INFO backend GET /nearby_vehicles/0.1231188/37.7211574/ | User: anonymous | Status: 200
+[2026-02-05 13:58:02,017] INFO django.server "GET /nearby_vehicles/0.1231188/37.7211574/ HTTP/1.1" 200 404
+[2026-02-05 13:58:02,531] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 13:58:02,533] INFO django.server "POST /update_location/ HTTP/1.1" 200 154
+[2026-02-05 13:58:11,882] INFO backend GET /driver_location/7/ | User: anonymous | Status: 200
+[2026-02-05 13:58:11,884] INFO django.server "GET /driver_location/7/ HTTP/1.1" 200 59
+[2026-02-05 13:58:13,850] INFO backend GET /nearby_vehicles/0.1230876/37.7210874/ | User: anonymous | Status: 200
+[2026-02-05 13:58:13,851] INFO django.server "GET /nearby_vehicles/0.1230876/37.7210874/ HTTP/1.1" 200 404
+[2026-02-05 13:58:20,204] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 13:58:20,206] INFO django.server "POST /update_location/ HTTP/1.1" 200 154
+[2026-02-05 13:58:21,575] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.1338494841720812/37.72428039461374/ | User: anonymous | Status: 200
+[2026-02-05 13:58:21,576] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.1338494841720812/37.72428039461374/ HTTP/1.1" 200 118
+[2026-02-05 13:58:28,464] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-02-05 13:58:28,465] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-02-05 13:59:11,831] INFO django.server - Broken pipe from ('192.168.100.4', 54702)
+[2026-02-05 13:59:11,832] INFO django.server - Broken pipe from ('192.168.100.4', 54696)
+[2026-02-05 13:59:11,832] INFO django.server - Broken pipe from ('192.168.100.4', 54716)
+[2026-02-05 13:59:11,832] INFO django.server - Broken pipe from ('192.168.100.4', 54714)
+[2026-02-05 14:00:27,675] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 14:00:46,751] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-02-05 14:00:46,753] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-02-05 14:01:24,252] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.12565502137485363/37.71393310278654/ | User: anonymous | Status: 200
+[2026-02-05 14:01:24,253] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.12565502137485363/37.71393310278654/ HTTP/1.1" 200 120
+[2026-02-05 14:01:29,959] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.12187881516899063/37.71277740597725/ | User: anonymous | Status: 200
+[2026-02-05 14:01:29,960] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.12187881516899063/37.71277740597725/ HTTP/1.1" 200 120
+[2026-02-05 14:01:34,695] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.11927137850431238/37.70697981119156/ | User: anonymous | Status: 200
+[2026-02-05 14:01:34,696] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.11927137850431238/37.70697981119156/ HTTP/1.1" 200 120
+[2026-02-05 14:01:39,516] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.11186447338220427/37.716452702879906/ | User: anonymous | Status: 200
+[2026-02-05 14:01:39,517] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.11186447338220427/37.716452702879906/ HTTP/1.1" 200 120
+[2026-02-05 14:01:43,626] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.1058214673782822/37.71678026765585/ | User: anonymous | Status: 200
+[2026-02-05 14:01:43,627] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.1058214673782822/37.71678026765585/ HTTP/1.1" 200 119
+[2026-02-05 14:01:48,685] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.10664456885490707/37.726125083863735/ | User: anonymous | Status: 200
+[2026-02-05 14:01:48,686] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.10664456885490707/37.726125083863735/ HTTP/1.1" 200 120
+[2026-02-05 14:01:52,328] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.1046587317317581/37.71040365099907/ | User: anonymous | Status: 200
+[2026-02-05 14:01:52,330] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.1046587317317581/37.71040365099907/ HTTP/1.1" 200 120
+[2026-02-05 14:01:57,744] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.11152651568851714/37.71511998027563/ | User: anonymous | Status: 200
+[2026-02-05 14:01:57,746] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.11152651568851714/37.71511998027563/ HTTP/1.1" 200 120
+[2026-02-05 14:02:02,167] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.11954999236065822/37.71536473184824/ | User: anonymous | Status: 200
+[2026-02-05 14:02:02,169] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.11954999236065822/37.71536473184824/ HTTP/1.1" 200 120
+[2026-02-05 14:02:12,535] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.12594905782934562/37.71680273115635/ | User: anonymous | Status: 200
+[2026-02-05 14:02:12,536] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.12594905782934562/37.71680273115635/ HTTP/1.1" 200 120
+[2026-02-05 14:02:21,902] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.13019900739474144/37.719672694802284/ | User: anonymous | Status: 200
+[2026-02-05 14:02:21,904] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.13019900739474144/37.719672694802284/ HTTP/1.1" 200 119
+[2026-02-05 14:02:26,464] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.1271191686586313/37.71709207445383/ | User: anonymous | Status: 200
+[2026-02-05 14:02:26,466] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.1271191686586313/37.71709207445383/ HTTP/1.1" 200 119
+[2026-02-05 14:02:34,722] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.125933970440086/37.716321274638176/ | User: anonymous | Status: 200
+[2026-02-05 14:02:34,724] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.125933970440086/37.716321274638176/ HTTP/1.1" 200 119
+[2026-02-05 14:02:43,266] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.1250139749540573/37.71566681563854/ | User: anonymous | Status: 200
+[2026-02-05 14:02:43,267] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.1250139749540573/37.71566681563854/ HTTP/1.1" 200 118
+[2026-02-05 14:02:49,676] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.1244416599615934/37.714999951422215/ | User: anonymous | Status: 200
+[2026-02-05 14:02:49,677] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.1244416599615934/37.714999951422215/ HTTP/1.1" 200 119
+[2026-02-05 14:02:53,599] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.12504850831289444/37.715589702129364/ | User: anonymous | Status: 200
+[2026-02-05 14:02:53,601] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.12504850831289444/37.715589702129364/ HTTP/1.1" 200 121
+[2026-02-05 14:02:57,547] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.12471088605508367/37.71579019725323/ | User: anonymous | Status: 200
+[2026-02-05 14:02:57,549] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.12471088605508367/37.71579019725323/ HTTP/1.1" 200 120
+[2026-02-05 14:03:01,898] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.12474944271831877/37.716234773397446/ | User: anonymous | Status: 200
+[2026-02-05 14:03:01,899] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.12474944271831877/37.716234773397446/ HTTP/1.1" 200 121
+[2026-02-05 14:03:06,257] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.1246810465504615/37.7166448161006/ | User: anonymous | Status: 200
+[2026-02-05 14:03:06,259] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.1246810465504615/37.7166448161006/ HTTP/1.1" 200 118
+[2026-02-05 14:03:11,108] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.12472295596705624/37.71717958152294/ | User: anonymous | Status: 200
+[2026-02-05 14:03:11,109] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.12472295596705624/37.71717958152294/ HTTP/1.1" 200 120
+[2026-02-05 14:03:15,947] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.12487382986625534/37.71786354482174/ | User: anonymous | Status: 200
+[2026-02-05 14:03:15,948] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.12487382986625534/37.71786354482174/ HTTP/1.1" 200 120
+[2026-02-05 14:03:20,790] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.12505722547143103/37.71852806210518/ | User: anonymous | Status: 200
+[2026-02-05 14:03:20,790] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.12505722547143103/37.71852806210518/ HTTP/1.1" 200 120
+[2026-02-05 14:03:26,265] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.1253650082209429/37.71911479532719/ | User: anonymous | Status: 200
+[2026-02-05 14:03:26,266] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.1253650082209429/37.71911479532719/ HTTP/1.1" 200 119
+[2026-02-05 14:03:32,312] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.1256429514633136/37.72000025957823/ | User: anonymous | Status: 200
+[2026-02-05 14:03:32,314] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.1256429514633136/37.72000025957823/ HTTP/1.1" 200 119
+[2026-02-05 14:03:37,190] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.12605098152545596/37.72070702165365/ | User: anonymous | Status: 200
+[2026-02-05 14:03:37,192] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.12605098152545596/37.72070702165365/ HTTP/1.1" 200 120
+[2026-02-05 14:03:41,221] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.12559198961450146/37.720006965100765/ | User: anonymous | Status: 200
+[2026-02-05 14:03:41,222] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.12559198961450146/37.720006965100765/ HTTP/1.1" 200 119
+[2026-02-05 14:03:48,080] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.12596649214582087/37.71990939974785/ | User: anonymous | Status: 200
+[2026-02-05 14:03:48,081] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.12596649214582087/37.71990939974785/ HTTP/1.1" 200 120
+[2026-02-05 14:03:52,615] INFO backend GET /calculate_fare/0.1230876/37.7210874/0.12574453988528514/37.72010117769241/ | User: anonymous | Status: 200
+[2026-02-05 14:03:52,616] INFO django.server "GET /calculate_fare/0.1230876/37.7210874/0.12574453988528514/37.72010117769241/ HTTP/1.1" 200 120
+[2026-02-05 14:03:59,151] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-02-05 14:03:59,152] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-02-05 14:04:17,106] INFO django.server - Broken pipe from ('192.168.100.4', 52132)
+[2026-02-05 14:05:46,607] INFO backend GET /get_completed_rides/16/ | User: anonymous | Status: 200
+[2026-02-05 14:05:46,607] INFO django.server "GET /get_completed_rides/16/ HTTP/1.1" 200 61
+[2026-02-05 14:08:54,352] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-05 14:08:55,006] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 14:10:18,424] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-02-05 14:10:19,077] INFO django.utils.autoreload Watching for file changes with StatReloader

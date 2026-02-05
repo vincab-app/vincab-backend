@@ -39,6 +39,7 @@ urlpatterns = [
     path('mpesa_callback/', mpesa_callback, name='mpesa_callback'),
     # path('send_b2c_payment/<str:phone_number>/<str:amount>/', views.send_b2c_payment, name='send_b2c_payment'),
     path('b2c_callback/', b2c_callback, name='b2c_callback'),
+    path('withdraw_money/', withdraw_money, name='withdraw_money'),
 
 
     path('get_completed_rides/<int:rider_id>/', get_completed_rides, name='get_completed_rides'),

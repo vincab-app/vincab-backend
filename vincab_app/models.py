@@ -112,6 +112,7 @@ class Payment(models.Model):
     ]
 
     ride = models.OneToOneField(Ride, on_delete=models.CASCADE, related_name="payment")
+    total_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     method = models.CharField(max_length=20, choices=METHOD_CHOICES)
     checkout_request_id = models.CharField(max_length=100, default="")
@@ -153,23 +154,20 @@ class Notification(models.Model):
         return f"Notification for {self.user.full_name}"
 
 class DriverPayment(models.Model):
-    STATUS_CHOICES = [
-        ('pending', 'Pending'),
-        ('paid', 'Paid'),
-        ('failed', 'Failed'),
-        ('processing', 'Processing'),
-    ]
     driver = models.ForeignKey("Driver", on_delete=models.CASCADE, related_name="driver_payments")
-    payment = models.OneToOneField("Payment", on_delete=models.CASCADE, related_name="driver_payment")
-    amount = models.DecimalField(max_digits=10, decimal_places=2)  # driver’s 80%
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")
-    originator_conversation_id = models.CharField(max_length=100, blank=True, null=True, default="")
-    conversation_id = models.CharField(max_length=100, blank=True, null=True, default="")
-    transaction_id = models.CharField(max_length=100, blank=True, null=True, default="")
-    result_code = models.IntegerField(blank=True, null=True, default=None)
-    result_description = models.TextField(blank=True, null=True, default="")
+    amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.0) 
+    pending_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.0) 
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"#{self.id} DriverPayment {self.driver.user.full_name} {self.amount}"
+
+class Withdraw(models.Model):
+    driver = models.ForeignKey("Driver", on_delete=models.CASCADE, related_name="withdrawals")
+    amount = models.DecimalField(max_digits=10, decimal_places=2) 
+    transactionRef = models.CharField(max_length=100, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"#{self.id} Withdraw {self.driver.user.full_name} {self.amount} ({self.transactionRef})"
 
