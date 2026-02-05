@@ -356,6 +356,7 @@ PAYSTACK_SECRET_KEY = os.environ.get("PAYSTACK_SECRET_KEY")
 
 # initiliaze payment 2
 @api_view(["POST"])
+@verify_firebase_token
 def initialize_payment(request):
     amount = request.data.get("amount")   #  you are sending this
     email = request.data.get("email", "customer@email.com")  # fallback email

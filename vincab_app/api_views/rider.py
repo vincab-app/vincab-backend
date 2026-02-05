@@ -5,6 +5,7 @@ from .auth import verify_firebase_token
 
 # api to get ride details
 @api_view(["GET"])
+@verify_firebase_token
 def get_ride_details(request, rider_id):
     try:
         # Get latest ongoing or pending ride for the rider
@@ -74,7 +75,7 @@ def get_ride_details(request, rider_id):
 
 # send expo_token
 @api_view(['GET'])
-# @verify_firebase_token
+@verify_firebase_token
 def send_expo_token(request, user_id, expo_token):
     try:
         user = User.objects.get(id=user_id)
@@ -90,6 +91,7 @@ def send_expo_token(request, user_id, expo_token):
 
 # api to get completed rides
 @api_view(["GET"])
+@verify_firebase_token
 def get_completed_rides(request, rider_id):
     try:
         rider = User.objects.get(id=rider_id)

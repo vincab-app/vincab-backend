@@ -7,6 +7,7 @@ PAYSTACK_SECRET_KEY = os.environ.get("PAYSTACK_SECRET_KEY")
 
 # api to get all driver payments
 @api_view(['GET'])
+@verify_firebase_token
 def get_driver_payments(request, driver_id):
     user = User.objects.get(id=driver_id)
     driver = Driver.objects.get(user=user)
@@ -30,6 +31,7 @@ def get_driver_payments(request, driver_id):
 
 # api to get requested rides
 @api_view(['GET'])
+@verify_firebase_token
 def get_requested_rides(request, user_id):
     try:
         # Get driver using user_id
@@ -65,6 +67,8 @@ def get_requested_rides(request, user_id):
 # end of get requested rides api
 
 # api to get driver total earnings
+@api_view(['GET'])
+@verify_firebase_token
 def get_driver_total_earnings(request, user_id):
     try:
         # Get driver by linked user_id
@@ -86,6 +90,7 @@ def get_driver_total_earnings(request, user_id):
 
 # driver confirmation
 @api_view(["POST"])
+@verify_firebase_token
 def confirm_ride(request):
     accepted = request.data.get("accepted")
     amount = request.data.get("amount")

@@ -131,7 +131,7 @@ def get_all_rides(request):
 
 # payments/views.py
 @api_view(["GET"])
-# @verify_firebase_token
+@verify_firebase_token
 def get_all_payments(request):
     payments = Payment.objects.select_related("ride__rider", "ride__driver__user").all().order_by("-paid_at")
     serializer = PaymentSerializer(payments, many=True)
@@ -235,6 +235,8 @@ def send_push_notification_to_all_users(request):
         return Response({"error": str(e)}, status=400)
 
 # api to get vincab earnings
+@api_view(["GET"])
+@verify_firebase_token
 def get_vincab_earnings(request):
     today = now().date()
 
