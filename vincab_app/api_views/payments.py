@@ -485,8 +485,8 @@ def payment_callback(request):
             except Driver.DoesNotExist:
                 return JsonResponse({"error": "Driver not found"}, status=404)
 
-        platform_cut = total_amount * 0.1
-        driver_share = total_amount * 0.9
+        platform_cut = total_amount * Decimal("0.1")
+        driver_share = total_amount * Decimal("0.9")
 
         # ✅ Transaction ensures no duplicates if Paystack retries
         with transaction.atomic():
