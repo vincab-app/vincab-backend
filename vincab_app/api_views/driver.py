@@ -11,17 +11,18 @@ def get_driver_payments(request, driver_id):
     user = User.objects.get(id=driver_id)
     driver = Driver.objects.get(user=user)
     driver_payments = DriverPayment.objects.filter(driver=driver)
+    payments = Payment.objects.filter(ride__driver=driver)
     results = []
-    for dp in driver_payments:
+    for dp in payments:
         results.append({
             "driver_payment_id": dp.id,
-            "driver_share": float(dp.amount),   # 80%
-            "method":dp.payment.method,
-            "created_at": dp.created_at,
-            "transaction_reference": dp.payment.transaction_reference,
-            "payment_status": dp.payment.status,
-            "ride_id": dp.payment.ride.id,
-            "platform_cut": float(dp.payment.amount),  # 20%
+            "driver_share": float(dp.total_amount - dp.amount),   # 90%
+            "method":dp.method,
+            "created_at": dp.paid_at,
+            "transaction_reference": dp.transaction_reference,
+            "payment_status": dp.status,
+            "ride_id": dp.ride.id,
+            "platform_cut": float(dp.amount),  # 10%
         })
 
     return JsonResponse(results, safe=False)

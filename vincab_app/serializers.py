@@ -82,7 +82,7 @@ class PaymentSerializer(serializers.ModelSerializer):
             "rider_name",
             "driver_name",
             "driver_id",
-            "amount",
+            "total_amount",
             "method",
             "status",
             "transaction_reference",

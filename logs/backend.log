@@ -6601,3 +6601,340 @@ AttributeError: 'DriverPayment' object has no attribute 'payment'
 [2026-02-05 16:05:42,093] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
 [2026-02-05 16:05:48,571] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-02-05 16:05:49,227] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 18:32:26,387] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 18:32:44,517] INFO backend User sign in: Email: gideonushindi94@gmail.com, Name: David Naoh
+[2026-02-05 18:32:44,520] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-02-05 18:32:44,521] INFO django.server "POST /signin/ HTTP/1.1" 200 1513
+[2026-02-05 18:32:45,093] INFO backend GET /check_driver_verified/18 | User: anonymous | Status: 404
+[2026-02-05 18:32:45,095] INFO django.server "GET /check_driver_verified/18 HTTP/1.1" 301 0
+[2026-02-05 18:32:48,411] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 200
+[2026-02-05 18:32:48,413] INFO django.server "GET /check_driver_verified/18/ HTTP/1.1" 200 127
+[2026-02-05 18:32:49,487] INFO backend GET /get_driver_total_earnings/18 | User: anonymous | Status: 404
+[2026-02-05 18:32:49,488] INFO django.server "GET /get_driver_total_earnings/18 HTTP/1.1" 301 0
+[2026-02-05 18:32:52,003] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-05 18:32:52,005] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-05 18:33:03,549] INFO backend GET /send_expo_token/18/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 18:33:03,550] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 18:33:03,551] INFO django.server "GET /send_expo_token/18/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 18:33:03,553] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-02-05 18:33:03,861] INFO backend GET /get_driver_total_earnings/18/ | User: anonymous | Status: 200
+[2026-02-05 18:33:03,862] INFO django.server "GET /get_driver_total_earnings/18/ HTTP/1.1" 200 70
+[2026-02-05 18:33:43,925] ERROR django.request Internal Server Error: /get_driver_payments/18/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py", line 19, in get_driver_payments
+    "driver_share": float(dp.total_amount - dp.amount),   # 90%
+                          ^^^^^^^^^^^^^^^
+AttributeError: 'DriverPayment' object has no attribute 'total_amount'
+[2026-02-05 18:33:43,933] INFO backend GET /get_driver_payments/18/ | User: anonymous | Status: 500
+[2026-02-05 18:33:43,934] ERROR django.server "GET /get_driver_payments/18/ HTTP/1.1" 500 104909
+[2026-02-05 18:34:09,248] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-05 18:34:09,250] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-05 18:34:09,644] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 18:34:09,646] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-02-05 18:34:12,862] INFO backend GET /get_user_notifications/18 | User: anonymous | Status: 404
+[2026-02-05 18:34:12,864] INFO django.server "GET /get_user_notifications/18 HTTP/1.1" 301 0
+[2026-02-05 18:34:21,237] INFO backend GET /get_user_notifications/18/ | User: anonymous | Status: 200
+[2026-02-05 18:34:21,239] INFO django.server "GET /get_user_notifications/18/ HTTP/1.1" 200 1397
+[2026-02-05 18:35:36,301] INFO django.server - Broken pipe from ('192.168.100.4', 33886)
+[2026-02-05 18:35:36,302] INFO django.server - Broken pipe from ('192.168.100.4', 33888)
+[2026-02-05 18:35:36,304] INFO django.server - Broken pipe from ('192.168.100.4', 33880)
+[2026-02-05 18:51:45,824] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-05 18:51:45,826] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-05 18:51:50,137] ERROR django.request Internal Server Error: /get_driver_payments/18/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py", line 19, in get_driver_payments
+    "driver_share": float(dp.total_amount - dp.amount),   # 90%
+                          ^^^^^^^^^^^^^^^
+AttributeError: 'DriverPayment' object has no attribute 'total_amount'
+[2026-02-05 18:51:50,143] INFO backend GET /get_driver_payments/18/ | User: anonymous | Status: 500
+[2026-02-05 18:51:50,144] ERROR django.server "GET /get_driver_payments/18/ HTTP/1.1" 500 104909
+[2026-02-05 18:51:59,674] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 18:51:59,676] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-02-05 18:54:05,081] INFO django.server - Broken pipe from ('192.168.100.4', 51676)
+[2026-02-05 18:54:55,347] INFO backend GET / | User: vincab | Status: 200
+[2026-02-05 18:54:55,348] INFO django.server "GET / HTTP/1.1" 200 12
+[2026-02-05 18:54:58,517] INFO backend GET /favicon.ico | User: vincab | Status: 404
+[2026-02-05 18:54:58,519] WARNING django.request Not Found: /favicon.ico
+[2026-02-05 18:54:58,520] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 15100
+[2026-02-05 18:55:10,955] ERROR django.request Internal Server Error: /get_driver_payments/16/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py", line 12, in get_driver_payments
+    driver = Driver.objects.get(user=user)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+vincab_app.models.Driver.DoesNotExist: Driver matching query does not exist.
+[2026-02-05 18:55:10,957] INFO backend GET /get_driver_payments/16/ | User: anonymous | Status: 500
+[2026-02-05 18:55:10,958] ERROR django.server "GET /get_driver_payments/16/ HTTP/1.1" 500 111937
+[2026-02-05 18:55:27,806] INFO backend GET /admin/ | User: vincab | Status: 200
+[2026-02-05 18:55:27,807] INFO django.server "GET /admin/ HTTP/1.1" 200 15512
+[2026-02-05 18:55:28,178] INFO django.server "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[2026-02-05 18:55:28,237] INFO django.server "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[2026-02-05 18:55:36,820] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-05 18:55:36,821] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 15637
+[2026-02-05 18:55:39,713] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-05 18:55:39,714] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-05 18:56:07,253] ERROR django.request Internal Server Error: /get_driver_payments/18/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py", line 19, in get_driver_payments
+    "driver_share": float(dp.total_amount - dp.amount),   # 90%
+                          ^^^^^^^^^^^^^^^
+AttributeError: 'DriverPayment' object has no attribute 'total_amount'
+[2026-02-05 18:56:07,260] INFO backend GET /get_driver_payments/18/ | User: anonymous | Status: 500
+[2026-02-05 18:56:07,261] ERROR django.server "GET /get_driver_payments/18/ HTTP/1.1" 500 104412
+[2026-02-05 18:56:48,639] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-05 18:56:49,420] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 18:57:04,959] ERROR django.request Internal Server Error: /get_driver_payments/18/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py", line 21, in get_driver_payments
+    "created_at": dp.created_at,
+                  ^^^^^^^^^^^^^
+AttributeError: 'Payment' object has no attribute 'created_at'
+[2026-02-05 18:57:04,962] INFO backend GET /get_driver_payments/18/ | User: anonymous | Status: 500
+[2026-02-05 18:57:04,963] ERROR django.server "GET /get_driver_payments/18/ HTTP/1.1" 500 104195
+[2026-02-05 18:57:29,223] ERROR django.request Internal Server Error: /get_driver_payments/18/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py", line 21, in get_driver_payments
+    "created_at": dp.created_at,
+                  ^^^^^^^^^^^^^
+AttributeError: 'Payment' object has no attribute 'created_at'
+[2026-02-05 18:57:29,228] INFO backend GET /get_driver_payments/18/ | User: anonymous | Status: 500
+[2026-02-05 18:57:29,228] ERROR django.server "GET /get_driver_payments/18/ HTTP/1.1" 500 104195
+[2026-02-05 18:59:09,870] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-05 18:59:10,665] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 18:59:24,573] ERROR django.request Internal Server Error: /get_driver_payments/18/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py", line 21, in get_driver_payments
+    "created_at": dp.created_at,
+                  ^^^^^^^^^^^^^
+AttributeError: 'Payment' object has no attribute 'created_at'
+[2026-02-05 18:59:24,578] INFO backend GET /get_driver_payments/18/ | User: anonymous | Status: 500
+[2026-02-05 18:59:24,579] ERROR django.server "GET /get_driver_payments/18/ HTTP/1.1" 500 104162
+[2026-02-05 18:59:32,525] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-05 18:59:33,182] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 19:00:47,214] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-05 19:00:47,855] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 19:01:25,029] INFO backend GET /get_driver_payments/18/ | User: anonymous | Status: 200
+[2026-02-05 19:01:25,031] INFO django.server "GET /get_driver_payments/18/ HTTP/1.1" 200 880
+[2026-02-05 19:08:18,398] INFO backend GET /auth_check/ | User: anonymous | Status: 200
+[2026-02-05 19:08:18,399] INFO django.server "GET /auth_check/ HTTP/1.1" 200 62
+[2026-02-05 19:08:19,329] INFO backend GET /get_driver_total_earnings/18 | User: anonymous | Status: 404
+[2026-02-05 19:08:19,329] INFO django.server "GET /get_driver_total_earnings/18 HTTP/1.1" 301 0
+[2026-02-05 19:08:23,945] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-05 19:08:23,946] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-05 19:08:24,610] INFO backend GET /get_driver_total_earnings/18/ | User: anonymous | Status: 200
+[2026-02-05 19:08:24,610] INFO django.server "GET /get_driver_total_earnings/18/ HTTP/1.1" 200 70
+[2026-02-05 19:08:24,677] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 19:08:24,678] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-02-05 19:08:29,037] INFO backend GET /send_expo_token/18/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ | User: anonymous | Status: 200
+[2026-02-05 19:08:29,038] INFO django.server "GET /send_expo_token/18/ExponentPushToken[CVVtz_BxP-2ufRqXpnd4ld]/ HTTP/1.1" 200 39
+[2026-02-05 19:09:09,608] INFO backend GET /get_driver_payments/18/ | User: anonymous | Status: 200
+[2026-02-05 19:09:09,609] INFO django.server "GET /get_driver_payments/18/ HTTP/1.1" 200 880
+[2026-02-05 19:09:27,167] INFO backend GET /get_user_notifications/18 | User: anonymous | Status: 404
+[2026-02-05 19:09:27,169] INFO django.server "GET /get_user_notifications/18 HTTP/1.1" 301 0
+[2026-02-05 19:09:29,466] INFO backend GET /get_user_notifications/18/ | User: anonymous | Status: 200
+[2026-02-05 19:09:29,467] INFO django.server "GET /get_user_notifications/18/ HTTP/1.1" 200 1397
+[2026-02-05 19:09:52,790] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-05 19:09:52,791] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-05 19:09:54,072] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 19:09:54,073] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-02-05 19:10:26,474] INFO backend GET /get_driver_payments/18/ | User: anonymous | Status: 200
+[2026-02-05 19:10:26,475] INFO django.server "GET /get_driver_payments/18/ HTTP/1.1" 200 880
+[2026-02-05 19:13:04,750] INFO backend GET /get_requested_rides/18/ | User: anonymous | Status: 200
+[2026-02-05 19:13:04,752] INFO django.server "GET /get_requested_rides/18/ HTTP/1.1" 200 2
+[2026-02-05 19:13:05,066] INFO backend POST /update_location/ | User: anonymous | Status: 200
+[2026-02-05 19:13:05,068] INFO django.server "POST /update_location/ HTTP/1.1" 200 150
+[2026-02-05 19:14:59,887] INFO django.server - Broken pipe from ('192.168.100.4', 50330)
+[2026-02-05 19:14:59,887] INFO django.server - Broken pipe from ('192.168.100.4', 50328)
+[2026-02-05 19:41:57,732] INFO backend GET /auth_check/ | User: anonymous | Status: 401
+[2026-02-05 19:41:57,732] WARNING django.request Unauthorized: /auth_check/
+[2026-02-05 19:41:57,733] WARNING django.server "GET /auth_check/ HTTP/1.1" 401 79
+[2026-02-05 19:41:57,793] INFO backend POST /refresh_token/ | User: anonymous | Status: 404
+[2026-02-05 19:41:57,794] WARNING django.request Not Found: /refresh_token/
+[2026-02-05 19:41:57,794] WARNING django.server "POST /refresh_token/ HTTP/1.1" 404 15117
+[2026-02-05 19:43:04,452] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-02-05 19:43:05,151] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 19:43:09,377] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/serializers.py changed, reloading.
+[2026-02-05 19:43:09,971] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 19:43:27,197] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/admin.py changed, reloading.
+[2026-02-05 19:43:27,836] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-05 19:44:28,553] INFO backend GET /get_all_payments/ | User: anonymous | Status: 200
+[2026-02-05 19:44:28,554] INFO django.server "GET /get_all_payments/ HTTP/1.1" 200 928
