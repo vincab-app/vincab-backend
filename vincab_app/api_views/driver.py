@@ -284,6 +284,8 @@ def withdraw_money(request):
 # end of withdrawing api
 
 # api to check if driver is verified
+@api_view(['GET'])
+@verify_firebase_token
 def check_driver_verified(request, user_id):
     driver = get_object_or_404(Driver, user__id=user_id)
     return JsonResponse({
@@ -302,6 +304,7 @@ from decimal import Decimal
 
 @csrf_exempt
 @api_view(['POST'])
+@verify_firebase_token
 def update_ride_status(request):
     if request.method != "POST":
         return JsonResponse({"error": "Invalid request"}, status=400)
@@ -332,10 +335,23 @@ def update_ride_status(request):
                     message,
                     {"ride_id": ride.id}
                 )
+                # push notification to rider
+                send_push_notification(
+                    rider.expo_token,
+                    "Ride Completed",
+                    "Your has been completed. Thanks for choosing VinCa.",
+                    {"ride_id": ride.id}
+                )
 
                 Notification.objects.create(
                     user=driver.user,
                     message=message,
+                    is_read=False
+                )
+                # save notification for rider
+                Notification.objects.create(
+                    user=rider,
+                    message="Your ride has been completed.",
                     is_read=False
                 )
 
@@ -373,7 +389,7 @@ def update_ride_status(request):
 
 # api to get driver location
 @api_view(["GET"])
-# @verify_firebase_token
+@verify_firebase_token
 def get_driver_location(request, driver_id):
     driver = Driver.objects.get(id=driver_id)
     if not driver.user.current_lat or not driver.user.current_lng:

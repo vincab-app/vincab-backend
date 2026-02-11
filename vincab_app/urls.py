@@ -34,6 +34,7 @@ urlpatterns = [
     path('get_vincab_earnings/', get_vincab_earnings, name='get_vincab_earnings'),
     path('calculate_fare/<str:pickup_lat>/<str:pickup_lng>/<str:drop_lat>/<str:drop_lng>/', calculate_fare, name='calculate_fare'),
     path('get_ride_details/<int:rider_id>/', get_ride_details, name='get_ride_details'),
+    path('get_user_rides/<int:rider_id>/', get_user_rides, name='get_user_rides'),
 
     # path('lipa_na_mpesa/<str:phone_number>/<str:amount>/', views.lipa_na_mpesa, name='lipa_na_mpesa'),
     path('mpesa_callback/', mpesa_callback, name='mpesa_callback'),

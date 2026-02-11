@@ -73,6 +73,70 @@ def get_ride_details(request, rider_id):
 
 # end
 
+# api to get riders' ride
+@api_view(["GET"])
+@verify_firebase_token
+def get_user_rides(request, rider_id):
+    try:
+
+        rides = (
+            Ride.objects
+            .select_related("driver__user", "rider")
+            .filter(rider_id=rider_id)
+            .order_by("-requested_at")[:50]  # limit for safety
+        )
+
+        data = []
+
+        for ride in rides:
+
+            vehicle = None
+            if ride.driver:
+                vehicle = ride.driver.vehicles.first()
+
+            data.append({
+                "id": ride.id,
+
+                "driver_id": ride.driver.id
+                    if ride.driver else None,
+
+                "driver_name":
+                    ride.driver.user.full_name
+                    if ride.driver else None,
+
+                "driver_profile":
+                    ride.driver.user.profile_image.url
+                    if ride.driver and ride.driver.user.profile_image
+                    else None,
+
+                "vehicle_plate":
+                    vehicle.plate_number if vehicle else None,
+
+                # Prefer stored addresses instead of reverse geocode
+                "pickup_address": reverse_geocode(ride.pickup_lat, ride.pickup_lng),
+                "dropoff_address": reverse_geocode(ride.dropoff_lat, ride.dropoff_lng),
+                "pickup_lat": ride.pickup_lat,
+                "pickup_lng": ride.pickup_lng,
+                "dropoff_lat": ride.dropoff_lat,
+                "dropoff_lng": ride.dropoff_lng,
+
+                "distance_km": str(ride.distance_km) if ride.distance_km else None,
+                "fare": str(ride.estimated_fare) if ride.estimated_fare else None,
+
+                "status": ride.status,
+
+                "requested_at": ride.requested_at.isoformat(),
+                "completed_at":
+                    ride.completed_at.isoformat()
+                    if ride.completed_at else None,
+            })
+
+        return JsonResponse(data, safe=False, status=200)
+
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+# end
+
 # send expo_token
 @api_view(['GET'])
 @verify_firebase_token
@@ -489,6 +553,13 @@ def create_rating(request):
                 reviewee = Driver.objects.get(id=reviewee_id)
             except Driver.DoesNotExist:
                 return JsonResponse({"error": "Reviewee not found"}, status=404)
+            
+            try:
+                check_rating = Rating.objects.get(ride=ride, reviewer=reviewer, reviewee=reviewee)
+                if check_rating:
+                    return JsonResponse({"error": "Rating already submitted for this ride"}, status=403)
+            except Rating.DoesNotExist:
+                pass  # Good, no rating exists yet
 
             # --- Save rating ---
             rating = Rating.objects.create(

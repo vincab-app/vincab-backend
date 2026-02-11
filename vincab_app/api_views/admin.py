@@ -190,6 +190,18 @@ def dashboard_stats(request):
 def update_driver_status(request, driver_id):
     try:
         driver = Driver.objects.get(id=driver_id)
+    except Driver.DoesNotExist:
+        # fallback: maybe driver_id is actually a user_id
+        try:
+            user = User.objects.get(id=driver_id)
+        except User.DoesNotExist:
+            return Response({"error": "Driver or User not found"}, status=404)
+        try:
+            driver = Driver.objects.get(user=user)
+        except Driver.DoesNotExist:
+            return Response({"error": "Driver for this user not found"}, status=404)
+    try:
+        
         new_status = request.data.get("status")
         new_verified = request.data.get("verified")
 
@@ -215,6 +227,7 @@ def update_driver_status(request, driver_id):
 
         return Response({"message": "Driver updated successfully"}, status=200)
     except Driver.DoesNotExist:
+        print("Driver not found")
         return Response({"error": "Driver not found"}, status=404)
 
 # api for admin to send push notifications to all users
