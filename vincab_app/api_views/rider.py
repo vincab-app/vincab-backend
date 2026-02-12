@@ -347,7 +347,7 @@ def get_user_notifications(request, user_id):
 
 # end of get notification api
 
-# api to get the nearby cars
+# api to get the nearby vehicles
 @api_view(["GET"])
 @verify_firebase_token
 def nearby_vehicles(request, lat, lng):
@@ -386,6 +386,7 @@ def nearby_vehicles(request, lat, lng):
             data["driver_image"] = driver.user.profile_image.url if driver.user.profile_image else None
             data["driver_lat"] = driver.user.current_lat
             data["driver_lng"] = driver.user.current_lng
+            data["average_rating"] = driver.average_rating
 
             vehicle_data.append(data)
 
@@ -519,9 +520,26 @@ def create_ride_and_payment(request):
 
     return JsonResponse({"error": "Invalid request method"}, status=405)
 
+# update driver rating
+from django.db.models import Avg, Count
+
+def update_driver_rating(driver_id):
+    driver = Driver.objects.get(id=driver_id)
+
+    stats = Rating.objects.filter(reviewee=driver).aggregate(
+        avg=Avg("rating"),
+        count=Count("id")
+    )
+    print(f"Average Rating: {stats["avg"]} Total Rating: {stats["count"]}")
+
+    driver.average_rating = round(stats["avg"] or 0, 1)
+    driver.rating = stats["count"]
+    driver.save()
+
+
 # api to get create ratings for driver
 @csrf_exempt
-@verify_firebase_token
+# @verify_firebase_token
 def create_rating(request):
     if request.method == "POST":
         try:
@@ -569,6 +587,8 @@ def create_rating(request):
                 rating=rating_value,
                 comment=comment
             )
+            # update driver rating
+            update_driver_rating(reviewee_id)
 
             return JsonResponse({
                 "id": rating.id,
