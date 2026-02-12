@@ -75,9 +75,10 @@ class Ride(models.Model):
     STATUS_CHOICES = [
         ('pending', 'Pending'),
         ('accepted', 'Accepted'),
-        ('ongoing', 'Ongoing'),
+        ('started', 'Started'),
         ('completed', 'Completed'),
         ('cancelled', 'Cancelled'),
+        ('picked', 'Picked'),
     ]
 
     rider = models.ForeignKey(User, on_delete=models.CASCADE, related_name="rides_as_rider")

@@ -8616,3 +8616,4 @@ LINE 1: ...driver"."verified", "vincab_app_driver"."rating", "vincab_ap...
 [2026-02-12 08:19:56,558] INFO django.server "GET /driver_location/7/ HTTP/1.1" 200 59
 [2026-02-12 08:20:40,059] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-02-12 08:20:40,766] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-12 21:35:24,467] INFO django.utils.autoreload Watching for file changes with StatReloader
