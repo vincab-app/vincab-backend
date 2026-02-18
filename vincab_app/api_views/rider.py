@@ -314,6 +314,21 @@ def update_location(request):
         user.last_updated_location = timezone.now()
         user.save()
 
+        driver = Driver.objects.filter(user=user).first()
+        if driver:
+            ride = Ride.objects.filter(driver=driver, status="started", driver_arrived_notified=False).first()
+            if ride:
+                distance = geodesic((lat, lng),(ride.pickup_lat, ride.pickup_lng)).meters
+                if distance <= 100:
+                    send_push_notification(
+                        ride.rider.expo_token,
+                        "Driver is near",
+                        "Your driver is about to arrive.",
+                        {"ride_id": ride.id}
+                    )
+                    ride.driver_arrived_notified = True
+                    ride.save()
+
         return Response(
             {
                 "message": "Location updated successfully",
