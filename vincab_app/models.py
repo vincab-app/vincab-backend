@@ -17,6 +17,7 @@ class User(models.Model):
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default="rider")
     firebase_uid = models.CharField(max_length=256, default="@vincab2025")
     current_lat = models.FloatField(null=True, blank=True, default=0.0)
+    last_updated_location = models.DateTimeField(default=timezone.now)
     current_lng = models.FloatField(null=True, blank=True, default=0.0)
     phone_verified = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
