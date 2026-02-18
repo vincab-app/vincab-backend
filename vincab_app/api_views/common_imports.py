@@ -31,6 +31,7 @@ import json
 from geopy.distance import geodesic
 from decimal import Decimal
 from datetime import timedelta
+from django.utils import timezone
 
 # Local imports
 from vincab_app.models import User, Notification, Vehicle, Ride, Payment, Driver, Rating, DriverPayment

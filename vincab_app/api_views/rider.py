@@ -311,6 +311,7 @@ def update_location(request):
         # Update location
         user.current_lat = float(lat)
         user.current_lng = float(lng)
+        user.last_updated_location = timezone.now()
         user.save()
 
         return Response(

@@ -8674,3 +8674,22 @@ LINE 1: ...driver"."verified", "vincab_app_driver"."rating", "vincab_ap...
 [2026-02-18 13:38:21,463] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-02-18 13:41:08,733] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
 [2026-02-18 13:41:09,394] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-18 13:43:44,495] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-18 13:44:53,168] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/common_imports.py changed, reloading.
+[2026-02-18 13:44:53,981] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-18 13:45:04,241] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-02-18 13:45:04,991] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-18 13:55:14,794] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-18 13:55:14,810] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 16854
+[2026-02-18 13:55:16,852] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-18 13:55:16,852] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-18 13:55:24,252] INFO backend GET /admin/vincab_app/user/31/change/ | User: vincab | Status: 200
+[2026-02-18 13:55:24,253] INFO django.server "GET /admin/vincab_app/user/31/change/ HTTP/1.1" 200 21890
+[2026-02-18 13:55:26,769] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-18 13:55:26,769] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-18 13:55:38,891] INFO backend GET /admin/vincab_app/user/31/change/ | User: vincab | Status: 200
+[2026-02-18 13:55:38,891] INFO django.server "GET /admin/vincab_app/user/31/change/ HTTP/1.1" 200 21890
+[2026-02-18 13:55:41,038] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-18 13:55:41,038] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-18 13:56:10,314] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-02-18 13:56:11,090] INFO django.utils.autoreload Watching for file changes with StatReloader
