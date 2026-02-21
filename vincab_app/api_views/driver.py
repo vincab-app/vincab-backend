@@ -409,7 +409,7 @@ def get_driver_location(request, driver_id):
 @csrf_exempt
 @api_view(['POST'])
 @parser_classes([MultiPartParser])
-@verify_firebase_token
+# @verify_firebase_token
 def update_driver_profile(request):
     try:
         rider_id = request.data.get('rider_id')
@@ -431,7 +431,8 @@ def update_driver_profile(request):
 
         rider.save()
         
-        vehicle = Vehicle.objects.filter(driver=rider).first()
+        driver = Driver.objects.filter(user=rider).first()
+        vehicle = Vehicle.objects.filter(driver=driver).first()
         if vehicle and vehicle_image:
             vehicle.car_image = vehicle_image
             vehicle.save()
@@ -447,7 +448,9 @@ def update_driver_profile(request):
         })
 
     except User.DoesNotExist:
+        print("Rider not found")
         return JsonResponse({"message": "Rider not found"}, status=404)
     except Exception as e:
+        print(f"An error occurred: {str(e)}")
         return JsonResponse({"message": str(e)}, status=500)
 # end of update driver profile api

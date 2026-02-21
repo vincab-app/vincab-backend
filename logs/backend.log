@@ -9121,3 +9121,69 @@ TypeError: Object of type ImageFieldFile is not JSON serializable
 [2026-02-21 12:15:46,570] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-02-21 12:15:56,669] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-02-21 12:15:57,404] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 12:18:11,538] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 12:18:22,609] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 200
+[2026-02-21 12:18:22,610] INFO django.server "GET /check_driver_verified/18/ HTTP/1.1" 200 177
+[2026-02-21 12:21:39,762] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-02-21 12:21:40,459] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 12:26:34,113] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 12:26:34,726] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 12:30:37,098] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 12:30:37,708] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 13:42:07,089] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 401
+[2026-02-21 13:42:07,089] WARNING django.request Unauthorized: /check_driver_verified/18/
+[2026-02-21 13:42:07,090] WARNING django.server "GET /check_driver_verified/18/ HTTP/1.1" 401 41
+[2026-02-21 13:43:15,282] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 13:43:16,162] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 13:43:23,360] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 200
+[2026-02-21 13:43:23,401] INFO django.server "GET /check_driver_verified/18/ HTTP/1.1" 200 177
+[2026-02-21 13:47:05,657] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 13:47:06,387] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 13:48:48,264] INFO backend POST /update_driver_profile/ | User: anonymous | Status: 500
+[2026-02-21 13:48:48,266] ERROR django.request Internal Server Error: /update_driver_profile/
+[2026-02-21 13:48:48,270] ERROR django.server "POST /update_driver_profile/ HTTP/1.1" 500 85
+[2026-02-21 13:51:22,764] INFO backend User sign in: Email: ushindigideon01@gmail.com, Name: Gideon Ushindi 
+[2026-02-21 13:51:22,765] INFO backend POST /signin/ | User: anonymous | Status: 200
+[2026-02-21 13:51:22,766] INFO django.server "POST /signin/ HTTP/1.1" 200 1518
+[2026-02-21 13:54:52,860] INFO backend POST /update_driver_profile/ | User: anonymous | Status: 500
+[2026-02-21 13:54:52,860] ERROR django.request Internal Server Error: /update_driver_profile/
+[2026-02-21 13:54:52,861] ERROR django.server "POST /update_driver_profile/? HTTP/1.1" 500 70
+[2026-02-21 13:57:40,811] INFO backend GET /update_driver_profile/ | User: anonymous | Status: 405
+[2026-02-21 13:57:40,811] WARNING django.request Method Not Allowed: /update_driver_profile/
+[2026-02-21 13:57:40,812] WARNING django.server "GET /update_driver_profile/ HTTP/1.1" 405 40
+[2026-02-21 13:57:51,296] INFO backend POST /update_driver_profile/ | User: anonymous | Status: 500
+[2026-02-21 13:57:51,297] ERROR django.request Internal Server Error: /update_driver_profile/
+[2026-02-21 13:57:51,298] ERROR django.server "POST /update_driver_profile/ HTTP/1.1" 500 89
+[2026-02-21 13:59:00,563] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 13:59:01,163] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 13:59:10,264] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 13:59:11,021] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 13:59:23,692] INFO backend POST /update_driver_profile/ | User: anonymous | Status: 200
+[2026-02-21 13:59:23,693] INFO django.server "POST /update_driver_profile/ HTTP/1.1" 200 146
+[2026-02-21 14:03:43,309] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 14:03:43,968] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 14:03:49,408] INFO backend POST /update_driver_profile/ | User: anonymous | Status: 500
+[2026-02-21 14:03:49,409] ERROR django.request Internal Server Error: /update_driver_profile/
+[2026-02-21 14:03:49,409] ERROR django.server "POST /update_driver_profile/ HTTP/1.1" 500 89
+[2026-02-21 14:05:52,178] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 14:05:52,776] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 14:06:01,776] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 14:06:02,378] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 14:06:07,753] INFO backend POST /update_driver_profile/ | User: anonymous | Status: 500
+[2026-02-21 14:06:07,755] ERROR django.request Internal Server Error: /update_driver_profile/
+[2026-02-21 14:06:07,756] ERROR django.server "POST /update_driver_profile/ HTTP/1.1" 500 89
+[2026-02-21 14:06:18,694] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 14:06:19,460] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 14:06:28,649] INFO backend POST /update_driver_profile/ | User: anonymous | Status: 200
+[2026-02-21 14:06:28,652] INFO django.server "POST /update_driver_profile/ HTTP/1.1" 200 146
+[2026-02-21 14:07:09,687] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 14:07:10,277] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 14:07:43,652] INFO backend POST /update_driver_profile/ | User: anonymous | Status: 500
+[2026-02-21 14:07:43,653] ERROR django.request Internal Server Error: /update_driver_profile/
+[2026-02-21 14:07:43,655] ERROR django.server "POST /update_driver_profile/ HTTP/1.1" 500 89
+[2026-02-21 14:07:55,148] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 14:07:55,769] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 14:08:06,483] INFO backend POST /update_driver_profile/ | User: anonymous | Status: 200
+[2026-02-21 14:08:06,485] INFO django.server "POST /update_driver_profile/ HTTP/1.1" 200 196
+[2026-02-21 14:09:32,333] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-02-21 14:09:32,944] INFO django.utils.autoreload Watching for file changes with StatReloader
