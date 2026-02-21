@@ -8738,3 +8738,45 @@ LINE 1: ...driver"."verified", "vincab_app_driver"."rating", "vincab_ap...
 [2026-02-18 21:18:26,653] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
 [2026-02-18 21:18:27,253] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-02-18 21:19:59,352] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-18 21:27:09,007] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-18 21:27:16,633] INFO backend GET / | User: vincab | Status: 200
+[2026-02-18 21:27:16,635] INFO django.server "GET / HTTP/1.1" 200 12
+[2026-02-18 21:27:20,602] INFO backend GET /admin/ | User: vincab | Status: 200
+[2026-02-18 21:27:20,604] INFO django.server "GET /admin/ HTTP/1.1" 200 15518
+[2026-02-18 21:27:33,467] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-18 21:27:33,468] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 16854
+[2026-02-18 21:27:35,529] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-18 21:27:35,531] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-18 21:27:43,564] INFO backend GET /admin/vincab_app/user/18/change/ | User: vincab | Status: 200
+[2026-02-18 21:27:43,564] INFO django.server "GET /admin/vincab_app/user/18/change/ HTTP/1.1" 200 21883
+[2026-02-18 21:27:45,561] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-18 21:27:45,563] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-18 21:28:10,185] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-18 21:28:10,186] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 16854
+[2026-02-18 21:28:12,188] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-18 21:28:12,189] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-18 21:28:17,821] INFO backend GET /admin/vincab_app/user/18/change/ | User: vincab | Status: 200
+[2026-02-18 21:28:17,821] INFO django.server "GET /admin/vincab_app/user/18/change/ HTTP/1.1" 200 21883
+[2026-02-18 21:28:19,865] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-18 21:28:19,866] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-18 21:28:44,400] INFO backend GET /admin/vincab_app/user/18/change/ | User: vincab | Status: 200
+[2026-02-18 21:28:44,400] INFO django.server "GET /admin/vincab_app/user/18/change/ HTTP/1.1" 200 21883
+[2026-02-18 21:28:46,839] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-18 21:28:46,840] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-18 21:28:56,742] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-18 21:28:56,744] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 16854
+[2026-02-18 21:28:58,757] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-18 21:28:58,758] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-18 21:29:09,402] INFO backend GET /admin/vincab_app/user/18/change/ | User: vincab | Status: 200
+[2026-02-18 21:29:09,403] INFO django.server "GET /admin/vincab_app/user/18/change/ HTTP/1.1" 200 21882
+[2026-02-18 21:29:11,422] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-18 21:29:11,423] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-21 09:04:20,720] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 09:44:27,375] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-02-21 09:44:27,964] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 09:46:03,164] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-21 09:46:03,817] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 09:46:34,402] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-21 09:46:35,039] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 09:46:57,375] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-02-21 09:46:58,097] INFO django.utils.autoreload Watching for file changes with StatReloader

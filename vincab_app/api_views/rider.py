@@ -463,9 +463,9 @@ def create_ride_and_payment(request):
                 except Driver.DoesNotExist:
                     return JsonResponse({"error": "Driver not found"}, status=404)
 
-            # Split amount: 20% platform, 80% driver
-            platform_cut = total_amount * 0.2
-            driver_share = total_amount * 0.8
+            # Split amount: 25% platform, 75% driver
+            platform_cut = total_amount * 0.25
+            driver_share = total_amount * 0.75
 
             # 4. Create Ride
             ride = Ride.objects.create(
