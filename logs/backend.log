@@ -9109,3 +9109,8 @@ TypeError: Object of type ImageFieldFile is not JSON serializable
 [2026-02-21 11:26:40,925] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-02-21 11:26:49,610] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 200
 [2026-02-21 11:26:49,610] INFO django.server "GET /check_driver_verified/18/ HTTP/1.1" 200 177
+[2026-02-21 11:28:38,241] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:30:27,165] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 200
+[2026-02-21 11:30:27,168] INFO django.server "GET /check_driver_verified/18/ HTTP/1.1" 200 177
+[2026-02-21 11:54:08,035] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:54:08,705] INFO django.utils.autoreload Watching for file changes with StatReloader

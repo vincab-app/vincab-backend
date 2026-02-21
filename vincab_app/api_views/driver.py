@@ -289,7 +289,7 @@ def withdraw_money(request):
 def check_driver_verified(request, user_id):
     driver = get_object_or_404(Driver, user__id=user_id)
     vehicle = Vehicle.objects.get(driver=driver)
-    
+
     return JsonResponse({
         "driver_id": driver.id,
         "full_name": driver.user.full_name,
@@ -431,7 +431,7 @@ def update_driver_profile(request):
 
         rider.save()
 
-        if car_image:
+        if vehicle_image:
             vehicle = Vehicle.objects.get(driver=rider)
             vehicle.car_image = vehicle_image
             vehicle.save()
