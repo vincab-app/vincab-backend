@@ -8780,3 +8780,6 @@ LINE 1: ...driver"."verified", "vincab_app_driver"."rating", "vincab_ap...
 [2026-02-21 09:46:35,039] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-02-21 09:46:57,375] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-02-21 09:46:58,097] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 09:49:45,252] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 10:00:58,584] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-21 10:00:59,193] INFO django.utils.autoreload Watching for file changes with StatReloader
