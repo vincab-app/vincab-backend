@@ -46,6 +46,7 @@ urlpatterns = [
     path('get_completed_rides/<int:rider_id>/', get_completed_rides, name='get_completed_rides'),
     path('check_driver_verified/<int:user_id>/', check_driver_verified, name='check_driver_verified'),
     path('update_rider_profile/', update_rider_profile, name='update_rider_profile'),
+    path('update_driver_profile/', update_driver_profile, name='update_driver_profile'),
     path('get_all_drivers/', get_all_drivers, name='get_all_drivers'),
     path('get_all_riders/', get_all_riders, name='get_all_riders'),
     path('get_single_rider/<int:rider_id>/', get_single_rider, name='get_single_rider'),

@@ -400,3 +400,51 @@ def get_driver_location(request, driver_id):
         "latitude": driver.user.current_lat,
         "longitude": driver.user.current_lng,
     })
+
+
+# start of update rider profile api
+@csrf_exempt
+@api_view(['POST'])
+@parser_classes([MultiPartParser])
+@verify_firebase_token
+def update_driver_profile(request):
+    try:
+        rider_id = request.data.get('rider_id')
+        name = request.data.get('name')
+        profile_image = request.FILES.get('profile_image', None)
+        vehicle_image = request.FILES.get('vehicle_image', None)
+
+        print(rider_id, name, profile_image, vehicle_image)
+
+        rider = User.objects.get(id=rider_id)
+
+        # Update name if provided
+        if name:
+            rider.full_name = name   # adjust field if it's first_name/last_name in your model
+
+        # Update profile image if provided
+        if profile_image:
+            rider.profile_image = profile_image
+
+        rider.save()
+
+        if car_image:
+            vehicle = Vehicle.objects.get(driver=rider)
+            vehicle.car_image = vehicle_image
+            vehicle.save()
+
+        return JsonResponse({
+            "message": "Profile updated successfully",
+            "rider": {
+                "id": rider.id,
+                "name": rider.full_name,
+                "profile_image": rider.profile_image.url if hasattr(rider.profile_image, "url") else rider.profile_image,
+                "vehicle_image": vehicle.car_image.url if hasattr(vehicle.car_image, "url") else vehicle.car_image,
+            }
+        })
+
+    except User.DoesNotExist:
+        return JsonResponse({"message": "Rider not found"}, status=404)
+    except Exception as e:
+        return JsonResponse({"message": str(e)}, status=500)
+# end of update rider profile api
