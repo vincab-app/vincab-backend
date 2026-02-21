@@ -405,7 +405,7 @@ def get_driver_location(request, driver_id):
     })
 
 
-# start of update rider profile api
+# start of update driver profile api
 @csrf_exempt
 @api_view(['POST'])
 @parser_classes([MultiPartParser])
@@ -430,9 +430,9 @@ def update_driver_profile(request):
             rider.profile_image = profile_image
 
         rider.save()
-
-        if vehicle_image:
-            vehicle = Vehicle.objects.get(driver=rider)
+        
+        vehicle = Vehicle.objects.filter(driver=rider).first()
+        if vehicle and vehicle_image:
             vehicle.car_image = vehicle_image
             vehicle.save()
 
@@ -450,4 +450,4 @@ def update_driver_profile(request):
         return JsonResponse({"message": "Rider not found"}, status=404)
     except Exception as e:
         return JsonResponse({"message": str(e)}, status=500)
-# end of update rider profile api
+# end of update driver profile api
