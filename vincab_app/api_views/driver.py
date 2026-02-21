@@ -285,13 +285,16 @@ def withdraw_money(request):
 
 # api to check if driver is verified
 @api_view(['GET'])
-@verify_firebase_token
+# @verify_firebase_token
 def check_driver_verified(request, user_id):
     driver = get_object_or_404(Driver, user__id=user_id)
+    vehicle = Vehicle.objects.get(driver=driver)
+    
     return JsonResponse({
         "driver_id": driver.id,
         "full_name": driver.user.full_name,
         "license_number": driver.license_number,
+        "vehicle_image": vehicle.car_image.url if hasattr(vehicle.car_image, "url") else vehicle.car_image,
         "verified": driver.verified,
         "rating": float(driver.rating),
         "status": driver.status

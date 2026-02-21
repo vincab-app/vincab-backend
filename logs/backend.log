@@ -8802,3 +8802,310 @@ LINE 1: ...driver"."verified", "vincab_app_driver"."rating", "vincab_ap...
 [2026-02-21 11:02:10,332] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-02-21 11:02:18,412] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-02-21 11:02:19,019] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:05:41,935] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:11:58,117] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:11:58,733] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:12:03,800] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:12:04,570] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:14:05,065] INFO backend GET /check_driver_verified/4/ | User: anonymous | Status: 404
+[2026-02-21 11:14:05,067] WARNING django.request Not Found: /check_driver_verified/4/
+[2026-02-21 11:14:05,069] WARNING django.server "GET /check_driver_verified/4/ HTTP/1.1" 404 47
+[2026-02-21 11:15:04,992] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:15:05,639] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:15:11,182] INFO backend GET /check_driver_verified/4/ | User: anonymous | Status: 404
+[2026-02-21 11:15:11,183] WARNING django.request Not Found: /check_driver_verified/4/
+[2026-02-21 11:15:11,184] WARNING django.server "GET /check_driver_verified/4/ HTTP/1.1" 404 47
+[2026-02-21 11:15:17,003] INFO backend GET / | User: anonymous | Status: 200
+[2026-02-21 11:15:17,005] INFO django.server "GET / HTTP/1.1" 200 12
+[2026-02-21 11:15:17,109] INFO backend GET /favicon.ico | User: anonymous | Status: 404
+[2026-02-21 11:15:17,110] WARNING django.request Not Found: /favicon.ico
+[2026-02-21 11:15:17,111] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 15677
+[2026-02-21 11:15:20,625] INFO backend GET /admin/ | User: anonymous | Status: 302
+[2026-02-21 11:15:20,626] INFO django.server "GET /admin/ HTTP/1.1" 302 0
+[2026-02-21 11:15:20,880] INFO backend GET /admin/login/ | User: anonymous | Status: 200
+[2026-02-21 11:15:20,881] INFO django.server "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4173
+[2026-02-21 11:15:21,074] INFO django.server "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[2026-02-21 11:15:21,074] INFO django.server "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+[2026-02-21 11:15:21,074] INFO django.server "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+[2026-02-21 11:15:21,075] INFO django.server "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+[2026-02-21 11:15:21,086] INFO django.server "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[2026-02-21 11:15:21,255] INFO django.server "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+[2026-02-21 11:15:31,009] INFO backend POST /admin/login/ | User: vincab | Status: 302
+[2026-02-21 11:15:31,836] INFO django.server "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2026-02-21 11:15:34,287] INFO backend GET /admin/ | User: vincab | Status: 200
+[2026-02-21 11:15:34,289] INFO django.server "GET /admin/ HTTP/1.1" 200 15518
+[2026-02-21 11:15:34,393] INFO django.server "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+[2026-02-21 11:15:34,401] INFO django.server "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+[2026-02-21 11:15:34,415] INFO django.server "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+[2026-02-21 11:15:34,452] INFO django.server "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+[2026-02-21 11:15:46,038] INFO backend GET /admin/vincab_app/driver/ | User: vincab | Status: 200
+[2026-02-21 11:15:46,040] INFO django.server "GET /admin/vincab_app/driver/ HTTP/1.1" 200 14708
+[2026-02-21 11:15:46,145] INFO django.server "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+[2026-02-21 11:15:46,177] INFO django.server "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+[2026-02-21 11:15:46,177] INFO django.server "GET /static/admin/js/core.js HTTP/1.1" 304 0
+[2026-02-21 11:15:46,177] INFO django.server "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+[2026-02-21 11:15:46,186] INFO django.server "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+[2026-02-21 11:15:46,204] INFO django.server "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+[2026-02-21 11:15:46,219] INFO django.server "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+[2026-02-21 11:15:46,222] INFO django.server "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+[2026-02-21 11:15:46,254] INFO django.server "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+[2026-02-21 11:15:46,301] INFO django.server "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+[2026-02-21 11:15:48,356] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-21 11:15:48,358] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-21 11:15:48,454] INFO django.server "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+[2026-02-21 11:16:05,050] INFO backend GET /check_driver_verified/7/ | User: anonymous | Status: 404
+[2026-02-21 11:16:05,050] WARNING django.request Not Found: /check_driver_verified/7/
+[2026-02-21 11:16:05,051] WARNING django.server "GET /check_driver_verified/7/ HTTP/1.1" 404 47
+[2026-02-21 11:16:30,697] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-21 11:16:30,698] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 17163
+[2026-02-21 11:16:32,852] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-21 11:16:32,853] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-21 11:16:47,757] INFO backend GET /check_driver_verified/16/ | User: anonymous | Status: 404
+[2026-02-21 11:16:47,757] WARNING django.request Not Found: /check_driver_verified/16/
+[2026-02-21 11:16:47,758] WARNING django.server "GET /check_driver_verified/16/ HTTP/1.1" 404 47
+[2026-02-21 11:17:45,897] INFO backend GET /check_driver_verified/16/ | User: anonymous | Status: 404
+[2026-02-21 11:17:45,898] WARNING django.request Not Found: /check_driver_verified/16/
+[2026-02-21 11:17:45,899] WARNING django.server "GET /check_driver_verified/16/ HTTP/1.1" 404 47
+[2026-02-21 11:19:10,642] INFO backend GET /check_driver_verified/7/ | User: anonymous | Status: 404
+[2026-02-21 11:19:10,643] WARNING django.request Not Found: /check_driver_verified/7/
+[2026-02-21 11:19:10,644] WARNING django.server "GET /check_driver_verified/7/ HTTP/1.1" 404 47
+[2026-02-21 11:19:21,940] INFO backend GET /check_driver_verified/17/ | User: anonymous | Status: 404
+[2026-02-21 11:19:21,941] WARNING django.request Not Found: /check_driver_verified/17/
+[2026-02-21 11:19:21,941] WARNING django.server "GET /check_driver_verified/17/ HTTP/1.1" 404 47
+[2026-02-21 11:19:29,895] INFO backend GET /check_driver_verified/16/ | User: anonymous | Status: 404
+[2026-02-21 11:19:29,896] WARNING django.request Not Found: /check_driver_verified/16/
+[2026-02-21 11:19:29,897] WARNING django.server "GET /check_driver_verified/16/ HTTP/1.1" 404 47
+[2026-02-21 11:20:29,280] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 200
+[2026-02-21 11:20:29,281] INFO django.server "GET /check_driver_verified/18/ HTTP/1.1" 200 127
+[2026-02-21 11:20:42,417] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:20:43,074] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:20:50,468] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 200
+[2026-02-21 11:20:50,468] INFO django.server "GET /check_driver_verified/18/ HTTP/1.1" 200 127
+[2026-02-21 11:20:58,472] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:20:59,131] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:21:07,892] ERROR django.request Internal Server Error: /check_driver_verified/18/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py", line 292, in check_driver_verified
+    return JsonResponse({
+           ^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/http/response.py", line 751, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/serializers/json.py", line 114, in default
+    return super().default(o)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ImageFieldFile is not JSON serializable
+[2026-02-21 11:21:07,896] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 500
+[2026-02-21 11:21:07,897] ERROR django.server "GET /check_driver_verified/18/ HTTP/1.1" 500 130518
+[2026-02-21 11:22:13,129] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:22:13,722] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:22:32,972] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:22:33,645] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:22:41,869] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 200
+[2026-02-21 11:22:41,871] INFO django.server "GET /check_driver_verified/18/ HTTP/1.1" 200 127
+[2026-02-21 11:23:05,380] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:23:06,087] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:23:25,622] ERROR django.request Internal Server Error: /check_driver_verified/18/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py", line 294, in check_driver_verified
+    return JsonResponse({
+           ^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/http/response.py", line 751, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/serializers/json.py", line 114, in default
+    return super().default(o)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ImageFieldFile is not JSON serializable
+[2026-02-21 11:23:25,624] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 500
+[2026-02-21 11:23:25,625] ERROR django.server "GET /check_driver_verified/18/ HTTP/1.1" 500 130527
+[2026-02-21 11:23:41,948] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:23:42,574] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:23:50,504] ERROR django.request Internal Server Error: /check_driver_verified/18/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py", line 295, in check_driver_verified
+    return JsonResponse({
+           ^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/http/response.py", line 751, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/serializers/json.py", line 114, in default
+    return super().default(o)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ImageFieldFile is not JSON serializable
+[2026-02-21 11:23:50,506] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 500
+[2026-02-21 11:23:50,507] ERROR django.server "GET /check_driver_verified/18/ HTTP/1.1" 500 130521
+[2026-02-21 11:24:53,528] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:24:54,129] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:25:02,420] ERROR django.request Internal Server Error: /check_driver_verified/18/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py", line 295, in check_driver_verified
+    return JsonResponse({
+           ^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/http/response.py", line 751, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/serializers/json.py", line 114, in default
+    return super().default(o)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ImageFieldFile is not JSON serializable
+[2026-02-21 11:25:02,422] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 500
+[2026-02-21 11:25:02,423] ERROR django.server "GET /check_driver_verified/18/ HTTP/1.1" 500 130527
+[2026-02-21 11:25:13,635] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:25:14,264] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:25:18,228] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:25:18,842] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:25:28,632] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 200
+[2026-02-21 11:25:28,633] INFO django.server "GET /check_driver_verified/18/ HTTP/1.1" 200 127
+[2026-02-21 11:26:23,402] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:26:23,995] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:26:30,544] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 200
+[2026-02-21 11:26:30,546] INFO django.server "GET /check_driver_verified/18/ HTTP/1.1" 200 177
+[2026-02-21 11:26:40,285] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-21 11:26:40,925] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-21 11:26:49,610] INFO backend GET /check_driver_verified/18/ | User: anonymous | Status: 200
+[2026-02-21 11:26:49,610] INFO django.server "GET /check_driver_verified/18/ HTTP/1.1" 200 177
