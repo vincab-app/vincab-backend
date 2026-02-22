@@ -351,6 +351,10 @@ def update_ride_status(request):
                 "Your ride has been completed. Thank you for riding with VinCab.",
                 {"ride_id":ride.id}
             )
+            Notification.objects.create(
+                user=rider,
+                message="Your ride has been completed. Thank you for riding with VinCab."
+            )
 
         elif status == "accepted":
             send_push_notification(

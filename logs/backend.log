@@ -9420,3 +9420,24 @@ TypeError: Object of type ImageFieldFile is not JSON serializable
 [2026-02-22 11:54:47,218] WARNING django.server "POST /update_ride_status/ HTTP/1.1" 400 36
 [2026-02-22 11:54:57,084] INFO backend POST /update_ride_status/ | User: anonymous | Status: 200
 [2026-02-22 11:54:57,085] INFO django.server "POST /update_ride_status/ HTTP/1.1" 200 68
+[2026-02-22 11:56:40,753] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 12:01:30,535] INFO backend GET /admin/vincab_app/ride/ | User: vincab | Status: 200
+[2026-02-22 12:01:30,536] INFO django.server "GET /admin/vincab_app/ride/ HTTP/1.1" 200 18109
+[2026-02-22 12:01:32,627] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 12:01:32,629] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 12:01:42,105] INFO backend GET /admin/vincab_app/ride/33/change/ | User: vincab | Status: 200
+[2026-02-22 12:01:42,106] INFO django.server "GET /admin/vincab_app/ride/33/change/ HTTP/1.1" 200 26047
+[2026-02-22 12:01:44,297] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 12:01:44,299] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 12:01:57,626] INFO backend POST /admin/vincab_app/ride/33/change/ | User: vincab | Status: 302
+[2026-02-22 12:01:57,628] INFO django.server "POST /admin/vincab_app/ride/33/change/ HTTP/1.1" 302 0
+[2026-02-22 12:02:05,183] INFO backend GET /admin/vincab_app/ride/ | User: vincab | Status: 200
+[2026-02-22 12:02:05,184] INFO django.server "GET /admin/vincab_app/ride/ HTTP/1.1" 200 18335
+[2026-02-22 12:02:07,397] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 12:02:07,399] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 12:08:19,036] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-22 12:08:19,760] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 12:09:08,072] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-22 12:09:08,701] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 12:09:33,865] INFO backend POST /update_ride_status/ | User: anonymous | Status: 200
+[2026-02-22 12:09:33,866] INFO django.server "POST /update_ride_status/ HTTP/1.1" 200 68
