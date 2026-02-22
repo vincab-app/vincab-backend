@@ -302,89 +302,79 @@ def check_driver_verified(request, user_id):
 
 
 # api to update ride request status
-import requests
-from decimal import Decimal
-
 @csrf_exempt
 @api_view(['POST'])
-@verify_firebase_token
+# @verify_firebase_token
 def update_ride_status(request):
-    if request.method != "POST":
-        return JsonResponse({"error": "Invalid request"}, status=400)
 
     try:
         data = json.loads(request.body)
         status = data.get("status")
         ride_id = data.get("ride_id")
         rider_id = data.get("rider_id")
+        code = data.get("code")
 
         ride = Ride.objects.select_related("driver").get(id=ride_id)
+        rider = User.objects.get(id=rider_id)
+        driver = getattr(ride, "driver", None)
+
+        if not driver:
+            return JsonResponse({"error": "Driver not assigned"}, status=400)
+
+        status = status.lower()
+
+        # ✅ VERIFY CODES BEFORE UPDATING STATUS
+        if status == "picked":
+            if not code or str(code) != str(ride.pick_code):
+                return JsonResponse(
+                    {"error": "Invalid pickup code"},
+                    status=400
+                )
+
+        if status == "completed":
+            if not code or str(code) != str(ride.complete_code):
+                return JsonResponse(
+                    {"error": "Invalid completion code"},
+                    status=400
+                )
+
+        # ✅ ONLY UPDATE IF VALID
         ride.status = status
         ride.save()
 
-        rider = User.objects.get(id=rider_id)
+        # ===== STATUS LOGIC =====
+        if status == "completed":
+            driver.status = "active"
+            send_push_notification(
+                rider.expo_token,
+                "Ride Completed",
+                "Your ride has been completed. Thank you for riding with VinCab.",
+                {"ride_id":ride.id}
+            )
 
-        driver = getattr(ride, "driver", None)
+        elif status == "accepted":
+            send_push_notification(
+                rider.expo_token,
+                "Ride Accepted",
+                "Your ride has been accepted. Driver is on the way.",
+                {"ride_id": ride.id}
+            )
 
-        # ✅ DRIVER STATUS HANDLING ONLY (NO PAYOUT)
-        if driver:
-            if status.lower() == "completed":
-                driver.status = "active"
+        elif status == "picked":
+            send_push_notification(
+                rider.expo_token,
+                "Ride Started",
+                "You have been picked. Enjoy your trip.",
+                {"ride_id": ride.id}
+            )
 
-                message = "Ride completed successfully."
-                send_push_notification(
-                    driver.user.expo_token,
-                    "Ride Completed",
-                    message,
-                    {"ride_id": ride.id}
-                )
-                # push notification to rider
-                send_push_notification(
-                    rider.expo_token,
-                    "Ride Completed",
-                    "Your ride has been completed. Thanks for choosing VinCab.",
-                    {"ride_id": ride.id}
-                )
+        elif status == "canceled":
+            driver.status = "active"
 
-                Notification.objects.create(
-                    user=driver.user,
-                    message=message,
-                    is_read=False
-                )
-                # save notification for rider
-                Notification.objects.create(
-                    user=rider,
-                    message="Your ride has been completed. Thanks for choosing VinCab",
-                    is_read=False
-                )
-            elif status.lower() == "accepted":
-                send_push_notification(
-                    rider.expo_token,
-                    "Ride Accepted",
-                    "Your ride has been accepted. Driver is on the way coming.",
-                    {"ride_id": ride.id}
-                )
-                Notification.objects.create(
-                    user=rider,
-                    message="Your ride has been accepted. Driver is on the way coming.",
-                    is_read=False
-                )
+        elif status == "in_progress":
+            driver.status = "busy"
 
-            elif status.lower() == "canceled":
-                driver.status = "active"
-
-            elif status.lower() == "in_progress":
-                driver.status = "busy"
-
-            driver.save()
-
-        # ✅ RIDER NOTIFICATION
-        send_push_notification(
-            rider.expo_token,
-            "Ride Update",
-            f"Your ride is now {status.upper()}",
-            {"ride_id": ride.id}
-        )
+        driver.save()
 
         return JsonResponse({
             "message": "Ride updated successfully",
@@ -398,7 +388,6 @@ def update_ride_status(request):
         return JsonResponse({"error": "Rider not found"}, status=404)
 
     except Exception as e:
-        print("ERROR:", e)
         return JsonResponse({"error": "Server error", "details": str(e)}, status=500)
 
 
