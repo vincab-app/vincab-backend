@@ -68,7 +68,7 @@ def get_requested_rides(request, user_id):
 
 # api to get driver total earnings
 @api_view(['GET'])
-@verify_firebase_token
+# @verify_firebase_token
 def get_driver_total_earnings(request, user_id):
     try:
         # Get driver by linked user_id
@@ -78,7 +78,7 @@ def get_driver_total_earnings(request, user_id):
 
     # Calculate total earnings (sum of driver payments)
     total_earnings = DriverPayment.objects.filter(driver=driver).aggregate(
-        total=Sum("amount")
+        total=Sum("pending_amount")
     )["total"] or 0
 
     return JsonResponse({
