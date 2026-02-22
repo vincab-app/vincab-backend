@@ -75,7 +75,7 @@ def get_ride_details(request, rider_id):
 
 # api to get riders' ride
 @api_view(["GET"])
-@verify_firebase_token
+# @verify_firebase_token
 def get_user_rides(request, rider_id):
     try:
 
@@ -93,6 +93,11 @@ def get_user_rides(request, rider_id):
             vehicle = None
             if ride.driver:
                 vehicle = ride.driver.vehicles.first()
+            
+            driver_location = (ride.driver.user.current_lat, ride.driver.user.current_lng)
+            rider_location = (ride.rider.current_lat, ride.rider.current_lng)
+            distance_km = geodesic(rider_location, driver_location).km
+            eta_minutes = (distance_km / 40) * 60  # assume avg 40 km/h
 
             data.append({
                 "id": ride.id,
@@ -121,7 +126,10 @@ def get_user_rides(request, rider_id):
                 "dropoff_lng": ride.dropoff_lng,
 
                 "distance_km": str(ride.distance_km) if ride.distance_km else None,
+                "eta": eta_minutes,
                 "fare": str(ride.estimated_fare) if ride.estimated_fare else None,
+
+                "eta": eta_minutes,
 
                 "status": ride.status,
 

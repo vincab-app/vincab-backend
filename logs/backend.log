@@ -9187,3 +9187,40 @@ TypeError: Object of type ImageFieldFile is not JSON serializable
 [2026-02-21 14:08:06,485] INFO django.server "POST /update_driver_profile/ HTTP/1.1" 200 196
 [2026-02-21 14:09:32,333] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-02-21 14:09:32,944] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 06:05:03,290] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 06:06:58,157] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 07:48:28,808] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-02-22 07:48:31,341] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 07:49:54,654] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 07:56:08,157] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-02-22 07:56:09,577] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 07:56:48,204] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-02-22 07:56:48,787] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 07:58:21,959] INFO backend GET / | User: vincab | Status: 200
+[2026-02-22 07:58:21,961] INFO django.server "GET / HTTP/1.1" 200 12
+[2026-02-22 07:58:24,701] INFO backend GET /favicon.ico | User: vincab | Status: 404
+[2026-02-22 07:58:24,702] WARNING django.request Not Found: /favicon.ico
+[2026-02-22 07:58:24,702] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 15677
+[2026-02-22 07:58:26,750] INFO backend GET /admin/ | User: vincab | Status: 200
+[2026-02-22 07:58:26,751] INFO django.server "GET /admin/ HTTP/1.1" 200 15518
+[2026-02-22 07:58:33,929] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-22 07:58:33,929] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 17472
+[2026-02-22 07:58:36,245] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 07:58:36,246] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 07:58:44,705] INFO backend GET /get_user_rides/16/ | User: anonymous | Status: 401
+[2026-02-22 07:58:44,705] WARNING django.request Unauthorized: /get_user_rides/16/
+[2026-02-22 07:58:44,705] WARNING django.server "GET /get_user_rides/16/ HTTP/1.1" 401 41
+[2026-02-22 07:58:53,818] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-02-22 07:58:54,639] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 07:59:01,815] INFO backend GET /get_user_rides/16/ | User: anonymous | Status: 500
+[2026-02-22 07:59:01,816] ERROR django.request Internal Server Error: /get_user_rides/16/
+[2026-02-22 07:59:01,829] ERROR django.server "GET /get_user_rides/16/ HTTP/1.1" 500 50
+[2026-02-22 08:00:47,585] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-02-22 08:00:48,246] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 08:00:58,069] INFO backend GET /get_user_rides/16/ | User: anonymous | Status: 500
+[2026-02-22 08:00:58,070] ERROR django.request Internal Server Error: /get_user_rides/16/
+[2026-02-22 08:00:58,071] ERROR django.server "GET /get_user_rides/16/ HTTP/1.1" 500 59
+[2026-02-22 08:01:24,085] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-02-22 08:01:24,690] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 08:01:53,453] INFO backend GET /get_user_rides/16/ | User: anonymous | Status: 200
+[2026-02-22 08:01:53,455] INFO django.server "GET /get_user_rides/16/ HTTP/1.1" 200 5646
