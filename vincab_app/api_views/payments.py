@@ -119,6 +119,13 @@ def withdraw_money(request):
             print(user.id)
             driver = Driver.objects.get(user=user)
 
+            driver_payment = DriverPayment.objects.get(driver=driver)
+            print("Pending:", driver_payment.pending_amount, type(driver_payment.pending_amount))
+            print("Amount:", amount, type(amount))
+            
+            if driver_payment.pending_amount < Decimal(str(amount)):
+                return JsonResponse({"message": "Insufficient pending amount for withdrawal", "status": 400})
+
             withdrawal_result = send_mpesa_payout(driver.user.phone_number, driver.user.full_name, amount, "Ride Payment Withdrawal")
             if not withdrawal_result["success"]:
                 return Response({
@@ -127,19 +134,22 @@ def withdraw_money(request):
                 })
             
             # update driver payment record
-            driver_payment = DriverPayment.objects.get(driver=driver)
-            if driver_payment.pending_amount < Decimal(amount):
-                return JsonResponse({"message": "Insufficient pending amount for withdrawal", "status": 400})
 
-            withdrawal = Withdrawal(driver=driver, amount=amount, transactionRef=withdrawal_result["transfer_code"])
+            withdrawal = Withdraw(driver=driver, amount=amount, transactionRef=withdrawal_result["transfer_code"])
             withdrawal.save()
 
             driver_payment.pending_amount -= Decimal(amount)
             driver_payment.save()
 
             Notification.objects.create(
-                driver=driver,
+                user=driver.user,
                 message=f"You have successfully withdrawn KES.{amount}."
+            )
+            send_push_notification(
+                driver.user.expo_token,
+                "Withdraw successful",
+                f"You have successfully withdrawn KES.{amount}.",
+                {}
             )
 
             return JsonResponse({"message":f"Withdrawal of KES.{amount} was successful", "status": 200})

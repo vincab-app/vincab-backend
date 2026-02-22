@@ -9564,3 +9564,129 @@ LINE 1: ..."driver_id", "vincab_app_driverpayment"."amount", "vincab_ap...
 [2026-02-22 13:07:05,984] INFO django.server "GET /get_driver_total_earnings/18/ HTTP/1.1" 200 75
 [2026-02-22 13:07:22,250] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-02-22 13:07:22,851] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 13:09:26,828] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 13:22:46,755] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 13:22:47,521] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 13:24:26,306] INFO backend GET /withdraw_money/18/ | User: anonymous | Status: 404
+[2026-02-22 13:24:26,307] WARNING django.request Not Found: /withdraw_money/18/
+[2026-02-22 13:24:26,307] WARNING django.server "GET /withdraw_money/18/ HTTP/1.1" 404 15705
+[2026-02-22 13:24:33,008] INFO backend POST /withdraw_money/18/ | User: anonymous | Status: 404
+[2026-02-22 13:24:33,008] WARNING django.request Not Found: /withdraw_money/18/
+[2026-02-22 13:24:33,008] WARNING django.server "POST /withdraw_money/18/ HTTP/1.1" 404 15706
+[2026-02-22 13:25:03,170] INFO backend POST /withdraw_money/ | User: anonymous | Status: 200
+[2026-02-22 13:25:03,172] INFO django.server "POST /withdraw_money/ HTTP/1.1" 200 72
+[2026-02-22 13:36:08,450] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 13:36:34,058] INFO backend POST /withdraw_money/ | User: anonymous | Status: 200
+[2026-02-22 13:36:34,059] INFO django.server "POST /withdraw_money/ HTTP/1.1" 200 72
+[2026-02-22 13:37:57,873] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 13:37:58,478] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 13:38:43,381] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 13:38:43,986] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 13:38:57,764] INFO backend POST /withdraw_money/ | User: anonymous | Status: 500
+[2026-02-22 13:38:57,765] ERROR django.request Internal Server Error: /withdraw_money/
+[2026-02-22 13:38:57,765] ERROR django.server "POST /withdraw_money/ HTTP/1.1" 500 75
+[2026-02-22 13:39:38,418] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/common_imports.py changed, reloading.
+[2026-02-22 13:39:39,058] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 13:40:35,004] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/common_imports.py changed, reloading.
+[2026-02-22 13:40:35,628] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 13:40:51,846] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 13:40:52,438] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 13:41:05,616] INFO backend POST /withdraw_money/ | User: anonymous | Status: 500
+[2026-02-22 13:41:05,617] ERROR django.request Internal Server Error: /withdraw_money/
+[2026-02-22 13:41:05,618] ERROR django.server "POST /withdraw_money/ HTTP/1.1" 500 100
+[2026-02-22 13:41:45,674] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 13:41:46,279] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 13:42:01,275] INFO backend POST /withdraw_money/ | User: anonymous | Status: 200
+[2026-02-22 13:42:01,277] INFO django.server "POST /withdraw_money/ HTTP/1.1" 200 72
+[2026-02-22 13:42:55,684] INFO backend GET /admin/vincab_app/driverpayment/ | User: vincab | Status: 200
+[2026-02-22 13:42:55,686] INFO django.server "GET /admin/vincab_app/driverpayment/ HTTP/1.1" 200 14630
+[2026-02-22 13:42:57,778] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 13:42:57,779] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 13:43:11,179] INFO backend GET /admin/vincab_app/driverpayment/6/change/ | User: vincab | Status: 200
+[2026-02-22 13:43:11,180] INFO django.server "GET /admin/vincab_app/driverpayment/6/change/ HTTP/1.1" 200 16389
+[2026-02-22 13:43:13,190] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 13:43:13,191] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 13:43:33,489] INFO backend POST /admin/vincab_app/driverpayment/6/change/ | User: vincab | Status: 302
+[2026-02-22 13:43:33,492] INFO django.server "POST /admin/vincab_app/driverpayment/6/change/ HTTP/1.1" 302 0
+[2026-02-22 13:43:39,103] INFO backend GET /admin/vincab_app/driverpayment/ | User: vincab | Status: 200
+[2026-02-22 13:43:39,104] INFO django.server "GET /admin/vincab_app/driverpayment/ HTTP/1.1" 200 14882
+[2026-02-22 13:43:41,160] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 13:43:41,161] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 13:44:46,013] INFO backend POST /withdraw_money/ | User: anonymous | Status: 500
+[2026-02-22 13:44:46,014] ERROR django.request Internal Server Error: /withdraw_money/
+[2026-02-22 13:44:46,015] ERROR django.server "POST /withdraw_money/ HTTP/1.1" 500 148
+[2026-02-22 13:47:18,693] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 13:47:19,487] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 13:47:27,763] INFO backend POST /withdraw_money/ | User: anonymous | Status: 200
+[2026-02-22 13:47:27,765] INFO django.server "POST /withdraw_money/ HTTP/1.1" 200 72
+[2026-02-22 13:47:40,727] INFO backend GET /admin/vincab_app/driverpayment/6/change/ | User: vincab | Status: 200
+[2026-02-22 13:47:40,729] INFO django.server "GET /admin/vincab_app/driverpayment/6/change/ HTTP/1.1" 200 16389
+[2026-02-22 13:47:43,013] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 13:47:43,014] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 13:48:00,124] INFO backend POST /admin/vincab_app/driverpayment/6/change/ | User: vincab | Status: 302
+[2026-02-22 13:48:00,127] INFO django.server "POST /admin/vincab_app/driverpayment/6/change/ HTTP/1.1" 302 0
+[2026-02-22 13:48:05,660] INFO backend GET /admin/vincab_app/driverpayment/ | User: vincab | Status: 200
+[2026-02-22 13:48:05,662] INFO django.server "GET /admin/vincab_app/driverpayment/ HTTP/1.1" 200 14882
+[2026-02-22 13:48:07,905] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 13:48:07,906] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 13:48:20,656] INFO backend POST /withdraw_money/ | User: anonymous | Status: 200
+[2026-02-22 13:48:20,658] INFO django.server "POST /withdraw_money/ HTTP/1.1" 200 69
+[2026-02-22 13:50:17,207] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 13:50:17,841] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 13:50:40,033] INFO backend GET /admin/vincab_app/driverpayment/ | User: vincab | Status: 200
+[2026-02-22 13:50:40,034] INFO django.server "GET /admin/vincab_app/driverpayment/ HTTP/1.1" 200 14630
+[2026-02-22 13:50:42,236] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 13:50:42,237] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 13:50:50,952] INFO backend GET /admin/vincab_app/driverpayment/6/change/ | User: vincab | Status: 200
+[2026-02-22 13:50:50,954] INFO django.server "GET /admin/vincab_app/driverpayment/6/change/ HTTP/1.1" 200 16389
+[2026-02-22 13:50:53,003] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 13:50:53,004] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 13:51:13,080] INFO backend POST /admin/vincab_app/driverpayment/6/change/ | User: vincab | Status: 302
+[2026-02-22 13:51:13,083] INFO django.server "POST /admin/vincab_app/driverpayment/6/change/ HTTP/1.1" 302 0
+[2026-02-22 13:51:18,720] INFO backend GET /admin/vincab_app/driverpayment/ | User: vincab | Status: 200
+[2026-02-22 13:51:18,721] INFO django.server "GET /admin/vincab_app/driverpayment/ HTTP/1.1" 200 14882
+[2026-02-22 13:51:20,837] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 13:51:20,838] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 13:51:36,345] INFO backend POST /withdraw_money/ | User: anonymous | Status: 500
+[2026-02-22 13:51:36,346] ERROR django.request Internal Server Error: /withdraw_money/
+[2026-02-22 13:51:36,347] ERROR django.server "POST /withdraw_money/ HTTP/1.1" 500 70
+[2026-02-22 13:51:53,422] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 13:51:54,041] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 13:52:07,250] INFO backend GET /admin/vincab_app/driverpayment/6/change/ | User: vincab | Status: 200
+[2026-02-22 13:52:07,252] INFO django.server "GET /admin/vincab_app/driverpayment/6/change/ HTTP/1.1" 200 16389
+[2026-02-22 13:52:09,358] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 13:52:09,359] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 13:52:23,353] INFO backend POST /admin/vincab_app/driverpayment/6/change/ | User: vincab | Status: 302
+[2026-02-22 13:52:23,356] INFO django.server "POST /admin/vincab_app/driverpayment/6/change/ HTTP/1.1" 302 0
+[2026-02-22 13:52:29,250] INFO backend GET /admin/vincab_app/driverpayment/ | User: vincab | Status: 200
+[2026-02-22 13:52:29,251] INFO django.server "GET /admin/vincab_app/driverpayment/ HTTP/1.1" 200 14882
+[2026-02-22 13:52:31,518] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 13:52:31,520] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 13:53:20,570] INFO backend POST /withdraw_money/ | User: anonymous | Status: 200
+[2026-02-22 13:53:20,571] INFO django.server "POST /withdraw_money/ HTTP/1.1" 200 69
+[2026-02-22 13:53:43,975] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 13:53:44,618] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 13:53:59,361] INFO backend GET /admin/vincab_app/driverpayment/6/change/ | User: vincab | Status: 200
+[2026-02-22 13:53:59,363] INFO django.server "GET /admin/vincab_app/driverpayment/6/change/ HTTP/1.1" 200 16389
+[2026-02-22 13:54:01,518] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 13:54:01,519] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 13:54:16,518] INFO backend POST /admin/vincab_app/driverpayment/6/change/ | User: vincab | Status: 302
+[2026-02-22 13:54:16,521] INFO django.server "POST /admin/vincab_app/driverpayment/6/change/ HTTP/1.1" 302 0
+[2026-02-22 13:54:22,160] INFO backend GET /admin/vincab_app/driverpayment/ | User: vincab | Status: 200
+[2026-02-22 13:54:22,161] INFO django.server "GET /admin/vincab_app/driverpayment/ HTTP/1.1" 200 14882
+[2026-02-22 13:54:24,336] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 13:54:24,337] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 13:55:09,253] INFO backend POST /withdraw_money/ | User: anonymous | Status: 200
+[2026-02-22 13:55:09,255] INFO django.server "POST /withdraw_money/ HTTP/1.1" 200 69
+[2026-02-22 13:55:50,339] INFO backend GET /admin/vincab_app/driverpayment/6/change/ | User: vincab | Status: 200
+[2026-02-22 13:55:50,340] INFO django.server "GET /admin/vincab_app/driverpayment/6/change/ HTTP/1.1" 200 16389
+[2026-02-22 13:55:52,472] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 13:55:52,474] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 13:56:06,730] INFO backend POST /admin/vincab_app/driverpayment/6/change/ | User: vincab | Status: 302
+[2026-02-22 13:56:06,732] INFO django.server "POST /admin/vincab_app/driverpayment/6/change/ HTTP/1.1" 302 0
+[2026-02-22 13:56:12,431] INFO backend GET /admin/vincab_app/driverpayment/ | User: vincab | Status: 200
+[2026-02-22 13:56:12,432] INFO django.server "GET /admin/vincab_app/driverpayment/ HTTP/1.1" 200 14882
+[2026-02-22 13:56:14,562] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 13:56:14,563] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 13:56:16,731] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-02-22 13:56:17,406] INFO django.utils.autoreload Watching for file changes with StatReloader
