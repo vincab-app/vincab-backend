@@ -132,7 +132,7 @@ def get_user_rides(request, rider_id):
                 "eta": eta_minutes,
                 "fare": str(ride.estimated_fare) if ride.estimated_fare else None,
 
-                "eta": eta_minutes,
+                "eta": round(eta_minutes, 1),
 
                 "status": ride.status,
 

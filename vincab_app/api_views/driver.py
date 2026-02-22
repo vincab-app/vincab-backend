@@ -342,7 +342,7 @@ def update_ride_status(request):
                 send_push_notification(
                     rider.expo_token,
                     "Ride Completed",
-                    "Your has been completed. Thanks for choosing VinCa.",
+                    "Your ride has been completed. Thanks for choosing VinCab.",
                     {"ride_id": ride.id}
                 )
 
@@ -354,7 +354,19 @@ def update_ride_status(request):
                 # save notification for rider
                 Notification.objects.create(
                     user=rider,
-                    message="Your ride has been completed.",
+                    message="Your ride has been completed. Thanks for choosing VinCab",
+                    is_read=False
+                )
+            elif status.lower() == "accepted":
+                send_push_notification(
+                    rider.expo_token,
+                    "Ride Accepted",
+                    "Your ride has been accepted. Driver is on the way coming.",
+                    {"ride_id": ride.id}
+                )
+                Notification.objects.create(
+                    user=rider,
+                    message="Your ride has been accepted. Driver is on the way coming.",
                     is_read=False
                 )
 
