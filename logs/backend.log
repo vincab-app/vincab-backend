@@ -9270,3 +9270,49 @@ TypeError: Object of type ImageFieldFile is not JSON serializable
 [2026-02-22 08:54:35,352] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-02-22 08:54:58,654] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-02-22 08:54:59,285] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 08:56:15,958] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:00:08,076] INFO backend GET /admin/vincab_app/ride/ | User: vincab | Status: 200
+[2026-02-22 09:00:08,078] INFO django.server "GET /admin/vincab_app/ride/ HTTP/1.1" 200 17780
+[2026-02-22 09:00:11,248] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 09:00:11,249] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 09:00:22,343] INFO backend GET /admin/vincab_app/ride/5/change/ | User: vincab | Status: 200
+[2026-02-22 09:00:22,344] INFO django.server "GET /admin/vincab_app/ride/5/change/ HTTP/1.1" 200 23383
+[2026-02-22 09:00:24,894] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 09:00:24,895] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 09:00:37,292] INFO backend POST /admin/vincab_app/ride/5/change/ | User: vincab | Status: 302
+[2026-02-22 09:00:37,295] INFO django.server "POST /admin/vincab_app/ride/5/change/ HTTP/1.1" 302 0
+[2026-02-22 09:00:44,623] INFO backend GET /admin/vincab_app/ride/ | User: vincab | Status: 200
+[2026-02-22 09:00:44,624] INFO django.server "GET /admin/vincab_app/ride/ HTTP/1.1" 200 18006
+[2026-02-22 09:00:46,768] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 09:00:46,769] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 09:08:26,979] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
+[2026-02-22 09:08:27,682] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:14:27,813] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
+[2026-02-22 09:14:28,465] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:16:12,056] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:20:47,202] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/helper.py changed, reloading.
+[2026-02-22 09:20:47,866] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:20:56,867] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/helper.py changed, reloading.
+[2026-02-22 09:20:57,514] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:21:08,734] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/common_imports.py changed, reloading.
+[2026-02-22 09:21:09,601] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:22:19,302] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 09:22:19,950] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:22:27,977] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 09:22:28,665] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:22:33,488] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 09:22:34,055] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:25:21,200] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 09:25:21,828] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:26:22,259] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 09:26:22,878] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:27:56,969] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 09:27:57,557] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:30:08,968] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 09:30:09,571] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:31:01,684] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 09:31:02,283] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:32:03,796] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 09:32:04,403] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:34:30,039] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-02-22 09:34:30,639] INFO django.utils.autoreload Watching for file changes with StatReloader

@@ -500,10 +500,14 @@ def payment_callback(request):
             ride = Ride.objects.create(
                 rider=rider,
                 driver=driver,
+                pickup_address=reverse_geocode(pickup_lat, pickup_lng),
                 pickup_lat=pickup_lat,
                 pickup_lng=pickup_lng,
+                pick_code=generate_code(),
                 dropoff_lat=dropoff_lat,
                 dropoff_lng=dropoff_lng,
+                dropoff_address=reverse_geocode(dropoff_lar, dropoff_lng),
+                complete_code=generate_code(),
                 distance_km=distance_km,
                 estimated_fare=estimated_fare,
                 status="pending"
@@ -531,17 +535,17 @@ def payment_callback(request):
             # --- Notifications ---
             Notification.objects.create(
                 user=rider,
-                message=f"Your ride has been successfully booked and paid KES {total_amount}."
+                message=f"Your ride has been successfully booked and paid KES. {total_amount}. Your pick up code is: {ride.pick_code} and complete ride code is: {ride.complete_code}"
             )
             if driver:
                 Notification.objects.create(
                     user=driver.user,
-                    message=f"You have been assigned ride {ride.id}. Pickup at {ride.pickup_lat}, {ride.pickup_lng}."
+                    message=f"You have been assigned ride {ride.id}. Pickup at {ride.pickup_address}"
                 )
                 send_push_notification(
                     driver.user.expo_token,
                     "Ride Assigned",
-                    f"You have been assigned ride {ride.id}. Be sure to pick up the rider on time.",
+                    f"You have been assigned ride #.{ride.id}. Be sure to pick up the rider on time.",
                     {"ride_id": ride.id}
                 )
         print("Ride and payment created successfully")

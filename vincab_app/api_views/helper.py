@@ -50,3 +50,8 @@ def get_eta(vehicle_lat, vehicle_lng, pickup_lat, pickup_lng):
                 "distance_km": round(distance_meters / 1000, 2),
             }
     return None
+
+# generate random codes for pick and complete
+
+def generate_code():
+    return str(secrets.randbelow(900000) + 100000)
