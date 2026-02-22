@@ -9316,3 +9316,18 @@ TypeError: Object of type ImageFieldFile is not JSON serializable
 [2026-02-22 09:32:04,403] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-02-22 09:34:30,039] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-02-22 09:34:30,639] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:39:03,034] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 09:44:53,538] INFO backend GET /admin/vincab_app/ride/ | User: vincab | Status: 200
+[2026-02-22 09:44:53,538] INFO django.server "GET /admin/vincab_app/ride/ HTTP/1.1" 200 17782
+[2026-02-22 09:44:55,655] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 09:44:55,656] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 09:48:11,465] INFO backend GET /admin/vincab_app/ride/ | User: vincab | Status: 200
+[2026-02-22 09:48:11,467] INFO django.server "GET /admin/vincab_app/ride/ HTTP/1.1" 200 17782
+[2026-02-22 09:48:13,554] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 09:48:13,554] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 09:49:19,299] INFO backend GET /admin/vincab_app/ride/ | User: vincab | Status: 200
+[2026-02-22 09:49:19,300] INFO django.server "GET /admin/vincab_app/ride/ HTTP/1.1" 200 17782
+[2026-02-22 09:49:21,481] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 09:49:21,483] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 09:52:05,923] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 09:52:06,581] INFO django.utils.autoreload Watching for file changes with StatReloader

@@ -506,7 +506,7 @@ def payment_callback(request):
                 pick_code=generate_code(),
                 dropoff_lat=dropoff_lat,
                 dropoff_lng=dropoff_lng,
-                dropoff_address=reverse_geocode(dropoff_lar, dropoff_lng),
+                dropoff_address=reverse_geocode(dropoff_lat, dropoff_lng),
                 complete_code=generate_code(),
                 distance_km=distance_km,
                 estimated_fare=estimated_fare,
