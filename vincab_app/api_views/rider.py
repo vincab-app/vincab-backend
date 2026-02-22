@@ -94,10 +94,7 @@ def get_user_rides(request, rider_id):
             if ride.driver:
                 vehicle = ride.driver.vehicles.first()
             
-            driver_location = (ride.driver.user.current_lat, ride.driver.user.current_lng)
-            rider_location = (ride.rider.current_lat, ride.rider.current_lng)
-            distance_km = geodesic(rider_location, driver_location).km
-            eta_minutes = (distance_km / 40) * 60  # assume avg 40 km/h
+            eta_minutes = (ride.distance_km / 40) * 60  # assume avg 40 km/h
 
             data.append({
                 "id": ride.id,
@@ -121,8 +118,8 @@ def get_user_rides(request, rider_id):
                 "average_rating": ride.driver.average_rating,
 
                 # Prefer stored addresses instead of reverse geocode
-                "pickup_address": reverse_geocode(ride.pickup_lat, ride.pickup_lng),
-                "dropoff_address": reverse_geocode(ride.dropoff_lat, ride.dropoff_lng),
+                "pickup_address": ride.pickup_address,
+                "dropoff_address": ride.pickup_address,
                 "pickup_lat": ride.pickup_lat,
                 "pickup_lng": ride.pickup_lng,
                 "dropoff_lat": ride.dropoff_lat,

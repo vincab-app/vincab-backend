@@ -31,7 +31,7 @@ def get_driver_payments(request, driver_id):
 
 # api to get requested rides
 @api_view(['GET'])
-@verify_firebase_token
+# @verify_firebase_token
 def get_requested_rides(request, user_id):
     try:
         # Get driver using user_id
@@ -59,8 +59,8 @@ def get_requested_rides(request, user_id):
             "rider_id": ride.rider.id if ride.rider else None,
             "rider_name": ride.rider.full_name if ride.rider else None,
             "rider_phone": ride.rider.phone_number if ride.rider else None,
-            "pickup_address": reverse_geocode(ride.pickup_lat, ride.pickup_lng),
-            "dropoff_address": reverse_geocode(ride.dropoff_lat, ride.dropoff_lng),
+            "pickup_address": ride.pickup_address,
+            "dropoff_address": ride.dropoff_address,
         })
 
     return JsonResponse(ride_list, safe=False)
