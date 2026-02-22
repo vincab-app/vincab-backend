@@ -241,48 +241,6 @@ def confirm_ride(request):
         print("ERROR:", str(e))
         return Response({"error": "Server error", "details": str(e)}, status=500)
 
-
-# api to withdraw money for member
-@api_view(['POST'])
-@verify_firebase_token
-def withdraw_money(request):
-    if request.method == 'POST':
-        try:
-            data = request.data
-            member_id = data.get("member_id")
-            chama_id = data.get("chama_id")
-            amount = data.get("amount") 
-            withdraw_type = data.get("withdraw_type")
-            chama = Chamas.objects.get(chama_id=chama_id)
-            member = Members.objects.filter(chama=chama,member_id=member_id).first()
-
-            withdrawal_result = send_mpesa_payout(member.phone_number, member.name, amount, "Savings Withdrawal")
-            if not withdrawal_result["success"]:
-                return Response({
-                    "message": f"Withdraw failed during M-Pesa payout: {withdrawal_result.get('error')}",
-                    "status": 400
-                })
-            withdrawal = Withdrawal(member=member, chama=chama, amount=amount, withdraw_type=withdraw_type, transactionRef=withdrawal_result["transfer_code"])
-            withdrawal.save()
-
-            Notification.objects.create(
-                member=member,
-                chama=chama,
-                notification_type="alert",
-                notification=f"You have successfully withdrawn KES.{amount}."
-            )
-
-            return JsonResponse({"message":f"Withdrawal of KES.{amount} was successful", "status": 200})
-
-        
-        except Exception as e:
-            print("Error:", str(e))
-            return JsonResponse({"message": "Withdraw failed", "error": str(e)}, status=500)
-
-
-
-# end of withdrawing api
-
 # api to check if driver is verified
 @api_view(['GET'])
 # @verify_firebase_token
@@ -318,12 +276,14 @@ def update_ride_status(request):
         rider = User.objects.get(id=rider_id)
         driver = getattr(ride, "driver", None)
 
+        driver_payment = DriverPayment.objects.get(driver=driver)
+
         if not driver:
             return JsonResponse({"error": "Driver not assigned"}, status=400)
 
         status = status.lower()
 
-        # ✅ VERIFY CODES BEFORE UPDATING STATUS
+        # VERIFY CODES BEFORE UPDATING STATUS
         if status == "picked":
             if not code or str(code) != str(ride.pick_code):
                 return JsonResponse(
@@ -338,7 +298,7 @@ def update_ride_status(request):
                     status=400
                 )
 
-        # ✅ ONLY UPDATE IF VALID
+        # ONLY UPDATE IF VALID
         ride.status = status
         ride.save()
 
@@ -355,6 +315,9 @@ def update_ride_status(request):
                 user=rider,
                 message="Your ride has been completed. Thank you for riding with VinCab."
             )
+            driver_payment.pending_amount += driver_payment.float_amount
+            driver_payment.float_amount = 0.0
+            driver_payment.save()
 
         elif status == "accepted":
             send_push_notification(

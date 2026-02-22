@@ -529,7 +529,7 @@ def payment_callback(request):
                 # update driver payment record
                 driver_payment, created = DriverPayment.objects.get_or_create(driver=driver)
                 driver_payment.amount += driver_share
-                driver_payment.pending_amount += driver_share
+                driver_payment.float_amount = driver_share
                 driver_payment.save()
 
             # --- Notifications ---

@@ -9441,3 +9441,109 @@ TypeError: Object of type ImageFieldFile is not JSON serializable
 [2026-02-22 12:09:08,701] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-02-22 12:09:33,865] INFO backend POST /update_ride_status/ | User: anonymous | Status: 200
 [2026-02-22 12:09:33,866] INFO django.server "POST /update_ride_status/ HTTP/1.1" 200 68
+[2026-02-22 12:14:32,653] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 12:22:13,440] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-22 12:22:14,021] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 12:28:08,027] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-22 12:28:08,615] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 12:34:12,698] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
+[2026-02-22 12:34:13,289] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 12:35:07,326] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
+[2026-02-22 12:35:07,900] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 12:36:35,081] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 12:36:35,678] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 12:39:02,220] ERROR django.request Internal Server Error: /admin/vincab_app/driverpayment/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column vincab_app_driverpayment.float_amount does not exist
+LINE 1: ..."driver_id", "vincab_app_driverpayment"."amount", "vincab_ap...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/utils/decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/utils/decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 2163, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/models/query.py", line 366, in __len__
+    self._fetch_all()
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/models/query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column vincab_app_driverpayment.float_amount does not exist
+LINE 1: ..."driver_id", "vincab_app_driverpayment"."amount", "vincab_ap...
+                                                             ^
+
+[2026-02-22 12:39:02,224] INFO backend GET /admin/vincab_app/driverpayment/ | User: vincab | Status: 500
+[2026-02-22 12:39:02,224] ERROR django.server "GET /admin/vincab_app/driverpayment/ HTTP/1.1" 500 172650
+[2026-02-22 12:40:02,260] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 12:40:18,110] INFO backend GET /admin/vincab_app/driverpayment/ | User: vincab | Status: 200
+[2026-02-22 12:40:18,111] INFO django.server "GET /admin/vincab_app/driverpayment/ HTTP/1.1" 200 14630
+[2026-02-22 12:40:20,198] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 12:40:20,199] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-22 12:42:36,290] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-22 12:42:36,890] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 12:42:55,164] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-02-22 12:42:55,761] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 12:43:10,901] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/driver.py changed, reloading.
+[2026-02-22 12:43:11,474] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-22 12:44:12,736] INFO backend POST /update_ride_status/ | User: anonymous | Status: 200
+[2026-02-22 12:44:12,737] INFO django.server "POST /update_ride_status/ HTTP/1.1" 200 68
+[2026-02-22 12:44:26,615] INFO backend GET /admin/vincab_app/driverpayment/ | User: vincab | Status: 200
+[2026-02-22 12:44:26,615] INFO django.server "GET /admin/vincab_app/driverpayment/ HTTP/1.1" 200 14630
+[2026-02-22 12:44:28,698] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-22 12:44:28,699] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
