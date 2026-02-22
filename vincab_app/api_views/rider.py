@@ -116,6 +116,9 @@ def get_user_rides(request, rider_id):
 
                 "vehicle_plate":
                     vehicle.plate_number if vehicle else None,
+                
+                "vehicle_image": vehicle.car_image.url if vehicle.car_image else None,
+                "average_rating": ride.driver.average_rating,
 
                 # Prefer stored addresses instead of reverse geocode
                 "pickup_address": reverse_geocode(ride.pickup_lat, ride.pickup_lng),
