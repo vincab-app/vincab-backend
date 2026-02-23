@@ -108,7 +108,7 @@ def send_mpesa_payout(phone_number, name, amount_kes, reason="Payout"):
 
 # api to withdraw money for member
 @api_view(['POST'])
-# @verify_firebase_token
+@verify_firebase_token
 def withdraw_money(request):
     if request.method == 'POST':
         try:

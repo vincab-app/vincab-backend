@@ -310,7 +310,7 @@ def driversignup(request):
         expo_token = data.get("expo_token")
         latitude = data.get("latitude")
         longitude = data.get("longitude")
-        car_image = request.FILES.get("vehicle_image")
+        vehicle_image = request.FILES.get("vehicle_image")
         id_number = request.FILES.get("id_number")
         profile_image = request.FILES.get("profile_image")
         id_front_image = request.FILES.get("id_front_image")
@@ -337,7 +337,7 @@ def driversignup(request):
         print(f"ID Back Image  : {id_back_image}")
         print("==========================")
 
-        if not all([full_name, email, password, phone_number, id_number, license_number, car_make, car_model, car_plate, car_color, vehicle_type, expo_token]):
+        if not all([full_name, email, password, phone_number, license_number, car_make, car_model, car_plate, car_color, vehicle_type, expo_token]):
             return JsonResponse({"message": "Missing required fields"}, status=400)
 
         # Check if email already exists in Firebase
@@ -384,7 +384,7 @@ def driversignup(request):
             model=car_model,
             vehicle_type=vehicle_type,
             color=car_color,
-            car_image=car_image
+            car_image=vehicle_image
         )
         # create a driverpayment record for the driver
         DriverPayment.objects.create(
