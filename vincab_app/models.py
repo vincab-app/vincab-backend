@@ -37,6 +37,9 @@ class User(models.Model):
 class Driver(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="driver_profile")
     license_number = models.CharField(max_length=50, unique=True)
+    id_number = models.CharField(max_length=8, default="12345678")
+    id_front_image = models.ImageField(upload_to='driver/', null=True, blank=True, default="/media/profiles/profile.jpg")
+    id_back_image = models.ImageField(upload_to='driver/', null=True, blank=True, default="/media/profiles/profile.jpg")
     verified = models.BooleanField(default=False)
     rating = models.DecimalField(max_digits=2, decimal_places=1, default=5.0)
     average_rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.0)
