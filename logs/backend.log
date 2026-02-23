@@ -10189,3 +10189,86 @@ AssertionError: The `request` argument must be an instance of `django.http.HttpR
 [2026-02-23 04:35:49,653] INFO django.server "GET /nearby_vehicles/0.1617/37.7464/0.2326/37.9414/ HTTP/1.1" 200 2660
 [2026-02-23 04:37:29,888] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
 [2026-02-23 04:37:30,498] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-23 04:40:37,424] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-23 05:46:15,598] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/helper.py changed, reloading.
+[2026-02-23 05:46:16,243] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-23 05:47:32,131] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-02-23 05:47:32,753] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-23 05:47:44,017] ERROR django.request Internal Server Error: /nearby_vehicles/0.1617/37.7464/0.2326/37.9414/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py", line 400, in nearby_vehicles
+    trip_distance, fare = calculate_fare(lat, lng, dropoff_lat, dropoff_lng)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/helper.py", line 70, in calculate_fare
+    fare = round(distance_km * rate_per_km, 2)
+                 ^^^^^^^^^^^
+NameError: name 'distance_km' is not defined
+[2026-02-23 05:47:44,032] INFO backend GET /nearby_vehicles/0.1617/37.7464/0.2326/37.9414/ | User: anonymous | Status: 500
+[2026-02-23 05:47:44,037] ERROR django.server "GET /nearby_vehicles/0.1617/37.7464/0.2326/37.9414/ HTTP/1.1" 500 110835
+[2026-02-23 05:48:42,446] ERROR django.request Internal Server Error: /nearby_vehicles/0.1617/37.7464/0.2326/37.9414/
+Traceback (most recent call last):
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/django/views/generic/base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab_venv/lib/python3.12/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py", line 400, in nearby_vehicles
+    trip_distance, fare = calculate_fare(lat, lng, dropoff_lat, dropoff_lng)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/helper.py", line 70, in calculate_fare
+    fare = round(distance_km * rate_per_km, 2)
+                 ^^^^^^^^^^^
+NameError: name 'distance_km' is not defined
+[2026-02-23 05:48:42,452] INFO backend GET /nearby_vehicles/0.1617/37.7464/0.2326/37.9414/ | User: anonymous | Status: 500
+[2026-02-23 05:48:42,452] ERROR django.server "GET /nearby_vehicles/0.1617/37.7464/0.2326/37.9414/ HTTP/1.1" 500 110835
+[2026-02-23 05:49:09,373] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/helper.py changed, reloading.
+[2026-02-23 05:49:09,968] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-23 05:49:24,297] INFO backend GET /nearby_vehicles/0.1617/37.7464/0.2326/37.9414/ | User: anonymous | Status: 200
+[2026-02-23 05:49:24,299] INFO django.server "GET /nearby_vehicles/0.1617/37.7464/0.2326/37.9414/ HTTP/1.1" 200 2792
+[2026-02-23 05:50:09,353] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-02-23 05:50:10,060] INFO django.utils.autoreload Watching for file changes with StatReloader

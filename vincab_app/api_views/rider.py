@@ -397,7 +397,7 @@ def nearby_vehicles(request, lat, lng, dropoff_lat, dropoff_lng):
         distance_km = geodesic(customer_location, driver_location).km
         eta_minutes = (distance_km / 40) * 60  # assume avg 40 km/h
 
-        fare = calculate_fare(lat, lng, dropoff_lat, dropoff_lng) 
+        trip_distance, fare = calculate_fare(lat, lng, dropoff_lat, dropoff_lng) 
 
         for vehicle in driver.vehicles.all():  # each driver may have many vehicles
             serializer = VehicleSerializer(vehicle)
@@ -414,6 +414,7 @@ def nearby_vehicles(request, lat, lng, dropoff_lat, dropoff_lng):
             data["driver_lng"] = driver.user.current_lng
             data["average_rating"] = driver.average_rating
             data["fare"] = round(fare, 2)
+            data["trip_distance"] = round(trip_distance, 2)
 
             vehicle_data.append(data)
 
