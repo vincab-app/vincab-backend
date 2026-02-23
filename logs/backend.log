@@ -10435,3 +10435,224 @@ django.core.exceptions.FieldError: Cannot resolve keyword 'ten_seconds_ago' into
 [2026-02-23 15:44:03,801] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-02-23 15:44:24,103] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-02-23 15:44:24,860] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-23 19:53:21,901] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-23 19:58:28,980] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/serializers.py changed, reloading.
+[2026-02-23 19:58:29,640] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-23 20:06:35,638] INFO backend GET /media/profiles/profile_41mbGOd.jpg | User: anonymous | Status: 404
+[2026-02-23 20:06:35,642] INFO backend GET /media/profiles/profile_bBuXBLn.jpg | User: anonymous | Status: 404
+[2026-02-23 20:06:35,652] INFO backend GET /media/media/profiles/profile.jpg | User: anonymous | Status: 404
+[2026-02-23 20:06:35,654] INFO backend GET /media/profiles/profile_grf0WWP.jpg | User: anonymous | Status: 404
+[2026-02-23 20:06:35,666] INFO backend GET /media/profiles/profile_jPbrSiZ.jpg | User: anonymous | Status: 404
+[2026-02-23 20:06:35,683] WARNING django.request Not Found: /media/profiles/profile_41mbGOd.jpg
+[2026-02-23 20:06:35,684] WARNING django.request Not Found: /media/profiles/profile_bBuXBLn.jpg
+[2026-02-23 20:06:35,684] WARNING django.request Not Found: /media/media/profiles/profile.jpg
+[2026-02-23 20:06:35,685] WARNING django.request Not Found: /media/profiles/profile_grf0WWP.jpg
+[2026-02-23 20:06:35,686] WARNING django.request Not Found: /media/profiles/profile_jPbrSiZ.jpg
+[2026-02-23 20:06:35,689] WARNING django.server "GET /media/profiles/profile_41mbGOd.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:06:35,690] INFO django.server - Broken pipe from ('192.168.100.12', 48500)
+[2026-02-23 20:06:35,689] WARNING django.server "GET /media/profiles/profile_bBuXBLn.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:06:35,691] WARNING django.server "GET /media/profiles/profile_jPbrSiZ.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:06:35,689] WARNING django.server "GET /media/profiles/profile_grf0WWP.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:06:35,690] WARNING django.server "GET /media/media/profiles/profile.jpg HTTP/1.1" 404 16034
+[2026-02-23 20:06:35,692] INFO django.server - Broken pipe from ('192.168.100.12', 48514)
+[2026-02-23 20:06:35,693] INFO django.server - Broken pipe from ('192.168.100.12', 48550)
+[2026-02-23 20:06:35,694] INFO django.server - Broken pipe from ('192.168.100.12', 48524)
+[2026-02-23 20:06:35,696] INFO django.server - Broken pipe from ('192.168.100.12', 48536)
+[2026-02-23 20:06:35,701] INFO backend GET /media/profiles/profile_V6XEXwc.jpg | User: anonymous | Status: 200
+[2026-02-23 20:06:35,759] INFO django.server "GET /media/profiles/profile_V6XEXwc.jpg HTTP/1.1" 200 34010
+[2026-02-23 20:06:40,171] INFO django.server "OPTIONS /get_all_drivers/ HTTP/1.1" 200 0
+[2026-02-23 20:06:40,172] INFO django.server "OPTIONS /get_all_drivers/ HTTP/1.1" 200 0
+[2026-02-23 20:06:42,997] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 200
+[2026-02-23 20:06:42,998] INFO django.server "GET /get_all_drivers/ HTTP/1.1" 200 5587
+[2026-02-23 20:06:43,070] INFO backend GET /media/profiles/profile_41mbGOd.jpg | User: anonymous | Status: 404
+[2026-02-23 20:06:43,072] WARNING django.request Not Found: /media/profiles/profile_41mbGOd.jpg
+[2026-02-23 20:06:43,083] INFO backend GET /media/driver/id_front_42548787.jpg | User: anonymous | Status: 404
+[2026-02-23 20:06:43,087] INFO backend GET /media/media/profiles/profile.jpg | User: anonymous | Status: 404
+[2026-02-23 20:06:43,092] INFO backend GET /media/driver/id_back_42548787.jpg | User: anonymous | Status: 404
+[2026-02-23 20:06:43,092] WARNING django.server "GET /media/profiles/profile_41mbGOd.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:06:43,092] WARNING django.request Not Found: /media/driver/id_front_42548787.jpg
+[2026-02-23 20:06:43,099] INFO backend GET /media/profiles/profile_grf0WWP.jpg | User: anonymous | Status: 404
+[2026-02-23 20:06:43,099] WARNING django.request Not Found: /media/media/profiles/profile.jpg
+[2026-02-23 20:06:43,102] WARNING django.request Not Found: /media/driver/id_back_42548787.jpg
+[2026-02-23 20:06:43,106] INFO backend GET /media/profiles/profile_jPbrSiZ.jpg | User: anonymous | Status: 404
+[2026-02-23 20:06:43,107] WARNING django.request Not Found: /media/profiles/profile_grf0WWP.jpg
+[2026-02-23 20:06:43,108] WARNING django.server "GET /media/driver/id_front_42548787.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:06:43,108] WARNING django.server "GET /media/media/profiles/profile.jpg HTTP/1.1" 404 16034
+[2026-02-23 20:06:43,110] INFO django.server - Broken pipe from ('192.168.100.12', 38252)
+[2026-02-23 20:06:43,109] WARNING django.server "GET /media/driver/id_back_42548787.jpg HTTP/1.1" 404 16038
+[2026-02-23 20:06:43,109] INFO django.server - Broken pipe from ('192.168.100.12', 38236)
+[2026-02-23 20:06:43,110] WARNING django.server "GET /media/profiles/profile_grf0WWP.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:06:43,111] INFO django.server - Broken pipe from ('192.168.100.12', 38250)
+[2026-02-23 20:06:43,108] WARNING django.request Not Found: /media/profiles/profile_jPbrSiZ.jpg
+[2026-02-23 20:06:43,113] WARNING django.server "GET /media/profiles/profile_jPbrSiZ.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:06:43,113] INFO django.server - Broken pipe from ('192.168.100.12', 38256)
+[2026-02-23 20:06:43,114] INFO django.server - Broken pipe from ('192.168.100.12', 38270)
+[2026-02-23 20:06:43,122] INFO backend GET /media/profiles/profile_bBuXBLn.jpg | User: anonymous | Status: 404
+[2026-02-23 20:06:43,122] WARNING django.request Not Found: /media/profiles/profile_bBuXBLn.jpg
+[2026-02-23 20:06:43,123] WARNING django.server "GET /media/profiles/profile_bBuXBLn.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:06:43,129] INFO django.server - Broken pipe from ('192.168.100.12', 38276)
+[2026-02-23 20:06:45,164] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 200
+[2026-02-23 20:06:45,166] INFO django.server "GET /get_all_drivers/ HTTP/1.1" 200 5587
+[2026-02-23 20:06:45,726] INFO backend GET /media/driver/id_front_42548787.jpg | User: anonymous | Status: 404
+[2026-02-23 20:06:45,727] WARNING django.request Not Found: /media/driver/id_front_42548787.jpg
+[2026-02-23 20:06:45,727] WARNING django.server "GET /media/driver/id_front_42548787.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:06:45,728] INFO django.server - Broken pipe from ('192.168.100.12', 38282)
+[2026-02-23 20:08:09,399] INFO backend GET / | User: vincab | Status: 200
+[2026-02-23 20:08:09,402] INFO django.server "GET / HTTP/1.1" 200 12
+[2026-02-23 20:08:11,760] INFO backend GET /favicon.ico | User: vincab | Status: 404
+[2026-02-23 20:08:11,761] WARNING django.request Not Found: /favicon.ico
+[2026-02-23 20:08:11,761] WARNING django.server "GET /favicon.ico HTTP/1.1" 404 15725
+[2026-02-23 20:08:16,113] INFO backend GET /admin/ | User: vincab | Status: 200
+[2026-02-23 20:08:16,115] INFO django.server "GET /admin/ HTTP/1.1" 200 16154
+[2026-02-23 20:08:24,217] INFO backend GET /admin/vincab_app/driver/ | User: vincab | Status: 200
+[2026-02-23 20:08:24,218] INFO django.server "GET /admin/vincab_app/driver/ HTTP/1.1" 200 15312
+[2026-02-23 20:08:27,979] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 20:08:27,980] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-23 20:08:46,097] INFO backend GET /admin/vincab_app/driver/15/change/ | User: vincab | Status: 200
+[2026-02-23 20:08:46,098] INFO django.server "GET /admin/vincab_app/driver/15/change/ HTTP/1.1" 200 20613
+[2026-02-23 20:08:48,395] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 20:08:48,397] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-23 20:09:26,433] INFO backend POST /admin/vincab_app/driver/15/change/ | User: vincab | Status: 302
+[2026-02-23 20:09:26,434] INFO django.server "POST /admin/vincab_app/driver/15/change/ HTTP/1.1" 302 0
+[2026-02-23 20:09:31,653] INFO backend GET /admin/vincab_app/driver/ | User: vincab | Status: 200
+[2026-02-23 20:09:31,654] INFO django.server "GET /admin/vincab_app/driver/ HTTP/1.1" 200 15531
+[2026-02-23 20:09:33,766] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 20:09:33,767] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-23 20:09:37,977] INFO django.server "OPTIONS /dashboard_stats/ HTTP/1.1" 200 0
+[2026-02-23 20:09:37,977] INFO django.server "OPTIONS /dashboard_stats/ HTTP/1.1" 200 0
+[2026-02-23 20:09:41,477] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 200
+[2026-02-23 20:09:41,479] INFO django.server "GET /dashboard_stats/ HTTP/1.1" 200 157
+[2026-02-23 20:09:44,307] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 200
+[2026-02-23 20:09:44,309] INFO django.server "GET /get_all_drivers/ HTTP/1.1" 200 5564
+[2026-02-23 20:09:44,383] INFO backend GET /media/driver/index.png | User: anonymous | Status: 200
+[2026-02-23 20:09:44,393] INFO backend GET /media/profiles/profile_41mbGOd.jpg | User: anonymous | Status: 404
+[2026-02-23 20:09:44,393] INFO backend GET /media/driver/track.png | User: anonymous | Status: 200
+[2026-02-23 20:09:44,398] INFO backend GET /media/media/profiles/profile.jpg | User: anonymous | Status: 404
+[2026-02-23 20:09:44,400] WARNING django.request Not Found: /media/profiles/profile_41mbGOd.jpg
+[2026-02-23 20:09:44,406] INFO backend GET /media/profiles/profile_grf0WWP.jpg | User: anonymous | Status: 404
+[2026-02-23 20:09:44,410] WARNING django.request Not Found: /media/profiles/profile_grf0WWP.jpg
+[2026-02-23 20:09:44,409] WARNING django.server "GET /media/profiles/profile_41mbGOd.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:09:44,407] WARNING django.request Not Found: /media/media/profiles/profile.jpg
+[2026-02-23 20:09:44,412] WARNING django.server "GET /media/profiles/profile_grf0WWP.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:09:44,412] INFO django.server - Broken pipe from ('192.168.100.12', 51360)
+[2026-02-23 20:09:44,415] INFO django.server - Broken pipe from ('192.168.100.12', 51396)
+[2026-02-23 20:09:44,415] WARNING django.server "GET /media/media/profiles/profile.jpg HTTP/1.1" 404 16034
+[2026-02-23 20:09:44,417] INFO django.server - Broken pipe from ('192.168.100.12', 51388)
+[2026-02-23 20:09:44,418] INFO django.server "GET /media/driver/index.png HTTP/1.1" 200 244639
+[2026-02-23 20:09:44,424] INFO django.server "GET /media/driver/track.png HTTP/1.1" 200 388585
+[2026-02-23 20:09:44,434] INFO backend GET /media/profiles/profile_jPbrSiZ.jpg | User: anonymous | Status: 404
+[2026-02-23 20:09:44,439] INFO backend GET /media/profiles/profile_bBuXBLn.jpg | User: anonymous | Status: 404
+[2026-02-23 20:09:44,439] WARNING django.request Not Found: /media/profiles/profile_bBuXBLn.jpg
+[2026-02-23 20:09:44,439] WARNING django.request Not Found: /media/profiles/profile_jPbrSiZ.jpg
+[2026-02-23 20:09:44,440] WARNING django.server "GET /media/profiles/profile_bBuXBLn.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:09:44,442] INFO django.server - Broken pipe from ('192.168.100.12', 51406)
+[2026-02-23 20:09:44,442] WARNING django.server "GET /media/profiles/profile_jPbrSiZ.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:09:44,443] INFO django.server - Broken pipe from ('192.168.100.12', 51404)
+[2026-02-23 20:09:44,920] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 200
+[2026-02-23 20:09:44,921] INFO django.server "GET /dashboard_stats/ HTTP/1.1" 200 157
+[2026-02-23 20:09:46,518] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 200
+[2026-02-23 20:09:46,519] INFO django.server "GET /get_all_drivers/ HTTP/1.1" 200 5564
+[2026-02-23 20:10:24,898] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-23 20:10:24,900] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 18361
+[2026-02-23 20:10:26,975] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 20:10:26,975] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-23 20:10:31,075] INFO backend GET /admin/vincab_app/user/37/change/ | User: vincab | Status: 200
+[2026-02-23 20:10:31,076] INFO django.server "GET /admin/vincab_app/user/37/change/ HTTP/1.1" 200 21872
+[2026-02-23 20:10:33,179] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 20:10:33,180] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-23 20:11:00,554] INFO backend POST /admin/vincab_app/user/37/change/ | User: vincab | Status: 302
+[2026-02-23 20:11:00,557] INFO django.server "POST /admin/vincab_app/user/37/change/ HTTP/1.1" 302 0
+[2026-02-23 20:11:03,690] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-23 20:11:03,691] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 18577
+[2026-02-23 20:11:05,808] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 20:11:05,809] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-23 20:11:11,077] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 200
+[2026-02-23 20:11:11,079] INFO django.server "GET /get_all_drivers/ HTTP/1.1" 200 5555
+[2026-02-23 20:11:11,125] INFO backend GET /media/media/profiles/profile.jpg | User: anonymous | Status: 404
+[2026-02-23 20:11:11,126] WARNING django.request Not Found: /media/media/profiles/profile.jpg
+[2026-02-23 20:11:11,132] INFO backend GET /media/profiles/profile_grf0WWP.jpg | User: anonymous | Status: 404
+[2026-02-23 20:11:11,134] WARNING django.request Not Found: /media/profiles/profile_grf0WWP.jpg
+[2026-02-23 20:11:11,135] WARNING django.server "GET /media/media/profiles/profile.jpg HTTP/1.1" 404 16034
+[2026-02-23 20:11:11,136] INFO backend GET /media/driver/index.png | User: anonymous | Status: 304
+[2026-02-23 20:11:11,146] INFO backend GET /media/profiles/profile_jPbrSiZ.jpg | User: anonymous | Status: 404
+[2026-02-23 20:11:11,150] WARNING django.request Not Found: /media/profiles/profile_jPbrSiZ.jpg
+[2026-02-23 20:11:11,147] INFO backend GET /media/driver/track.png | User: anonymous | Status: 304
+[2026-02-23 20:11:11,149] WARNING django.server "GET /media/profiles/profile_grf0WWP.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:11:11,148] INFO django.server - Broken pipe from ('192.168.100.12', 51376)
+[2026-02-23 20:11:11,156] INFO backend GET /media/profiles/profile_image.png | User: anonymous | Status: 200
+[2026-02-23 20:11:11,156] INFO django.server "GET /media/driver/index.png HTTP/1.1" 304 0
+[2026-02-23 20:11:11,156] INFO django.server - Broken pipe from ('192.168.100.12', 51364)
+[2026-02-23 20:11:11,156] WARNING django.server "GET /media/profiles/profile_jPbrSiZ.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:11:11,162] INFO backend GET /media/profiles/profile_bBuXBLn.jpg | User: anonymous | Status: 404
+[2026-02-23 20:11:11,166] WARNING django.request Not Found: /media/profiles/profile_bBuXBLn.jpg
+[2026-02-23 20:11:11,165] INFO django.server - Broken pipe from ('192.168.100.12', 54104)
+[2026-02-23 20:11:11,164] INFO django.server "GET /media/driver/track.png HTTP/1.1" 304 0
+[2026-02-23 20:11:11,168] WARNING django.server "GET /media/profiles/profile_bBuXBLn.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:11:11,169] INFO django.server - Broken pipe from ('192.168.100.12', 54154)
+[2026-02-23 20:11:11,193] INFO django.server "GET /media/profiles/profile_image.png HTTP/1.1" 200 9492461
+[2026-02-23 20:11:13,242] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 200
+[2026-02-23 20:11:13,243] INFO django.server "GET /get_all_drivers/ HTTP/1.1" 200 5555
+[2026-02-23 20:11:26,005] INFO django.server "OPTIONS /get_all_riders/ HTTP/1.1" 200 0
+[2026-02-23 20:11:26,006] INFO django.server "OPTIONS /get_all_riders/ HTTP/1.1" 200 0
+[2026-02-23 20:11:27,852] INFO backend GET /get_all_riders/ | User: anonymous | Status: 200
+[2026-02-23 20:11:27,852] INFO django.server "GET /get_all_riders/ HTTP/1.1" 200 2523
+[2026-02-23 20:11:27,908] INFO backend GET /media/profiles/profile_LJ5Fp7t.jpg | User: anonymous | Status: 404
+[2026-02-23 20:11:27,910] INFO backend GET /media/profiles/profile_PMwZNng.jpg | User: anonymous | Status: 404
+[2026-02-23 20:11:27,912] INFO backend GET /media/media/profiles/profile.jpg | User: anonymous | Status: 404
+[2026-02-23 20:11:27,913] WARNING django.request Not Found: /media/profiles/profile_LJ5Fp7t.jpg
+[2026-02-23 20:11:27,913] WARNING django.request Not Found: /media/profiles/profile_PMwZNng.jpg
+[2026-02-23 20:11:27,914] WARNING django.request Not Found: /media/media/profiles/profile.jpg
+[2026-02-23 20:11:27,915] WARNING django.server "GET /media/profiles/profile_LJ5Fp7t.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:11:27,917] INFO django.server - Broken pipe from ('192.168.100.12', 54120)
+[2026-02-23 20:11:27,916] WARNING django.server "GET /media/media/profiles/profile.jpg HTTP/1.1" 404 16034
+[2026-02-23 20:11:27,917] WARNING django.server "GET /media/profiles/profile_PMwZNng.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:11:27,919] INFO django.server - Broken pipe from ('192.168.100.12', 54138)
+[2026-02-23 20:11:27,922] INFO django.server - Broken pipe from ('192.168.100.12', 54136)
+[2026-02-23 20:11:29,561] INFO backend GET /get_all_riders/ | User: anonymous | Status: 200
+[2026-02-23 20:11:29,562] INFO django.server "GET /get_all_riders/ HTTP/1.1" 200 2523
+[2026-02-23 20:11:31,862] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 200
+[2026-02-23 20:11:31,863] INFO django.server "GET /get_all_drivers/ HTTP/1.1" 200 5555
+[2026-02-23 20:11:31,901] INFO backend GET /media/media/profiles/profile.jpg | User: anonymous | Status: 404
+[2026-02-23 20:11:31,906] INFO backend GET /media/profiles/profile_grf0WWP.jpg | User: anonymous | Status: 404
+[2026-02-23 20:11:31,906] WARNING django.request Not Found: /media/media/profiles/profile.jpg
+[2026-02-23 20:11:31,918] INFO backend GET /media/profiles/profile_jPbrSiZ.jpg | User: anonymous | Status: 404
+[2026-02-23 20:11:31,919] WARNING django.request Not Found: /media/profiles/profile_grf0WWP.jpg
+[2026-02-23 20:11:31,919] INFO backend GET /media/profiles/profile_bBuXBLn.jpg | User: anonymous | Status: 404
+[2026-02-23 20:11:31,921] WARNING django.request Not Found: /media/profiles/profile_bBuXBLn.jpg
+[2026-02-23 20:11:31,920] WARNING django.request Not Found: /media/profiles/profile_jPbrSiZ.jpg
+[2026-02-23 20:11:31,921] WARNING django.server "GET /media/media/profiles/profile.jpg HTTP/1.1" 404 16034
+[2026-02-23 20:11:31,921] WARNING django.server "GET /media/profiles/profile_grf0WWP.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:11:31,922] WARNING django.server "GET /media/profiles/profile_bBuXBLn.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:11:31,922] INFO django.server - Broken pipe from ('192.168.100.12', 55274)
+[2026-02-23 20:11:31,923] WARNING django.server "GET /media/profiles/profile_jPbrSiZ.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:11:31,923] INFO django.server - Broken pipe from ('192.168.100.12', 55308)
+[2026-02-23 20:11:31,924] INFO django.server - Broken pipe from ('192.168.100.12', 55282)
+[2026-02-23 20:11:31,926] INFO django.server - Broken pipe from ('192.168.100.12', 55294)
+[2026-02-23 20:11:33,879] INFO backend GET /get_all_drivers/ | User: anonymous | Status: 200
+[2026-02-23 20:11:33,879] INFO django.server "GET /get_all_drivers/ HTTP/1.1" 200 5555
+[2026-02-23 20:12:54,648] INFO django.server "OPTIONS /get_all_rides/ HTTP/1.1" 200 0
+[2026-02-23 20:12:54,650] INFO django.server "OPTIONS /get_all_rides/ HTTP/1.1" 200 0
+[2026-02-23 20:13:08,044] INFO backend GET /get_all_riders/ | User: anonymous | Status: 200
+[2026-02-23 20:13:08,045] INFO django.server "GET /get_all_riders/ HTTP/1.1" 200 2523
+[2026-02-23 20:13:08,109] INFO backend GET /media/profiles/profile_PMwZNng.jpg | User: anonymous | Status: 404
+[2026-02-23 20:13:08,109] WARNING django.request Not Found: /media/profiles/profile_PMwZNng.jpg
+[2026-02-23 20:13:08,114] INFO backend GET /media/media/profiles/profile.jpg | User: anonymous | Status: 404
+[2026-02-23 20:13:08,115] WARNING django.request Not Found: /media/media/profiles/profile.jpg
+[2026-02-23 20:13:08,117] WARNING django.server "GET /media/profiles/profile_PMwZNng.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:13:08,123] WARNING django.server "GET /media/media/profiles/profile.jpg HTTP/1.1" 404 16034
+[2026-02-23 20:13:08,123] INFO django.server - Broken pipe from ('192.168.100.12', 51254)
+[2026-02-23 20:13:08,127] INFO backend GET /media/profiles/profile_LJ5Fp7t.jpg | User: anonymous | Status: 404
+[2026-02-23 20:13:08,128] WARNING django.request Not Found: /media/profiles/profile_LJ5Fp7t.jpg
+[2026-02-23 20:13:08,128] WARNING django.server "GET /media/profiles/profile_LJ5Fp7t.jpg HTTP/1.1" 404 16042
+[2026-02-23 20:13:08,130] INFO django.server - Broken pipe from ('192.168.100.12', 51258)
+[2026-02-23 20:13:08,130] INFO django.server - Broken pipe from ('192.168.100.12', 51270)
+[2026-02-23 20:13:09,990] INFO backend GET /get_all_riders/ | User: anonymous | Status: 200
+[2026-02-23 20:13:09,991] INFO django.server "GET /get_all_riders/ HTTP/1.1" 200 2523
+[2026-02-23 20:13:13,148] INFO backend GET /get_all_rides/ | User: anonymous | Status: 200
+[2026-02-23 20:13:13,149] INFO django.server "GET /get_all_rides/ HTTP/1.1" 200 6026
+[2026-02-23 20:13:27,298] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 200
+[2026-02-23 20:13:27,299] INFO django.server "GET /dashboard_stats/ HTTP/1.1" 200 157
+[2026-02-23 20:13:30,778] INFO backend GET /dashboard_stats/ | User: anonymous | Status: 200
+[2026-02-23 20:13:30,779] INFO django.server "GET /dashboard_stats/ HTTP/1.1" 200 157
+[2026-02-23 20:13:31,212] INFO backend GET /get_all_rides/ | User: anonymous | Status: 200
+[2026-02-23 20:13:31,214] INFO django.server "GET /get_all_rides/ HTTP/1.1" 200 6026
