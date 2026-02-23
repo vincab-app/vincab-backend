@@ -55,3 +55,18 @@ def get_eta(vehicle_lat, vehicle_lng, pickup_lat, pickup_lng):
 
 def generate_code():
     return str(secrets.randbelow(900000) + 100000)
+
+# function to calculate fare
+def calculate_fare(pickup_lat, pickup_lng, drop_lat, drop_lng):
+    
+    pickup = (pickup_lat, pickup_lng)
+    drop = (drop_lat, drop_lng)
+
+    # Distance in km
+    distance_km = geodesic(pickup, drop).km  
+
+    # Fare calculation
+    rate_per_km = 50  
+    fare = round(distance_km * rate_per_km, 2)
+
+    return fare

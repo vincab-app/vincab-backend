@@ -19,7 +19,7 @@ urlpatterns = [
     path('driversignup/', driversignup, name='driversignup'),
 
     path('get_user_notifications/<str:user_id>/', get_user_notifications, name='get_user_notifications'),
-    path('nearby_vehicles/<str:lat>/<str:lng>/', nearby_vehicles, name='nearby_vehicles'),
+    path('nearby_vehicles/<str:lat>/<str:lng>/<str:dropoff_lat>/<str:dropoff_lng>/', nearby_vehicles, name='nearby_vehicles'),
     path('create_ride_and_payment/', create_ride_and_payment, name='create_ride_and_payment'),
     path('create_rating/', create_rating, name='create_rating'),
     path('get_user_ratings/<int:user_id>/', get_user_ratings, name='get_user_ratings'),

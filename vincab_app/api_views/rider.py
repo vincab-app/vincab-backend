@@ -373,8 +373,8 @@ def get_user_notifications(request, user_id):
 
 # api to get the nearby vehicles
 @api_view(["GET"])
-@verify_firebase_token
-def nearby_vehicles(request, lat, lng):
+# @verify_firebase_token
+def nearby_vehicles(request, lat, lng, dropoff_lat, dropoff_lng):
     try:
         customer_lat = float(lat)
         customer_lng = float(lng)
@@ -397,6 +397,8 @@ def nearby_vehicles(request, lat, lng):
         distance_km = geodesic(customer_location, driver_location).km
         eta_minutes = (distance_km / 40) * 60  # assume avg 40 km/h
 
+        fare = calculate_fare(lat, lng, dropoff_lat, dropoff_lng) 
+
         for vehicle in driver.vehicles.all():  # each driver may have many vehicles
             serializer = VehicleSerializer(vehicle)
             data = serializer.data
@@ -411,6 +413,7 @@ def nearby_vehicles(request, lat, lng):
             data["driver_lat"] = driver.user.current_lat
             data["driver_lng"] = driver.user.current_lng
             data["average_rating"] = driver.average_rating
+            data["fare"] = round(fare, 2)
 
             vehicle_data.append(data)
 
@@ -657,22 +660,22 @@ def get_user_ratings(request, user_id):
 
 
 # api to create how much rider will pay for each trip
-@api_view(['GET'])
-def calculate_fare(request, pickup_lat, pickup_lng, drop_lat, drop_lng):
+# @api_view(['GET'])
+# def calculate_fare(request, pickup_lat, pickup_lng, drop_lat, drop_lng):
 
-    pickup = (pickup_lat, pickup_lng)
-    drop = (drop_lat, drop_lng)
+#     pickup = (pickup_lat, pickup_lng)
+#     drop = (drop_lat, drop_lng)
 
-    # Distance in km
-    distance_km = geodesic(pickup, drop).km  
+#     # Distance in km
+#     distance_km = geodesic(pickup, drop).km  
 
-    # Fare calculation
-    rate_per_km = 50  
-    fare = round(distance_km * rate_per_km, 2)
+#     # Fare calculation
+#     rate_per_km = 50  
+#     fare = round(distance_km * rate_per_km, 2)
 
-    return Response({
-        "pickup": pickup,
-        "drop": drop,
-        "distance_km": round(distance_km, 2),
-        "fare": fare
-    })
+#     return Response({
+#         "pickup": pickup,
+#         "drop": drop,
+#         "distance_km": round(distance_km, 2),
+#         "fare": fare
+#     })
