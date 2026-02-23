@@ -375,7 +375,7 @@ def get_user_notifications(request, user_id):
 @api_view(["GET"])
 @verify_firebase_token
 def nearby_vehicles(request, lat, lng, dropoff_lat, dropoff_lng):
-    ten_seconds_ago = timezone.now() - timedelta(seconds=60)
+    ten_seconds_ago = timezone.now() - timedelta(minutes=5)
     try:
         customer_lat = float(lat)
         customer_lng = float(lng)
