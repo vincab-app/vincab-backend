@@ -10430,3 +10430,8 @@ django.core.exceptions.FieldError: Cannot resolve keyword 'ten_seconds_ago' into
 [2026-02-23 15:20:25,577] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/models.py changed, reloading.
 [2026-02-23 15:20:26,566] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-02-23 15:22:02,727] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-23 15:25:24,928] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-23 15:44:03,188] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-02-23 15:44:03,801] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-23 15:44:24,103] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-02-23 15:44:24,860] INFO django.utils.autoreload Watching for file changes with StatReloader
