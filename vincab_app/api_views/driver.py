@@ -31,7 +31,7 @@ def get_driver_payments(request, driver_id):
 
 # api to get requested rides
 @api_view(['GET'])
-# @verify_firebase_token
+@verify_firebase_token
 def get_requested_rides(request, user_id):
     try:
         # Get driver using user_id
@@ -68,7 +68,7 @@ def get_requested_rides(request, user_id):
 
 # api to get driver total earnings
 @api_view(['GET'])
-# @verify_firebase_token
+@verify_firebase_token
 def get_driver_total_earnings(request, user_id):
     try:
         # Get driver by linked user_id
@@ -243,7 +243,7 @@ def confirm_ride(request):
 
 # api to check if driver is verified
 @api_view(['GET'])
-# @verify_firebase_token
+@verify_firebase_token
 def check_driver_verified(request, user_id):
     driver = get_object_or_404(Driver, user__id=user_id)
     vehicle = Vehicle.objects.get(driver=driver)
@@ -262,7 +262,7 @@ def check_driver_verified(request, user_id):
 # api to update ride request status
 @csrf_exempt
 @api_view(['POST'])
-# @verify_firebase_token
+@verify_firebase_token
 def update_ride_status(request):
 
     try:
@@ -377,7 +377,7 @@ def get_driver_location(request, driver_id):
 @csrf_exempt
 @api_view(['POST'])
 @parser_classes([MultiPartParser])
-# @verify_firebase_token
+@verify_firebase_token
 def update_driver_profile(request):
     try:
         rider_id = request.data.get('rider_id')

@@ -75,7 +75,7 @@ def get_ride_details(request, rider_id):
 
 # api to get riders' ride
 @api_view(["GET"])
-# @verify_firebase_token
+@verify_firebase_token
 def get_user_rides(request, rider_id):
     try:
 
@@ -373,8 +373,9 @@ def get_user_notifications(request, user_id):
 
 # api to get the nearby vehicles
 @api_view(["GET"])
-# @verify_firebase_token
+@verify_firebase_token
 def nearby_vehicles(request, lat, lng, dropoff_lat, dropoff_lng):
+    ten_seconds_ago = timezone.now() - timedelta(seconds=60)
     try:
         customer_lat = float(lat)
         customer_lng = float(lng)
@@ -385,7 +386,7 @@ def nearby_vehicles(request, lat, lng, dropoff_lat, dropoff_lng):
 
     # ✅ Only active + verified drivers
     drivers = Driver.objects.select_related("user").prefetch_related("vehicles").filter(
-        status="active", verified=True
+        status="active", verified=True, user__last_updated_location__gte=ten_seconds_ago
     )
 
     vehicle_data = []
