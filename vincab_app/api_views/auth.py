@@ -332,26 +332,43 @@ def driversignup(request):
         # Send Firebase email verification
         authe.send_email_verification(firebase_user['idToken'])
 
+        profile_url = None
+        if profile_image:
+            upload_result = cloudinary.uploader.upload(profile_image)
+            profile_url = upload_result.get("secure_url")
+
         # Save user to Django DB
         user = User.objects.create(
             full_name=full_name,
             phone_number=phone_number,
             email=email,
             role="driver",
-            profile_image=profile_image,
+            profile_image=profile_url,
             firebase_uid=firebase_user['localId'],
             current_lat=latitude or 0.0,
             current_lng=longitude or 0.0,
             expo_token=expo_token,
         )
 
+        # id front image upload
+        id_front_url = None
+        if id_front_image:
+            id_front_result = cloudinary.uploader.upload(id_front_image)
+            id_front_url = id_front_result.get("secure_url")
+
+        # id back image upload
+        id_back_url = None
+        if id_back_image:
+            id_back_result = cloudinary.uploader.upload(id_back_image)
+            id_back_url = id_back_result.get("secure_url")
+
         # Save driver info
         driver = Driver.objects.create(
             user=user,
             license_number=license_number,
             id_number=id_number,
-            id_front_image=id_front_image,
-            id_back_image=id_back_image,
+            id_front_image=id_front_url,
+            id_back_image=id_back_url,
             verified=False,
             rating=0,
             status="inactive"

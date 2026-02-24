@@ -278,9 +278,12 @@ def update_rider_profile(request):
             rider.full_name = name   # adjust field if it's first_name/last_name in your model
 
         # Update profile image if provided
+        profile_url = None
         if profile_image:
-            rider.profile_image = profile_image
+            upload_result = cloudinary.uploader.upload(profile_image)
+            profile_url = upload_result.get("secure_url")
 
+        rider.profile_image = profile_url if profile_url else rider.profile_image
         rider.save()
 
         return JsonResponse({
@@ -288,7 +291,7 @@ def update_rider_profile(request):
             "rider": {
                 "id": rider.id,
                 "name": rider.full_name,
-                "profile_image": rider.profile_image.url if hasattr(rider.profile_image, "url") else rider.profile_image,
+                "profile_image": rider.profile_image,
             }
         })
 
@@ -410,7 +413,7 @@ def nearby_vehicles(request, lat, lng, dropoff_lat, dropoff_lng):
             data["driver_id"] = driver.id
             data["driver_name"] = driver.user.full_name
             data["driver_phone"] = driver.user.phone_number
-            data["driver_image"] = driver.user.profile_image.url if driver.user.profile_image else None
+            data["driver_image"] = driver.user.profile_image if driver.user.profile_image else None
             data["driver_lat"] = driver.user.current_lat
             data["driver_lng"] = driver.user.current_lng
             data["average_rating"] = driver.average_rating

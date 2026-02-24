@@ -21,7 +21,7 @@ class User(models.Model):
     current_lng = models.FloatField(null=True, blank=True, default=0.0)
     phone_verified = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-    profile_image = models.ImageField(upload_to='profiles/', null=True, blank=True, default="/media/profiles/profile.jpg")
+    profile_image = models.URLField(default="https://res.cloudinary.com/dc68huvjj/image/upload/v1748102584/kwwwa0avlfoeybpi3key.png")
     date_joined = models.DateTimeField(default=timezone.now)
     expo_token = models.CharField(max_length=100, default="hsvsx92jjs")
 
@@ -38,8 +38,8 @@ class Driver(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="driver_profile")
     license_number = models.CharField(max_length=50, unique=True)
     id_number = models.CharField(max_length=8, default="12345678")
-    id_front_image = models.ImageField(upload_to='driver/', null=True, blank=True, default="/media/profiles/profile.jpg")
-    id_back_image = models.ImageField(upload_to='driver/', null=True, blank=True, default="/media/profiles/profile.jpg")
+    id_front_image = models.URLField(default="https://res.cloudinary.com/dc68huvjj/image/upload/v1748102584/kwwwa0avlfoeybpi3key.png")
+    id_back_image = models.URLField(default="https://res.cloudinary.com/dc68huvjj/image/upload/v1748102584/kwwwa0avlfoeybpi3key.png")
     verified = models.BooleanField(default=False)
     rating = models.DecimalField(max_digits=2, decimal_places=1, default=5.0)
     average_rating = models.DecimalField(max_digits=3, decimal_places=2, default=0.0)
@@ -65,7 +65,7 @@ class Vehicle(models.Model):
     vehicle_type = models.CharField(max_length=20, choices=VEHICLE_TYPES)
     color = models.CharField(max_length=30)
     capacity = models.IntegerField(default=4)
-    car_image = models.ImageField(upload_to='vehicles/', null=True, blank=True, default="/media/profiles/profile.jpg")
+    car_image = models.URLField(default="https://res.cloudinary.com/dc68huvjj/image/upload/v1748102584/kwwwa0avlfoeybpi3key.png")
     date_joined = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

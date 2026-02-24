@@ -394,9 +394,12 @@ def update_driver_profile(request):
             rider.full_name = name   # adjust field if it's first_name/last_name in your model
 
         # Update profile image if provided
+        profile_url = None
         if profile_image:
-            rider.profile_image = profile_image
+            upload_result = cloudinary.uploader.upload(profile_image)
+            profile_url = upload_result.get("secure_url")
 
+        rider.profile_image = profile_url if profile_url else rider.profile_image
         rider.save()
         
         driver = Driver.objects.filter(user=rider).first()
@@ -410,8 +413,8 @@ def update_driver_profile(request):
             "rider": {
                 "id": rider.id,
                 "name": rider.full_name,
-                "profile_image": rider.profile_image.url if hasattr(rider.profile_image, "url") else rider.profile_image,
-                "vehicle_image": vehicle.car_image.url if hasattr(vehicle.car_image, "url") else vehicle.car_image,
+                "profile_image": rider.profile_image,
+                "vehicle_image": vehicle.car_image,
             }
         })
 

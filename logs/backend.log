@@ -10656,3 +10656,54 @@ django.core.exceptions.FieldError: Cannot resolve keyword 'ten_seconds_ago' into
 [2026-02-23 20:13:30,779] INFO django.server "GET /dashboard_stats/ HTTP/1.1" 200 157
 [2026-02-23 20:13:31,212] INFO backend GET /get_all_rides/ | User: anonymous | Status: 200
 [2026-02-23 20:13:31,214] INFO django.server "GET /get_all_rides/ HTTP/1.1" 200 6026
+[2026-02-23 21:32:56,782] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-23 21:33:12,715] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-23 21:33:12,716] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 18361
+[2026-02-23 21:33:15,655] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 21:33:15,656] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-23 21:33:28,637] INFO backend POST /admin/vincab_app/user/ | User: vincab | Status: 302
+[2026-02-23 21:33:28,641] INFO django.server "POST /admin/vincab_app/user/ HTTP/1.1" 302 0
+[2026-02-23 21:33:34,538] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-23 21:33:34,539] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 18554
+[2026-02-23 21:33:36,793] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 21:33:36,794] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-23 21:33:36,920] INFO django.server "GET /static/admin/img/icon-alert.svg HTTP/1.1" 200 504
+[2026-02-23 21:34:08,789] INFO backend POST /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-23 21:34:08,790] INFO django.server "POST /admin/vincab_app/user/ HTTP/1.1" 200 37536
+[2026-02-23 21:34:08,883] INFO django.server "GET /static/admin/js/cancel.js HTTP/1.1" 304 0
+[2026-02-23 21:34:41,645] INFO backend POST /admin/vincab_app/user/ | User: vincab | Status: 302
+[2026-02-23 21:34:41,648] INFO django.server "POST /admin/vincab_app/user/ HTTP/1.1" 302 0
+[2026-02-23 21:34:44,560] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-23 21:34:44,562] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 11993
+[2026-02-23 21:34:47,321] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 21:34:47,323] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-23 21:34:52,951] INFO backend GET /admin/vincab_app/driver/ | User: vincab | Status: 200
+[2026-02-23 21:34:52,954] INFO django.server "GET /admin/vincab_app/driver/ HTTP/1.1" 200 11871
+[2026-02-23 21:34:54,981] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 21:34:54,983] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-23 21:34:58,581] INFO backend GET /admin/vincab_app/payment/ | User: vincab | Status: 200
+[2026-02-23 21:34:58,582] INFO django.server "GET /admin/vincab_app/payment/ HTTP/1.1" 200 11878
+[2026-02-23 21:35:00,583] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 21:35:00,584] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-23 21:35:06,071] INFO backend GET /admin/vincab_app/withdraw/ | User: vincab | Status: 200
+[2026-02-23 21:35:06,071] INFO django.server "GET /admin/vincab_app/withdraw/ HTTP/1.1" 200 11885
+[2026-02-23 21:35:08,470] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 21:35:08,472] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-23 21:39:35,572] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-23 21:39:35,609] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 13168
+[2026-02-23 21:39:37,660] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 21:39:37,661] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-23 21:39:43,062] INFO backend GET /admin/vincab_app/user/38/change/ | User: vincab | Status: 200
+[2026-02-23 21:39:43,062] INFO django.server "GET /admin/vincab_app/user/38/change/ HTTP/1.1" 200 21886
+[2026-02-23 21:39:47,549] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 21:39:47,550] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-23 21:40:22,724] INFO backend POST /admin/vincab_app/user/38/change/ | User: vincab | Status: 302
+[2026-02-23 21:40:22,725] INFO django.server "POST /admin/vincab_app/user/38/change/ HTTP/1.1" 302 0
+[2026-02-23 21:40:25,724] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-23 21:40:25,725] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 13387
+[2026-02-23 21:40:28,773] INFO backend GET /admin/jsi18n/ | User: vincab | Status: 200
+[2026-02-23 21:40:28,774] INFO django.server "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[2026-02-24 04:26:33,572] INFO backend GET /admin/vincab_app/user/ | User: vincab | Status: 200
+[2026-02-24 04:26:33,597] INFO django.server "GET /admin/vincab_app/user/ HTTP/1.1" 200 13168
+[2026-02-24 13:57:56,831] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-02-24 14:00:11,548] INFO django.utils.autoreload Watching for file changes with StatReloader
