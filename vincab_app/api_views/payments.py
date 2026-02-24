@@ -556,7 +556,10 @@ def payment_callback(request):
                     driver.user.expo_token,
                     "Ride Assigned",
                     f"You have been assigned ride #.{ride.id}. Be sure to pick up the rider on time.",
-                    {"ride_id": ride.id}
+                    {
+                        "type": "ride_assigned",
+                        "ride_id": ride.id
+                    }
                 )
         print("Ride and payment created successfully")
         return render(request, "payment_status.html", {

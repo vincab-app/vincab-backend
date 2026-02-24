@@ -107,14 +107,14 @@ def get_user_rides(request, rider_id):
                     if ride.driver else None,
 
                 "driver_profile":
-                    ride.driver.user.profile_image.url
+                    ride.driver.user.profile_image
                     if ride.driver and ride.driver.user.profile_image
                     else None,
 
                 "vehicle_plate":
                     vehicle.plate_number if vehicle else None,
                 
-                "vehicle_image": vehicle.car_image.url if vehicle.car_image else None,
+                "vehicle_image": vehicle.car_image if vehicle.car_image else None,
                 "average_rating": ride.driver.average_rating,
 
                 # Prefer stored addresses instead of reverse geocode
