@@ -402,10 +402,15 @@ def update_driver_profile(request):
         rider.profile_image = profile_url if profile_url else rider.profile_image
         rider.save()
         
+        vehicle_url = None
+        if vehicle_image:
+            upload_result = cloudinary.uploader.upload(vehicle_image)
+            vehicle_url = upload_result.get("secure_url")
+
         driver = Driver.objects.filter(user=rider).first()
         vehicle = Vehicle.objects.filter(driver=driver).first()
         if vehicle and vehicle_image:
-            vehicle.car_image = vehicle_image
+            vehicle.car_image = vehicle_url
             vehicle.save()
 
         return JsonResponse({
@@ -414,7 +419,7 @@ def update_driver_profile(request):
                 "id": rider.id,
                 "name": rider.full_name,
                 "profile_image": rider.profile_image,
-                "vehicle_image": vehicle.car_image,
+                "vehicle_image": vehicle.car_image if vehicle else None,
             }
         })
 
