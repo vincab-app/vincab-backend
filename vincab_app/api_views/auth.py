@@ -170,7 +170,7 @@ def signin(request):
                 "phone_number": db_user.phone_number,
                 "role": db_user.role,
                 "phone_verified": db_user.phone_verified,
-                "profile_image": db_user.profile_image.url if db_user.profile_image else None,
+                "profile_image": db_user.profile_image if db_user.profile_image else None,
                 "date_joined": db_user.date_joined.strftime("%Y-%m-%d %H:%M:%S"),
             }
         })
