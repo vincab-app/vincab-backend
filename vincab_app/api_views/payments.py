@@ -366,7 +366,7 @@ PAYSTACK_SECRET_KEY = os.environ.get("PAYSTACK_SECRET_KEY")
 
 # initiliaze payment 2
 @api_view(["POST"])
-# @verify_firebase_token
+@verify_firebase_token
 def initialize_payment(request):
     amount = request.data.get("amount")   #  you are sending this
     email = request.data.get("email", "customer@email.com")  # fallback email
@@ -485,7 +485,6 @@ def payment_callback(request):
         try:
             rider = User.objects.get(id=rider_id)
         except User.DoesNotExist:
-            print("Rider not found for ID:", rider_id)
             return JsonResponse({"error": "Rider not found"}, status=404)
 
         # --- Optional driver ---
@@ -496,7 +495,6 @@ def payment_callback(request):
                 driver.status = "busy"
                 driver.save()
             except Driver.DoesNotExist:
-                print("Driver not found for ID:", driver_id)
                 return JsonResponse({"error": "Driver not found"}, status=404)
         
         platform_cut = total_amount * Decimal("0.20")
@@ -509,7 +507,6 @@ def payment_callback(request):
                 return JsonResponse({"status": "already_processed"}, status=200)
 
             # --- Create ride ---
-            print("Creating ride with data:")
             ride = Ride.objects.create(
                 rider=rider,
                 driver=driver,
@@ -527,7 +524,6 @@ def payment_callback(request):
             )
 
             # --- Save platform payment ---
-            print("Creating payment with amount:", platform_cut)
             payment = Payment.objects.create(
                 ride=ride,
                 total_amount=total_amount,
@@ -541,25 +537,21 @@ def payment_callback(request):
             # --- Save driver share ---
             if driver:
                 # update driver payment record
-                print("Updating driver payment with amount:", driver_share)
                 driver_payment, created = DriverPayment.objects.get_or_create(driver=driver)
                 driver_payment.amount += driver_share
                 driver_payment.float_amount = driver_share
                 driver_payment.save()
 
             # --- Notifications ---
-            print("Creating notification for rider:", rider.full_name)
             Notification.objects.create(
                 user=rider,
                 message=f"Your ride has been successfully booked and paid KES. {total_amount}. Your pick up code is: {ride.pick_code} and complete ride code is: {ride.complete_code}"
             )
             if driver:
-                print("Creating notification for driver:", driver.user.full_name)
                 Notification.objects.create(
                     user=driver.user,
                     message=f"You have been assigned ride {ride.id}. Pickup at {ride.pickup_address}"
                 )
-                print("Sending push notification to driver:", driver.user.expo_token)
                 send_push_notification(
                     driver.user.expo_token,
                     "Ride Assigned",

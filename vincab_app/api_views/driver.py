@@ -199,7 +199,7 @@ def confirm_ride(request):
                 "email": email,
                 "amount": int(float(amount) * 100),
                 "reference": transaction_reference,
-                "callback_url": "https://vincab-backend.onrender.com/payment_callback/",
+                "callback_url": "https://vincab-backend-production.up.railway.app/payment_callback/",
                 "metadata": {
                     "rider_id": rider_id,
                     "driver_id": driver_id,
