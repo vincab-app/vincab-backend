@@ -376,7 +376,7 @@ def get_user_notifications(request, user_id):
 
 # api to get the nearby vehicles
 @api_view(["GET"])
-@verify_firebase_token
+# @verify_firebase_token
 def nearby_vehicles(request, lat, lng, dropoff_lat, dropoff_lng):
     ten_seconds_ago = timezone.now() - timedelta(minutes=5)
     try:
@@ -401,7 +401,7 @@ def nearby_vehicles(request, lat, lng, dropoff_lat, dropoff_lng):
         distance_km = geodesic(customer_location, driver_location).km
         eta_minutes = (distance_km / 40) * 60  # assume avg 40 km/h
 
-        trip_distance, fare = calculate_fare(lat, lng, dropoff_lat, dropoff_lng) 
+        trip_distance, fare = calculate_fare(driver_location, lat, lng, dropoff_lat, dropoff_lng) 
 
         for vehicle in driver.vehicles.all():  # each driver may have many vehicles
             serializer = VehicleSerializer(vehicle)

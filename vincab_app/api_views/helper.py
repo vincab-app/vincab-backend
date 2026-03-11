@@ -57,16 +57,41 @@ def generate_code():
     return str(secrets.randbelow(900000) + 100000)
 
 # function to calculate fare
-def calculate_fare(pickup_lat, pickup_lng, drop_lat, drop_lng):
-    
-    pickup = (pickup_lat, pickup_lng)
-    drop = (drop_lat, drop_lng)
+def calculate_fare(driver_location, pickup_lat, pickup_lng, drop_lat, drop_lng):
 
-    # Distance in km
-    trip_distance = geodesic(pickup, drop).km  
+    driver = (driver_location[0], driver_location[1])
+    pickup = (float(pickup_lat), float(pickup_lng))
+    drop = (float(drop_lat), float(drop_lng))
+
+    # Distances
+    driver_to_rider = geodesic(driver, pickup).km
+    rider_to_destination = geodesic(pickup, drop).km
+
+    # Total distance for fare
+    trip_distance = rider_to_destination + driver_to_rider
+
+    # Pricing parameters
+    base_fare = 50            # KES
+    price_per_km = 40          # KES/km
+    price_per_minute = 4       # KES/min
+    avg_speed_kmh = 40         # average city speed
+    minimum_fare = 200         # minimum ride price
+    surge_multiplier = 1.0     # change during high demand
+
+    # Estimate trip time
+    trip_time_minutes = (trip_distance / avg_speed_kmh) * 60
 
     # Fare calculation
-    rate_per_km = 50  
-    fare = round(trip_distance * rate_per_km, 2)
+    fare = (
+        base_fare +
+        (trip_distance * price_per_km) +
+        (trip_time_minutes * price_per_minute)
+    )
 
-    return trip_distance, fare
+    # Apply surge
+    fare = fare * surge_multiplier
+
+    # Ensure minimum fare
+    fare = max(fare, minimum_fare)
+
+    return round(trip_distance, 2), round(fare, 2)
