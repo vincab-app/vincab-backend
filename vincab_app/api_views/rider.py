@@ -684,3 +684,17 @@ def get_user_ratings(request, user_id):
 #         "distance_km": round(distance_km, 2),
 #         "fare": fare
 #     })
+
+from django.core.mail import send_mail
+from django.conf import settings
+
+def send_test_email(request):
+    send_mail(
+        subject='Hello from Django',
+        message='This is a test email sent from VinCab.',
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        recipient_list=['ushindigideon01@gmail.com'],
+        fail_silently=False,
+    )
+
+    return HttpResponse("Email Sent")

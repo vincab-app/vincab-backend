@@ -11096,3 +11096,22 @@ AttributeError: 'str' object has no attribute 'url'
 [2026-03-10 17:11:49,471] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-03-10 17:12:05,766] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-03-10 17:12:06,419] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 07:41:15,882] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 10:38:38,964] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-03-11 10:38:43,700] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 10:39:22,855] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
+[2026-03-11 10:39:23,465] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 10:40:13,301] INFO backend GET /send_test_email/ | User: anonymous | Status: 200
+[2026-03-11 10:40:13,303] INFO django.server "GET /send_test_email/ HTTP/1.1" 200 10
+[2026-03-11 10:40:35,186] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-03-11 10:40:35,844] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 10:40:45,482] INFO backend GET /send_test_email/ | User: anonymous | Status: 200
+[2026-03-11 10:40:45,483] INFO django.server "GET /send_test_email/ HTTP/1.1" 200 10
+[2026-03-11 10:41:32,326] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-03-11 10:41:32,934] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 10:41:42,005] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/rider.py changed, reloading.
+[2026-03-11 10:41:42,655] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 10:41:48,465] INFO backend GET /send_test_email/ | User: anonymous | Status: 200
+[2026-03-11 10:41:48,468] INFO django.server "GET /send_test_email/ HTTP/1.1" 200 10
+[2026-03-11 10:42:24,656] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-03-11 10:42:25,231] INFO django.utils.autoreload Watching for file changes with StatReloader

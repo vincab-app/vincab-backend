@@ -60,5 +60,6 @@ urlpatterns = [
     path('update_driver_status/<int:driver_id>/', update_driver_status, name='update_driver_status'),
     path('send_push_notification/', send_push_notification_to_all_users, name='send_push_notification_to_all_users'),
     path("driver_location/<int:driver_id>/", get_driver_location, name="driver_location"),
+    path("send_test_email/", send_test_email, name="send_test_email"),
     
 ]
