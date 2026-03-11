@@ -383,7 +383,7 @@ def initialize_payment(request):
     method = request.data.get("method", "paystack")  # default to paystack
 
     # print all the date sent
-    print("Rider Id:", rider_id, "Driver Id:", driver_id, "Amount:", amount, "Reference:", transaction_reference, "email:", email, "phonenumber:",phone_number, "method:", method)
+    #print("Rider Id:", rider_id, "Driver Id:", driver_id, "Amount:", amount, "Reference:", transaction_reference, "email:", email, "phonenumber:",phone_number, "method:", method)
 
     if not all([amount, rider_id, driver_id]):
         return Response({"error": "Missing required fields"}, status=400)
@@ -405,10 +405,10 @@ def initialize_payment(request):
     try:
         driver = Driver.objects.get(id=driver_id)
         rider = User.objects.get(id=rider_id)
-        print(pickup_lat, pickup_lng, dropoff_lat, dropoff_lng)
+        # print(pickup_lat, pickup_lng, dropoff_lat, dropoff_lng)
         pickup_location = reverse_geocode(pickup_lat, pickup_lng)
         dropoff_location = reverse_geocode(dropoff_lat, dropoff_lng)
-        print("Pickup Location:", pickup_location, "Dropoff Location:", dropoff_location)
+        # print("Pickup Location:", pickup_location, "Dropoff Location:", dropoff_location)
         message = f"Ride request from {rider.full_name}. Pickup: {pickup_location}. Dropoff: {dropoff_location}. Amount: KES. {amount}. Accept?"
         
         send_push_notification(
