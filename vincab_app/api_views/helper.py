@@ -23,14 +23,38 @@ def send_push_notification(token, title, body, data=None):
 
 
 # 🔹 Helper: Reverse Geocoding using OpenStreetMap (Free)
+# def reverse_geocode(lat, lng):
+#     try:
+#         url = f"https://nominatim.openstreetmap.org/reverse?lat={lat}&lon={lng}&format=json"
+#         headers = {"User-Agent": "VinCab/1.0 (contact@vincab.com)"}
+#         res = requests.get(url, headers=headers, timeout=5)
+#         data = res.json()
+#         address = data.get("address", {})
+#         return f"{address.get('city', '')}, {address.get('country', '')}"
+#     except Exception as e:
+#         print("Reverse geocode error:", e)
+#         return None
+
+import requests
+
+GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY")
+
 def reverse_geocode(lat, lng):
     try:
-        url = f"https://nominatim.openstreetmap.org/reverse?lat={lat}&lon={lng}&format=json"
-        headers = {"User-Agent": "VinCab/1.0 (contact@vincab.com)"}
-        res = requests.get(url, headers=headers, timeout=5)
+        url = (
+            f"https://maps.googleapis.com/maps/api/geocode/json"
+            f"?latlng={lat},{lng}&key={GOOGLE_MAPS_API_KEY}"
+        )
+
+        res = requests.get(url, timeout=5)
         data = res.json()
-        address = data.get("address", {})
-        return f"{address.get('city', '')}, {address.get('country', '')}"
+
+        if data["status"] == "OK":
+            result = data["results"][0]
+            return result["formatted_address"]
+
+        return None
+
     except Exception as e:
         print("Reverse geocode error:", e)
         return None

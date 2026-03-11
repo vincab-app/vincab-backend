@@ -366,7 +366,7 @@ PAYSTACK_SECRET_KEY = os.environ.get("PAYSTACK_SECRET_KEY")
 
 # initiliaze payment 2
 @api_view(["POST"])
-@verify_firebase_token
+# @verify_firebase_token
 def initialize_payment(request):
     amount = request.data.get("amount")   #  you are sending this
     email = request.data.get("email", "customer@email.com")  # fallback email
@@ -405,7 +405,11 @@ def initialize_payment(request):
     try:
         driver = Driver.objects.get(id=driver_id)
         rider = User.objects.get(id=rider_id)
-        message = f"Ride request from {rider.full_name}. Amount: {amount} KES. Accept?"
+        print(pickup_lat, pickup_lng, dropoff_lat, dropoff_lng)
+        pickup_location = reverse_geocode(pickup_lat, pickup_lng)
+        dropoff_location = reverse_geocode(dropoff_lat, dropoff_lng)
+        print("Pickup Location:", pickup_location, "Dropoff Location:", dropoff_location)
+        message = f"Ride request from {rider.full_name}. Pickup: {pickup_location}. Dropoff: {dropoff_location}. Amount: KES. {amount}. Accept?"
         
         send_push_notification(
             driver.user.expo_token,
@@ -414,6 +418,9 @@ def initialize_payment(request):
             {
                 "type": "ride_request",
                 "rider_id": rider_id,
+                "rider_name": rider.full_name,
+                "pickup_location": pickup_location,
+                "dropoff_location": dropoff_location,
                 "driver_id": driver_id,
                 "email": email,
                 "amount": amount,

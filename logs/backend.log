@@ -11202,3 +11202,44 @@ TypeError: calculate_fare() missing 2 required positional arguments: 'drop_lat' 
 [2026-03-11 11:41:40,331] INFO django.server "GET /nearby_vehicles/0.1349/37.7083/0.1325/37.7364/ HTTP/1.1" 200 565
 [2026-03-11 11:43:01,113] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-03-11 11:43:01,728] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 11:55:49,926] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 11:56:03,967] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 11:59:00,162] INFO backend POST /initialize_payment/ | User: anonymous | Status: 401
+[2026-03-11 11:59:00,162] WARNING django.request Unauthorized: /initialize_payment/
+[2026-03-11 11:59:00,164] WARNING django.server "POST /initialize_payment/ HTTP/1.1" 401 41
+[2026-03-11 11:59:07,609] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-03-11 11:59:08,299] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 11:59:19,632] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-03-11 11:59:19,633] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-03-11 12:01:00,307] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-03-11 12:01:00,308] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-03-11 12:01:53,766] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-03-11 12:01:54,388] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 12:02:10,447] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-03-11 12:02:10,448] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-03-11 12:04:35,325] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-03-11 12:04:35,342] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-03-11 12:05:47,496] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-03-11 12:05:47,496] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-03-11 12:09:41,578] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/payments.py changed, reloading.
+[2026-03-11 12:09:42,322] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 12:10:57,127] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-03-11 12:10:57,129] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-03-11 12:12:43,321] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-03-11 12:12:43,322] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-03-11 12:13:48,024] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-03-11 12:13:48,025] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-03-11 12:16:56,307] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/helper.py changed, reloading.
+[2026-03-11 12:16:56,946] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 12:17:55,207] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/helper.py changed, reloading.
+[2026-03-11 12:17:55,834] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 12:18:12,783] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-03-11 12:18:12,783] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-03-11 12:20:03,036] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-03-11 12:20:03,038] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-03-11 12:21:51,546] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/helper.py changed, reloading.
+[2026-03-11 12:21:52,146] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 12:22:04,445] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-03-11 12:22:04,446] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59
+[2026-03-11 12:23:37,894] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-03-11 12:23:38,484] INFO django.utils.autoreload Watching for file changes with StatReloader
