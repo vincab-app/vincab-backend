@@ -11123,3 +11123,5 @@ AttributeError: 'str' object has no attribute 'url'
 [2026-03-11 10:57:34,335] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-03-11 10:57:49,173] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/urls.py changed, reloading.
 [2026-03-11 10:57:49,885] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 11:00:27,693] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
+[2026-03-11 11:00:28,357] INFO django.utils.autoreload Watching for file changes with StatReloader
