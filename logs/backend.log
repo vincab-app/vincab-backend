@@ -11252,3 +11252,6 @@ TypeError: calculate_fare() missing 2 required positional arguments: 'drop_lat' 
 [2026-03-11 12:42:28,011] INFO django.utils.autoreload Watching for file changes with StatReloader
 [2026-03-11 12:42:33,178] INFO django.utils.autoreload /home/ushindi/Projects/VinCab/backend/vincab/vincab_app/api_views/auth.py changed, reloading.
 [2026-03-11 12:42:33,746] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 12:43:25,575] INFO django.utils.autoreload Watching for file changes with StatReloader
+[2026-03-11 12:43:37,255] INFO backend POST /initialize_payment/ | User: anonymous | Status: 200
+[2026-03-11 12:43:37,256] INFO django.server "POST /initialize_payment/ HTTP/1.1" 200 59

@@ -99,7 +99,7 @@ def calculate_fare(driver_location, pickup_lat, pickup_lng, drop_lat, drop_lng):
     price_per_km = 40          # KES/km
     price_per_minute = 4       # KES/min
     avg_speed_kmh = 40         # average city speed
-    minimum_fare = 200         # minimum ride price
+    minimum_fare = 50         # minimum ride price
     surge_multiplier = 1.0     # change during high demand
 
     # Estimate trip time
